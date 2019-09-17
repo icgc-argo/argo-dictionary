@@ -1,4 +1,5 @@
 {
+  "name": "donor",
   "description": "The collection of data elements related to a specific donor in a specific ICGC-ARGO program.",
   "fields": [
     {
@@ -24,6 +25,7 @@
         "codeList": [
           "Alive",
           "Deceased",
+          "Not reported",
           "Unknown"
         ],
         "required": true
@@ -36,7 +38,9 @@
       "restrictions": {
         "codeList": [
           "Died of cancer",
-          "Died of other reasons"
+          "Died of other reasons",
+          "Not reported",
+          "Unknown"
         ],
         "script": "validateWithMagic(only needed if vital_status=deceased)"
       },
@@ -53,7 +57,5 @@
       },
       "valueType": "integer"
     }
-  ],
-  "key": "submitter_donor_id",
-  "name": "donor"
+  ]
 }

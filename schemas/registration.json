@@ -1,14 +1,14 @@
 {
   "name": "registration",
   "description": "Collection of elements required to register the required Donor-Specimen-Sample data to the ARGO Platform. Registration of samples is required before genomic and clinical data submission can proceed.",
-  "key": "submitter_donor_id",
   "fields": [
     {
       "name": "program_id",
       "valueType": "string",
       "description": "Unique identifier of the ARGO program.",
       "restrictions": {
-        "required": true      }
+        "required": true
+      }
     },
     {
       "name": "submitter_donor_id",
@@ -71,7 +71,7 @@
     {
       "name": "tumor_normal_designation",
       "valueType": "string",
-      "description": "Description of the kind of tissue that was collected with respect to disease status.",
+      "description": "Description of the kind of specimen that was collected with respect to tumour/normal tissue origin.",
       "restrictions": {
         "required": true,
         "codeList": [

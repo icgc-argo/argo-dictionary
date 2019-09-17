@@ -1,7 +1,6 @@
 {
   "name": "Primary Diagnosis",
-  "description": "The collection of data elements related to a specific donor's sample. A sample is any material sample taken for testing, diagnostic or research purposes.",
-  "key": "submitter_donor_id",
+  "description": "The collection of data elements related to a specific donor's primary diagnosis.",
   "field":[
     {
 
