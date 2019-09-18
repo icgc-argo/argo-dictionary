@@ -7,7 +7,8 @@
       "description": "Unique identifier of the donor, assigned by the data provider.",
       "valueType": "string",
       "restrictions": {
-        "required": true
+        "required": true,
+        "regex": "[A-Za-z0-9\\-\\.]{1,64}"
       }
     },
     {
@@ -15,7 +16,8 @@
       "description": "Unique identifier of the specimen, assigned by the data provider.",
       "valueType": "string",
       "restrictions": {
-        "required": true
+        "required": true,
+        "regex": "[A-Za-z0-9\\-\\.]{1,64}"
       }
     },
     {
