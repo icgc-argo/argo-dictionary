@@ -369,7 +369,7 @@
     },
     {
       "name": "tumour_grade",
-      "description": "Grade of the tumour as assigned by the reporting tumor_grading_system.",
+      "description": "Grade of the tumour as assigned by the reporting tumour_grading_system.",
       "valueType": "string",
       "restrictions": {
         "required": true      }
