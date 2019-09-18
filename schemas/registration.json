@@ -71,7 +71,7 @@
       }
     },
     {
-      "name": "tumor_normal_designation",
+      "name": "tumour_normal_designation",
       "valueType": "string",
       "description": "Description of the kind of specimen that was collected with respect to tumour/normal tissue origin.",
       "restrictions": {
