@@ -8,7 +8,7 @@
       "valueType": "string",
       "restrictions": {
         "required": true,
-        "regex": "[A-Za-z0-9\\-\\.]{1,64}"
+        "regex": "[A-Za-z0-9\\-\\._]{1,64}"
       }
     },
     {
@@ -17,7 +17,7 @@
       "valueType": "string",
       "restrictions": {
         "required": true,
-        "regex": "[A-Za-z0-9\\-\\.]{1,64}"
+        "regex": "[A-Za-z0-9\\-\\._]{1,64}"
       }
     },
     {
