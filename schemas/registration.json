@@ -42,7 +42,7 @@
       }
     },
     {
-      "name": "specimen_type",
+      "name": "specimen_tissue_source",
       "valueType": "string",
       "description": "Tissue source of the biospecimen.",
       "restrictions": {
@@ -100,7 +100,7 @@
       "valueType": "string",
       "description": "Unique identifier of the sample, assigned by the data provider.",
       "restrictions": {
-        "required": true,,
+        "required": true,
         "regex": "[A-Za-z0-9\\-\\.]{1,64}"
       }
     },
