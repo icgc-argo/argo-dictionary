@@ -1,0 +1,9 @@
+{
+  "name": "Primary Diagnosis",
+  "description": "The collection of data elements related to a specific donor's primary diagnosis.",
+  "fields":[
+    {
+
+    }
+  ]
+}
