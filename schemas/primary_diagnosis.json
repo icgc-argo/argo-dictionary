@@ -13,7 +13,7 @@
     },
     {
       "name": "age_at_diagnosis",
-      "valueType": "age_at_diagnosis",
+      "valueType": "integer",
       "description": "Age that the donor was first diagnosed with cancer, in years.",
       "restrictions": {
         "required": true
@@ -142,7 +142,8 @@
           "Postmenopausal",
           "Premenopausal",
           "Unknown"
-        ]
+        ],
+        "script": "validateWithMagic(only for women)"
       }
     }
   ]
