@@ -1,6 +1,6 @@
 {
   "name": "specimen",
-  "description": "The collection of data elements related to a specific donor's specimen. A specimen is any material sample taken for testing, diagnostic or research purposes.",
+  "description": "The collection of data elements related to a donor's specimen. A specimen is any material sample taken for testing, diagnostic or research purposes.",
   "fields": [
     {
       "name": "submitter_donor_id",
