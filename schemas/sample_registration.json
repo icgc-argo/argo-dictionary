@@ -33,7 +33,7 @@
       }
     },
     {
-      "name": "specimen_submitter_id",
+      "name": "submitter_specimen_id",
       "valueType": "string",
       "description": "Unique identifier of the specimen, assigned by the data provider.",
       "restrictions": {
@@ -94,7 +94,7 @@
       }
     },
     {
-      "name": "sample_submitter_id",
+      "name": "submitter_sample_id",
       "valueType": "string",
       "description": "Unique identifier of the sample, assigned by the data provider.",
       "restrictions": {
