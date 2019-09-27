@@ -1,6 +1,6 @@
 {
   "name": "specimen",
-  "description": "The collection of data elements related to a specific donor's specimen. A specimen is any material sample taken for testing, diagnostic or research purposes.",
+  "description": "The collection of data elements related to a donor's specimen. A specimen is any material sample taken for testing, diagnostic or research purposes.",
   "fields": [
     {
       "name": "submitter_donor_id",
@@ -21,7 +21,7 @@
       }
     },
     {
-      "name": "aquistion_interval",
+      "name": "acquisition_interval",
       "description": "Interval between primary diagnosis and specimen acquisition, in days.",
       "valueType": "integer",
       "restrictions": {
@@ -372,7 +372,8 @@
       "description": "Grade of the tumour as assigned by the reporting tumour_grading_system.",
       "valueType": "string",
       "restrictions": {
-        "required": true      }
+        "required": true
+      }
     },
     {
       "name": "tumour_staging_system",
@@ -399,6 +400,14 @@
       }
     },
     {
+      "name": "tumour_stage",
+      "description": "Specify the tumour stage, based on tumor_staging_system, used to assess the cancer at the time the tumour specimen was resected",
+      "valueType": "string",
+      "restrictions": {
+        "required": true
+      }
+    },
+    {
       "name": "pathological_t_category",
       "description": "The code to represent the stage of cancer defined by the size or contiguous extension of the primary tumour (T), according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
@@ -415,7 +424,7 @@
       }
     },
     {
-      "name": "pathological_n_category",
+      "name": "pathological_m_category",
       "description": "The code to represent the stage of cancer defined by whether there are distant metastases (M), meaning spread of cancer to other parts of the body, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
       "restrictions": {
