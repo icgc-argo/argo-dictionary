@@ -1,5 +1,5 @@
 {
-  "name": "Primary Diagnosis",
+  "name": "primary_diagnosis",
   "description": "The collection of data elements related to a donor's primary diagnosis. The primary diagnosis is the first diagnosed case of cancer in a donor.",
   "fields": [
     {
