@@ -56,7 +56,7 @@
       }
     },
     {
-      "name": "tumour_stage",
+      "name": "clinical_stage_group",
       "description": "Stage of the tumour, as assigned by the reporting tumour_staging_system, that indicates the overall prognostic tumour stage (ie. Stage I, Stage II, Stage III etc.).",
       "valueType": "string",
       "restrictions": {
@@ -64,7 +64,7 @@
       }
     },
     {
-      "name": "tumour_stage_suffix",
+      "name": "stage_suffix",
       "description": "If necessary, use this field to add any applicable stage suffixes. Stage suffixes may apply to certain staging systems such as Ann Arbour staging system where the four stages are divided into 4 categories (A, B, X and E).",
       "valueType": "string",
       "restrictions": {
