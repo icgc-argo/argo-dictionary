@@ -17,7 +17,10 @@
         "required": true,
         "regex": "[A-Za-z0-9\\-\\._]{1,64}"
       },
-      "valueType": "string"
+      "valueType": "string",
+      "meta": {
+        "core": true
+      }
     },
     {
       "description": "Donors last known state of living or deceased.",
@@ -26,37 +29,96 @@
         "codeList": [
           "Alive",
           "Deceased",
-          "Not reported",
           "Unknown"
         ],
         "required": true
       },
-      "valueType": "string"
+      "valueType": "string",
+      "meta": {
+        "core": true
+      }
     },
     {
-      "description": "Description of the cause of a donor's death.",
+      "description": "Cause of a donor's death.",
       "name": "cause_of_death",
       "restrictions": {
         "codeList": [
           "Died of cancer",
-          "Died of other reasons",
-          "Not reported",
-          "Unknown"
+          "Died of other reasons"
         ],
         "script": "validateWithMagic(only needed if vital_status=deceased)"
       },
-      "valueType": "string"
+      "valueType": "string",
+      "meta": {
+        "core": true
+      }
     },
     {
       "description": "Interval of how long the donor has survived since primary diagnosis, in days.",
-      "meta": {
-        "units": "days"
-      },
       "name": "survival_time",
       "restrictions": {
         "script": "validateWithMagic(check dependece on another field)"
       },
+      "valueType": "integer",
+      "meta": {
+        "units": "days",
+        "core": "clinical"
+      }
+    },
+    {
+      "description": "Prior malignancy affecting patient.",
+      "name": "prior_malignancy",
+      "restrictions": {
+        "codeList": [
+          "Yes",
+          "No",
+          "Unknown"
+        ]
+      },
+      "valueType": "string"
+    },
+    {
+      "description": "ICD-10 diagnostic code for type of cancer in a prior malignancy.",
+      "name": "cancer_type_prior_malignancy",
+      "restrictions": {
+        "regex": "[A-Z]{1}[0-9]{2}.[0-9]{0,3}[A-Z]{0,1}$"
+      },
+      "valueType": "string"
+    },
+    {
+      "description": "If patient has history of prior malignancy, indicate age at previous diagnosis, in days.",
+      "name": "age_at_prior_malignancy",
       "valueType": "integer"
+    },
+    {
+      "description": "If patient has history of prior malignancy, indicate laterality of previous diagnosis.",
+      "name": "laterality_of_prior_malignancy",
+      "valueType": "string"
+    },
+    {
+      "description": "Indicte patient's height, in cm",
+      "name": "height",
+      "valueType": "integer"
+    },
+    {
+      "description": "Indicate patient's weight, in kg.",
+      "name": "weight",
+      "valueType": "integer"
+    },
+    {
+      "description": "Indicate BMI in kg/m².",
+      "name": "bmi",
+      "valueType": "integer"
+    },
+    {
+      "description": "",
+      "name": "",
+      "restrictions": {
+        "script": "validateWithMagic()",
+        "regex": "",
+        "codeList": []
+      },
+      "valueType": ""
     }
   ]
 }
