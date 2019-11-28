@@ -96,7 +96,7 @@
       "valueType": "string"
     },
     {
-      "description": "Indicte patient's height, in cm",
+      "description": "Indicate patient's height, in cm.",
       "name": "height",
       "valueType": "integer"
     },
@@ -111,14 +111,33 @@
       "valueType": "integer"
     },
     {
-      "description": "",
-      "name": "",
+      "description": "Indicate the menopause status of the patient at the time of primary diagnosis.",
+      "name": "menopause_status",
       "restrictions": {
-        "script": "validateWithMagic()",
-        "regex": "",
-        "codeList": []
+        "codeList": [
+          "Premenopausal",
+          "Perimenopausal",
+          "Postmenopausal",
+          "Indeterminate or unknown",
+          "Not applicable"
+      ]
       },
-      "valueType": ""
+      "valueType": "string"
+    },
+    {
+      "description": "Indicate the age of menarche, the first occurrence of menstruation.",
+      "name": "age_at_menarche",
+      "valueType": "integer"
+    },
+    {
+      "description": "Indicate the number of pregnancies patient has had.",
+      "name": "number_of_pregnancies",
+      "valueType": "integer"
+    },
+    {
+      "description": "Indicate the number of children the patient gave birth to.",
+      "name": "number_of_children",
+      "valueType": "integer"
     }
   ]
 }
