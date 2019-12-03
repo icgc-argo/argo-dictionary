@@ -497,7 +497,8 @@
       "description": "Grade of the tumour as assigned by the reporting tumour_grading_system.",
       "valueType": "string",
       "restrictions": {
-        "required": true
+        "required": true,
+        "script": "validateWithMagic(depends on tumour_grading_system)"
       },
       "meta": {
         "core": true
