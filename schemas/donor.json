@@ -62,7 +62,7 @@
       "valueType": "integer",
       "meta": {
         "units": "days",
-        "core": "clinical"
+        "core": "true"
       }
     },
     {
