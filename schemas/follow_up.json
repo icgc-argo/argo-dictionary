@@ -90,7 +90,7 @@
     },
     {
       "description": "Method(s) used to confirm the patient's progression disease status.",
-      "name": "anatomic_site_progression_or_recurrences",
+      "name": "method_of_progression_status",
       "valueType": "string",
       "restrictions": {
         "script": "validateWithMagic(depends on disaease_status_at_followup being progression or relapse)",
@@ -128,7 +128,7 @@
     },
     {
       "description": "The anatomic site where disease progression or recurrence occurred.",
-      "name": "method_of_progression_status",
+      "name": "anatomic_site_progression_or_recurrences",
       "valueType": "string",
       "restrictions": {
         "script": "validateWithMagic(depends on disaease_status_at_followup being progression or relapse)",
