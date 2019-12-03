@@ -36,21 +36,21 @@
         "required": true,
         "codeList": [
           "Chemotherapy",
-"Ablation",
-"Bone marrow transplant",
-"Combined chemo+immunotherapy",
-"Combined chemo+radiation therapy",
-"Combined chemo-radiotherapy and surgery",
-"Endoscopic therapy",
-"Hormonal therapy",
-"Immunotherapy",
-"Monoclonal antibodies (for liquid tumours)",
-"No treatment",
-"Other targeting molecular therapy",
-"Photodynamic therapy",
-"Radiation therapy",
-"Stem cell transplant",
-"Surgical resection"
+          "Ablation",
+          "Bone marrow transplant",
+          "Combined chemo+immunotherapy",
+          "Combined chemo+radiation therapy",
+          "Combined chemo-radiotherapy and surgery",
+          "Endoscopic therapy",
+          "Hormonal therapy",
+          "Immunotherapy",
+          "Monoclonal antibodies (for liquid tumours)",
+          "No treatment",
+          "Other targeting molecular therapy",
+          "Photodynamic therapy",
+          "Radiation therapy",
+          "Stem cell transplant",
+          "Surgical resection"
         ]
       },
       "meta": {
@@ -63,6 +63,7 @@
       "valueType": "integer",
       "restrictions": {
         "required": true,
+        "units": "years"
       }
     },
     {
@@ -112,12 +113,12 @@
         "required": true,
         "codeList": [
           "Adjuvant",
-"Concurrent",
-"Curative",
-"Neoadjuvant",
-"Not applicable",
-"Palliative",
-"Unknown"
+          "Concurrent",
+          "Curative",
+          "Neoadjuvant",
+          "Not applicable",
+          "Palliative",
+          "Unknown"
         ]
       },
       "meta": {
@@ -125,84 +126,18 @@
       }
     },
     {
-      "name": "",
-      "description": "",
+      "name": "response_to_therapy",
+      "description": "Donors's response to treatment.",
       "valueType": "string",
       "restrictions": {
         "required": true,
-        "codeList": []
-      },
-      "meta": {
-        "core": true
-      }
-    },
-    {
-      "name": "",
-      "description": "",
-      "valueType": "string",
-      "restrictions": {
-        "required": true,
-        "codeList": []
-      },
-      "meta": {
-        "core": true
-      }
-    },
-    {
-      "name": "",
-      "description": "",
-      "valueType": "string",
-      "restrictions": {
-        "required": true,
-        "codeList": []
-      },
-      "meta": {
-        "core": true
-      }
-    },
-    {
-      "name": "",
-      "description": "",
-      "valueType": "string",
-      "restrictions": {
-        "required": true,
-        "codeList": []
-      },
-      "meta": {
-        "core": true
-      }
-    },
-    {
-      "name": "",
-      "description": "",
-      "valueType": "string",
-      "restrictions": {
-        "required": true,
-        "codeList": []
-      },
-      "meta": {
-        "core": true
-      }
-    },
-    {
-      "name": "",
-      "description": "",
-      "valueType": "string",
-      "restrictions": {
-        "required": true,
-        "codeList": []
-      },
-      "meta": {
-        "core": true
-      }
-    },
-    {
-      "name": "",
-      "description": "",
-      "valueType": "string",
-      "restrictions": {
-        "required": true,
-        "codeList": []
+        "codeList": [
+          "Complete response",
+          "Disease progression",
+          "NED",
+          "Partial response",
+          "Stable disease"
+        ]
       },
       "meta": {
         "core": true
