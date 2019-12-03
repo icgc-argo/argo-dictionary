@@ -86,7 +86,7 @@
       "valueType": "string"
     },
     {
-      "description": "If patient has history of prior malignancy, indicate age at previous diagnosis, in days.",
+      "description": "If patient has history of prior malignancy, indicate age at previous diagnosis, in years.",
       "name": "age_at_prior_malignancy",
       "valueType": "integer"
     },

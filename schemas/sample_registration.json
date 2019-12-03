@@ -38,7 +38,7 @@
         ]
       },
       "meta": {
-        "core": true,
+        "core": true
       }
     },
     {
@@ -107,9 +107,9 @@
           "Cell line - derived from normal"
         ]
       },
-        "meta": {
-              "core": true
-            }
+      "meta": {
+        "core": true
+      }
     },
     {
       "name": "submitter_sample_id",
