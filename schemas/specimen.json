@@ -29,18 +29,102 @@
       }
     },
     {
-      "name": "acquisition_interval",
+      "name": "pathological_tumour_staging_system",
+      "description": "Specify the tumour staging system used to assess the cancer at the time the tumour specimen was resected. Pathological classification is based on the clinical stage information (acquired before treatment) and supplemented/modified by operative findings and pathological evaluation of the resected specimen.",
+      "valueType": "string",
+      "restrictions": {
+        "required": true,
+        "codeList": [
+          "Binet",
+          "Rai",
+          "FIGO",
+          "Ann Arbor",
+          "Murphy",
+          "Lugano",
+          "AJCC 8th Edition",
+          "AJCC 7th Edition",
+          "AJCC 6th Edition",
+          "AJCC 5th Edition",
+          "AJCC 4th Edition",
+          "AJCC 3rd Edition",
+          "AJCC 2nd Edition",
+          "AJCC 1st Edition"
+        ]
+      },
+      "meta": {
+        "core": true
+      }
+    },
+    {
+      "name": "pathological_t_category",
+      "description": "The code to represent the stage of cancer defined by the size or contiguous extension of the primary tumour (T), according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
+      "valueType": "string",
+      "restrictions": {
+        "script": "validateWithMagic(only needed if tumour_staging_system=AJCC)"
+      },
+      "meta": {
+        "core": true
+      }
+    },
+    {
+      "name": "pathological_n_category",
+      "description": "The code to represent the stage of cancer defined by whether or not the cancer has reached nearby lymph nodes (N), according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
+      "valueType": "string",
+      "restrictions": {
+        "script": "validateWithMagic(only needed if tumour_staging_system=AJCC)"
+      },
+      "meta": {
+        "core": true
+      }
+    },
+    {
+      "name": "pathological_m_category",
+      "description": "The code to represent the stage of cancer defined by whether there are distant metastases (M), meaning spread of cancer to other parts of the body, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
+      "valueType": "string",
+      "restrictions": {
+        "script": "validateWithMagic(only needed if tumour_staging_system=AJCC)"
+      },
+      "meta": {
+        "core": true
+      }
+    },
+    {
+      "name": "pathological_stage_group",
+      "description": "Specify the tumour stage, based on tumor_staging_system, used to assess the cancer at the time the tumour specimen was resected.",
+      "valueType": "string",
+      "restrictions": {
+        "required": true
+      },
+      "meta": {
+        "core": true
+      }
+    },
+    {
+      "name": "specimen_acquisition_interval",
       "description": "Interval between primary diagnosis and specimen acquisition, in days.",
       "valueType": "integer",
       "restrictions": {
         "required": true
       },
       "meta": {
-        "units": "days"
+        "units": "days",
+        "core": true
       }
     },
     {
-      "name": "anatomic_location_of_specimen_collection",
+      "name": "tumour_histological_type",
+      "description": "The code to represent the histology (morphology) of neoplasms that is usually obtained from a pathology report, according to the International Classification of Diseases for Oncology, 3rd Edition (WHO ICD-O-3).",
+      "valueType": "string",
+      "restrictions": {
+        "required": true,
+        "regex": "M-[0-9]{4}/[0-9]{2}$"
+      },
+      "meta": {
+        "core": true
+      }
+    },
+    {
+      "name": "specimen_anatomic_location",
       "description": "Anatomic location of a specimen when it was collected.",
       "valueType": "string",
       "restrictions": {
@@ -334,6 +418,43 @@
           "White blood cells",
           "Wrist"
         ]
+      },
+      "meta": {
+        "core": true
+      }
+    },
+    {
+      "name": "specimen_processing",
+      "description": "Description of technique used to process specimen.",
+      "valueType": "string",
+      "restrictions": {
+        "codeList": [
+          "Cryopreservation in liquid nitrogen (dead tissue)",
+          "Cryopreservation in dry ice (dead tissue)",
+          "Cryopreservation of live cells in liquid nitrogen",
+          "Cryopreservation, other",
+          "Formalin fixed & paraffin embedded",
+          "Formalin fixed, buffered",
+          "Formalin fixed, unbuffered",
+          "Fresh",
+          "Other"
+        ]
+      }
+    },
+    {
+      "name": "specimen_storage",
+      "description": "Description of how specimen was stored for specimens that were not extracted freshly or immediately cultured.",
+      "valueType": "string",
+      "restrictions": {
+        "codeList": [
+          "Frozen, liquid nitrogen",
+          "Frozen, -70 freezer",
+          "Frozen, vapor phase",
+          "Rna later frozen",
+          "Paraffin block",
+          "Cut slide",
+          "Other"
+        ]
       }
     },
     {
@@ -345,18 +466,11 @@
         "codeList": [
           "Yes",
           "No",
-          "Unknown",
-          "Not reported"
+          "Unknown"
         ]
-      }
-    },
-    {
-      "name": "tumour_histological_type",
-      "description": "The code to represent the histology (morphology) of neoplasms that is usually obtained from a pathology report, according to the International Classification of Diseases for Oncology, 3rd Edition (WHO ICD-O-3).",
-      "valueType": "string",
-      "restrictions": {
-        "required": true,
-        "regex": "M-[0-9]{4}/[0-9]{2}$"
+      },
+      "meta": {
+        "core": true
       }
     },
     {
@@ -373,6 +487,9 @@
           "ISUP",
           "Lymphoid neoplasms"
         ]
+      },
+      "meta": {
+        "core": true
       }
     },
     {
@@ -380,63 +497,11 @@
       "description": "Grade of the tumour as assigned by the reporting tumour_grading_system.",
       "valueType": "string",
       "restrictions": {
-        "required": true
-      }
-    },
-    {
-      "name": "tumour_staging_system",
-      "description": "Specify the tumour staging system used to assess the cancer at the time the tumour specimen was resected. Pathological classification is based on the clinical stage information (acquired before treatment) and supplemented/modified by operative findings and pathological evaluation of the resected specimen.",
-      "valueType": "string",
-      "restrictions": {
         "required": true,
-        "codeList": [
-          "Binet",
-          "Rai",
-          "FIGO",
-          "Ann Arbor",
-          "Murphy",
-          "Lugano",
-          "AJCC 8th Edition",
-          "AJCC 7th Edition",
-          "AJCC 6th Edition",
-          "AJCC 5th Edition",
-          "AJCC 4th Edition",
-          "AJCC 3rd Edition",
-          "AJCC 2nd Edition",
-          "AJCC 1st Edition"
-        ]
-      }
-    },
-    {
-      "name": "pathological_stage_group",
-      "description": "Specify the tumour stage, based on tumor_staging_system, used to assess the cancer at the time the tumour specimen was resected.",
-      "valueType": "string",
-      "restrictions": {
-        "required": true
-      }
-    },
-    {
-      "name": "pathological_t_category",
-      "description": "The code to represent the stage of cancer defined by the size or contiguous extension of the primary tumour (T), according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
-      "valueType": "string",
-      "restrictions": {
-        "script": "validateWithMagic(only needed if tumour_staging_system=AJCC)"
-      }
-    },
-    {
-      "name": "pathological_n_category",
-      "description": "The code to represent the stage of cancer defined by whether or not the cancer has reached nearby lymph nodes (N), according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
-      "valueType": "string",
-      "restrictions": {
-        "script": "validateWithMagic(only needed if tumour_staging_system=AJCC)"
-      }
-    },
-    {
-      "name": "pathological_m_category",
-      "description": "The code to represent the stage of cancer defined by whether there are distant metastases (M), meaning spread of cancer to other parts of the body, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
-      "valueType": "string",
-      "restrictions": {
-        "script": "validateWithMagic(only needed if tumour_staging_system=AJCC)"
+        "script": "validateWithMagic(depends on tumour_grading_system)"
+      },
+      "meta": {
+        "core": true
       }
     },
     {
@@ -445,6 +510,9 @@
       "valueType": "number",
       "restrictions": {
         "required": true
+      },
+      "meta": {
+        "core": true
       }
     },
     {
@@ -453,6 +521,9 @@
       "valueType": "number",
       "restrictions": {
         "required": true
+      },
+      "meta": {
+        "core": true
       }
     },
     {
@@ -461,6 +532,9 @@
       "valueType": "number",
       "restrictions": {
         "required": true
+      },
+      "meta": {
+        "core": true
       }
     },
     {
@@ -469,6 +543,9 @@
       "valueType": "number",
       "restrictions": {
         "required": true
+      },
+      "meta": {
+        "core": true
       }
     },
     {
@@ -477,6 +554,9 @@
       "valueType": "number",
       "restrictions": {
         "required": true
+      },
+      "meta": {
+        "core": true
       }
     }
   ]

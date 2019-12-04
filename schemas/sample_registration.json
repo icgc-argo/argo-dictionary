@@ -1,6 +1,6 @@
 {
   "name": "sample_registration",
-  "description": "Collection of elements required to register the required Donor-Specimen-Sample data to the ARGO Platform. Registration of samples is required before genomic and clinical data submission can proceed.",
+  "description": "The collection of elements required to register the required Donor-Specimen-Sample data to the ARGO Platform. Registration of samples is required before genomic and clinical data submission can proceed.",
   "fields": [
     {
       "name": "program_id",
@@ -8,6 +8,9 @@
       "description": "Unique identifier of the ARGO program.",
       "restrictions": {
         "required": true
+      },
+      "meta": {
+        "core": true
       }
     },
     {
@@ -17,6 +20,9 @@
       "restrictions": {
         "required": true,
         "regex": "[A-Za-z0-9\\-\\._]{1,64}"
+      },
+      "meta": {
+        "core": true
       }
     },
     {
@@ -30,6 +36,9 @@
           "Female",
           "Other"
         ]
+      },
+      "meta": {
+        "core": true
       }
     },
     {
@@ -39,6 +48,9 @@
       "restrictions": {
         "required": true,
         "regex": "[A-Za-z0-9\\-\\._]{1,64}"
+      },
+      "meta": {
+        "core": true
       }
     },
     {
@@ -66,6 +78,9 @@
           "Saliva",
           "Skin"
         ]
+      },
+      "meta": {
+        "core": true
       }
     },
     {
@@ -91,6 +106,9 @@
           "Cell line - derived from tumour",
           "Cell line - derived from normal"
         ]
+      },
+      "meta": {
+        "core": true
       }
     },
     {
@@ -100,6 +118,9 @@
       "restrictions": {
         "required": true,
         "regex": "[A-Za-z0-9\\-\\._]{1,64}"
+      },
+      "meta": {
+        "core": true
       }
     },
     {
@@ -118,6 +139,9 @@
           "polyA+ RNA",
           "Other RNA fractions"
         ]
+      },
+      "meta": {
+        "core": true
       }
     }
   ]
