@@ -60,7 +60,7 @@
       "description": "The code to represent the stage of cancer defined by the size or contiguous extension of the primary tumour (T), according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
       "restrictions": {
-        "script": "validateWithMagic(only needed if tumour_staging_system=AJCC)"
+        "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on pathological_therapy_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       },
       "meta": {
         "core": true
@@ -71,7 +71,7 @@
       "description": "The code to represent the stage of cancer defined by whether or not the cancer has reached nearby lymph nodes (N), according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
       "restrictions": {
-        "script": "validateWithMagic(only needed if tumour_staging_system=AJCC)"
+        "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on pathological_therapy_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       },
       "meta": {
         "core": true
@@ -82,7 +82,7 @@
       "description": "The code to represent the stage of cancer defined by whether there are distant metastases (M), meaning spread of cancer to other parts of the body, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
       "restrictions": {
-        "script": "validateWithMagic(only needed if tumour_staging_system=AJCC)"
+        "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on pathological_therapy_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       },
       "meta": {
         "core": true
@@ -93,7 +93,8 @@
       "description": "Specify the tumour stage, based on tumor_staging_system, used to assess the cancer at the time the tumour specimen was resected.",
       "valueType": "string",
       "restrictions": {
-        "required": true
+        "required": true,
+        "script":"function validate() {\r\n  var result = { valid: true, message: \"only required if on pathological_therapy_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       },
       "meta": {
         "core": true
@@ -498,7 +499,7 @@
       "valueType": "string",
       "restrictions": {
         "required": true,
-        "script": "validateWithMagic(depends on tumour_grading_system)"
+        "script": "function validate() {\r\n  var result = { valid: true, message: \"depends on tumour_grading_system\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       },
       "meta": {
         "core": true
