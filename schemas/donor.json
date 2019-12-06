@@ -17,10 +17,7 @@
         "required": true,
         "regex": "[A-Za-z0-9\\-\\._]{1,64}"
       },
-      "valueType": "string",
-      "meta": {
-        "core": true
-      }
+      "valueType": "string"
     },
     {
       "description": "Donors last known state of living or deceased.",
@@ -46,7 +43,7 @@
           "Died of cancer",
           "Died of other reasons"
         ],
-        "script": "validateWithMagic(only needed if vital_status=deceased)"
+        "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if vital_status=deceased\" };\r\n  return result;\r\n}\r\n\r\nvalidate();)"
       },
       "valueType": "string",
       "meta": {
@@ -55,10 +52,7 @@
     },
     {
       "description": "Interval of how long the donor has survived since primary diagnosis, in days.",
-      "name": "survival_time",
-      "restrictions": {
-        "script": "validateWithMagic(check dependece on another field)"
-      },
+      "name": "survival_time"
       "valueType": "integer",
       "meta": {
         "units": "days",
@@ -106,7 +100,7 @@
       "valueType": "integer"
     },
     {
-      "description": "Indicate BMI in kg/m².",
+      "description": "Indicate Body Mass Index (BMI) in kg/m².",
       "name": "bmi",
       "valueType": "integer"
     },

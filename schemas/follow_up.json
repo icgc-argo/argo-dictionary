@@ -81,7 +81,7 @@
       "name": "relapse_interval",
       "valueType": "integer",
       "restrictions": {
-        "script": "validateWithMagic(depends on disaease_status_at_followup being relapse)"
+        "script": "function validate() {\r\n  var result = { valid: true, message: \"depends on disaease_status_at_followup being relapse\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       },
       "meta": {
         "core": true,
@@ -93,7 +93,7 @@
       "name": "method_of_progression_status",
       "valueType": "string",
       "restrictions": {
-        "script": "validateWithMagic(depends on disaease_status_at_followup being progression or relapse)",
+        "script": "function validate() {\r\n  var result = { valid: true, message: \"depends on disaease_status_at_followup being progression or relapse\" };\r\n  return result;\r\n}\r\n\r\nvalidate();",
         "codeList": [
           "Autopsy",
           "Biomarker in liquid biopsy (e.g. tumor marker in blood or urine)",
@@ -131,8 +131,8 @@
       "name": "anatomic_site_progression_or_recurrences",
       "valueType": "string",
       "restrictions": {
-        "script": "validateWithMagic(depends on disaease_status_at_followup being progression or relapse)",
-        "codeList": [
+      "script": "function validate() {\r\n  var result = { valid: true, message: \"depends on disaease_status_at_followup being progression or relapse\" };\r\n  return result;\r\n}\r\n\r\nvalidate();",
+      "codeList": [
           "Abdomen",
           "Abdominal wall",
           "Acetabulum",
@@ -426,7 +426,7 @@
       "name": "recurrence_tumour_staging_system",
       "valueType": "string",
       "restrictions": {
-        "script": "validateWithMagic(required if disaease_status_at_followup being progression or relapse)",
+        "script": "function validate() {\r\n  var result = { valid: true, message: \"depends on disaease_status_at_followup being progression or relapse\" };\r\n  return result;\r\n}\r\n\r\nvalidate();",
         "codeList": [
           "Binet",
           "Rai",
@@ -453,7 +453,7 @@
       "description": "The code to represent the extent of the primary tumour (T) based on evidence obtained from clinical assessment parameters determined after treatment for patients receiving systemic and/or radiation therapy alone or as a component of their initial treatment, or as neoadjuvant therapy before planned surgery, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
       "restrictions": {
-        "script": "validateWithMagic(only needed if recurrence_tumour_staging_system=AJCC)"
+        "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on recurrence_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       },
       "meta": {
         "core": true
@@ -464,7 +464,7 @@
       "description": "The code to represent the stage of cancer defined by which is the extent of the regional lymph node (N) involvement for the cancer based on evidence obtained from clinical assessment parameters determined determined at the time of retreatment for a recurrence or disease progression, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
       "restrictions": {
-        "script": "clinicaWithMagic(only needed if recurrence_tumour_staging_system=AJCC)"
+        "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on recurrence_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       },
       "meta": {
         "core": true
@@ -475,7 +475,7 @@
       "description": "The code to represent the stage of cancer defined bythe extent of the distant metastasis (M) for the cancer based on evidence obtained from clinical assessment parameters determined determined at the time of retreatment for a recurrence or disease progression, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
       "restrictions": {
-        "script": "validateWithMagic(only needed if recurrence_tumour_staging_system=AJCC)"
+        "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on recurrence_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       },
       "meta": {
         "core": true
@@ -486,7 +486,7 @@
       "description": "The code to represent the stage group of the tumour, as assigned by the reporting recurrence_tumour_staging_system, that indicates the overall prognostic tumour stage (ie. Stage I, Stage II, Stage III etc.) after treatment for patients receiving systemic and/or radiation therapy alone or as a component of their initial treatment, or as neoadjuvant therapy before planned surgery.",
       "valueType": "string",
       "restrictions": {
-        "script": "validateWithMagic(depends on tumour_staging_system selected value)"
+        "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on recurrence_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       },
       "meta": {
         "core": true
@@ -497,7 +497,7 @@
           "name": "posttherapy_tumour_staging_system",
           "valueType": "string",
           "restrictions": {
-            "script": "validateWithMagic(required if disaease_status_at_followup being progression or relapse)",
+            "script": "function validate() {\r\n  var result = { valid: true, message: \"depends on disaease_status_at_followup being progression or relapse\" };\r\n  return result;\r\n}\r\n\r\nvalidate();",
             "codeList": [
               "Binet",
               "Rai",
@@ -521,7 +521,7 @@
           "description": "The code to represent the extent of the primary tumour (T) based on evidence obtained from clinical assessment parameters determined after treatment for patients receiving systemic and/or radiation therapy alone or as a component of their initial treatment, or as neoadjuvant therapy before planned surgery, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
           "valueType": "string",
           "restrictions": {
-            "script": "validateWithMagic(only needed if posttherapy_tumour_staging_system=AJCC)"
+            "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on post_therapy_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
           }
         },
         {
@@ -529,7 +529,7 @@
           "description": "The code to represent the stage of cancer defined by which is the extent of the regional lymph node (N) involvement for the cancer based on evidence obtained from clinical assessment parameters determined determined after treatment for patients receiving systemic and/or radiation therapy alone or as a component of their initial treatment, or as neoadjuvant therapy before planned surgery, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
           "valueType": "string",
           "restrictions": {
-            "script": "validateWithMagic(only needed if posttherapy_tumour_staging_system=AJCC)"
+            "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on post_therapy_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
           }
         },
         {
@@ -537,7 +537,7 @@
           "description": "The code to represent the stage of cancer defined bythe extent of the distant metastasis (M) for the cancer based on evidence obtained from clinical assessment parameters determined determined after treatment for patients receiving systemic and/or radiation therapy alone or as a component of their initial treatment, or as neoadjuvant therapy before planned surgery, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
           "valueType": "string",
           "restrictions": {
-            "script": "validateWithMagic(only needed if posttherapy_tumour_staging_system=AJCC)"
+            "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on post_therapy_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
           }
         },
         {
@@ -545,7 +545,7 @@
           "description": "The code to represent the stage group of the tumour, as assigned by the reporting posttherapy_tumour_staging_system, that indicates the overall prognostic tumour stage (ie. Stage I, Stage II, Stage III etc.) after treatment for patients receiving systemic and/or radiation therapy alone or as a component of their initial treatment, or as neoadjuvant therapy before planned surgery.",
           "valueType": "string",
           "restrictions": {
-            "script": "validateWithMagic(depends on posttherapy_tumour_staging_system =AJCC)"
+            "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on post_therapy_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
           }
   ]
 }

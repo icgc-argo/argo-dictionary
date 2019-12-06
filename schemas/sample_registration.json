@@ -8,9 +8,6 @@
       "description": "Unique identifier of the ARGO program.",
       "restrictions": {
         "required": true
-      },
-      "meta": {
-        "core": true
       }
     },
     {
@@ -20,9 +17,6 @@
       "restrictions": {
         "required": true,
         "regex": "[A-Za-z0-9\\-\\._]{1,64}"
-      },
-      "meta": {
-        "core": true
       }
     },
     {
@@ -48,9 +42,6 @@
       "restrictions": {
         "required": true,
         "regex": "[A-Za-z0-9\\-\\._]{1,64}"
-      },
-      "meta": {
-        "core": true
       }
     },
     {
@@ -118,9 +109,6 @@
       "restrictions": {
         "required": true,
         "regex": "[A-Za-z0-9\\-\\._]{1,64}"
-      },
-      "meta": {
-        "core": true
       }
     },
     {
