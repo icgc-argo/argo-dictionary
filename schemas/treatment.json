@@ -62,7 +62,6 @@
       "description": "Age of patient when he/she gave their consent for the treatment.",
       "valueType": "integer",
       "restrictions": {
-        "required": true,
         "units": "years"
       }
     },
