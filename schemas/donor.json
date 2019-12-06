@@ -52,7 +52,7 @@
     },
     {
       "description": "Interval of how long the donor has survived since primary diagnosis, in days.",
-      "name": "survival_time"
+      "name": "survival_time",
       "valueType": "integer",
       "meta": {
         "units": "days",
