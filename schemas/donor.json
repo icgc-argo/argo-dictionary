@@ -46,7 +46,7 @@
           "Died of cancer",
           "Died of other reasons"
         ],
-        "script": "validateWithMagic(only needed if vital_status=deceased)"
+        "script": "function validate() {\r\n  var result = { valid: true, message: \"ok\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       },
       "valueType": "string",
       "meta": {
@@ -57,7 +57,7 @@
       "description": "Interval of how long the donor has survived since primary diagnosis, in days.",
       "name": "survival_time",
       "restrictions": {
-        "script": "validateWithMagic(check dependece on another field)"
+        "script": "function validate() {\r\n  var result = { valid: true, message: \"ok\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       },
       "valueType": "integer",
       "meta": {
