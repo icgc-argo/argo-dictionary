@@ -43,7 +43,7 @@
           "Died of cancer",
           "Died of other reasons"
         ],
-        "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if vital_status=deceased\" };\r\n  return result;\r\n}\r\n\r\nvalidate();)"
+        "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if vital_status=deceased\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       },
       "valueType": "string",
       "meta": {
@@ -52,7 +52,7 @@
     },
     {
       "description": "Interval of how long the donor has survived since primary diagnosis, in days.",
-      "name": "survival_time"
+      "name": "survival_time",
       "valueType": "integer",
       "meta": {
         "units": "days",
