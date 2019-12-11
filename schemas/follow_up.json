@@ -547,5 +547,6 @@
           "restrictions": {
             "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on post_therapy_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
           }
+     }
   ]
 }
