@@ -16,7 +16,7 @@
       "description": "Unique identifier of the donor, assigned by the data provider.",
       "restrictions": {
         "required": true,
-        "regex": "[A-Za-z0-9\\-\\._]{1,64}"
+        "regex": "^[A-Za-z0-9\\-\\._]{1,64}$"
       }
     },
     {
@@ -41,7 +41,7 @@
       "description": "Unique identifier of the specimen, assigned by the data provider.",
       "restrictions": {
         "required": true,
-        "regex": "[A-Za-z0-9\\-\\._]{1,64}"
+        "regex": "^[A-Za-z0-9\\-\\._]{1,64}$"
       }
     },
     {
@@ -108,7 +108,7 @@
       "description": "Unique identifier of the sample, assigned by the data provider.",
       "restrictions": {
         "required": true,
-        "regex": "[A-Za-z0-9\\-\\._]{1,64}"
+        "regex": "^[A-Za-z0-9\\-\\._]{1,64}$"
       }
     },
     {
