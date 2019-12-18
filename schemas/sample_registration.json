@@ -67,7 +67,16 @@
           "Pleural effusion",
           "Mononuclear cells from bone marrow",
           "Saliva",
-          "Skin"
+          "Skin",
+          "Intestine",
+          "Buffy coat",
+          "Stomach",
+          "Esophagus",
+          "Tonsil",
+          "Spleen",
+          "Bone",
+          "Cerebellum",
+          "Endometrium"
         ]
       },
       "meta": {
