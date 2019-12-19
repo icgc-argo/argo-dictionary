@@ -6,6 +6,10 @@
       "name": "program_id",
       "valueType": "string",
       "description": "Unique identifier of the ARGO program.",
+      "meta": {
+        "primaryId": true,
+        "examples": "PACA-AU,BR-CA"
+      },
       "restrictions": {
         "required": true
       }
@@ -14,40 +18,47 @@
       "name": "submitter_donor_id",
       "valueType": "string",
       "description": "Unique identifier of the donor, assigned by the data provider.",
+      "meta": {
+        "primaryId": true,
+        "examples": "90234,BLD_donor_89,AML-90"
+      },
       "restrictions": {
         "required": true,
-        "regex": "[A-Za-z0-9\\-\\._]{1,64}"
+        "regex": "#/regex/submitter_id"
       }
     },
     {
       "name": "gender",
       "valueType": "string",
       "description": "Description of the donor self-reported gender. Gender is described as the assemblage of properties that distinguish people on the basis of their societal roles.",
-      "restrictions": {
-        "required": true,
-        "codeList": [
-          "Male",
-          "Female",
-          "Other"
-        ]
-      },
       "meta": {
         "core": true
+      },
+      "restrictions": {
+        "required": true,
+        "codeList": ["Male", "Female", "Other"]
       }
     },
     {
       "name": "submitter_specimen_id",
       "valueType": "string",
       "description": "Unique identifier of the specimen, assigned by the data provider.",
+      "meta": {
+        "primaryId": true,
+        "examples": "LAML_PO,00445,THY_099-tumour"
+      },
       "restrictions": {
         "required": true,
-        "regex": "[A-Za-z0-9\\-\\._]{1,64}"
+        "regex": "#/regex/submitter_id"
       }
     },
     {
       "name": "specimen_tissue_source",
       "valueType": "string",
       "description": "Tissue source of the biospecimen.",
+      "meta": {
+        "core": true
+      },
       "restrictions": {
         "required": true,
         "codeList": [
@@ -69,9 +80,6 @@
           "Saliva",
           "Skin"
         ]
-      },
-      "meta": {
-        "core": true
       }
     },
     {
@@ -106,15 +114,22 @@
       "name": "submitter_sample_id",
       "valueType": "string",
       "description": "Unique identifier of the sample, assigned by the data provider.",
+      "meta": {
+        "primaryId": true,
+        "examples": "hnc_12,CCG_34_94583,BRCA47832-3239"
+      },
       "restrictions": {
         "required": true,
-        "regex": "[A-Za-z0-9\\-\\._]{1,64}"
+        "regex": "#/regex/submitter_id"
       }
     },
     {
       "name": "sample_type",
       "valueType": "string",
       "description": "Description of the type of molecular sample used for testing.",
+      "meta": {
+        "core": true
+      },
       "restrictions": {
         "required": true,
         "codeList": [
@@ -127,9 +142,6 @@
           "polyA+ RNA",
           "Other RNA fractions"
         ]
-      },
-      "meta": {
-        "core": true
       }
     }
   ]

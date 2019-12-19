@@ -1,11 +1,18 @@
 {
   "name": "hormone_therapy",
   "description": "The collection of data elements describing the details of a hormone treatment therapy completed by a donor.",
+  "meta": {
+    "parent": "treatment"
+  },
   "fields": [
     {
       "name": "program_id",
       "valueType": "string",
       "description": "Unique identifier of the ARGO program.",
+      "meta": {
+        "primaryId": true,
+        "foreignKey": "sample_registration.program_id"
+      },
       "restrictions": {
         "required": true
       }
@@ -14,18 +21,26 @@
       "name": "submitter_donor_id",
       "valueType": "string",
       "description": "Unique identifier of the donor, assigned by the data provider.",
+      "meta": {
+        "primaryId": true,
+        "foreignKey": "sample_registration.submitter_donor_id"
+      },
       "restrictions": {
         "required": true,
-        "regex": "^[A-Za-z0-9\\-\\._]{1,64}$"
+        "regex": "#/regex/submitter_id"
       }
     },
     {
       "name": "submitter_treatment_id",
       "valueType": "string",
       "description": "Unique identifier of the treatment, as assigned by the data provider.",
+      "meta": {
+        "primaryId": true,
+        "foreignKey": "treatment.submitter_treatment_id"
+      },
       "restrictions": {
         "required": true,
-        "regex": "^[A-Za-z0-9\\-\\._]{1,64}$"
+        "regex": "#/regex/submitter_id"
       }
     },
     {
@@ -34,11 +49,7 @@
       "valueType": "string",
       "restrictions": {
         "required": true,
-        "codeList": [
-          "Placeholder list 1",
-          "Need list",
-          "Still need it"
-        ]
+        "codeList": ["Placeholder list 1", "Need list", "Still need it"]
       },
       "meta": {
         "core": true
@@ -50,13 +61,7 @@
       "valueType": "string",
       "restrictions": {
         "required": true,
-        "codeList": [
-          "mg/m²",
-          "IU/m²",
-          "µg/m²",
-          "g/m²",
-          "kg "
-        ]
+        "codeList": ["mg/m²", "IU/m²", "µg/m²", "g/m²", "kg "]
       },
       "meta": {
         "core": true
