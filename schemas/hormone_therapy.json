@@ -33,7 +33,7 @@
     {
       "name": "submitter_treatment_id",
       "valueType": "string",
-      "description": "Unique identifier of the treatment, as assigned by the data provider.",
+      "description": "Unique identifier of the treatment, assigned by the data provider.",
       "meta": {
         "primaryId": true,
         "foreignKey": "treatment.submitter_treatment_id"
@@ -52,7 +52,8 @@
         "codeList": ["Placeholder list 1", "Need list", "Still need it"]
       },
       "meta": {
-        "core": true
+        "core": true,
+        "notes": "This field uses a controlled vocabulary gathered from the DrugBank database of drug names."
       }
     },
     {
