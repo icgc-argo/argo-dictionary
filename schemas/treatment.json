@@ -68,7 +68,8 @@
         ]
       },
       "meta": {
-        "core": true
+        "core": true,
+        "notes": "Depending on the treatment_type selected, additional treament details may be required to be submitted."
       }
     },
     {
