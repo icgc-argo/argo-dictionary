@@ -107,7 +107,7 @@
       "meta": {
         "core": true,
         "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
-        "notes": "This field is required only if the selected clinical_tumour_staging_system is any version of the AJCC cancer staging system."
+        "notes": "This field is required only if the selected clinical_tumour_staging_system is any edition of the AJCC cancer staging system."
       }
     },
     {
@@ -129,7 +129,7 @@
       "meta": {
         "core": true,
         "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
-        "notes": "This field is required only if the selected clinical_tumour_staging_system is any version of the AJCC cancer staging system."
+        "notes": "This field is required only if the selected clinical_tumour_staging_system is any edition of the AJCC cancer staging system."
       }
     },
     {
@@ -142,7 +142,7 @@
       "meta": {
         "core": true,
         "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
-        "notes": "This field is required only if the selected clinical_tumour_staging_system is any version of the AJCC cancer staging system."
+        "notes": "This field is required only if the selected clinical_tumour_staging_system is any edition of the AJCC cancer staging system."
       }
     },
     {
@@ -155,7 +155,7 @@
       "meta": {
         "core": true,
         "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
-        "notes": "This field is required only if the selected clinical_tumour_staging_system is any version of the AJCC cancer staging system."
+        "notes": "This field is required only if the selected clinical_tumour_staging_system is any edition of the AJCC cancer staging system."
       }
     },
     {
@@ -168,7 +168,7 @@
       "meta": {
         "core": true,
         "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
-        "notes": "This field is required only if the selected clinical_tumour_staging_system is any version of the AJCC cancer staging system."
+        "notes": "This field is required only if the selected clinical_tumour_staging_system is any edition of the AJCC cancer staging system."
       }
     },
     {
