@@ -73,7 +73,7 @@
     {
       "name": "clinical_tumour_staging_system",
       "valueType": "string",
-      "description": "Specify the tumour staging system used to stage the cancer at the time of primary diagnosis (prior to treatment).",
+      "description": "Indicate the tumour staging system used to stage the cancer at the time of primary diagnosis (prior to treatment).",
       "restrictions": {
         "required": true,
         "codeList": [
