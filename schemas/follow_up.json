@@ -55,7 +55,7 @@
       }
     },
     {
-      "description": "Donor's disease status at time of follow-up.",
+      "description": "Indicate the donor's disease status at time of follow-up.",
       "name": "disease_status_at_followup",
       "valueType": "string",
       "restrictions": {
@@ -75,7 +75,7 @@
       }
     },
     {
-      "description": "Donor's relapse type if disease status at followup was progression or relapse.",
+      "description": "Indicate the donor's relapse type.",
       "name": "relapse_type",
       "valueType": "string",
       "restrictions": {
@@ -87,7 +87,9 @@
         ]
       },
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "follow_up.disease_status_at_followup",
+        "notes": "This field is required to be submitted if disease_status_at_followu indicates progression or relapse."
       }
     },
     {
@@ -99,11 +101,13 @@
       },
       "meta": {
         "core": true,
-        "units": "days"
+        "units": "days",
+        "dependsOn": "follow_up.disease_status_at_followup",
+        "notes": "This field is required to be submitted if disease_status_at_followu indicates progression or relapse."
       }
     },
     {
-      "description": "Method(s) used to confirm the patient's progression disease status.",
+      "description": "Indicate the method(s) used to confirm the donor's progression disease status.",
       "name": "method_of_progression_status",
       "valueType": "string",
       "restrictions": {
@@ -137,11 +141,13 @@
         ]
       },
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "follow_up.disease_status_at_followup",
+        "notes": "This field is required to be submitted if disease_status_at_followu indicates progression or relapse."
       }
     },
     {
-      "description": "The anatomic site where disease progression or recurrence occurred.",
+      "description": "Indicate the anatomic site where disease progression or recurrence occurred.",
       "name": "anatomic_site_progression_or_recurrences",
       "valueType": "string",
       "restrictions": {
@@ -149,7 +155,9 @@
         "codeList": "#/list/anatomic_locations"
       },
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "follow_up.disease_status_at_followup",
+        "notes": "This field is required to be submitted if disease_status_at_followu indicates progression or relapse."
       }
     },
     {
@@ -176,7 +184,9 @@
         ]
       },
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "follow_up.disease_status_at_followup",
+        "notes": "This field is required to be submitted if disease_status_at_followu indicates progression or relapse."
       }
     },
     {
@@ -187,7 +197,9 @@
         "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on recurrence_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       },
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "follow_up.recurrence_tumour_staging_system",
+        "notes": "This field is required only if the selected recurrence_tumour_staging_system is any edition of the AJCC cancer staging system."
       }
     },
     {
@@ -198,7 +210,9 @@
         "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on recurrence_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       },
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "follow_up.recurrence_tumour_staging_system",
+        "notes": "This field is required only if the selected recurrence_tumour_staging_system is any edition of the AJCC cancer staging system."
       }
     },
     {
@@ -209,7 +223,9 @@
         "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on recurrence_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       },
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "follow_up.recurrence_tumour_staging_system",
+        "notes": "This field is required only if the selected recurrence_tumour_staging_system is any edition of the AJCC cancer staging system."
       }
     },
     {
@@ -220,7 +236,9 @@
         "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on recurrence_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       },
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "follow_up.recurrence_tumour_staging_system",
+        "notes": "This field is required only if the selected recurrence_tumour_staging_system is any edition of the AJCC cancer staging system."
       }
     },
     {
@@ -251,6 +269,10 @@
       "name": "posttherapy_t_category",
       "description": "The code to represent the extent of the primary tumour (T) based on evidence obtained from clinical assessment parameters determined after treatment for patients receiving systemic and/or radiation therapy alone or as a component of their initial treatment, or as neoadjuvant therapy before planned surgery, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
+      "meta": {
+        "dependsOn": "follow_up.post_therapy_tumour_staging_system",
+        "notes": "This field is required only if the selected postetherapy_tumour_staging_system is any edition of the AJCC cancer staging system."
+      },
       "restrictions": {
         "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on post_therapy_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       }
@@ -259,6 +281,10 @@
       "name": "posttherapy_n_category",
       "description": "The code to represent the stage of cancer defined by which is the extent of the regional lymph node (N) involvement for the cancer based on evidence obtained from clinical assessment parameters determined determined after treatment for patients receiving systemic and/or radiation therapy alone or as a component of their initial treatment, or as neoadjuvant therapy before planned surgery, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
+      "meta": {
+        "dependsOn": "follow_up.post_therapy_tumour_staging_system",
+        "notes": "This field is required only if the selected postetherapy_tumour_staging_system is any edition of the AJCC cancer staging system."
+      },
       "restrictions": {
         "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on post_therapy_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       }
@@ -267,6 +293,10 @@
       "name": "posttherapy_m_category",
       "description": "The code to represent the stage of cancer defined bythe extent of the distant metastasis (M) for the cancer based on evidence obtained from clinical assessment parameters determined determined after treatment for patients receiving systemic and/or radiation therapy alone or as a component of their initial treatment, or as neoadjuvant therapy before planned surgery, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
+      "meta": {
+        "dependsOn": "follow_up.post_therapy_tumour_staging_system",
+        "notes": "This field is required only if the selected postetherapy_tumour_staging_system is any edition of the AJCC cancer staging system."
+      },
       "restrictions": {
         "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on post_therapy_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       }
@@ -275,6 +305,10 @@
       "name": "posttherapy_stage_group",
       "description": "The code to represent the stage group of the tumour, as assigned by the reporting posttherapy_tumour_staging_system, that indicates the overall prognostic tumour stage (ie. Stage I, Stage II, Stage III etc.) after treatment for patients receiving systemic and/or radiation therapy alone or as a component of their initial treatment, or as neoadjuvant therapy before planned surgery.",
       "valueType": "string",
+      "meta": {
+        "dependsOn": "follow_up.post_therapy_tumour_staging_system",
+        "notes": "This field is required only if the selected postetherapy_tumour_staging_system is any edition of the AJCC cancer staging system."
+      },
       "restrictions": {
         "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on post_therapy_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       }

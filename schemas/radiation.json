@@ -33,7 +33,7 @@
     {
       "name": "submitter_treatment_id",
       "valueType": "string",
-      "description": "Unique identifier of the treatment, as assigned by the data provider.",
+      "description": "Unique identifier of the treatment, assigned by the data provider.",
       "meta": {
         "primaryId": true,
         "foreignKey": "treatment.submitter_treatment_id"

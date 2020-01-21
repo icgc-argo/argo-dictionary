@@ -1,6 +1,6 @@
 {
   "name": "treatment",
-  "description": "The collection of data elements related to a donor's treatment at a specific point in the clinical record.",
+  "description": "The collection of data elements related to a donor's treatment at a specific point in the clinical record. A donor can have multiple treatments.",
   "meta": {
     "parent": "donor"
   },
@@ -32,7 +32,7 @@
     },
     {
       "name": "submitter_treatment_id",
-      "description": "Unique identifier of the treatment, as assigned by the data provider.",
+      "description": "Unique identifier of the treatment, assigned by the data provider.",
       "valueType": "string",
       "meta": {
         "primaryId": true
@@ -44,7 +44,7 @@
     },
     {
       "name": "treatment_type",
-      "description": "Type of the treatment that the donor completed.",
+      "description": "Indicate the type of treatment regimen that the donor completed.",
       "valueType": "string",
       "restrictions": {
         "required": true,
@@ -68,20 +68,18 @@
         ]
       },
       "meta": {
-        "core": true
+        "core": true,
+        "notes": "Depending on the treatment_type selected, additional treament details may be required to be submitted."
       }
     },
     {
       "name": "age_at_consent_for_treatment",
-      "description": "Age of patient when he/she gave their consent for the treatment.",
-      "valueType": "integer",
-      "restrictions": {
-        "units": "years"
-      }
+      "description": "Indicate the age of donor when consent was given for treatment.",
+      "valueType": "integer"
     },
     {
       "name": "is_primary_treatment",
-      "description": "Was this is the primary treatment following the initial diagnosis?",
+      "description": "Indicate if the treamtment was the primary treatment following the initial diagnosis.",
       "valueType": "string",
       "restrictions": {
         "required": true,
@@ -137,7 +135,7 @@
     },
     {
       "name": "response_to_therapy",
-      "description": "Donors's response to treatment.",
+      "description": "The donors's response to the applied treatment regimen.",
       "valueType": "string",
       "restrictions": {
         "required": true,

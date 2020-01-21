@@ -48,8 +48,7 @@
       "description": "Specify the tumour staging system used to assess the cancer at the time the tumour specimen was resected. Pathological classification is based on the clinical stage information (acquired before treatment) and supplemented/modified by operative findings and pathological evaluation of the resected specimen.",
       "valueType": "string",
       "meta": {
-        "core": true,
-        "notes": "Pathological classification is based on the clinical stage information (acquired before treatment) and supplemented/modified by operative findings and pathological evaluation of the resected specimen."
+        "core": true
       },
       "restrictions": {
         "required": true,
@@ -76,7 +75,9 @@
       "description": "The code to represent the stage of cancer defined by the size or contiguous extension of the primary tumour (T), according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "specimen.pathological_tumour_staging_system",
+        "notes": "This field is required only if the selected pathological_tumour_staging_system is any edition of the AJCC cancer staging system."
       },
       "restrictions": {
         "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on pathological_therapy_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
@@ -87,7 +88,9 @@
       "description": "The code to represent the stage of cancer defined by whether or not the cancer has reached nearby lymph nodes (N), according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "specimen.pathological_tumour_staging_system",
+        "notes": "This field is required only if the selected pathological_tumour_staging_system is any edition of the AJCC cancer staging system."
       },
       "restrictions": {
         "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on pathological_therapy_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
@@ -98,7 +101,9 @@
       "description": "The code to represent the stage of cancer defined by whether there are distant metastases (M), meaning spread of cancer to other parts of the body, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "specimen.pathological_tumour_staging_system",
+        "notes": "This field is required only if the selected pathological_tumour_staging_system is any edition of the AJCC cancer staging system."
       },
       "restrictions": {
         "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on pathological_therapy_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
@@ -109,7 +114,9 @@
       "description": "Specify the tumour stage, based on tumor_staging_system, used to assess the cancer at the time the tumour specimen was resected.",
       "valueType": "string",
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "specimen.pathological_tumour_staging_system",
+        "notes": "This field is required only if the selected pathological_tumour_staging_system is any edition of the AJCC cancer staging system."
       },
       "restrictions": {
         "required": true,
@@ -154,7 +161,7 @@
     },
     {
       "name": "specimen_processing",
-      "description": "Description of technique used to process specimen.",
+      "description": "Indicate the technique used to process specimen.",
       "valueType": "string",
       "restrictions": {
         "codeList": [
@@ -172,17 +179,21 @@
     },
     {
       "name": "specimen_storage",
-      "description": "Description of how specimen was stored for specimens that were not extracted freshly or immediately cultured.",
+      "description": "Indicate the method of specimen storage for specimens that were not extracted freshly or immediately cultured.",
       "valueType": "string",
+      "meta": {
+        "notes": "For specimens that were freshly extracted or immediately cultured, select Not Applicable."
+      },
       "restrictions": {
         "codeList": [
-          "Frozen, liquid nitrogen",
-          "Frozen, -70 freezer",
-          "Frozen, vapor phase",
-          "Rna later frozen",
-          "Paraffin block",
           "Cut slide",
-          "Other"
+          "Frozen, -70 freezer",
+          "Frozen, liquid nitrogen",
+          "Frozen, vapor phase",
+          "Not Applicable",
+          "Other",
+          "Paraffin block",
+          "RNA later frozen"
         ]
       }
     },
@@ -222,7 +233,9 @@
       "description": "Grade of the tumour as assigned by the reporting tumour_grading_system.",
       "valueType": "string",
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "specimen.tumour_grading_system",
+        "notes": "This field depends on the selected tumour grading system."
       },
       "restrictions": {
         "required": true,

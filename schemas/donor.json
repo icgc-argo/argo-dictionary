@@ -31,10 +31,14 @@
       }
     },
     {
-      "description": "Donors last known state of living or deceased.",
+      "description": "Donor's last known state of living or deceased.",
       "name": "vital_status",
       "restrictions": {
-        "codeList": ["Alive", "Deceased", "Unknown"],
+        "codeList": [
+          "Alive",
+          "Deceased",
+          "Unknown"
+        ],
         "required": true
       },
       "valueType": "string",
@@ -43,15 +47,20 @@
       }
     },
     {
-      "description": "Cause of a donor's death.",
+      "description": "Indicate the cause of a donor's death.",
       "name": "cause_of_death",
       "restrictions": {
-        "codeList": ["Died of cancer", "Died of other reasons"],
+        "codeList": [
+          "Died of cancer",
+          "Died of other reasons"
+        ],
         "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if vital_status=deceased\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       },
       "valueType": "string",
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "donor.vital_status",
+        "notes": "Cause of death is only required to be submitted if the donor's vital_status is Deceased."
       }
     },
     {
@@ -64,7 +73,7 @@
       }
     },
     {
-      "description": "Prior malignancy affecting patient.",
+      "description": "Prior malignancy affecting donor.",
       "name": "prior_malignancy",
       "restrictions": {
         "codeList": "#/list/yes_no"
@@ -80,32 +89,32 @@
       "valueType": "string"
     },
     {
-      "description": "If patient has history of prior malignancy, indicate age at previous diagnosis, in years.",
+      "description": "If donor has history of prior malignancy, indicate age at previous diagnosis, in years.",
       "name": "age_at_prior_malignancy",
       "valueType": "integer"
     },
     {
-      "description": "If patient has history of prior malignancy, indicate laterality of previous diagnosis.",
+      "description": "If donor has history of prior malignancy, indicate laterality of previous diagnosis.",
       "name": "laterality_of_prior_malignancy",
       "valueType": "string"
     },
     {
-      "description": "Indicate patient's height, in cm.",
+      "description": "Indicate the donor's height, in centimeters (cm).",
       "name": "height",
       "valueType": "integer"
     },
     {
-      "description": "Indicate patient's weight, in kg.",
+      "description": "Indicate the donor's weight, in kilograms (kg).",
       "name": "weight",
       "valueType": "integer"
     },
     {
-      "description": "Indicate Body Mass Index (BMI) in kg/m².",
+      "description": "Indicate the donor's Body Mass Index (BMI) in kg/m².",
       "name": "bmi",
       "valueType": "integer"
     },
     {
-      "description": "Indicate the menopause status of the patient at the time of primary diagnosis.",
+      "description": "Indicate the donor's menopause status at the time of primary diagnosis.",
       "name": "menopause_status",
       "restrictions": {
         "codeList": [
@@ -119,17 +128,17 @@
       "valueType": "string"
     },
     {
-      "description": "Indicate the age of menarche, the first occurrence of menstruation.",
+      "description": "Indicate the donor's age of menarche, the first occurrence of menstruation.",
       "name": "age_at_menarche",
       "valueType": "integer"
     },
     {
-      "description": "Indicate the number of pregnancies patient has had.",
+      "description": "Indicate the number of pregnancies a donor has had.",
       "name": "number_of_pregnancies",
       "valueType": "integer"
     },
     {
-      "description": "Indicate the number of children the patient gave birth to.",
+      "description": "Indicate the number of children the donor has birthed.",
       "name": "number_of_children",
       "valueType": "integer"
     }

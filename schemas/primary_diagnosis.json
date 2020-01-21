@@ -56,7 +56,7 @@
     },
     {
       "name": "number_lymph_nodes_positive",
-      "description": "The number of regional lymph nodes reported as being positive for tumour metastases",
+      "description": "The number of regional lymph nodes reported as being positive for tumour metastases.",
       "valueType": "integer",
       "restrictions": {
         "required": true
@@ -73,7 +73,7 @@
     {
       "name": "clinical_tumour_staging_system",
       "valueType": "string",
-      "description": "Specify the tumour staging system used to stage the cancer at the time of primary diagnosis (prior to treatment).",
+      "description": "Indicate the tumour staging system used to stage the cancer at the time of primary diagnosis (prior to treatment).",
       "restrictions": {
         "required": true,
         "codeList": [
@@ -105,7 +105,9 @@
         "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       },
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
+        "notes": "This field is required only if the selected clinical_tumour_staging_system is any edition of the AJCC cancer staging system."
       }
     },
     {
@@ -125,7 +127,9 @@
         ]
       },
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
+        "notes": "This field is required only if the selected clinical_tumour_staging_system is any edition of the AJCC cancer staging system."
       }
     },
     {
@@ -136,7 +140,9 @@
         "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       },
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
+        "notes": "This field is required only if the selected clinical_tumour_staging_system is any edition of the AJCC cancer staging system."
       }
     },
     {
@@ -147,7 +153,9 @@
         "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       },
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
+        "notes": "This field is required only if the selected clinical_tumour_staging_system is any edition of the AJCC cancer staging system."
       }
     },
     {
@@ -158,7 +166,9 @@
         "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       },
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
+        "notes": "This field is required only if the selected clinical_tumour_staging_system is any edition of the AJCC cancer staging system."
       }
     },
     {
@@ -195,7 +205,7 @@
     },
     {
       "name": "performance_status",
-      "description": "Indicate the patient's performance status at the time of primary diagnosis (ECOG performance score https://ecog-acrin.org/resources/ecog-performance-status).",
+      "description": "Indicate the donor's performance status at the time of primary diagnosis (ECOG performance score https://ecog-acrin.org/resources/ecog-performance-status).",
       "valueType": "string",
       "restrictions": {
         "codeList": [
