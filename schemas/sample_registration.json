@@ -132,7 +132,8 @@
           "Cell line - derived from xenograft tumour",
           "Cell line - derived from tumour",
           "Cell line - derived from normal"
-        ]
+        ],
+        "script": "#/script/specimentype_designation"
       },
       "meta": {
         "core": true
