@@ -1,4 +1,4 @@
-const script = require('./script.json');
+const script = require('./script.js');
 const list = require('./list.json');
 const regex = require('./regex.json');
 
