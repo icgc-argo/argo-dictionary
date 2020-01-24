@@ -54,7 +54,7 @@
       "meta": {
         "core": true,
         "notes": "This field uses a controlled vocabulary gathered from the DrugBank database of drug names.",
-        "examples": "Allopurinol", "Dronabinol", "Sucralfate", "Lapatinib"
+        "examples": "Allopurinol, Dronabinol, Sucralfate, Lapatinib"
       }
     },
     {
