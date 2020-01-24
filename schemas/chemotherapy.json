@@ -49,10 +49,12 @@
       "valueType": "string",
       "restrictions": {
         "required": true,
-        "codeList": ["Allopurinol", "Dronabinol", "Sucralfate", "Lapatinib"]
+        "codeList": ["Placeholder list 1", "Need list", "Still need it"]
       },
       "meta": {
-        "core": true
+        "core": true,
+        "notes": "This field uses a controlled vocabulary gathered from the DrugBank database of drug names.",
+        "examples": "Allopurinol", "Dronabinol", "Sucralfate", "Lapatinib"
       }
     },
     {
