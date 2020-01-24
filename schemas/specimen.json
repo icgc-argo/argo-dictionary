@@ -115,12 +115,10 @@
       "valueType": "string",
       "meta": {
         "core": true,
-        "dependsOn": "specimen.pathological_tumour_staging_system",
-        "notes": "This field is required only if the selected pathological_tumour_staging_system is any edition of the AJCC cancer staging system."
+        "dependsOn": "specimen.pathological_tumour_staging_system"
       },
       "restrictions": {
-        "required": true,
-        "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on pathological_therapy_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
+        "required": true
       }
     },
     {
@@ -175,6 +173,8 @@
           "Fresh",
           "Other"
         ]
+      },
+      "meta":{
       }
     },
     {
