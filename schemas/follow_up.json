@@ -165,7 +165,6 @@
       "name": "recurrence_tumour_staging_system",
       "valueType": "string",
       "restrictions": {
-        "script": "function validate() {\r\n  var result = { valid: true, message: \"depends on disaease_status_at_followup being progression or relapse\" };\r\n  return result;\r\n}\r\n\r\nvalidate();",
         "codeList": [
           "Binet",
           "Rai",
@@ -181,7 +180,8 @@
           "AJCC 3rd Edition",
           "AJCC 2nd Edition",
           "AJCC 1st Edition"
-        ]
+        ],
+        "script": "#/script/ajccValidation"
       },
       "meta": {
         "core": true,
@@ -242,7 +242,7 @@
       "name": "posttherapy_tumour_staging_system",
       "valueType": "string",
       "restrictions": {
-        "script": "function validate() {\r\n  var result = { valid: true, message: \"depends on disaease_status_at_followup being progression or relapse\" };\r\n  return result;\r\n}\r\n\r\nvalidate();",
+        "script": "#/script/ajccValidation",
         "codeList": [
           "Binet",
           "Rai",

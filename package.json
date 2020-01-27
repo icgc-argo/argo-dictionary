@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/icgc-argo/argo-dictionary#readme",
   "dependencies": {
+    "auto-load": "^3.0.4",
     "axios": "^0.19.0",
     "chalk": "^3.0.0",
     "inquirer": "^7.0.1",
