@@ -133,7 +133,7 @@
           "Cell line - derived from tumour",
           "Cell line - derived from normal"
         ],
-        "script": "#/script/specimentype_designation"
+        "script": "#/script/specimentypeDesignation"
       },
       "meta": {
         "core": true

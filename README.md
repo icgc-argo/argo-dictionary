@@ -6,6 +6,8 @@ File Schemas are found in `/schemas`
 
 Variables, such as recurring scripts, regex, or code lists are found in `/references`. These values can be used in the `restrictions` section of a schema by refering to them with this pattern: `#/path/to/value`.
 
+Scripts for validating field values fall under `/references/validationFunctions`. The filename should be in camelCase (no dashes/dots) and be referred to with the same name from the schema. 
+
 Example variable usage:
 
 ```
