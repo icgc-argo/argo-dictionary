@@ -54,7 +54,7 @@
           "Died of cancer",
           "Died of other reasons"
         ],
-        "script": "#/script/ensureDeceased"
+        "script": "#/script/donor/ensureDeceased"
       },
       "valueType": "string",
       "meta": {
