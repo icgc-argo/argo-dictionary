@@ -8,7 +8,7 @@ const validation = () => {
             /* Contingent on the naming system for tumour staging systems to remain consistent */
             const stagingName = $name.trim().toLowerCase().split('_tumour_staging_system')[0];
             /* Perform validation only if an AJCC value was selected */
-            if (/^(AJCC)\b/im.test($field)){
+            if (/^(AJCC)\b/i.test($field)){
                 const requiredFields = [
                     `${stagingName}_m_category`,
                     `${stagingName}_n_category`,
