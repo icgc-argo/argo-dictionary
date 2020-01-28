@@ -75,7 +75,7 @@
       "valueType": "string",
       "description": "Indicate the tumour staging system used to stage the cancer at the time of primary diagnosis (prior to treatment).",
       "restrictions": {
-        "script": "#/script/ajccValidation",
+        "script": "#/script/common/ajccValidation",
         "required": true,
         "codeList": [
           "Binet",

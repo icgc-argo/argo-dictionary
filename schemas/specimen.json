@@ -51,7 +51,7 @@
         "core": true
       },
       "restrictions": {
-        "script": "#/script/ajccValidation",
+        "script": "#/script/common/ajccValidation",
         "required": true,
         "codeList": [
           "Binet",

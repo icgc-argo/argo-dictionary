@@ -6,7 +6,7 @@ File Schemas are found in `/schemas`
 
 Variables, such as recurring scripts, regex, or code lists are found in `/references`. These values can be used in the `restrictions` section of a schema by refering to them with this pattern: `#/path/to/value`.
 
-Scripts for validating field values fall under `/references/validationFunctions`. The filename should be in camelCase (no dashes/dots) and be referred to with the same name from the schema. 
+Scripts for validating field values fall under `/references/validationFunctions/{schema name}/`. If a validation script is common in many schemas, it can be added under `/references/validationFunctions/common/`. The filename of the script should not contain dashes/dots (ideally be in camelCase). 
 
 Example variable usage:
 
@@ -20,7 +20,18 @@ Example variable usage:
   },
   "restrictions": {
       "required": true,
-      "regex": "#/regex/submitter_id"
+      "regex": "#/regex/submitter_id",
+  }
+},
+{
+  "name": "cause_of_death",
+  "valueType": "string",
+  "description": "Indicate the cause of a donor's death.",
+  "meta": {
+    "dependsOn": "donor.vital_status"
+  },
+  "restrictions": {
+      "script": "#/script/donor/ensureDeceased",
   }
 }
 ```

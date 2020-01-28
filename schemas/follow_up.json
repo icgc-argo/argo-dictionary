@@ -181,7 +181,7 @@
           "AJCC 2nd Edition",
           "AJCC 1st Edition"
         ],
-        "script": "#/script/ajccValidation"
+        "script": "#/script/common/ajccValidation"
       },
       "meta": {
         "core": true,
@@ -246,7 +246,7 @@
       "name": "posttherapy_tumour_staging_system",
       "valueType": "string",
       "restrictions": {
-        "script": "#/script/ajccValidation",
+        "script": "#/script/common/ajccValidation",
         "codeList": [
           "Binet",
           "Rai",
