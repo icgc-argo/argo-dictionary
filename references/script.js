@@ -1,3 +1,4 @@
+
 const autoload = require('auto-load');
 const files = autoload(__dirname +'/validationFunctions');
 
@@ -12,6 +13,7 @@ const escapeFunctions = (scripts) => {
         )
     );
 }
+
 
 const buildScriptObject = (files) => {
    return Object.fromEntries(
