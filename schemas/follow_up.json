@@ -10,6 +10,7 @@
       "valueType": "string",
       "description": "Unique identifier of the ARGO program.",
       "meta": {
+        "validationDependency": true,
         "primaryId": true,
         "foreignKey": "sample_registration.program_id"
       },
@@ -22,6 +23,7 @@
       "name": "submitter_donor_id",
       "valueType": "string",
       "meta": {
+        "validationDependency": true,
         "primaryId": true,
         "foreignKey": "sample_registration.submitter_donor_id"
       },
@@ -35,6 +37,7 @@
       "name": "submitter_follow_up_id",
       "valueType": "string",
       "meta": {
+        "validationDependency": true,
         "primaryId": true
       },
       "restrictions": {
@@ -260,8 +263,7 @@
           "AJCC 1st Edition"
         ]
       },
-      "meta": {
-      }
+      "meta": {}
     },
     {
       "name": "posttherapy_t_category",

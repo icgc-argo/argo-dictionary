@@ -10,6 +10,7 @@
       "valueType": "string",
       "description": "Unique identifier of the ARGO program.",
       "meta": {
+        "validationDependency": true,
         "primaryId": true,
         "foreignKey": "sample_registration.program_id"
       },
@@ -22,6 +23,7 @@
       "valueType": "string",
       "description": "Unique identifier of the donor, assigned by the data provider.",
       "meta": {
+        "validationDependency": true,
         "primaryId": true,
         "foreignKey": "sample_registration.submitter_donor_id"
       },
@@ -35,6 +37,7 @@
       "valueType": "string",
       "description": "Unique identifier of the treatment, as assigned by the data provider.",
       "meta": {
+        "validationDependency": true,
         "primaryId": true,
         "foreignKey": "treatment.submitter_treatment_id"
       },
@@ -52,6 +55,7 @@
         "codeList": ["Placeholder list 1", "Need list", "Still need it"]
       },
       "meta": {
+        "validationDependency": true,
         "core": true,
         "notes": "This field uses a controlled vocabulary gathered from the DrugBank database of drug names.",
         "examples": "Allopurinol, Dronabinol, Sucralfate, Lapatinib"

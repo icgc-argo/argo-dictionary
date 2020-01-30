@@ -10,6 +10,7 @@
       "valueType": "string",
       "description": "Unique identifier of the ARGO program.",
       "meta": {
+        "validationDependency": true,
         "primaryId": true,
         "foreignKey": "sample_registration.program_id"
       },
@@ -22,6 +23,7 @@
       "name": "submitter_donor_id",
       "valueType": "string",
       "meta": {
+        "validationDependency": true,
         "primaryId": true,
         "foreignKey": "sample_registration.submitter_donor_id"
       },
@@ -34,15 +36,12 @@
       "description": "Donor's last known state of living or deceased.",
       "name": "vital_status",
       "restrictions": {
-        "codeList": [
-          "Alive",
-          "Deceased",
-          "Unknown"
-        ],
+        "codeList": ["Alive", "Deceased", "Unknown"],
         "required": true
       },
       "valueType": "string",
       "meta": {
+        "validationDependency": true,
         "core": true
       }
     },
@@ -50,10 +49,7 @@
       "description": "Indicate the cause of a donor's death.",
       "name": "cause_of_death",
       "restrictions": {
-        "codeList": [
-          "Died of cancer",
-          "Died of other reasons"
-        ],
+        "codeList": ["Died of cancer", "Died of other reasons"],
         "script": "#/script/donor/ensureDeceased"
       },
       "valueType": "string",
@@ -68,6 +64,7 @@
       "name": "survival_time",
       "valueType": "integer",
       "meta": {
+        "validationDependency": true,
         "units": "days",
         "core": "true"
       }
@@ -79,7 +76,7 @@
         "codeList": "#/list/yes_no"
       },
       "valueType": "string",
-      "meta":{}
+      "meta": {}
     },
     {
       "description": "ICD-10 diagnostic code for type of cancer in a prior malignancy.",
