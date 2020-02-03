@@ -1,0 +1,23 @@
+{
+    "program_id": null,
+    "submitter_donor_id": null,
+    "submitter_specimen_id": null,
+    "pathological_tumour_staging_system": null,
+    "pathological_t_category": null,
+    "pathological_n_category": null,
+    "pathological_m_category": null,
+    "pathological_stage_group": null,
+    "specimen_acquisition_interval": null,
+    "tumour_histological_type": null,
+    "specimen_anatomic_location": null,
+    "specimen_processing": null,
+    "specimen_storage": null,
+    "central_pathology_confirmed": null,
+    "tumour_grading_system": null,
+    "tumour_grade": null,
+    "percent_tumour_cells": null,
+    "percent_proliferating_cells": null,
+    "percent_inflammatory_tissue": null,
+    "percent_stromal_cells": null,
+    "percent_necrosis": null
+}

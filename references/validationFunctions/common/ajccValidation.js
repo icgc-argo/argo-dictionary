@@ -1,5 +1,12 @@
-const validation = () => {
-    function validate() {
+/**
+ * Validates that T, N, M values are non empty if staging system field is set to an AJCC value
+ * 
+ * @param {Object} $row The object representing the row for a donor. Object keys represent the fields.
+ * @param {String} $name The name of the field this validation function runs on.
+ * @param {String} $field The value for the field.
+ */
+const validation = ($row,$name,$field) => 
+    (function validate() {
 
         let result = {valid: true, message: "Ok"};
         
@@ -25,8 +32,6 @@ const validation = () => {
             }
         }
         return result;
-    }
-    validate();
-}
+    })();
 
 module.exports = validation;

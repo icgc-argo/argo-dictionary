@@ -3,7 +3,8 @@ const autoload = require('auto-load');
 const files = autoload(__dirname +'/validationFunctions');
 
 const escaper = (funcs) => {
-    return String(funcs).replace(/^\(\)[\s]*=>[\s]*{[\s]*/, '').replace(/[\s]*}[\s]*$/,'');
+    return String(funcs).replace(/.*=>(\s)*/,'');
+    // return String(funcs).replace(/^\(\)[\s]*=>[\s]*{[\s]*/, '').replace(/[\s]*}[\s]*$/,'');
 }
 
 const escapeFunctions = (scripts) => {

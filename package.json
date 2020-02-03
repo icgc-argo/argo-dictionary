@@ -4,7 +4,8 @@
   "description": "Working space for the ARGO Data Dictionary collaboration",
   "main": "index.js",
   "scripts": {
-    "compile": "node compile.js"
+    "compile": "node compile.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "yargs": "^15.0.2"
   },
   "devDependencies": {
+    "jest": "^25.1.0",
     "prettier": "^1.19.1"
   },
   "prettier": {
