@@ -7,6 +7,7 @@
       "valueType": "string",
       "description": "Unique identifier of the ARGO program.",
       "meta": {
+        "validationDependency": true,
         "primaryId": true,
         "examples": "PACA-AU,BR-CA"
       },
@@ -19,6 +20,7 @@
       "valueType": "string",
       "description": "Unique identifier of the donor, assigned by the data provider.",
       "meta": {
+        "validationDependency": true,
         "primaryId": true,
         "examples": "90234,BLD_donor_89,AML-90"
       },
@@ -32,15 +34,12 @@
       "valueType": "string",
       "description": "Description of the donor self-reported gender. Gender is described as the assemblage of properties that distinguish people on the basis of their societal roles.",
       "meta": {
+        "validationDependency": true,
         "core": true
       },
       "restrictions": {
         "required": true,
-        "codeList": [
-          "Male",
-          "Female",
-          "Other"
-        ]
+        "codeList": ["Male", "Female", "Other"]
       }
     },
     {
@@ -48,6 +47,7 @@
       "valueType": "string",
       "description": "Unique identifier of the specimen, assigned by the data provider.",
       "meta": {
+        "validationDependency": true,
         "primaryId": true,
         "examples": "LAML_PO,00445,THY_099-tumour"
       },
@@ -61,6 +61,7 @@
       "valueType": "string",
       "description": "Tissue source of the biospecimen.",
       "meta": {
+        "validationDependency": true,
         "core": true
       },
       "restrictions": {
@@ -100,11 +101,9 @@
       "valueType": "string",
       "description": "Description of specimens tumour/normal status for data processing.",
       "restrictions": {
+        "validationDependency": true,
         "required": true,
-        "codeList": [
-          "Normal",
-          "Tumour"
-        ]
+        "codeList": ["Normal", "Tumour"]
       },
       "meta": {
         "core": true
@@ -115,6 +114,7 @@
       "valueType": "string",
       "description": "Description of the kind of specimen that was collected with respect to tumour/normal tissue origin.",
       "restrictions": {
+        "validationDependency": true,
         "required": true,
         "codeList": [
           "Normal",
@@ -144,6 +144,7 @@
       "valueType": "string",
       "description": "Unique identifier of the sample, assigned by the data provider.",
       "meta": {
+        "validationDependency": true,
         "primaryId": true,
         "examples": "hnc_12,CCG_34_94583,BRCA47832-3239"
       },
@@ -157,6 +158,7 @@
       "valueType": "string",
       "description": "Description of the type of molecular sample used for testing.",
       "meta": {
+        "validationDependency": true,
         "core": true
       },
       "restrictions": {

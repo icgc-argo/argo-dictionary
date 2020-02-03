@@ -10,6 +10,7 @@
       "valueType": "string",
       "description": "Unique identifier of the ARGO program.",
       "meta": {
+        "validationDependency": true,
         "primaryId": true,
         "foreignKey": "sample_registration.program_id"
       },
@@ -22,6 +23,7 @@
       "description": "Unique identifier of the donor, assigned by the data provider.",
       "valueType": "string",
       "meta": {
+        "validationDependency": true,
         "primaryId": true,
         "foreignKey": "sample_registration.submitter_donor_id"
       },
@@ -38,6 +40,7 @@
         "primaryId": true
       },
       "restrictions": {
+        "validationDependency": true,
         "required": true,
         "regex": "#/regex/submitter_id"
       }
@@ -68,6 +71,7 @@
         ]
       },
       "meta": {
+        "validationDependency": true,
         "core": true,
         "notes": "Depending on the treatment_type selected, additional treament details may be required to be submitted."
       }
