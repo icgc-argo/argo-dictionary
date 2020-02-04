@@ -167,6 +167,29 @@ const unitTests = {
                 'name' : 'clinical_tumour_staging_system'
             }
         ],
+        [
+            'Null Value for field.',
+            true,
+            {
+                'row' : {...primaryDiag,
+                    "clinical_tumour_staging_system" : null,
+                },
+                'name' : 'clinical_tumour_staging_system'
+            }
+        ],
+        [
+            'AJCC Value with T, N, M values all set',
+            true,
+            {
+                'row' : {...primaryDiag,
+                    "clinical_tumour_staging_system" : "AJCC 5th Edition",
+                    "clinical_t_category": "some val",
+                    "clinical_m_category": "some val",
+                    "clinical_n_category": "some val"
+                },
+                'name' : 'clinical_tumour_staging_system'
+            }
+        ],
     ]
 }
 

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "compile": "node compile.js",
+    "safe_compile": "jest && node compile.js",
     "test": "jest"
   },
   "repository": {
