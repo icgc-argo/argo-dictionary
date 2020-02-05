@@ -58,14 +58,10 @@ To run all unit tests, you can use : `npm run test`.
 
 `npm run compile`
 
-Will collect all schemas and references and format them into a full dictionary object that could be uploaded to lectern. An abridged version of the dictionary will be printed to the console, and the full compiled dictionary will be output to the file `./dictionary.json`
+Will check that all units tests pass, and then will collect all schemas and references and format them into a full dictionary object that could be uploaded to lectern. An abridged version of the dictionary will be printed to the console, and the full compiled dictionary will be output to the file `./dictionary.json`
 
 You will be prompted to provide the dictionary name and version number, or leave them blank and accept the defaults (`ICGC-ARGO Data Dictionary` and `0.0` respectively).
 
-To run all unit tests before compiling the dictionary, you can use use:
-
-`npm run safe_compile`
-
-This will run the unit tests first, and only let you proceed if they all pass.
+If all tests do not pass, the dictionary will not be compiled.
 
 > Note: The `dictionary.json` file is ignored by git. This file can be uploaded to Lectern, for example, but it shouldn't appear in this repo.

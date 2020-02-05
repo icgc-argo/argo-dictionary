@@ -4,8 +4,7 @@
   "description": "Working space for the ARGO Data Dictionary collaboration",
   "main": "index.js",
   "scripts": {
-    "compile": "node compile.js",
-    "safe_compile": "jest && node compile.js",
+    "compile": "node tests/constructDummyData.js && jest && node compile.js",
     "test": "jest"
   },
   "repository": {

@@ -1,5 +1,6 @@
 const validation = require('./../../references/validationFunctions/donor/ensureDeceased.js');
 const universalTest = require('../universal');
+const loadObjects = require('../loadObjects');
 
 // load in all fields with entries prepopulated to null
 const donor = require('../dummyData/donor.json');
@@ -11,45 +12,51 @@ const unitTests = [
     [
         'Deceased Donor without cause of death.',
         false,
-        {   
-            ...donor,
-            "vital_status": "deceased"
-        }
+        loadObjects(donor,
+            {   
+                "vital_status": "deceased"
+            }
+        )
     ],
     [
         'Deceased Donor with cause of death.',
         true,
-        {   
-            ...donor,
-            "vital_status": "deceased",
-            "cause_of_death" : "Died of Cancer"
-        }
+        loadObjects(donor,
+            {   
+                "vital_status": "deceased",
+                "cause_of_death" : "Died of Cancer"
+            }
+        )
+        
     ],
     [
         'Living Donor with cause of death.',
         false,
-        {   
-            ...donor,
-            "vital_status": "Alive",
-            "cause_of_death" : "Died of Other Reasons"
-        }
+        loadObjects(donor,
+            {
+                "vital_status": "Alive",
+                "cause_of_death" : "Died of Other Reasons"
+            }
+        )
     ],
     [
         'Living Donor without a cause of death.',
         true,
-        {   
-            ...donor,
-            "vital_status": "Alive"
-        }
+        loadObjects(donor,
+            {
+                "vital_status": "Alive"
+            }
+        )
     ],
     [
         'Unknown Donor with a cause of death.',
         false,
-        {   
-            ...donor,
-            "vital_status": "unknown",
-            "cause_of_death": "died of cancer"
-        }
+        loadObjects(donor,
+            {   
+                "vital_status": "unknown",
+                "cause_of_death": "died of cancer"
+            }
+        )
     ]
 ];
 

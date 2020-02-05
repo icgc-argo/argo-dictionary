@@ -1,5 +1,6 @@
 const validation = require('./../../references/validationFunctions/common/ajccValidation.js');
 const universalTest = require('../universal');
+const loadObjects = require('../loadObjects');
 
 
 // Load in template files which already have all the field names
@@ -15,9 +16,9 @@ const unitTests = {
             'AJCC Value with <t,n,m>_category values not set.',
             false,
             {
-                'row' : {...specimen,
+                'row' : loadObjects(specimen, {
                     "pathological_tumour_staging_system" : "AJCC 8th Edition"
-                },
+                }),
                 'name' : 'pathological_tumour_staging_system'
             }
         ],
@@ -25,11 +26,11 @@ const unitTests = {
             'AJCC Value with one category value not set.',
             false,
             {
-                'row' : {...specimen,
+                'row': loadObjects(specimen, {
                     "pathological_tumour_staging_system" : "AJCC 6th Edition",
                     "pathological_m_category": "Some M Value",
                     "pathological_n_category": "Some N Value",
-                },
+                }),
                 'name' : 'pathological_tumour_staging_system'
             }
         ],
@@ -37,12 +38,12 @@ const unitTests = {
             'AJCC Value with two categories value not set.',
             false,
             {
-                'row' : {...specimen,
+                'row': loadObjects(specimen, {
                     "pathological_tumour_staging_system" : "AJCC 6th Edition",
                     "pathological_t_category": " ",
                     "pathological_m_category": "",
                     "pathological_n_category": "Some N Value"
-                },
+                }),
                 'name' : 'pathological_tumour_staging_system'
             }
         ],
@@ -50,9 +51,9 @@ const unitTests = {
             'Non AJCC Value with no categories set.',
             true,
             {
-                'row' : {...specimen,
+                'row': loadObjects(specimen, {
                     "pathological_tumour_staging_system" : "Aajccc fake edition",
-                },
+                }),
                 'name' : 'pathological_tumour_staging_system'
             }
         ],
@@ -60,12 +61,12 @@ const unitTests = {
             'Non AJCC Value with all categories set.',
             true,
             {
-                'row' : {...specimen,
+                'row': loadObjects(specimen, {
                     "pathological_tumour_staging_system" : "binet",
                     "pathological_t_category": "some val",
                     "pathological_m_category": "some val",
                     "pathological_n_category": "some val"
-                },
+                }),
                 'name' : 'pathological_tumour_staging_system'
             }
         ],
@@ -75,9 +76,9 @@ const unitTests = {
             'Post-Therapy: AJCC Value with <t,n,m>_category values not set.',
             false,
             {
-                'row' : {...followUp,
+                'row': loadObjects(followUp, {
                     "posttherapy_tumour_staging_system" : "AJCC 4th Edition"
-                },
+                }),
                 'name' : 'posttherapy_tumour_staging_system'
             }
         ],
@@ -85,11 +86,11 @@ const unitTests = {
             'Post-Therapy: AJCC Value with t category value not set.',
             false,
             {
-                'row' : {...followUp,
+                'row': loadObjects(followUp, {
                     "posttherapy_tumour_staging_system" : "AJCC 5th Edition",
                     "posttherapy_n_category": "Some Value",
                     "posttherapy_m_category": "some Value",
-                },
+                }),
                 'name' : 'posttherapy_tumour_staging_system'
             }
         ],
@@ -97,9 +98,9 @@ const unitTests = {
             'Post-Therapy: Non AJCC Value with <t,n,m>_category values not set',
             true,
             {
-                'row' : {...followUp,
+                'row': loadObjects(followUp, {
                     "posttherapy_tumour_staging_system" : "Lugano",
-                },
+                }),
                 'name' : 'posttherapy_tumour_staging_system'
             }
         ],
@@ -107,9 +108,9 @@ const unitTests = {
             'Recurrence: AJCC Value with <t,n,m>_category values not set.',
             false,
             {
-                'row' : {...followUp,
+                'row': loadObjects(followUp,{
                     "recurrence_tumour_staging_system" : "AJCC 1st Edition"
-                },
+                }),
                 'name' : 'recurrence_tumour_staging_system'
             }
         ],
@@ -117,10 +118,10 @@ const unitTests = {
             'Recurrence: AJCC Value with m value not set.',
             false,
             {
-                'row' : {...followUp,
+                'row': loadObjects(followUp, {
                     "recurrence_tumour_staging_system" : "AJCC 7th Edition",
                     "recurrence_m_category": " ",
-                },
+                }),
                 'name' : 'recurrence_tumour_staging_system'
             }
         ],
@@ -128,9 +129,9 @@ const unitTests = {
             'Recurrence: Non AJCC Value with <t,n,m>_category values not set.',
             true,
             {
-                'row' : {...followUp,
-                    "recurrence_tumour_staging_system" : "FIGO",
-                },
+                'row': loadObjects(followUp, {
+                    "recurrence_tumour_staging_system" : "FIGO"
+                }),
                 'name' : 'recurrence_tumour_staging_system'
             }
         ]
@@ -140,9 +141,9 @@ const unitTests = {
             'AJCC Value with <t,n,m>_category values not set.',
             false,
             {
-                'row' : {...primaryDiag,
+                'row': loadObjects(primaryDiag, {
                     "clinical_tumour_staging_system" : "AJCC 9th Edition"
-                },
+                }),
                 'name' : 'clinical_tumour_staging_system'
             }
         ],
@@ -150,10 +151,10 @@ const unitTests = {
             'AJCC Value with m and n values not set.',
             false,
             {
-                'row' : {...primaryDiag,
+                'row': loadObjects(primaryDiag, {
                     "clinical_tumour_staging_system" : "AJCC 2nd Edition",
                     "clinical_t_category": "some val"
-                },
+                }),
                 'name' : 'clinical_tumour_staging_system'
             }
         ],
@@ -161,9 +162,9 @@ const unitTests = {
             'Non AJCC Value with <t,n,m>_category values not set.',
             true,
             {
-                'row' : {...primaryDiag,
+                'row': loadObjects(primaryDiag, {
                     "clinical_tumour_staging_system" : "Ann Arbor",
-                },
+                }),
                 'name' : 'clinical_tumour_staging_system'
             }
         ],
@@ -171,9 +172,9 @@ const unitTests = {
             'Null Value for field.',
             true,
             {
-                'row' : {...primaryDiag,
+                'row': loadObjects(primaryDiag, {
                     "clinical_tumour_staging_system" : null,
-                },
+                }),
                 'name' : 'clinical_tumour_staging_system'
             }
         ],
@@ -181,12 +182,12 @@ const unitTests = {
             'AJCC Value with T, N, M values all set',
             true,
             {
-                'row' : {...primaryDiag,
+                'row': loadObjects(primaryDiag, {
                     "clinical_tumour_staging_system" : "AJCC 5th Edition",
                     "clinical_t_category": "some val",
                     "clinical_m_category": "some val",
                     "clinical_n_category": "some val"
-                },
+                }),
                 'name' : 'clinical_tumour_staging_system'
             }
         ],

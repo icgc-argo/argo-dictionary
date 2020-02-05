@@ -1,5 +1,6 @@
 const validation = require('./../../references/validationFunctions/sample_registration/specimentypeDesignation.js');
 const universalTest = require('../universal');
+const loadObjects = require('../loadObjects');
 
 // load in all fields with entries prepopulated to null
 const sampleReg = require('../dummyData/sample_registration.json');
@@ -11,101 +12,90 @@ const unitTests = [
     [
         'Normal Designation with Normal',
         true,
-        {   
-            ...sampleReg,
+        loadObjects(sampleReg, {
             "tumour_normal_designation": "normal",
             "specimen_type": "normal"
-        }
+        })
     ],
     [
         'Normal Designation with Normal Tissue Adj',
         true,
-        {   
-            ...sampleReg,
+        loadObjects(sampleReg, {
             "tumour_normal_designation": "normal",
             "specimen_type": "Normal - tissue adjacent to primary tumour"
-        }
+        })
     ],
     [
         'Normal Designation with cell line derived normal',
         true,
-        {   
-            ...sampleReg,
+        loadObjects(sampleReg, {
             "tumour_normal_designation": "normal",
             "specimen_type": "Cell line - derived from normal"
-        }
+        })
     ],
     [
         'Normal Designation with recurrent tumour',
         false,
-        {   
-            ...sampleReg,
+        loadObjects(sampleReg, {
             "tumour_normal_designation": "normal",
             "specimen_type": "Recurrent tumour"
-        }
+        })
     ],
     [
         'Normal Designation with Metastatic tumour',
         false,
-        {   
-            ...sampleReg,
+        loadObjects(sampleReg, {
             "tumour_normal_designation": "normal",
             "specimen_type": "Metastatic tumour - metastasis to distant location"
-        }
+        })
     ],
     [
         'Normal Designation with cell line derived tumour',
         false,
-        {   
-            ...sampleReg,
+        loadObjects(sampleReg, {
             "tumour_normal_designation": "normal",
             "specimen_type": "Cell line - derived from tumour"
-        }
+        })
     ],
     [
         'Tumour Designation with cell line derived tumour',
         true,
-        {   
-            ...sampleReg,
+        loadObjects(sampleReg, {
             "tumour_normal_designation": "tumour",
             "specimen_type": "Cell line - derived from tumour"
-        }
+        })
     ],
     [
         'Tumour Designation with xenograft derived from tumour',
         true,
-        {   
-            ...sampleReg,
+        loadObjects(sampleReg, {
             "tumour_normal_designation": "tumour",
             "specimen_type": "Xenograft - derived from primary tumour"
-        }
+        })
     ],
     [
         'Tumour Designation with normal tissue adj to primary tumour',
         true,
-        {   
-            ...sampleReg,
+        loadObjects(sampleReg, {
             "tumour_normal_designation": "tumour",
             "specimen_type": "normal - tissue adjacent to primary tumour"
-        }
+        })
     ],
     [
         'Tumour Designation with normal',
         false,
-        {   
-            ...sampleReg,
+        loadObjects(sampleReg, {
             "tumour_normal_designation": "tumour",
             "specimen_type": "Normal"
-        }
+        })
     ],
     [
         'Tumour Designation with cell line derived normal',
         false,
-        {   
-            ...sampleReg,
+        loadObjects(sampleReg, {
             "tumour_normal_designation": "tumour",
             "specimen_type": "Cell line - derived from normal"
-        }
+        })
     ]
 ];
 
