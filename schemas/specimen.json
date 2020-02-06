@@ -243,7 +243,7 @@
       },
       "restrictions": {
         "required": true,
-        "script": "function validate() {\r\n  var result = { valid: true, message: \"depends on tumour_grading_system\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
+        "script": "#/script/specimen/tumourGrade"
       }
     },
     {

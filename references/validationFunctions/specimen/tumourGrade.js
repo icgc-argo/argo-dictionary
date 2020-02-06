@@ -7,10 +7,10 @@
 const validation = ($row,$field) => 
     (function validate() {
         let result = {valid: true, message: "Ok"};
-
+        let codeList = [];
         switch ($row.tumour_grading_system.trim().toLowerCase()) {
             case 'default':
-                let codeList = [
+                codeList = [
                     'gx - cannot be assessed',
                     'g1 well differentiated/low grade',
                     'g2 moderately differentiated/intermediated grade',
@@ -19,7 +19,7 @@ const validation = ($row,$field) =>
                 ];
                 break;
             case 'gleason':
-                let codeList = [
+                codeList = [
                     'gleason X: gleason score cannot be determined',
                     'gleason 2–6: the tumor tissue is well differentiated',
                     'gleason 7: the tumor tissue is moderately differentiated',
@@ -27,14 +27,14 @@ const validation = ($row,$field) =>
                 ];
                 break;
             case 'nottingham':
-                let codeList = [
+                codeList = [
                     'g1 (low grade or well differentiated)',
                     'g2 (intermediate grade or moderately differentiated)',
                     'g3 (high grade or poorly differentiated)'
                 ];
                 break;
             case 'brain cancer':
-                let codeList = [
+                codeList = [
                     'grade i',
                     'grade ii',
                     'grade iii',
@@ -42,7 +42,7 @@ const validation = ($row,$field) =>
                 ];
                 break;
             case 'isup for renal cell carcinoma':
-                let codeList = [
+                codeList = [
                     'grade 1: tumor cell nucleoli invisible or small and basophilic at 400 x magnification',
                     'grade 2: tumor cell nucleoli conspicuous at 400 x magnification but inconspicuous at 100 x magnification',
                     'grade 3: tumor cell nucleoli eosinophilic and clearly visible at 100 x magnification',
@@ -50,7 +50,7 @@ const validation = ($row,$field) =>
                 ];
                 break;
             case 'lymphoid neoplasms':
-                let codeList = [
+                codeList = [
                     'low grade or indolent nhl',
                     'high grade or aggressive nhl'
                 ];
@@ -58,8 +58,7 @@ const validation = ($row,$field) =>
           }
 
         if (!codeList.includes($field.trim().toLowerCase())){
-            const msg = `'${field}' is not a permissible value. When 'tumour_grading_system' is set to '${$row.tumour_grading_system}',
-            'tumour_grade' must be one of the following: \n ${codeList}`;
+            const msg = `'${field}' is not a permissible value. When 'tumour_grading_system' is set to '${$row.tumour_grading_system}','tumour_grade' must be one of the following: \n${codeList.join("\n")}`;
 
             result.valid = false;
             result.message = msg;
@@ -67,4 +66,12 @@ const validation = ($row,$field) =>
         return result;
     })();
 
+
+const row = {
+    'tumour_grade': 'meats',
+    'tumour_grading_system': 'nottingham'
+}
+const field = row.tumour_grade;
+
+console.log(validation(row,field).message);
 module.exports = validation;
