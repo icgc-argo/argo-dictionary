@@ -10,7 +10,6 @@ const loadObjects = (dummy, inputs) =>{
         if (!doesExist){
             throw `the field name : '${field}' did not match the fields from the dummy file: ${JSON.stringify(dummy,null,4)}. 
             \nPlease ensure that the '${field}' field exists in the schema, and is spelled correctly.
-            \nTo update the dummy files, run the 'constructDummyData.js' script.`
         }
         return doesExist;
     }
