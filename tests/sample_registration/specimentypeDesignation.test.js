@@ -3,7 +3,7 @@ const universalTest = require('../universal');
 const loadObjects = require('../loadObjects');
 
 // load in all fields with entries prepopulated to null
-const sampleReg = require('../dummyData/sample_registration.json');
+const sampleReg = require('../constructDummyData').getSchemaDummy('sample_registration');
 
 // the name of the field being validated
 const name = "specimen_type";

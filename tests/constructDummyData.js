@@ -1,38 +1,26 @@
-// This file builds dummy data objects for each schema, based on the fields.
+// This script builds dummy data objects for each schema, based on the fields.
 // This allows for the field names to populate automatically. Field data is empty.
 
 const fs = require('fs');
 const path = require('path');
-
 const schemasFolder = path.join(__dirname,'../schemas');
 
-const whitespace = 4;
-
-// read in all files from the schemas folder
-fs.readdir(schemasFolder, (err, schemaFiles)=>{
-    if (err) throw err
-    // only read in files with the .json extension
-    const regex = /(.*\.json)$/g;
-    const jsonFiles = schemaFiles.filter(file => file.match(regex));
-    // load in each file
-    jsonFiles.forEach(file => {
-        fs.readFile(path.join(schemasFolder,file), 'utf-8', (err, data) => {
-            if (err) throw err
-            // create the dummy data
-            const dummy = buildDummyData(JSON.parse(data));
-            // write the dummy data to a file
-            try {
-                fs.writeFileSync(path.join(__dirname,'dummyData',file), JSON.stringify(dummy,null,whitespace))
-              } catch (err) {
-                console.error(err)
-              }
-        })
-    })
-})
-
-
-const buildDummyData = (schemaJson) => {
+/**
+ * This returns a dummy object of a schema with all fields prepopulated to null
+ * @param {Object} schemaName The exact name of the schema as it is in the /schemas folder
+ */
+const getSchemaDummy = (schemaName) =>{
+    try {
+        fs.readFileSync(path.join(schemasFolder,`${schemaName}.json`), 'utf-8');
+    }
+    catch(err){
+        throw (`Something went wrong when trying to load in ${schemaName}.json from ${schemasFolder}. Please ensure the file exists and is spelled correctly.`)
+    }
+    const rawFileContents = fs.readFileSync(path.join(schemasFolder,`${schemaName}.json`), 'utf-8');
+    const fileContents = JSON.parse(rawFileContents);
     const dummyData = {};
-    schemaJson.fields.forEach(field =>{dummyData[field.name] = null;})
+    fileContents.fields.forEach(field =>{dummyData[field.name] = null;})
     return dummyData;
-};
+}
+
+module.exports = {getSchemaDummy};

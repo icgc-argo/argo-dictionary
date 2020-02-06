@@ -5,9 +5,10 @@ const loadObjects = require('../loadObjects');
 
 // Load in template files which already have all the field names
 // Field values are null by default
-const specimen = require('../dummyData/specimen.json');
-const followUp = require('../dummyData/follow_up.json');
-const primaryDiag = require('../dummyData/primary_diagnosis.json');
+const dummy =  require('../constructDummyData');
+const specimen = dummy.getSchemaDummy('specimen');
+const followUp = dummy.getSchemaDummy('follow_up');
+const primaryDiag = dummy.getSchemaDummy('primary_diagnosis');
 
 //use spread operator to grab copies of template files
 const unitTests = {
