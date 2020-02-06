@@ -9,7 +9,7 @@ const loadObjects = (dummy, inputs) =>{
         const doesExist = Object.keys(dummy).includes(field);
         if (!doesExist){
             throw `the field name : '${field}' did not match the fields from the dummy file: ${JSON.stringify(dummy,null,4)}. 
-            \nPlease ensure that the '${field}' field exists in the schema, and is spelled correctly.
+            \nPlease ensure that the '${field}' field exists in the schema, and is spelled correctly.`
         }
         return doesExist;
     }
