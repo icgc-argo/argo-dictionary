@@ -1,5 +1,8 @@
-const validation = () => {
-    function validate() {
+/**
+ * Checks that tumour desigation can only be normal iFF the specimen types are consered normal
+ */
+const validation = ($row, $field) => 
+    (function validate() {
 
         const row = $row;
         let result = {valid: true, message: "Ok"};
@@ -20,9 +23,6 @@ const validation = () => {
             }
         }
         return result;
-    }
-    
-    validate();
-}
+    })();
 
 module.exports = validation;

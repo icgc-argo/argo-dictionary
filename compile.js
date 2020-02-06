@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const chalk = require('chalk');
 
 const fs = require('fs');
-
+const whitespace = 4;
 const defaultName = 'ICGC-ARGO Data Dictionary';
 const defaultVersion = '0.0';
 
@@ -43,7 +43,7 @@ async function run() {
   const version = await promptVersion();
   const dictionary = { name, version, references, schemas };
 
-  fs.writeFileSync('./dictionary.json', JSON.stringify(dictionary));
+  fs.writeFileSync('./dictionary.json', JSON.stringify(dictionary,null,whitespace));
   console.log(dictionary);
 }
 
