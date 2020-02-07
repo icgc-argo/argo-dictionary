@@ -100,7 +100,7 @@
       "name": "relapse_interval",
       "valueType": "integer",
       "restrictions": {
-        "script": "function validate() {\r\n  var result = { valid: true, message: \"depends on disaease_status_at_followup being relapse\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
+        "script": "#/script/follow_up/relapse"
       },
       "meta": {
         "core": true,
@@ -114,7 +114,7 @@
       "name": "method_of_progression_status",
       "valueType": "string",
       "restrictions": {
-        "script": "function validate() {\r\n  var result = { valid: true, message: \"depends on disaease_status_at_followup being progression or relapse\" };\r\n  return result;\r\n}\r\n\r\nvalidate();",
+        "script": "#/script/follow_up/methodOfProg",
         "codeList": [
           "Autopsy",
           "Biomarker in liquid biopsy (e.g. tumor marker in blood or urine)",
