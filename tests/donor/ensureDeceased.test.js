@@ -3,10 +3,9 @@ const universalTest = require('../universal');
 const loadObjects = require('../loadObjects');
 
 // load in all fields with entries prepopulated to null
-// const donor = require('../dummyData/donor.json');
 const donor = require('../constructDummyData').getSchemaDummy('donor');
 
-// the name of the field being validated
+// the name of the field being validateds
 const name = "cause_of_death";
 
 const unitTests = [

@@ -20,7 +20,7 @@ const validation = ($row,$field) =>
                 break;
             case 'gleason':
                 codeList = [
-                    'gleason X: gleason score cannot be determined',
+                    'gleason x: gleason score cannot be determined',
                     'gleason 2–6: the tumor tissue is well differentiated',
                     'gleason 7: the tumor tissue is moderately differentiated',
                     'gleason 8–10: the tumor tissue is poorly differentiated or undifferentiated'
@@ -55,10 +55,10 @@ const validation = ($row,$field) =>
                     'high grade or aggressive nhl'
                 ];
                 break;
-          }
+        }
 
         if (!codeList.includes($field.trim().toLowerCase())){
-            const msg = `'${field}' is not a permissible value. When 'tumour_grading_system' is set to '${$row.tumour_grading_system}','tumour_grade' must be one of the following: \n${codeList.join("\n")}`;
+            const msg = `'${$field}' is not a permissible value. When 'tumour_grading_system' is set to '${$row.tumour_grading_system}','tumour_grade' must be one of the following: \n${codeList.join("\n")}`;
 
             result.valid = false;
             result.message = msg;
@@ -66,12 +66,4 @@ const validation = ($row,$field) =>
         return result;
     })();
 
-
-const row = {
-    'tumour_grade': 'meats',
-    'tumour_grading_system': 'nottingham'
-}
-const field = row.tumour_grade;
-
-console.log(validation(row,field).message);
 module.exports = validation;

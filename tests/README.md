@@ -22,9 +22,6 @@ Testing files end with `.test.js`
 
 > You can use `.only` or `.skip` on `describe` or `test` blocks to control which subset of tests you want to run.
 
-> You can run the [constructDummyData](constructDummyData.js) script to generate `.json` templates of the schemas with all the field names preloaded to null values. The files sit in the [dummyData folder](/dummyData/).
-
-
 ## Running Tests
 
 ### Running a Single Test
