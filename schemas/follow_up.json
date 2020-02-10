@@ -184,7 +184,7 @@
           "AJCC 2nd Edition",
           "AJCC 1st Edition"
         ],
-        "script": "#/script/common/ajccValidation"
+        "script": "#/script/follow_up/recurrence_tumour_staging_system"
       },
       "meta": {
         "core": true,
@@ -196,9 +196,6 @@
       "name": "recurrence_t_category",
       "description": "The code to represent the extent of the primary tumour (T) based on evidence obtained from clinical assessment parameters determined after treatment for patients receiving systemic and/or radiation therapy alone or as a component of their initial treatment, or as neoadjuvant therapy before planned surgery, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
-      "restrictions": {
-        "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on recurrence_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
-      },
       "meta": {
         "core": true,
         "dependsOn": "follow_up.recurrence_tumour_staging_system",
@@ -209,9 +206,6 @@
       "name": "recurrence_n_category",
       "description": "The code to represent the stage of cancer defined by which is the extent of the regional lymph node (N) involvement for the cancer based on evidence obtained from clinical assessment parameters determined determined at the time of retreatment for a recurrence or disease progression, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
-      "restrictions": {
-        "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on recurrence_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
-      },
       "meta": {
         "core": true,
         "dependsOn": "follow_up.recurrence_tumour_staging_system",
@@ -222,9 +216,6 @@
       "name": "recurrence_m_category",
       "description": "The code to represent the stage of cancer defined bythe extent of the distant metastasis (M) for the cancer based on evidence obtained from clinical assessment parameters determined determined at the time of retreatment for a recurrence or disease progression, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
-      "restrictions": {
-        "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on recurrence_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
-      },
       "meta": {
         "core": true,
         "dependsOn": "follow_up.recurrence_tumour_staging_system",
@@ -245,7 +236,7 @@
       "name": "posttherapy_tumour_staging_system",
       "valueType": "string",
       "restrictions": {
-        "script": "#/script/common/ajccValidation",
+        "script": "#/script/follow_up/posttherapy_tumour_staging_system",
         "codeList": [
           "Binet",
           "Rai",
@@ -272,9 +263,6 @@
       "meta": {
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
         "notes": "This field is required only if the selected postetherapy_tumour_staging_system is any edition of the AJCC cancer staging system."
-      },
-      "restrictions": {
-        "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on post_therapy_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       }
     },
     {
@@ -284,9 +272,6 @@
       "meta": {
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
         "notes": "This field is required only if the selected postetherapy_tumour_staging_system is any edition of the AJCC cancer staging system."
-      },
-      "restrictions": {
-        "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on post_therapy_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       }
     },
     {
@@ -296,9 +281,6 @@
       "meta": {
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
         "notes": "This field is required only if the selected postetherapy_tumour_staging_system is any edition of the AJCC cancer staging system."
-      },
-      "restrictions": {
-        "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on post_therapy_tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
       }
     },
     {

@@ -126,9 +126,6 @@
       "name": "clinical_t_category",
       "description": "The code to represent the extent of the primary tumour (T) based on evidence obtained from clinical assessment parameters determined at time of primary diagnosis and prior to treatment, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
-      "restrictions": {
-        "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
-      },
       "meta": {
         "core": true,
         "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
@@ -139,9 +136,6 @@
       "name": "clinical_n_category",
       "description": "The code to represent the stage of cancer defined by which is the extent of the regional lymph node (N) involvement for the cancer based on evidence obtained from clinical assessment parameters determined at time of primary diagnosis and prior to treatment, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
-      "restrictions": {
-        "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
-      },
       "meta": {
         "core": true,
         "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
@@ -152,9 +146,6 @@
       "name": "clinical_m_category",
       "description": "The code to represent the stage of cancer defined bythe extent of the distant metastasis (M) for the cancer based on evidence obtained from clinical assessment parameters determined at time of primary diagnosis and prior to treatment, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual. MX is NOT a valid category and cannot be assigned.",
       "valueType": "string",
-      "restrictions": {
-        "script": "function validate() {\r\n  var result = { valid: true, message: \"only required if on tumour_staging_system is AJCC\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
-      },
       "meta": {
         "core": true,
         "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",

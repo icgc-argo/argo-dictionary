@@ -3,7 +3,16 @@ const autoload = require('auto-load');
 const files = autoload(__dirname +'/validationFunctions');
 
 const escaper = (funcs) => {
-    return String(funcs).replace(/.*=>(\s)*/,'');
+    const removeOuterLayer = (functionString) => String(functionString).replace(/.*=>(\s)*/,'');
+    if (Array.isArray(funcs)){
+        return funcs.map(func => removeOuterLayer(func))
+    }
+    else if (typeof funcs === "function"){
+        return [removeOuterLayer(funcs)]
+    }
+    else {
+        throw 'The exported module must be a function or an array of functions.'
+    }
 }
 
 const escapeFunctions = (scripts) => {

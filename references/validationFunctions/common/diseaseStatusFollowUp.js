@@ -24,7 +24,7 @@ const validation = ($row, $field, $name) =>
 
         if(!soloConditionFields.includes($name)){
             isRequired = isRequired || secondCondition;
-            additionalMsg = ' or is of type "progression"';
+            additionalMsg = " or is of type 'progression'";
         }
 
         // checks for a string just consisting of whitespace

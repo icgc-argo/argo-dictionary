@@ -39,7 +39,7 @@
       "description": "Indicate the average number of cigarettes smoked per day by donor.",
       "valueType": "integer",
       "restrictions": {
-        "script": "function validate() {\r\n  var result = { valid: true, message: \"required if current OR reformed smoker enums\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
+        "script": ["function validate() {\r\n  var result = { valid: true, message: \"required if current OR reformed smoker enums\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"]
       }
     },
     {
@@ -47,7 +47,7 @@
       "description": "Indicate the duration of time, in years, that the donor was a smoker.",
       "valueType": "integer",
       "restrictions": {
-        "script": "function validate() {\r\n  var result = { valid: true, message: \"required if current OR reformed smoker enums\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
+        "script": ["function validate() {\r\n  var result = { valid: true, message: \"required if current OR reformed smoker enums\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"]
       }
     },
     {
@@ -84,7 +84,7 @@
       "description": "If the donor was exposed to second hand smoke, indicate the duration of time, in years, that they were exposed.",
       "valueType": "integer",
       "restrictions": {
-        "script": "function validate() {\r\n  var result = { valid: true, message: \"required if second_hand_smoke_exposure = YES\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
+        "script": ["function validate() {\r\n  var result = { valid: true, message: \"required if second_hand_smoke_exposure = YES\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"]
       }
     },
     {
@@ -104,7 +104,7 @@
       "description": "Describe the donor current level of alcohol use as self-reported by the donor.",
       "valueType": "string",
       "restrictions": {
-        "script": "function validate() {\r\n  var result = { valid: true, message: \"required if alcohol_history = YES\" };\r\n  return result;\r\n}\r\n\r\nvalidate();",
+        "script": ["function validate() {\r\n  var result = { valid: true, message: \"required if alcohol_history = YES\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"],
         "codeList": [
           "None",
           "Social drinker (> once a month, < once a week)",
