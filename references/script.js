@@ -10,9 +10,7 @@ const escaper = (funcs) => {
     else if (typeof funcs === "function"){
         return [removeOuterLayer(funcs)]
     }
-    else {
-        throw 'The exported module must be a function or an array of functions.'
-    }
+    //otherwise it's a subfolder
 }
 
 const escapeFunctions = (scripts) => {

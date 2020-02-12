@@ -1,4 +1,5 @@
-const validation = require('../../references/validationFunctions/common/diseaseStatusFollowUp.js');
+const validation = require('../../references/validationFunctions/follow_up/baseScripts/requiredWhenProgression');
+
 const universalTest = require('../universal');
 const loadObjects = require('../loadObjects');
 
@@ -8,76 +9,9 @@ const followUp = require('../constructDummyData').getSchemaDummy('follow_up');
 
 // key -> name of field, value -> unit tests
 const myUnitTests = {
-    'relapse_interval': [
-        [
-            'Disease status is relapse, with provided relapse interval',
-            true,
-            loadObjects(followUp,
-                {   
-                    "disease_status_at_followup": "relapse",
-                    "relapse_interval": "500"
-                }
-            )
-        ],
-        [
-            'Disease status is not relapse, with provided relapse interval',
-            true,
-            loadObjects(followUp,
-                {   
-                    "disease_status_at_followup": "partial remission",
-                    "relapse_interval": "900"
-                }
-            )
-        ],
-        [
-            'Disease status is relapse, without provided relapse interval',
-            false,
-            loadObjects(followUp,
-                {   
-                    "disease_status_at_followup": "relapse"
-                }
-            )
-        ],
-        [
-            'Disease status is relapse, but relapse interval is just whitespace',
-            false,
-            loadObjects(followUp,
-                {   
-                    "disease_status_at_followup": "relapse",
-                    "relapse_interval" : "      "
-                }
-            )
-        ],
-        [
-            'Disease status is not progression, and relapse interval is not provided',
-            true,
-            loadObjects(followUp,
-                {   
-                    "disease_status_at_followup": "stable"
-                }
-            )
-        ],
-        [
-            'Disease status is progression, and relapse interval is not provided',
-            true,
-            loadObjects(followUp,
-                {   
-                    "disease_status_at_followup": "Distant progression"
-                }
-            )
-        ]
-    ],
+
     'method_of_progression_status': [
-        [
-            'Disease status is relapse, with provided method of progression',
-            true,
-            loadObjects(followUp,
-                {   
-                    "disease_status_at_followup": "relapse",
-                    "method_of_progression_status": "Autopsy"
-                }
-            )
-        ],
+
         [
             'Disease status is distant progression, with provided method of progression',
             true,
@@ -95,15 +29,6 @@ const myUnitTests = {
                 {   
                     "disease_status_at_followup": "Loco-regional progression",
                     "method_of_progression_status": "blood draw"
-                }
-            )
-        ],
-        [
-            'Disease status is relapse, without provided method of progression',
-            false,
-            loadObjects(followUp,
-                {   
-                    "disease_status_at_followup": "relapse"
                 }
             )
         ],
@@ -147,31 +72,12 @@ const myUnitTests = {
     ],
     'anatomic_site_progression_or_recurrences': [
         [
-            'Disease status is relapse, with provided ASPOR',
-            true,
-            loadObjects(followUp,
-                {   
-                    "disease_status_at_followup": "relapse",
-                    "anatomic_site_progression_or_recurrences": "Ankle"
-                }
-            )
-        ],
-        [
             'Disease status is distant progression, with provided ASPOR',
             true,
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "Distant progression",
                     "anatomic_site_progression_or_recurrences": "Jaw"
-                }
-            )
-        ],
-        [
-            'Disease status is relapse, without provided ASPOR',
-            false,
-            loadObjects(followUp,
-                {   
-                    "disease_status_at_followup": "relapse"
                 }
             )
         ],
@@ -187,31 +93,12 @@ const myUnitTests = {
     ],
     'recurrence_tumour_staging_system': [
         [
-            'Disease status is relapse, with provided RTSS',
-            true,
-            loadObjects(followUp,
-                {   
-                    "disease_status_at_followup": "relapse",
-                    "recurrence_tumour_staging_system": "Binet"
-                }
-            )
-        ],
-        [
             'Disease status is distant progression, with provided RTSS',
             true,
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "Distant progression",
                     "recurrence_tumour_staging_system": "FIGO"
-                }
-            )
-        ],
-        [
-            'Disease status is relapse, without provided ASPOR',
-            false,
-            loadObjects(followUp,
-                {   
-                    "disease_status_at_followup": "relapse"
                 }
             )
         ],
@@ -227,31 +114,12 @@ const myUnitTests = {
     ],
     'posttherapy_tumour_staging_system': [
         [
-            'Disease status is relapse, with provided PTSS',
-            true,
-            loadObjects(followUp,
-                {   
-                    "disease_status_at_followup": "Relapse",
-                    "posttherapy_tumour_staging_system": "Murphy"
-                }
-            )
-        ],
-        [
             'Disease status is distant progression, with provided PTSS',
             true,
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "Distant progression",
                     "posttherapy_tumour_staging_system": "Lugano"
-                }
-            )
-        ],
-        [
-            'Disease status is relapse, without provided ASPOR',
-            false,
-            loadObjects(followUp,
-                {   
-                    "disease_status_at_followup": "relapse"
                 }
             )
         ],

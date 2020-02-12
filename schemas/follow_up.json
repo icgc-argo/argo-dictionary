@@ -100,7 +100,7 @@
       "name": "relapse_interval",
       "valueType": "integer",
       "restrictions": {
-        "script": "#/script/common/diseaseStatusFollowUp"
+        "script": "#/script/follow_up/relapse_interval"
       },
       "meta": {
         "core": true,
@@ -114,7 +114,7 @@
       "name": "method_of_progression_status",
       "valueType": "string",
       "restrictions": {
-        "script": "#/script/common/diseaseStatusFollowUp",
+        "script": "#/script/follow_up/method_of_progression_status",
         "codeList": [
           "Autopsy",
           "Biomarker in liquid biopsy (e.g. tumor marker in blood or urine)",
@@ -154,7 +154,7 @@
       "name": "anatomic_site_progression_or_recurrences",
       "valueType": "string",
       "restrictions": {
-        "script": "#/script/common/diseaseStatusFollowUp",
+        "script": "#/script/follow_up/anatomic_site_progression_or_recurrences",
         "codeList": "#/list/anatomic_locations"
       },
       "meta": {

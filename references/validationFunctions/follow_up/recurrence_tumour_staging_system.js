@@ -1,7 +1,9 @@
 const ajccValidation = require('../common/ajccValidation');
-const diseaseStatusFollowUp = require('../common/diseaseStatusFollowUp');
+const requiredWhenProgression = require('./baseScripts/requiredWhenProgression');
+const requiredWhenRelapse = require('./baseScripts/requiredWhenRelapse');
 
 module.exports = [
     ajccValidation,
-    diseaseStatusFollowUp
+    requiredWhenProgression,
+    requiredWhenRelapse
 ];
