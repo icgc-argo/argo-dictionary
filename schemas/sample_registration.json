@@ -101,11 +101,11 @@
       "valueType": "string",
       "description": "Description of specimens tumour/normal status for data processing.",
       "restrictions": {
-        "validationDependency": true,
         "required": true,
         "codeList": ["Normal", "Tumour"]
       },
       "meta": {
+        "validationDependency": true,
         "core": true
       }
     },
@@ -114,7 +114,6 @@
       "valueType": "string",
       "description": "Description of the kind of specimen that was collected with respect to tumour/normal tissue origin.",
       "restrictions": {
-        "validationDependency": true,
         "required": true,
         "codeList": [
           "Normal",
@@ -136,6 +135,7 @@
         "script": "#/script/sample_registration/specimentypeDesignation"
       },
       "meta": {
+        "validationDependency": true,
         "core": true
       }
     },
