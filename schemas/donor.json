@@ -67,6 +67,9 @@
         "validationDependency": true,
         "units": "days",
         "core": "true"
+      },
+      "restrictions": {
+        "script": "#/script/donor/ensureDeceased"
       }
     },
     {
