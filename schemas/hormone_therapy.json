@@ -51,11 +51,11 @@
       "description": "Name of agent or drug administered to patient as part of the hormone therapy treatment regimen.",
       "valueType": "string",
       "restrictions": {
-        "validationDependency": true,
         "required": true,
         "codeList": ["Placeholder list 1", "Need list", "Still need it"]
       },
       "meta": {
+        "validationDependency": true,
         "core": true,
         "notes": "This field uses a controlled vocabulary gathered from the DrugBank database of drug names."
       }
