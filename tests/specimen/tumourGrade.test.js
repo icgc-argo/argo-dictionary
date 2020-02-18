@@ -309,6 +309,16 @@ const unitTests = [
             }
         )
     ],
+    [
+        'Grading system set to an unexpected value, tumour grade is any text',
+        true,
+        loadObjects(specimen,
+            {   
+                "tumour_grading_system": "A possible new entry to the codelist for tumour grading system.",
+                "tumour_grade": "any text here"
+            }
+        )
+    ],
     
 ];
 
@@ -323,7 +333,7 @@ describe("Common Tests",()=>{
 
 describe("Unit Tests for Tumour Grade",()=>{
     test.each(unitTests)('\n Test %# : %s \nExpecting result.valid to be: %s',(description,target,inputs) =>{
-        const scriptOutput = validation(inputs, inputs[name], inputs[inputs.name]);
+        const scriptOutput = validation(inputs, inputs[name]);
         expect(scriptOutput.valid).toBe(target);
     })
 })
