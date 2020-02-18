@@ -193,11 +193,7 @@
         "codeList": ["Grade 0", "Grade 1", "Grade 2", "Grade 3", "Grade 4"]
       },
       "meta": {
-        "notes": "Grade 0: Fully active, able to carry on all pre-disease performance without restriction
-        Grade 1: Restricted in physically strenuous activity but ambulatory and able to carry out work of a light or sedentary nature (ie. Light house work, office work)
-        Grade 2: Ambulatory and capable of all selfcare but unable to carry out any work activities; up and about more than 50% of waking hours
-        Grade 3: Capable of only limited selfcare; confined to bed or chair more than 50% of waking hours
-        Grade 4: Completely disabled; cannot carry on any selfcare; totally confined to bed or chair"
+        "notes": "Grade 0: Fully active, able to carry on all pre-disease performance without restriction \n Grade 1: Restricted in physically strenuous activity but ambulatory and able to carry out work of a light or sedentary nature (ie. Light house work, office work) \n Grade 2: Ambulatory and capable of all selfcare but unable to carry out any work activities; up and about more than 50% of waking hours \n Grade 3: Capable of only limited selfcare; confined to bed or chair more than 50% of waking hours \n Grade 4: Completely disabled; cannot carry on any selfcare; totally confined to bed or chair"
       }
     }
   ]
