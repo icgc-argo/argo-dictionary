@@ -262,7 +262,7 @@
       "valueType": "string",
       "meta": {
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
-        "notes": "This field is required only if the selected postetherapy_tumour_staging_system is any edition of the AJCC cancer staging system."
+        "notes": "This field is required only if the selected posttherapy_tumour_staging_system is any edition of the AJCC cancer staging system."
       }
     },
     {
@@ -271,7 +271,7 @@
       "valueType": "string",
       "meta": {
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
-        "notes": "This field is required only if the selected postetherapy_tumour_staging_system is any edition of the AJCC cancer staging system."
+        "notes": "This field is required only if the selected posttherapy_tumour_staging_system is any edition of the AJCC cancer staging system."
       }
     },
     {
@@ -280,7 +280,7 @@
       "valueType": "string",
       "meta": {
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
-        "notes": "This field is required only if the selected postetherapy_tumour_staging_system is any edition of the AJCC cancer staging system."
+        "notes": "This field is required only if the selected posttherapy_tumour_staging_system is any edition of the AJCC cancer staging system."
       }
     },
     {
@@ -289,7 +289,7 @@
       "valueType": "string",
       "meta": {
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
-        "notes": "This field value is dependent on the selected postetherapy_tumour_staging_system."
+        "notes": "This field value is dependent on the selected posttherapy_tumour_staging_system."
 
       }
     }
