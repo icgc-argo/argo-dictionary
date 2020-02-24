@@ -65,3 +65,7 @@ You will be prompted to provide the dictionary name and version number, or leave
 If all tests do not pass, the dictionary will not be compiled.
 
 > Note: The `dictionary.json` file is ignored by git. This file can be uploaded to Lectern, for example, but it shouldn't appear in this repo.
+
+### Testing your dictionary locally
+
+`node populateReferences.js` will create `populated_dictionary.json`. The output of the script is **not** intended to be uploaded to Lectern. Instead, it is to aid in testing with the [clinical repo](https://github.com/icgc-argo/argo-clinical). It can be used to add/overwrite the contents of the [sample-schema](https://github.com/icgc-argo/argo-clinical/blob/master/sampleFiles/sample-schema.json), when the Lectern URL in the .env file is set to said file's path.
