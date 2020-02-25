@@ -64,9 +64,14 @@
       "name": "survival_time",
       "valueType": "integer",
       "meta": {
+        "dependsOn": "donor.vital_status",
+        "notes": "Survival_time is only required to be submitted if the donor's vital_status is Deceased.",
         "validationDependency": true,
         "units": "days",
         "core": "true"
+      },
+      "restrictions": {
+        "script": "#/script/donor/ensureDeceased"
       }
     },
     {
