@@ -122,7 +122,7 @@
       "meta": {}
     },
     {
-      "description": "Indicate the donor's menopause status at the time of primary diagnosis.",
+      "description": "Indicate the donor's menopause status at the time of primary diagnosis. (Codelist reference: NCI CDE ID: 2434914)",
       "name": "menopause_status",
       "restrictions": {
         "codeList": [
