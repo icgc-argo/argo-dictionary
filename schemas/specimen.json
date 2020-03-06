@@ -55,7 +55,6 @@
       },
       "restrictions": {
         "script": "#/script/common/ajccValidation",
-        "required": true,
         "codeList": [
           "Binet",
           "Rai",
@@ -111,9 +110,6 @@
       "meta": {
         "core": true,
         "dependsOn": "specimen.pathological_tumour_staging_system"
-      },
-      "restrictions": {
-        "required": true
       }
     },
     {
@@ -212,7 +208,6 @@
         "core": true
       },
       "restrictions": {
-        "required": true,
         "codeList": [
           "Default",
           "Gleason",
@@ -233,7 +228,6 @@
         "notes": "This field depends on the selected tumour grading system."
       },
       "restrictions": {
-        "required": true,
         "script": "#/script/specimen/tumourGrade"
       }
     },
@@ -243,9 +237,6 @@
       "valueType": "number",
       "meta": {
         "core": true
-      },
-      "restrictions": {
-        "required": true
       }
     },
     {
@@ -254,9 +245,6 @@
       "valueType": "number",
       "meta": {
         "core": true
-      },
-      "restrictions": {
-        "required": true
       }
     },
     {
@@ -276,9 +264,6 @@
       "valueType": "number",
       "meta": {
         "core": true
-      },
-      "restrictions": {
-        "required": true
       }
     },
     {
@@ -287,9 +272,6 @@
       "valueType": "number",
       "meta": {
         "core": true
-      },
-      "restrictions": {
-        "required": true
       }
     }
   ]
