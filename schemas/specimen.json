@@ -53,7 +53,7 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "note": "This field is only required if the specimen is tumour."
+        "note": "This field is only required if the specimen is a tumour."
       },
       "restrictions": {
         "script": "#/script/common/ajccValidation",
@@ -134,11 +134,10 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "note": "This field is only required if the specimen is tumour.",
+        "note": "This field is only required if the specimen is a tumour.",
         "examples": "8260/3,9691/36"
       },
       "restrictions": {
-        "required": true,
         "regex": "^[8,9]{1}[0-9]{3}/[0,1,2,3,6,9]{1}[1-9]{0,1}$"
       }
     },
@@ -198,10 +197,11 @@
       "description": "Indicate whether the histologic description of tissue or cells was confirmed by a pathology review of frozen or formalin fixed slide(s) completed after the diagnostic pathology review of the tumour sample used to extract analyte(s).",
       "valueType": "string",
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "sample_registration.tumour_normal_designation",
+        "note": "This field is only required if the specimen is a tumour."
       },
       "restrictions": {
-        "required": true,
         "codeList": "#/list/yes_no"
       }
     },
@@ -212,7 +212,7 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "note": "This field is only required if the specimen is tumour."
+        "note": "This field is only required if the specimen is a tumour."
       },
       "restrictions": {
         "codeList": [
@@ -245,7 +245,7 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "note": "This field is only required if the specimen is tumour."
+        "note": "This field is only required if the specimen is a tumour."
       }
     },
     {
@@ -255,7 +255,7 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "note": "This field is only required if the specimen is tumour."
+        "note": "This field is only required if the specimen is a tumour."
       }
     },
     {
@@ -265,10 +265,7 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "note": "This field is only required if the specimen is tumour."
-      },
-      "restrictions": {
-        "required": true
+        "note": "This field is only required if the specimen is a tumour."
       }
     },
     {
@@ -278,7 +275,7 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "note": "This field is only required if the specimen is tumour."
+        "note": "This field is only required if the specimen is a tumour."
       }
     },
     {
@@ -288,7 +285,7 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "note": "This field is only required if the specimen is tumour."
+        "note": "This field is only required if the specimen is a tumour."
       }
     }
   ]
