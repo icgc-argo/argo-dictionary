@@ -58,7 +58,7 @@
     },
     {
       "name": "number_lymph_nodes_positive",
-      "description": "The number of regional lymph nodes reported as being positive for tumour metastases.",
+      "description": "The number of regional lymph nodes reported as being positive for tumour metastases. (Reference: NCI CDE ID: 6113694)",
       "valueType": "integer",
       "restrictions": {
         "required": true
@@ -69,7 +69,7 @@
     },
     {
       "name": "number_lymph_nodes_examined",
-      "description": "The total number of lymph nodes tested for the presence of cancer.",
+      "description": "The total number of lymph nodes tested for the presence of cancer. (Reference: NCI CDE ID: 3)",
       "valueType": "integer",
       "meta": {}
     },
@@ -187,7 +187,7 @@
     },
     {
       "name": "performance_status",
-      "description": "Indicate the donor's performance status grade at the time of primary diagnosis (ECOG performance score grades: https://ecog-acrin.org/resources/ecog-performance-status).",
+      "description": "Indicate the donor's performance status grade at the time of primary diagnosis. (Reference source: ECOG performance score grades from https://ecog-acrin.org/resources/ecog-performance-status).",
       "valueType": "string",
       "restrictions": {
         "codeList": ["Grade 0", "Grade 1", "Grade 2", "Grade 3", "Grade 4"]

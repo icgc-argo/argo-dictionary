@@ -110,7 +110,7 @@
       }
     },
     {
-      "description": "Indicate the method(s) used to confirm the donor's progression disease status.",
+      "description": "Indicate the method(s) used to confirm the donor's progression disease status. (Codelist reference: NCI CDE ID: 6161031)",
       "name": "method_of_progression_status",
       "valueType": "string",
       "restrictions": {
@@ -150,7 +150,7 @@
       }
     },
     {
-      "description": "Indicate the anatomic site where disease progression or recurrence occurred.",
+      "description": "Indicate the anatomic site where disease progression or recurrence occurred. (Codelist reference: NCI CDE ID: 4742851)",
       "name": "anatomic_site_progression_or_recurrences",
       "valueType": "string",
       "restrictions": {

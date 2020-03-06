@@ -140,7 +140,7 @@
     },
     {
       "name": "response_to_therapy",
-      "description": "The donors's response to the applied treatment regimen.",
+      "description": "The donors's response to the applied treatment regimen. (Source: RECIST)",
       "valueType": "string",
       "restrictions": {
         "required": true,
