@@ -253,9 +253,6 @@
       "valueType": "number",
       "meta": {
         "core": true
-      },
-      "restrictions": {
-        "required": true
       }
     },
     {
