@@ -53,7 +53,7 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "note": "This field is only required if the specimen is a tumour."
+        "notes": "This field is only required if the specimen is a tumour."
       },
       "restrictions": {
         "script": "#/script/common/ajccValidation",
@@ -134,7 +134,7 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "note": "This field is only required if the specimen is a tumour.",
+        "notes": "This field is only required if the specimen is a tumour.",
         "examples": "8260/3,9691/36"
       },
       "restrictions": {
@@ -199,7 +199,7 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "note": "This field is only required if the specimen is a tumour."
+        "notes": "This field is only required if the specimen is a tumour."
       },
       "restrictions": {
         "codeList": "#/list/yes_no"
@@ -212,7 +212,7 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "note": "This field is only required if the specimen is a tumour."
+        "notes": "This field is only required if the specimen is a tumour."
       },
       "restrictions": {
         "codeList": [
@@ -245,7 +245,7 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "note": "This field is only required if the specimen is a tumour."
+        "notes": "This field is only required if the specimen is a tumour."
       }
     },
     {
@@ -255,7 +255,7 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "note": "This field is only required if the specimen is a tumour."
+        "notes": "This field is only required if the specimen is a tumour."
       }
     },
     {
@@ -265,7 +265,7 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "note": "This field is only required if the specimen is a tumour."
+        "notes": "This field is only required if the specimen is a tumour."
       }
     },
     {
@@ -275,7 +275,7 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "note": "This field is only required if the specimen is a tumour."
+        "notes": "This field is only required if the specimen is a tumour."
       }
     },
     {
@@ -285,7 +285,7 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "note": "This field is only required if the specimen is a tumour."
+        "notes": "This field is only required if the specimen is a tumour."
       }
     }
   ]
