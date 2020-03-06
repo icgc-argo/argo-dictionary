@@ -51,7 +51,9 @@
       "description": "Specify the tumour staging system used to assess the cancer at the time the tumour specimen was resected. Pathological classification is based on the clinical stage information (acquired before treatment) and supplemented/modified by operative findings and pathological evaluation of the resected specimen.",
       "valueType": "string",
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "sample_registration.tumour_normal_designation",
+        "note": "This field is only required if the specimen is tumour."
       },
       "restrictions": {
         "script": "#/script/common/ajccValidation",
@@ -130,7 +132,10 @@
       "description": "The code to represent the histology (morphology) of neoplasms that is usually obtained from a pathology report, according to the International Classification of Diseases for Oncology, 3rd Edition (WHO ICD-O-3). Please refer to the guidelines provided in the ICD-O-3 manual at https://apps.who.int/iris/handle/10665/42344.",
       "valueType": "string",
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "sample_registration.tumour_normal_designation",
+        "note": "This field is only required if the specimen is tumour.",
+        "examples": "8260/3,9691/36"
       },
       "restrictions": {
         "required": true,
@@ -202,10 +207,12 @@
     },
     {
       "name": "tumour_grading_system",
-      "description": "Specify the tumour staging system used to assess the description of a tumour based on how abnormal the tumour cells and the tumour tissue look under a microscope. Tumour grade is an indicator of how quickly a tumour is likely to  grow.",
+      "description": "Specify the tumour staging system used to assess the description of a tumour based on how abnormal the tumour cells and the tumour tissue look under a microscope. Tumour grade is an indicator of how quickly a tumour is likely to grow.",
       "valueType": "string",
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "sample_registration.tumour_normal_designation",
+        "note": "This field is only required if the specimen is tumour."
       },
       "restrictions": {
         "codeList": [
@@ -236,7 +243,9 @@
       "description": "Indicate a value, in decimals, that represents the percentage of infiltration by tumour cells in a specimen.",
       "valueType": "number",
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "sample_registration.tumour_normal_designation",
+        "note": "This field is only required if the specimen is tumour."
       }
     },
     {
@@ -244,7 +253,9 @@
       "description": "Indicate a value, in decimals, that represents the count of proliferating cells determined during pathologic review of the specimen.",
       "valueType": "number",
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "sample_registration.tumour_normal_designation",
+        "note": "This field is only required if the specimen is tumour."
       }
     },
     {
@@ -252,7 +263,12 @@
       "description": "Indicate a value, in decimals, that represents local response to cellular injury, marked by capillary dilatation, edema and leukocyte infiltration; clinically, inflammation is manifest by redness, heat, pain, swelling and loss of function, with the need to heal damaged tissue.",
       "valueType": "number",
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "sample_registration.tumour_normal_designation",
+        "note": "This field is only required if the specimen is tumour."
+      },
+      "restrictions": {
+        "required": true
       }
     },
     {
@@ -260,7 +276,9 @@
       "description": "Indicate a value, in decimals, that represents the percentage of reactive cells that are present in a malignant tumour specimen but are not malignant such as fibroblasts, vascular structures, etc.",
       "valueType": "number",
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "sample_registration.tumour_normal_designation",
+        "note": "This field is only required if the specimen is tumour."
       }
     },
     {
@@ -268,7 +286,9 @@
       "description": "Indicate a value, in decimals, that represents the percentage of cell death in a malignant tumour specimen.",
       "valueType": "number",
       "meta": {
-        "core": true
+        "core": true,
+        "dependsOn": "sample_registration.tumour_normal_designation",
+        "note": "This field is only required if the specimen is tumour."
       }
     }
   ]
