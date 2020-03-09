@@ -111,7 +111,8 @@
       "valueType": "string",
       "meta": {
         "core": true,
-        "dependsOn": "specimen.pathological_tumour_staging_system"
+        "dependsOn": "specimen.pathological_tumour_staging_system",
+        "notes": "This field depends on the selected pathological staging system, and is only required if the specimen is a tumour."
       }
     },
     {
@@ -232,7 +233,7 @@
       "meta": {
         "core": true,
         "dependsOn": "specimen.tumour_grading_system",
-        "notes": "This field depends on the selected tumour grading system."
+        "notes": "This field depends on the selected tumour grading system, and is only required if the specimen is a tumour."
       },
       "restrictions": {
         "script": "#/script/specimen/tumourGrade"
