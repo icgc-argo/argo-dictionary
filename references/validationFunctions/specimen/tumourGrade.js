@@ -56,7 +56,9 @@ const validation = ($row, $field) =>
       if (!codeList.includes($field.trim().toLowerCase()) && codeList.length) {
         const msg = `'${$field}' is not a permissible value. When 'tumour_grading_system' is set to '${
           $row.tumour_grading_system
-        }', 'tumour_grade' must be one of the following: \n${codeList.join('\n')}`;
+        }', 'tumour_grade' must be one of the following: \n${codeList
+          .map(code => `- "${code}"`)
+          .join('\n')}`;
 
         result.valid = false;
         result.message = msg;
