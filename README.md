@@ -57,7 +57,7 @@ To run all unit tests, you can use : `npm run test`.
 ### Compile Whole Dictionary
 1.  Install dependencies via npm. 
 
-`npm run compile`
+`npm install`
 
 2. Then run the dictionary building script: 
 
