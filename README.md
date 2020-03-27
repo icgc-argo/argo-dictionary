@@ -55,10 +55,15 @@ To run all unit tests, you can use : `npm run test`.
 [More information about unit tests.](/tests/README.md)
 
 ### Compile Whole Dictionary
+1.  Install dependencies via npm. 
+
+`npm install`
+
+2. Then run the dictionary building script: 
 
 `npm run compile`
 
-Will check that all units tests pass, and then will collect all schemas and references and format them into a full dictionary object that could be uploaded to lectern. An abridged version of the dictionary will be printed to the console, and the full compiled dictionary will be output to the file `./dictionary.json`
+This will check that all units tests pass, and then will collect all schemas and references and format them into a full dictionary object that could be uploaded to lectern. An abridged version of the dictionary will be printed to the console, and the full compiled dictionary will be output to the file `./dictionary.json`
 
 You will be prompted to provide the dictionary name and version number, or leave them blank and accept the defaults (`ICGC-ARGO Data Dictionary` and `0.0` respectively).
 
