@@ -259,9 +259,6 @@ describe('Unit Tests for AJCC validation script', () => {
         (description, target, inputs) => {
           const scriptOutput = validation(inputs.row, inputs.name, inputs.row[inputs.name]);
           expect(scriptOutput.valid).toBe(target);
-          if (!scriptOutput.valid) {
-            console.log(scriptOutput.message);
-          }
         },
       );
     });
