@@ -58,6 +58,26 @@
       }
     },
     {
+      "name": "basis_of_diagnosis",
+      "description": "Indicate the most valid basis of how the primary diagnosis was identified. If more than one diagnosis technique was used, select the term that has the highest code number (see notes). (Reference: IACR Standard for Basis of Diagnosis http://www.iacr.com.fr/images/doc/basis.pdf)",
+      "restrictions": {
+         "codeList": [
+            "Death certificate only",
+            "Clinical",
+            "Clinical investigation",
+            "Specific tumour markers",
+            "Cytology",
+            "Histology of a metastasis",
+            "Histology of a primary tumour",
+            "Unknown"
+         ]
+      },
+      "valueType": "string",
+      "meta": {
+         "notes": "0: Death certificate only: Information provided is from a death certificate.\n1: Clinical: Diagnosis made before death.\n2: Clinical investigation: All diagnostic techniques, including X-ray, endoscopy, imaging, ultrasound, exploratory surgery (such as laparotomy), and autopsy, without a tissue diagnosis.\n4: Specific tumour markers: Including biochemical and/or immunologic markers that are specific for a tumour site.\n5: Cytology: Examination of cells from a primary or secondary site, including fluids aspirated by endoscopy or needle; also includes the microscopic examination of peripheral blood and bone marrow aspirates.\n6: Histology of a metastasis: Histologic examination of tissue from a metastasis, including autopsy specimens.\n7: Histology of a primary tumour: Histologic examination of tissue from primary tumour, however obtained, including all cutting techniques and bone marrow biopsies; also includes autopsy specimens of primary tumour.\n9: Unknown: No information on how the diagnosis has been made."
+      }
+    },
+    {
       "name": "number_lymph_nodes_positive",
       "description": "The number of regional lymph nodes reported as being positive for tumour metastases. (Reference: NCI CDE ID: 6113694)",
       "valueType": "integer",
