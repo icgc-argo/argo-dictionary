@@ -8,7 +8,7 @@
 const validation = ($row, $name, $field) =>
   (function validate() {
     let result = { valid: true, message: 'Ok' };
-
+    const arrayFormatter = arr => `\n${arr.map(entry => `- "${entry}"`).join('\n')}`;
     /* This is not a required field, so first ensure that it exists */
     if ($field) {
       /* Contingent on the naming system for tumour staging systems to remain consistent */
@@ -39,13 +39,16 @@ const validation = ($row, $name, $field) =>
       if (/^(AJCC)\b/i.test($field) && emptyFields.length) {
         result = {
           valid: false,
-          message: `The following fields are required when ${$name} is set to an AJCC option: ${emptyFields}`,
+          message: `The following fields are required when ${$name} is set to an AJCC option: ${arrayFormatter(
+            emptyFields,
+          )}`,
         };
       } else if (!/^(AJCC)\b/i.test($field) && emptyFields.length != requiredFields.length) {
+        const errorFields = requiredFields.filter(fieldName => !emptyFields.includes(fieldName));
         result = {
           valid: false,
-          message: `The following fields cannot be provided when ${$name} is not set to an AJCC option: ${requiredFields.filter(
-            fieldName => !emptyFields.includes(fieldName),
+          message: `The following fields cannot be provided when ${$name} is not set to an AJCC option: ${arrayFormatter(
+            errorFields,
           )}`,
         };
       }
