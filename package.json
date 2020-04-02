@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/icgc-argo/argo-dictionary.git"
+    "url": "git+https://github.com/standardhealth/argo-dictionary.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/icgc-argo/argo-dictionary/issues"
+    "url": "https://github.com/standardhealth/argo-dictionary/issues"
   },
-  "homepage": "https://github.com/icgc-argo/argo-dictionary#readme",
+  "homepage": "https://github.com/standardhealth/argo-dictionary#readme",
   "dependencies": {
     "auto-load": "^3.0.4",
     "axios": "^0.19.0",

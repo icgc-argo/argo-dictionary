@@ -73,4 +73,4 @@ If all tests do not pass, the dictionary will not be compiled.
 
 ### Testing your dictionary locally
 
-`node populateReferences.js` will create `populated_dictionary.json`. The output of the script is **not** intended to be uploaded to Lectern. Instead, it is to aid in testing with the [clinical repo](https://github.com/icgc-argo/argo-clinical). It can be used to add/overwrite the contents of the [sample-schema](https://github.com/icgc-argo/argo-clinical/blob/master/sampleFiles/sample-schema.json), when the Lectern URL in the .env file is set to said file's path.
+`node populateReferences.js` will create `populated_dictionary.json`. The output of the script is **not** intended to be uploaded to Lectern. Instead, it is to aid in testing with the [clinical repo](https://github.com/standardhealth/argo-clinical). It can be used to add/overwrite the contents of the [sample-schema](https://github.com/standardhealth/argo-clinical/blob/master/sampleFiles/sample-schema.json), when the Lectern URL in the .env file is set to said file's path.
