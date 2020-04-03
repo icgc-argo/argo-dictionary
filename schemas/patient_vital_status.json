@@ -1,0 +1,34 @@
+{
+  "name": "patient_vital_status",
+  "description": "An indicator of whether the patient is alive or dead.",
+  "meta": {
+    "parent": "patient"
+  },
+  "fields": [
+    {
+      "name": "vital_status",
+      "description": "Donor's last known state of living or deceased.",
+      "restrictions": {
+        "codeList": ["Alive", "Deceased", "Unknown"],
+        "required": true
+      },
+      "valueType": "string",
+      "meta": {
+        "core": true
+      }
+    },
+    {
+      "name": "cause_of_death",
+      "description": "Indicate the cause of a donor's death.",
+      "restrictions": {
+        "codeList": ["Died of COVID-19", "Died of other reasons"]
+      },
+      "valueType": "string",
+      "meta": {
+        "core": true,
+        "dependsOn": "donor.vital_status",
+        "notes": "Cause of death is only required to be submitted if the donor's vital_status is Deceased."
+      }
+    }
+  ]
+}

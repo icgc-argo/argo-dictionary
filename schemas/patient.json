@@ -1,0 +1,73 @@
+{
+  "name": "patient",
+  "description": "The collection of data elements with demographic information about a patient.",
+  "fields": [
+    {
+      "name": "patient_id",
+      "description": "Unique identifier of the patient, assigned by the data provider.",
+      "valueType": "string",
+      "meta": {
+        "primaryId": true
+      },
+      "restrictions": {
+        "required": true
+      }
+    },
+    {
+      "name": "age",
+      "description": "Age of the patient at the time of initial encounter.",
+      "meta": {
+        "core": true
+      },
+      "valueType": "integer",
+      "restrictions": {
+        "required": true
+      }
+    },
+    {
+      "name": "administrative_gender",
+      "valueType": "string",
+      "description": "Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.",
+      "meta": {
+        "core": true
+      },
+      "restrictions": {
+        "required": true,
+        "codeList": ["Male", "Female", "Other", "Unknown"]
+      }
+    },
+    {
+      "name": "race",
+      "description": "Concepts classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality. The race codes used to represent these concepts are based upon the CDC Race and Ethnicity Code Set Version 1.0.",
+      "valueType": "string",
+      "restrictions": {
+        "codeList": ["American Indian or Alaska Native", "Asian", "Black or African American", "Native Hawaiian or Other Pacific Islander", "White"]
+      },
+      "meta": {
+        "core": true
+      }
+    },
+    {
+      "name": "ethnicity",
+      "description": "Concepts classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality. The ethnicity codes used to represent these concepts are based upon the CDC Race and Ethnicity Code Set Version 1.0.",
+      "valueType": "string",
+      "restrictions": {
+        "codeList": ["Hispanic or Latino", "Non Hispanic or Latino"]
+      },
+      "meta": {
+        "core": true
+      }
+    },
+    {
+      "name": "zip_code",
+      "description": "Five digit zip code.",
+      "valueType": "string",
+      "restrictions": {
+        "required": true
+      },
+      "meta": {
+        "core": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "name": "patient_identification",
+  "description": "Personally identifiable information about a patient.",
+  "meta": {
+      "parent": "patient"
+    },
+  "fields": [
+    {
+      "name": "family_name",
+      "description": "The part of a name that links to the genealogy.",
+      "valueType": "string",
+      "meta": {
+         "core": true
+      }
+    },
+    {
+      "name": "given_name(s)",
+      "description": "Given names (not always 'first'). Includes middle names.",
+      "valueType": "string",
+      "meta": {
+         "core": true
+      }
+    },
+    {
+      "name": "address_line",
+      "description": "This component contains the house number, apartment number, street name, street direction, P.O. Box number, delivery hints, and similar address information.",
+      "valueType": "string",
+      "meta": {
+          "core": true
+      }
+    },
+    {
+      "name": "address_city",
+      "description": "The name of the city, town, suburb, village or other community or delivery center.",
+      "valueType": "string",
+      "meta": {
+          "core": true
+      }
+    },
+    {
+      "name": "address_state",
+      "description": "US 2 letter state code.",
+      "valueType": "string",
+      "meta": {
+        "core": true
+      }
+    },
+    {
+      "name": "primary_phone_number",
+      "description": "Preferred phone number for the patient.",
+      "valueType": "string",
+      "meta": {
+          "core": true
+      }
+    }
+  ]
+}
