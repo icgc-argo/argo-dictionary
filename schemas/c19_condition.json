@@ -1,0 +1,92 @@
+{
+  "name": "c19_condition",
+  "description": "The collection of data elements related to a condition with is diagnosed as or related to COVID-19. A condition can be either a diagnosis or part of an ongoing problem list.",
+  "meta": {
+    "parent": "donor"
+  },
+  "fields": [
+    {
+      "name": "condition_id",
+      "valueType": "string",
+      "description": "Unique identifier assigned to the condition.",
+      "meta": {
+        "core": true,
+        "validationDependency": true,
+        "primaryId": true,
+        "foreignKey": "donor_id"
+      },
+      "restrictions": {
+        "required": true
+      }
+    },
+    {
+      "name": "code",
+      "valueType": "string",
+      "description": "The code to represent the diagnosis or problem.",
+      "restrictions": {
+        "required": true,
+        "regex": "^[C][0-9]{2}(.[0-9]{1,3}[A-Z]{0,1})?$"
+      },
+      "meta": {
+        "core": true,
+        "examples": "U07.1",
+        "notes": "This field accepts either ICD-10-CM or SNOMED CT codes."
+      }
+    },
+    {
+      "name": "category",
+      "description": "Condition category which distinguishes between a diagnosis or a problem.",
+      "restrictions": {
+         "codeList": [
+            "problem-list-item",
+            "encounter-diagnosis"
+         ]
+      },
+      "valueType": "string",
+      "meta": {
+        "validationDependency": false,
+         "notes": "Include all codes defined in http://terminology.hl7.org/CodeSystem/condition-category.\n"
+      }
+    },
+    {
+      "name": "recorded_date",
+      "description": "The date that the condition was recorded.",
+      "restrictions": {
+        "required": true
+      },
+      "valueType": "string",
+      "meta": {
+        "validationDependency": true,
+        "core": true,
+        "notes": "This is different from the condition onset date which could be a period of time prior to the date recorded by the provider."
+      }
+    },
+    {
+      "name": "onset_date",
+      "description": "An estimate or actual date that the patient reported experiencing the condition.",
+      "restrictions": {
+        "required": true
+      },
+      "valueType": "string",
+      "meta": {
+        "validationDependency": true,
+        "core": true,
+        "notes": ""
+      }
+    },
+    {
+      "name": "clinical_status",
+      "description": "The clinical status of the condition. (Reference source: FHIR Condition clinical status from http://hl7.org/fhir/condition-definitions.html#Condition.clinicalStatus).",
+      "valueType": "string",
+      "restrictions": {
+        "required": true,
+        "codeList": ["active", "recurrence", "relapse", "inactive", "remission", "resolved"]
+      },
+      "meta": {
+        "validationDependency": true,
+        "core": true,
+        "notes": "The clinical status value set terms are described at http://hl7.org/fhir/valueset-condition-clinical.html."
+      }
+    }
+  ]
+}
