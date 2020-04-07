@@ -53,7 +53,7 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "examples": "LAML_PO,00445,THY_099-tumour"
+        "examples": "LAML_PO,00445,THY_099-tumour",
         "displayName": "Submitter Specimen ID"
       },
       "restrictions": {
