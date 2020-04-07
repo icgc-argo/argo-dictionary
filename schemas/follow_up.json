@@ -1,6 +1,6 @@
 {
   "name": "follow_up",
-  "description": "The collection of data elements related to a specific follow up visit to a donor. A follow up is defined as any point of contact with a patient after diagnosis.",
+  "description": "The collection of data elements related to a specific follow-up visit to a donor. A follow-up is defined as any point of contact with a patient after diagnosis.",
   "meta": {
     "parent": "donor"
   },
@@ -12,7 +12,8 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "foreignKey": "sample_registration.program_id"
+        "foreignKey": "sample_registration.program_id",
+        "displayName": "Program ID"
       },
       "restrictions": {
         "required": true
@@ -25,7 +26,8 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "foreignKey": "sample_registration.submitter_donor_id"
+        "foreignKey": "sample_registration.submitter_donor_id",
+        "displayName": "Submitter Donor ID"
       },
       "restrictions": {
         "required": true,
@@ -38,7 +40,8 @@
       "valueType": "string",
       "meta": {
         "validationDependency": true,
-        "primaryId": true
+        "primaryId": true,
+        "displayName": "Submitter Follow-Up ID"
       },
       "restrictions": {
         "required": true,
@@ -46,11 +49,13 @@
       }
     },
     {
-      "description": "Interval from the primary diagnosis date to the follow up date, in days.",
+      "description": "Interval from the primary diagnosis date to the follow-up date, in days.",
       "name": "interval_of_followup",
       "valueType": "integer",
       "restrictions": {
-        "required": true
+        "required": true,
+        "displayName": "Interval Of Follow-Up",
+        "notes": "The associated Primary Diagnosis is used as the reference point for this interval. To calculate this, find the number of days since the date of primary diagnosis."
       },
       "meta": {
         "core": true,
@@ -74,7 +79,8 @@
         ]
       },
       "meta": {
-        "core": true
+        "core": true,
+        "displayName": "Disease Status at Follow-Up"
       }
     },
     {
@@ -92,7 +98,8 @@
       "meta": {
         "core": true,
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates progression or relapse."
+        "notes": "This field is required to be submitted if disease_status_at_followup indicates progression or relapse.",
+        "displayName": "Relapse Type"
       }
     },
     {
@@ -106,7 +113,8 @@
         "core": true,
         "units": "days",
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates progression or relapse."
+        "notes": "This field is required to be submitted if disease_status_at_followup indicates a progression or relapse value.",
+        "displayName": "Relapse Interval"
       }
     },
     {
@@ -146,7 +154,8 @@
       "meta": {
         "core": true,
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates progression or relapse."
+        "notes": "This field is required to be submitted if disease_status_at_followup indicates progression or relapse",
+        "displayName": "Method Of Progression Status"
       }
     },
     {
@@ -160,7 +169,8 @@
       "meta": {
         "core": true,
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates progression or relapse."
+        "notes": "This field is required to be submitted if disease_status_at_followup indicates progression or relapse.",
+        "displayName": "Anatomic Site Progression or Recurrences"
       }
     },
     {
@@ -189,7 +199,8 @@
       "meta": {
         "core": true,
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates progression or relapse."
+        "notes": "This field is required to be submitted if disease_status_at_followup indicates progression or relapse.",
+        "displayName": "Recurrance Tumour Staging System"
       }
     },
     {
@@ -199,7 +210,8 @@
       "meta": {
         "core": true,
         "dependsOn": "follow_up.recurrence_tumour_staging_system",
-        "notes": "This field is required only if the selected recurrence_tumour_staging_system is any edition of the AJCC cancer staging system."
+        "notes": "This field is required only if the selected recurrence_tumour_staging_system is any edition of the AJCC cancer staging system.",
+        "displayName": "Recurrence T Category"
       }
     },
     {
@@ -209,7 +221,8 @@
       "meta": {
         "core": true,
         "dependsOn": "follow_up.recurrence_tumour_staging_system",
-        "notes": "This field is required only if the selected recurrence_tumour_staging_system is any edition of the AJCC cancer staging system."
+        "notes": "This field is required only if the selected recurrence_tumour_staging_system is any edition of the AJCC cancer staging system.",
+        "displayName": "Recurrence N Category"
       }
     },
     {
@@ -219,7 +232,8 @@
       "meta": {
         "core": true,
         "dependsOn": "follow_up.recurrence_tumour_staging_system",
-        "notes": "This field is required only if the selected recurrence_tumour_staging_system is any edition of the AJCC cancer staging system."
+        "notes": "This field is required only if the selected recurrence_tumour_staging_system is any edition of the AJCC cancer staging system.",
+        "displayName": "Recurrence M Category"
       }
     },
     {
@@ -228,7 +242,8 @@
       "valueType": "string",
       "meta": {
         "core": true,
-        "dependsOn": "follow_up.recurrence_tumour_staging_system"
+        "dependsOn": "follow_up.recurrence_tumour_staging_system",
+        "displayName": "Recurrence Stage Group"
       }
     },
     {
@@ -254,7 +269,7 @@
           "AJCC 1st Edition"
         ]
       },
-      "meta": {}
+      "meta": { "displayName": "Post-therapy Tumor Staging System" }
     },
     {
       "name": "posttherapy_t_category",
@@ -262,7 +277,8 @@
       "valueType": "string",
       "meta": {
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
-        "notes": "This field is required only if the selected posttherapy_tumour_staging_system is any edition of the AJCC cancer staging system."
+        "notes": "This field is required only if the selected posttherapy_tumour_staging_system is any edition of the AJCC cancer staging system.",
+        "displayName": "Post-therapy T Category"
       }
     },
     {
@@ -271,7 +287,8 @@
       "valueType": "string",
       "meta": {
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
-        "notes": "This field is required only if the selected posttherapy_tumour_staging_system is any edition of the AJCC cancer staging system."
+        "notes": "This field is required only if the selected posttherapy_tumour_staging_system is any edition of the AJCC cancer staging system.",
+        "displayName": "Post-therapy N Category"
       }
     },
     {
@@ -280,7 +297,8 @@
       "valueType": "string",
       "meta": {
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
-        "notes": "This field is required only if the selected posttherapy_tumour_staging_system is any edition of the AJCC cancer staging system."
+        "notes": "This field is required only if the selected posttherapy_tumour_staging_system is any edition of the AJCC cancer staging system.",
+        "displayName": "Post-therapy M Category"
       }
     },
     {
@@ -289,8 +307,8 @@
       "valueType": "string",
       "meta": {
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
-        "notes": "This field value is dependent on the selected posttherapy_tumour_staging_system."
-
+        "notes": "This field value is dependent on the selected posttherapy_tumour_staging_system.",
+        "displayName": "Post-therapy Stage Group"
       }
     }
   ]

@@ -12,7 +12,8 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "foreignKey": "sample_registration.program_id"
+        "foreignKey": "sample_registration.program_id",
+        "displayName": "Program ID"
       },
       "restrictions": {
         "required": true
@@ -25,7 +26,8 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "foreignKey": "sample_registration.submitter_donor_id"
+        "foreignKey": "sample_registration.submitter_donor_id",
+        "displayName": "Submitter Donor ID"
       },
       "restrictions": {
         "required": true,
@@ -38,7 +40,8 @@
       "valueType": "string",
       "meta": {
         "validationDependency": true,
-        "primaryId": true
+        "primaryId": true,
+        "displayName": "Submitter Treatment ID"
       },
       "restrictions": {
         "required": true,
@@ -73,14 +76,15 @@
       "meta": {
         "validationDependency": true,
         "core": true,
-        "notes": "Depending on the treatment_type selected, additional treament details may be required to be submitted."
+        "notes": "Depending on the treatment_type selected, additional treament details may be required to be submitted.",
+        "displayName": "Treatment Type"
       }
     },
     {
       "name": "age_at_consent_for_treatment",
       "description": "Indicate the age of donor when consent was given for treatment.",
       "valueType": "integer",
-      "meta": {}
+      "meta": { "displayName": "Age At Consent For Treatment" }
     },
     {
       "name": "is_primary_treatment",
@@ -91,7 +95,8 @@
         "codeList": "#/list/yes_no"
       },
       "meta": {
-        "core": true
+        "core": true,
+        "displayName": "Is Primary Treatment"
       }
     },
     {
@@ -103,7 +108,9 @@
       },
       "meta": {
         "core": true,
-        "units": "days"
+        "units": "days",
+        "notes": "The associated Primary Diagnosis is used as the reference point for this interval. To calculate this, find the number of days since the date of primary diagnosis",
+        "displayName": "Treatment Start Interval"
       }
     },
     {
@@ -115,7 +122,8 @@
       },
       "meta": {
         "core": true,
-        "units": "days"
+        "units": "days",
+        "displayName": "Treatment Duration"
       }
     },
     {
@@ -135,7 +143,8 @@
         ]
       },
       "meta": {
-        "core": true
+        "core": true,
+        "displayName": "THerapeutic Intent"
       }
     },
     {
@@ -153,7 +162,8 @@
         ]
       },
       "meta": {
-        "core": true
+        "core": true,
+        "displayName": "Response to Therapy"
       }
     }
   ]

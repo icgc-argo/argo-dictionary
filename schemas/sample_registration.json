@@ -9,7 +9,9 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "examples": "PACA-AU,BR-CA"
+        "examples": "PACA-AU,BR-CA",
+        "notes": "This is the unique id that is assigned to your program.  If you have logged into the platform, this is the Program Id that you see in the Submiission area.",
+        "displayName": "Program ID"
       },
       "restrictions": {
         "required": true
@@ -22,7 +24,8 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "examples": "90234,BLD_donor_89,AML-90"
+        "examples": "90234,BLD_donor_89,AML-90",
+        "displayName": "Submitter Donor ID"
       },
       "restrictions": {
         "required": true,
@@ -35,7 +38,8 @@
       "description": "Description of the donor self-reported gender. Gender is described as the assemblage of properties that distinguish people on the basis of their societal roles.",
       "meta": {
         "validationDependency": true,
-        "core": true
+        "core": true,
+        "displayName": "Gender"
       },
       "restrictions": {
         "required": true,
@@ -50,6 +54,7 @@
         "validationDependency": true,
         "primaryId": true,
         "examples": "LAML_PO,00445,THY_099-tumour"
+        "displayName": "Submitter Specimen ID"
       },
       "restrictions": {
         "required": true,
@@ -62,7 +67,8 @@
       "description": "Tissue source of the biospecimen.",
       "meta": {
         "validationDependency": true,
-        "core": true
+        "core": true,
+        "displayName": "Specimen Tissue Source"
       },
       "restrictions": {
         "required": true,
@@ -106,7 +112,8 @@
       },
       "meta": {
         "validationDependency": true,
-        "core": true
+        "core": true,
+        "displayName": "Tumour Normal Designation"
       }
     },
     {
@@ -136,7 +143,8 @@
       },
       "meta": {
         "validationDependency": true,
-        "core": true
+        "core": true,
+        "displayName": "Specimen Type"
       }
     },
     {
@@ -150,7 +158,8 @@
       },
       "restrictions": {
         "required": true,
-        "regex": "#/regex/submitter_id"
+        "regex": "#/regex/submitter_id",
+        "displayName": "Submitter Sample ID"
       }
     },
     {
@@ -159,7 +168,8 @@
       "description": "Description of the type of molecular sample used for testing.",
       "meta": {
         "validationDependency": true,
-        "core": true
+        "core": true,
+        "displayName": "Sample Type"
       },
       "restrictions": {
         "required": true,

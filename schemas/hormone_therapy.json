@@ -12,7 +12,8 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "foreignKey": "sample_registration.program_id"
+        "foreignKey": "sample_registration.program_id",
+        "displayName": "Program ID"
       },
       "restrictions": {
         "required": true
@@ -25,7 +26,8 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "foreignKey": "sample_registration.submitter_donor_id"
+        "foreignKey": "sample_registration.submitter_donor_id",
+        "displayName": "Submitter Donor ID"
       },
       "restrictions": {
         "required": true,
@@ -39,7 +41,8 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "foreignKey": "treatment.submitter_treatment_id"
+        "foreignKey": "treatment.submitter_treatment_id",
+        "displayName": "Submitter Treatment ID"
       },
       "restrictions": {
         "required": true,
@@ -57,7 +60,8 @@
       "meta": {
         "validationDependency": true,
         "core": true,
-        "notes": "This field uses a controlled vocabulary gathered from the DrugBank database of drug names."
+        "notes": "This field uses a controlled vocabulary gathered from the DrugBank database of drug names.",
+        "displayName": "Hormone Therapy Drug Name"
       }
     },
     {
@@ -69,7 +73,8 @@
         "codeList": ["mg/m²", "IU/m²", "µg/m²", "g/m²", "mg/kg"]
       },
       "meta": {
-        "core": true
+        "core": true,
+        "displayName": "Hormone Therapy Dosage Units"
       }
     },
     {
@@ -80,7 +85,8 @@
         "required": true
       },
       "meta": {
-        "core": true
+        "core": true,
+        "displayName": "Cumulative Drug Dose"
       }
     }
   ]
