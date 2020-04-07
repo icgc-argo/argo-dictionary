@@ -1,6 +1,6 @@
 {
   "name": "follow_up",
-  "description": "The collection of data elements related to a specific follow-up visit to a donor. A follow-up is defined as any point of contact with a patient after diagnosis.",
+  "description": "The collection of data elements related to a specific follow-up visit to a donor. A follow-up is defined as any point of contact with a patient after diagnosis. A donor can have multiple follow-up records.",
   "meta": {
     "parent": "donor"
   },

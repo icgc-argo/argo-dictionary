@@ -1,6 +1,6 @@
 {
   "name": "chemotherapy",
-  "description": "The collection of data elements describing the details of a chemotherapy treatment regimen completed by a donor.",
+  "description": "The collection of data elements describing the details of a chemotherapy treatment regimen completed by a donor. For multiple treatment agents in a single regimen, submit multiple rows in the chemotherapy file.",
   "meta": {
     "parent": "treatment"
   },
