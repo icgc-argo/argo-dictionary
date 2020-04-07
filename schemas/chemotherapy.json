@@ -67,7 +67,7 @@
       "valueType": "string",
       "restrictions": {
         "required": true,
-        "codeList": ["mg/m²", "IU/m²", "µg/m²", "g/m²", "mg/kg"]
+        "codeList": ["mg/m2", "IU/m2", "µg/m2", "g/m2", "mg/kg"]
       },
       "meta": {
         "core": true
