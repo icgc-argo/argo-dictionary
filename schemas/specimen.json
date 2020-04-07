@@ -114,7 +114,7 @@
     },
     {
       "name": "pathological_stage_group",
-      "description": "Specify the tumour stage, based on tumor_staging_system, used to assess the cancer at the time the tumour specimen was resected.",
+      "description": "Specify the tumour stage, based on tumour_staging_system, used to assess the cancer at the time the tumour specimen was resected.",
       "valueType": "string",
       "meta": {
         "core": true,
