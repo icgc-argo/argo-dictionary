@@ -12,7 +12,8 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "foreignKey": "sample_registration.program_id"
+        "foreignKey": "sample_registration.program_id",
+        "displayName": "Program ID"
       },
       "restrictions": {
         "required": true
@@ -25,7 +26,8 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "foreignKey": "sample_registration.submitter_donor_id"
+        "foreignKey": "sample_registration.submitter_donor_id",
+        "displayName": "Submitter Donor ID"
       },
       "restrictions": {
         "required": true,
@@ -42,7 +44,8 @@
       "valueType": "string",
       "meta": {
         "validationDependency": true,
-        "core": true
+        "core": true,
+        "displayName": "Vital Status"
       }
     },
     {
@@ -56,7 +59,8 @@
       "meta": {
         "core": true,
         "dependsOn": "donor.vital_status",
-        "notes": "Cause of death is only required to be submitted if the donor's vital_status is Deceased."
+        "notes": "Cause of death is only required to be submitted if the donor's vital_status is Deceased.",
+        "displayName": "Cause of Death"
       }
     },
     {
@@ -68,7 +72,8 @@
         "notes": "Survival_time is only required to be submitted if the donor's vital_status is Deceased.",
         "validationDependency": true,
         "units": "days",
-        "core": "true"
+        "core": "true",
+        "displayName": "Survival Time"
       },
       "restrictions": {
         "script": "#/script/donor/ensureDeceased"
@@ -81,7 +86,9 @@
         "codeList": "#/list/yes_no"
       },
       "valueType": "string",
-      "meta": {}
+      "meta": {
+        "displayName": "Prior Malignancy"
+      }
     },
     {
       "description": "ICD-10 diagnostic code for type of cancer in a prior malignancy.",
@@ -90,7 +97,9 @@
         "regex": "[A-Z]{1}[0-9]{2}.[0-9]{0,3}[A-Z]{0,1}$"
       },
       "valueType": "string",
-      "meta": {}
+      "meta": {
+        "displayName": "Cancer Type Prior Malignancy"
+      }
     },
     {
       "description": "If donor has history of prior malignancy, indicate age at previous diagnosis, in years.",
@@ -101,25 +110,27 @@
       "description": "If donor has history of prior malignancy, indicate laterality of previous diagnosis.",
       "name": "laterality_of_prior_malignancy",
       "valueType": "string",
-      "meta": {}
+      "meta": {
+        "displayName": "Age at Prior Malignancy"
+      }
     },
     {
       "description": "Indicate the donor's height, in centimeters (cm).",
       "name": "height",
       "valueType": "integer",
-      "meta": {}
+      "meta": { "displayName": "Height" }
     },
     {
       "description": "Indicate the donor's weight, in kilograms (kg).",
       "name": "weight",
       "valueType": "integer",
-      "meta": {}
+      "meta": { "displayName": "Weight" }
     },
     {
       "description": "Indicate the donor's Body Mass Index (BMI) in kg/m².",
       "name": "bmi",
       "valueType": "integer",
-      "meta": {}
+      "meta": { "displayName": "BMI" }
     },
     {
       "description": "Indicate the donor's menopause status at the time of primary diagnosis. (Codelist reference: NCI CDE ID: 2434914)",
@@ -134,25 +145,25 @@
         ]
       },
       "valueType": "string",
-      "meta": {}
+      "meta": { "displayName": "Menopause Status" }
     },
     {
       "description": "Indicate the donor's age of menarche, the first occurrence of menstruation.",
       "name": "age_at_menarche",
       "valueType": "integer",
-      "meta": {}
+      "meta": { "displayName": "Age at Menarche" }
     },
     {
       "description": "Indicate the number of pregnancies a donor has had.",
       "name": "number_of_pregnancies",
       "valueType": "integer",
-      "meta": {}
+      "meta": { "displayName": "Number of Pregnancies" }
     },
     {
       "description": "Indicate the number of children the donor has birthed.",
       "name": "number_of_children",
       "valueType": "integer",
-      "meta": {}
+      "meta": { "displayName": "Number of Children" }
     }
   ]
 }

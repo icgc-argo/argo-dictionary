@@ -8,6 +8,9 @@
       "description": "Unique identifier of the ARGO program.",
       "restrictions": {
         "required": true
+      },
+      "meta": {
+        "displayName": "Program ID"
       }
     },
     {
@@ -17,6 +20,9 @@
       "restrictions": {
         "required": true,
         "regex": "^[A-Za-z0-9\\-\\._]{1,64}$"
+      },
+      "meta": {
+        "displayName": "Submitter Donor ID"
       }
     },
     {
@@ -32,6 +38,9 @@
           "Current reformed smoker, duration not specified",
           "Smoking history not documented"
         ]
+      },
+      "meta": {
+        "displayName": "Tobacco Smoking History"
       }
     },
     {
@@ -39,7 +48,12 @@
       "description": "Indicate the average number of cigarettes smoked per day by donor.",
       "valueType": "integer",
       "restrictions": {
-        "script": ["function validate() {\r\n  var result = { valid: true, message: \"required if current OR reformed smoker enums\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"]
+        "script": [
+          "function validate() {\r\n  var result = { valid: true, message: \"required if current OR reformed smoker enums\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
+        ]
+      },
+      "meta": {
+        "displayName": "Tobacco Smoking Use"
       }
     },
     {
@@ -47,7 +61,12 @@
       "description": "Indicate the duration of time, in years, that the donor was a smoker.",
       "valueType": "integer",
       "restrictions": {
-        "script": ["function validate() {\r\n  var result = { valid: true, message: \"required if current OR reformed smoker enums\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"]
+        "script": [
+          "function validate() {\r\n  var result = { valid: true, message: \"required if current OR reformed smoker enums\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
+        ]
+      },
+      "meta": {
+        "displayName": "Tobacco Smoking Duration"
       }
     },
     {
@@ -55,11 +74,10 @@
       "description": "Indicate if the donor has a history of using alternative tobacco products. Smokeless tobacco includes chewing tobacco, snuff, and dissolvable tobacco.",
       "valueType": "string",
       "restrictions": {
-        "codeList": [
-          "E-cigarettes/vaping",
-          "Smokeless tobacco",
-          "Waterpipe"
-        ]
+        "codeList": ["E-cigarettes/vaping", "Smokeless tobacco", "Waterpipe"]
+      },
+      "meta": {
+        "displayName": "Alternative Tobacco Use"
       }
     },
     {
@@ -72,11 +90,10 @@
       "description": "Indicate if the donor was exposed to second hand smoke.",
       "valueType": "string",
       "restrictions": {
-        "codeList": [
-          "Yes",
-          "No",
-          "Unknown"
-        ]
+        "codeList": "#/list/yes_no"
+      },
+      "meta": {
+        "displayName": "Second Hand Smoke Exposure"
       }
     },
     {
@@ -84,7 +101,12 @@
       "description": "If the donor was exposed to second hand smoke, indicate the duration of time, in years, that they were exposed.",
       "valueType": "integer",
       "restrictions": {
-        "script": ["function validate() {\r\n  var result = { valid: true, message: \"required if second_hand_smoke_exposure = YES\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"]
+        "script": [
+          "function validate() {\r\n  var result = { valid: true, message: \"required if second_hand_smoke_exposure = YES\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
+        ]
+      },
+      "meta": {
+        "displayName": "Second Hand Smoke Duration"
       }
     },
     {
@@ -92,11 +114,10 @@
       "description": "Indicate the donors response to whether the patient has consumed at least 12 drinks of any alchoholic beverage in their lifetime.",
       "valueType": "string",
       "restrictions": {
-        "codeList": [
-          "Yes",
-          "No",
-          "Unknown"
-        ]
+        "codeList": "#/list/yes_no"
+      },
+      "meta": {
+        "displayName": "Alcohol History"
       }
     },
     {
@@ -104,7 +125,9 @@
       "description": "Describe the donor current level of alcohol use as self-reported by the donor.",
       "valueType": "string",
       "restrictions": {
-        "script": ["function validate() {\r\n  var result = { valid: true, message: \"required if alcohol_history = YES\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"],
+        "script": [
+          "function validate() {\r\n  var result = { valid: true, message: \"required if alcohol_history = YES\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
+        ],
         "codeList": [
           "None",
           "Social drinker (> once a month, < once a week)",
@@ -113,12 +136,18 @@
           "Occassional drinker (< once a month)",
           "Not documented"
         ]
+      },
+      "meta": {
+        "displayName": "Alcohol Consumption"
       }
     },
     {
       "name": "alcohol_consumption_duration",
       "description": "Indicate the duration of time, in years, that the donor has consumed alcohol.",
-      "valueType": "integer"
+      "valueType": "integer",
+      "meta": {
+        "displayName": "Alcolohol Consumption Duration"
+      }
     }
   ]
 }

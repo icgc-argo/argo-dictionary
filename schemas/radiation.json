@@ -12,7 +12,8 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "foreignKey": "sample_registration.program_id"
+        "foreignKey": "sample_registration.program_id",
+        "displayName": "Program ID"
       },
       "restrictions": {
         "required": true
@@ -25,7 +26,8 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "foreignKey": "sample_registration.submitter_donor_id"
+        "foreignKey": "sample_registration.submitter_donor_id",
+        "displayName": "Submitter Donor ID"
       },
       "restrictions": {
         "required": true,
@@ -39,7 +41,8 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "foreignKey": "treatment.submitter_treatment_id"
+        "foreignKey": "treatment.submitter_treatment_id",
+        "displayName": "Submitter Treatment ID"
       },
       "restrictions": {
         "required": true,
@@ -56,7 +59,8 @@
       },
       "meta": {
         "validationDependency": true,
-        "core": true
+        "core": true,
+        "displayName": "Radiation Therapy Modality"
       }
     },
     {
@@ -68,7 +72,8 @@
         "codeList": ["External", "Internal (including Brachytherapy)"]
       },
       "meta": {
-        "core": true
+        "core": true,
+        "displayName": "Application Form"
       }
     },
     {
@@ -79,7 +84,8 @@
         "required": true
       },
       "meta": {
-        "core": true
+        "core": true,
+        "displayName": "Radiation Therapy Fractions"
       }
     },
     {
@@ -90,7 +96,8 @@
         "required": true
       },
       "meta": {
-        "core": true
+        "core": true,
+        "displayName": "Radiation Therapy Dosage"
       }
     },
     {
@@ -115,7 +122,8 @@
         ]
       },
       "meta": {
-        "core": true
+        "core": true,
+        "displayName": "Anatomical Site Irradiated"
       }
     }
   ]

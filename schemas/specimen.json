@@ -12,7 +12,8 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "foreignKey": "sample_registration.program_id"
+        "foreignKey": "sample_registration.program_id",
+        "displayName": "Program ID"
       },
       "restrictions": {
         "required": true
@@ -25,7 +26,8 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "foreignKey": "sample_registration.submitter_donor_id"
+        "foreignKey": "sample_registration.submitter_donor_id",
+        "displayName": "Submitter Donor ID"
       },
       "restrictions": {
         "required": true,
@@ -39,7 +41,8 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "foreignKey": "sample_registration.submitter_specimen_id"
+        "foreignKey": "sample_registration.submitter_specimen_id",
+        "displayName": "Submitter Specimen ID"
       },
       "restrictions": {
         "required": true,
@@ -53,7 +56,8 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "This field is only required if the specimen is a tumour."
+        "notes": "This field is only required if the specimen is a tumour.",
+        "displayName": "Pathological Tumour Staging System"
       },
       "restrictions": {
         "script": "#/script/common/ajccValidation",
@@ -82,7 +86,8 @@
       "meta": {
         "core": true,
         "dependsOn": "specimen.pathological_tumour_staging_system",
-        "notes": "This field is required only if the selected pathological_tumour_staging_system is any edition of the AJCC cancer staging system."
+        "notes": "This field is required only if the selected pathological_tumour_staging_system is any edition of the AJCC cancer staging system.",
+        "displayName": "Pathological T Category"
       }
     },
     {
@@ -92,7 +97,8 @@
       "meta": {
         "core": true,
         "dependsOn": "specimen.pathological_tumour_staging_system",
-        "notes": "This field is required only if the selected pathological_tumour_staging_system is any edition of the AJCC cancer staging system."
+        "notes": "This field is required only if the selected pathological_tumour_staging_system is any edition of the AJCC cancer staging system.",
+        "displayName": "Pathological N Category"
       }
     },
     {
@@ -102,17 +108,19 @@
       "meta": {
         "core": true,
         "dependsOn": "specimen.pathological_tumour_staging_system",
-        "notes": "This field is required only if the selected pathological_tumour_staging_system is any edition of the AJCC cancer staging system."
+        "notes": "This field is required only if the selected pathological_tumour_staging_system is any edition of the AJCC cancer staging system.",
+        "displayName": "Pathological M Category"
       }
     },
     {
       "name": "pathological_stage_group",
-      "description": "Specify the tumour stage, based on tumor_staging_system, used to assess the cancer at the time the tumour specimen was resected.",
+      "description": "Specify the tumour stage, based on tumour_staging_system, used to assess the cancer at the time the tumour specimen was resected.",
       "valueType": "string",
       "meta": {
         "core": true,
         "dependsOn": "specimen.pathological_tumour_staging_system",
-        "notes": "This field depends on the selected pathological staging system, and is only required if the specimen is a tumour."
+        "notes": "This field depends on the selected pathological staging system, and is only required if the specimen is a tumour.",
+        "displayName": "Pathological Stage Group"
       }
     },
     {
@@ -125,7 +133,9 @@
         "core": true
       },
       "restrictions": {
-        "required": true
+        "required": true,
+        "displayName": "Specimen Aquisition Interval",
+        "notes": "The associated Primary Diagnosis is used as the reference point for this interval. To calculate this, find the number of days since the date of primary diagnosis."
       }
     },
     {
@@ -136,7 +146,8 @@
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
         "notes": "This field is only required if the specimen is a tumour.",
-        "examples": "8260/3,9691/36"
+        "examples": "8260/3,9691/36",
+        "displayName": "Tumour Histological Type"
       },
       "restrictions": {
         "regex": "^[8,9]{1}[0-9]{3}/[0,1,2,3,6,9]{1}[1-9]{0,1}$"
@@ -147,7 +158,8 @@
       "description": "Anatomic location of a specimen when it was collected.",
       "valueType": "string",
       "meta": {
-        "core": true
+        "core": true,
+        "displayName": "Specimen Anatomic Location"
       },
       "restrictions": {
         "required": true,
@@ -171,14 +183,15 @@
           "Other"
         ]
       },
-      "meta": {}
+      "meta": { "displayName": "Specimen Processing" }
     },
     {
       "name": "specimen_storage",
       "description": "Indicate the method of specimen storage for specimens that were not extracted freshly or immediately cultured.",
       "valueType": "string",
       "meta": {
-        "notes": "For specimens that were freshly extracted or immediately cultured, select Not Applicable."
+        "notes": "For specimens that were freshly extracted or immediately cultured, select Not Applicable.",
+        "displayName": "Specimen Storage"
       },
       "restrictions": {
         "codeList": [
@@ -200,7 +213,8 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "This field is only required if the specimen is a tumour."
+        "notes": "This field is only required if the specimen is a tumour.",
+        "displayName": "Central Pathology Confirmed"
       },
       "restrictions": {
         "codeList": "#/list/yes_no"
@@ -213,7 +227,8 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "This field is only required if the specimen is a tumour."
+        "notes": "This field is only required if the specimen is a tumour.",
+        "displayName": "Tumour Grading System"
       },
       "restrictions": {
         "codeList": [
@@ -233,7 +248,8 @@
       "meta": {
         "core": true,
         "dependsOn": "specimen.tumour_grading_system",
-        "notes": "This field depends on the selected tumour grading system, and is only required if the specimen is a tumour."
+        "notes": "This field depends on the selected tumour grading system, and is only required if the specimen is a tumour.",
+        "displayName": "Tumour Grade"
       },
       "restrictions": {
         "script": "#/script/specimen/tumourGrade"
@@ -246,7 +262,8 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "This field is only required if the specimen is a tumour."
+        "notes": "This field is only required if the specimen is a tumour.",
+        "displayName": "Percent Tumour Cells"
       }
     },
     {
@@ -256,7 +273,8 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "This field is only required if the specimen is a tumour."
+        "notes": "This field is only required if the specimen is a tumour.",
+        "displayName": "Percent Proliferating Cells"
       }
     },
     {
@@ -266,7 +284,8 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "This field is only required if the specimen is a tumour."
+        "notes": "This field is only required if the specimen is a tumour.",
+        "displayName": "Percent Inflammatory Tissue"
       }
     },
     {
@@ -276,7 +295,8 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "This field is only required if the specimen is a tumour."
+        "notes": "This field is only required if the specimen is a tumour.",
+        "displayName": "Percent Stromal Cells"
       }
     },
     {
@@ -286,7 +306,8 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "This field is only required if the specimen is a tumour."
+        "notes": "This field is only required if the specimen is a tumour.",
+        "displayName": "Percent Necrosis"
       }
     }
   ]

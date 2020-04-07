@@ -1,6 +1,6 @@
 {
   "name": "chemotherapy",
-  "description": "The collection of data elements describing the details of a chemotherapy treatment regimen completed by a donor.",
+  "description": "The collection of data elements describing the details of a chemotherapy treatment regimen completed by a donor. For multiple treatment agents in a single regimen, submit multiple rows in the chemotherapy file.",
   "meta": {
     "parent": "treatment"
   },
@@ -12,7 +12,8 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "foreignKey": "sample_registration.program_id"
+        "foreignKey": "sample_registration.program_id",
+        "displayName": "Program ID"
       },
       "restrictions": {
         "required": true
@@ -25,7 +26,8 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "foreignKey": "sample_registration.submitter_donor_id"
+        "foreignKey": "sample_registration.submitter_donor_id",
+        "displayName": "Submitter Donor ID"
       },
       "restrictions": {
         "required": true,
@@ -39,7 +41,8 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "foreignKey": "treatment.submitter_treatment_id"
+        "foreignKey": "treatment.submitter_treatment_id",
+        "displayName": "Submitter Treatment ID"
       },
       "restrictions": {
         "required": true,
@@ -58,7 +61,8 @@
         "validationDependency": true,
         "core": true,
         "notes": "This field uses a controlled vocabulary gathered from the DrugBank database of drug names.",
-        "examples": "Allopurinol, Dronabinol, Sucralfate, Lapatinib"
+        "examples": "Allopurinol, Dronabinol, Sucralfate, Lapatinib",
+        "displayName": "Chemotherapy Drug Name"
       }
     },
     {
@@ -70,7 +74,8 @@
         "codeList": ["mg/m2", "IU/m2", "µg/m2", "g/m2", "mg/kg"]
       },
       "meta": {
-        "core": true
+        "core": true,
+        "displayName": "Chemotherapy Dosage Units"
       }
     },
     {
@@ -81,7 +86,8 @@
         "required": true
       },
       "meta": {
-        "core": true
+        "core": true,
+        "displayName": "Cumulative Drug Dosage"
       }
     }
   ]

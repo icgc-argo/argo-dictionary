@@ -12,7 +12,8 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "foreignKey": "sample_registration.program_id"
+        "foreignKey": "sample_registration.program_id",
+        "displayName": "Program ID"
       },
       "restrictions": {
         "required": true
@@ -25,7 +26,8 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "foreignKey": "sample_registration.submitter_donor_id"
+        "foreignKey": "sample_registration.submitter_donor_id",
+        "displayName": "Submitter Donor ID"
       },
       "restrictions": {
         "required": true,
@@ -41,7 +43,8 @@
       },
       "meta": {
         "units": "years",
-        "core": true
+        "core": true,
+        "displayName": "Age at Diagnosis"
       }
     },
     {
@@ -54,27 +57,29 @@
       },
       "meta": {
         "core": true,
-        "examples": "C41.1,C16.9,C00.543A"
+        "examples": "C41.1,C16.9,C00.543A",
+        "displayName": "Cancer Type Code"
       }
     },
     {
       "name": "basis_of_diagnosis",
       "description": "Indicate the most valid basis of how the primary diagnosis was identified. If more than one diagnosis technique was used, select the term that has the highest code number (see notes). (Reference: IACR Standard for Basis of Diagnosis http://www.iacr.com.fr/images/doc/basis.pdf)",
       "restrictions": {
-         "codeList": [
-            "Death certificate only",
-            "Clinical",
-            "Clinical investigation",
-            "Specific tumour markers",
-            "Cytology",
-            "Histology of a metastasis",
-            "Histology of a primary tumour",
-            "Unknown"
-         ]
+        "codeList": [
+          "Death certificate only",
+          "Clinical",
+          "Clinical investigation",
+          "Specific tumour markers",
+          "Cytology",
+          "Histology of a metastasis",
+          "Histology of a primary tumour",
+          "Unknown"
+        ]
       },
       "valueType": "string",
       "meta": {
-         "notes": "0: Death certificate only: Information provided is from a death certificate.\n1: Clinical: Diagnosis made before death.\n2: Clinical investigation: All diagnostic techniques, including X-ray, endoscopy, imaging, ultrasound, exploratory surgery (such as laparotomy), and autopsy, without a tissue diagnosis.\n4: Specific tumour markers: Including biochemical and/or immunologic markers that are specific for a tumour site.\n5: Cytology: Examination of cells from a primary or secondary site, including fluids aspirated by endoscopy or needle; also includes the microscopic examination of peripheral blood and bone marrow aspirates.\n6: Histology of a metastasis: Histologic examination of tissue from a metastasis, including autopsy specimens.\n7: Histology of a primary tumour: Histologic examination of tissue from primary tumour, however obtained, including all cutting techniques and bone marrow biopsies; also includes autopsy specimens of primary tumour.\n9: Unknown: No information on how the diagnosis has been made."
+        "notes": "0: Death certificate only: Information provided is from a death certificate.\n1: Clinical: Diagnosis made before death.\n2: Clinical investigation: All diagnostic techniques, including X-ray, endoscopy, imaging, ultrasound, exploratory surgery (such as laparotomy), and autopsy, without a tissue diagnosis.\n4: Specific tumour markers: Including biochemical and/or immunologic markers that are specific for a tumour site.\n5: Cytology: Examination of cells from a primary or secondary site, including fluids aspirated by endoscopy or needle; also includes the microscopic examination of peripheral blood and bone marrow aspirates.\n6: Histology of a metastasis: Histologic examination of tissue from a metastasis, including autopsy specimens.\n7: Histology of a primary tumour: Histologic examination of tissue from primary tumour, however obtained, including all cutting techniques and bone marrow biopsies; also includes autopsy specimens of primary tumour.\n9: Unknown: No information on how the diagnosis has been made.",
+        "displayName": "Basis of Diagnosis"
       }
     },
     {
@@ -85,14 +90,15 @@
         "required": true
       },
       "meta": {
-        "core": true
+        "core": true,
+        "displayName": "Number Of Lymph Nodes Positive"
       }
     },
     {
       "name": "number_lymph_nodes_examined",
       "description": "The total number of lymph nodes tested for the presence of cancer. (Reference: NCI CDE ID: 3)",
       "valueType": "integer",
-      "meta": {}
+      "meta": { "displayName": "Number Of Lymph Nodes Examined" }
     },
     {
       "name": "clinical_tumour_staging_system",
@@ -119,7 +125,8 @@
         ]
       },
       "meta": {
-        "core": true
+        "core": true,
+        "displayName": "Clinical Tumour Staging System"
       }
     },
     {
@@ -131,7 +138,8 @@
       },
       "meta": {
         "core": true,
-        "dependsOn": "primary_diagnosis.clinical_tumour_staging_system"
+        "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
+        "displayName": "Clinical Stage Group"
       }
     },
     {
@@ -140,7 +148,8 @@
       "valueType": "string",
       "meta": {
         "core": true,
-        "dependsOn": "primary_diagnosis.clinical_tumour_staging_system"
+        "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
+        "displayName": "Stage Suffix"
       }
     },
     {
@@ -150,7 +159,8 @@
       "meta": {
         "core": true,
         "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
-        "notes": "This field is required only if the selected clinical_tumour_staging_system is any edition of the AJCC cancer staging system."
+        "notes": "This field is required only if the selected clinical_tumour_staging_system is any edition of the AJCC cancer staging system.",
+        "displayName": "Clinical T Category"
       }
     },
     {
@@ -160,7 +170,8 @@
       "meta": {
         "core": true,
         "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
-        "notes": "This field is required only if the selected clinical_tumour_staging_system is any edition of the AJCC cancer staging system."
+        "notes": "This field is required only if the selected clinical_tumour_staging_system is any edition of the AJCC cancer staging system.",
+        "displayName": "Clinical N Category"
       }
     },
     {
@@ -170,7 +181,8 @@
       "meta": {
         "core": true,
         "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
-        "notes": "This field is required only if the selected clinical_tumour_staging_system is any edition of the AJCC cancer staging system."
+        "notes": "This field is required only if the selected clinical_tumour_staging_system is any edition of the AJCC cancer staging system.",
+        "displayName": "Clinical M Category"
       }
     },
     {
@@ -204,7 +216,7 @@
           "Weight Loss"
         ]
       },
-      "meta": {}
+      "meta": { "displayName": "Presenting Symptoms" }
     },
     {
       "name": "performance_status",
@@ -214,7 +226,8 @@
         "codeList": ["Grade 0", "Grade 1", "Grade 2", "Grade 3", "Grade 4"]
       },
       "meta": {
-        "notes": "Grade 0: Fully active, able to carry on all pre-disease performance without restriction \n Grade 1: Restricted in physically strenuous activity but ambulatory and able to carry out work of a light or sedentary nature (ie. Light house work, office work) \n Grade 2: Ambulatory and capable of all selfcare but unable to carry out any work activities; up and about more than 50% of waking hours \n Grade 3: Capable of only limited selfcare; confined to bed or chair more than 50% of waking hours \n Grade 4: Completely disabled; cannot carry on any selfcare; totally confined to bed or chair"
+        "notes": "Grade 0: Fully active, able to carry on all pre-disease performance without restriction \n Grade 1: Restricted in physically strenuous activity but ambulatory and able to carry out work of a light or sedentary nature (ie. Light house work, office work) \n Grade 2: Ambulatory and capable of all selfcare but unable to carry out any work activities; up and about more than 50% of waking hours \n Grade 3: Capable of only limited selfcare; confined to bed or chair more than 50% of waking hours \n Grade 4: Completely disabled; cannot carry on any selfcare; totally confined to bed or chair",
+        "displayName": "Performance Status"
       }
     }
   ]
