@@ -84,6 +84,30 @@
       }
     },
     {
+      "name": "submitter_primary_diagnosis_id",
+      "valueType": "string",
+      "description": "Indicate if the follow-up is related to a specific primary diagnosis event in the clinical timeline.",
+      "meta": {
+        "displayName": "Submitter Primary Diagnosis ID"
+      },
+      "restrictions": {
+        "primaryId": true,
+        "regex": "#/regex/submitter_id"
+      }
+    },
+    {
+      "name": "submitter_treatment_id",
+      "valueType": "string",
+      "description": "Indicate if the follow-up is related to a specific treatment event in the clinical timeline.",
+      "meta": {
+        "primaryId": true,
+        "displayName": "Submitter Treatment ID"
+      },
+      "restrictions": {
+        "regex": "#/regex/submitter_id"
+      }
+    },
+    {
       "description": "Indicate the donor's weight, in kilograms (kg), at the time of follow-up.",
       "name": "weight_at_followup",
       "valueType": "integer",
