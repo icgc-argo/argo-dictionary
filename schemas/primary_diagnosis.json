@@ -35,6 +35,19 @@
       }
     },
     {
+      "name": "submitter_primary_diagnosis_id",
+      "valueType": "string",
+      "description": "Unique identifier of the primary diagnosis event, assigned by the data provider.",
+      "meta": {
+        "primaryId": true,
+        "displayName": "Submitter Primary Diagnosis ID"
+      },
+      "restrictions": {
+        "required": true,
+        "regex": "#/regex/submitter_id"
+      }
+    },
+    {
       "name": "age_at_diagnosis",
       "valueType": "integer",
       "description": "Age that the donor was first diagnosed with cancer, in years.",

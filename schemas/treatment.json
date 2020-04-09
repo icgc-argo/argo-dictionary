@@ -49,6 +49,19 @@
       }
     },
     {
+      "name": "submitter_primary_diagnosis_id",
+      "valueType": "string",
+      "description": "Indicate the primary diagnosis event in the clinical timeline that this treatment was related to.",
+      "meta": {
+        "primaryId": true,
+        "displayName": "Submitter Primary Diagnosis ID"
+      },
+      "restrictions": {
+        "required": true,
+        "regex": "#/regex/submitter_id"
+      }
+    },
+    {
       "name": "treatment_type",
       "description": "Indicate the type of treatment regimen that the donor completed.",
       "valueType": "string",
