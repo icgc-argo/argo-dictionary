@@ -53,13 +53,13 @@
       "name": "interval_of_followup",
       "valueType": "integer",
       "restrictions": {
-        "required": true,
-        "notes": "The associated Primary Diagnosis is used as the reference point for this interval. To calculate this, find the number of days since the date of primary diagnosis."
+        "required": true
       },
       "meta": {
         "core": true,
         "units": "days",
-        "displayName": "Interval Of Follow-Up"
+        "displayName": "Interval Of Follow-Up",
+        "notes": "The associated Primary Diagnosis is used as the reference point for this interval. To calculate this, find the number of days since the date of primary diagnosis."
       }
     },
     {
