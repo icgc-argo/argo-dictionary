@@ -154,12 +154,12 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "examples": "hnc_12,CCG_34_94583,BRCA47832-3239"
+        "examples": "hnc_12,CCG_34_94583,BRCA47832-3239",
+        "displayName": "Submitter Sample ID"
       },
       "restrictions": {
         "required": true,
-        "regex": "#/regex/submitter_id",
-        "displayName": "Submitter Sample ID"
+        "regex": "#/regex/submitter_id"
       }
     },
     {
