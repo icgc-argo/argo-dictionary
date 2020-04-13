@@ -130,11 +130,11 @@
       "meta": {
         "validationDependency": true,
         "units": "days",
-        "core": true
+        "core": true,
+        "displayName": "Specimen Aquisition Interval"
       },
       "restrictions": {
         "required": true,
-        "displayName": "Specimen Aquisition Interval",
         "notes": "The associated Primary Diagnosis is used as the reference point for this interval. To calculate this, find the number of days since the date of primary diagnosis."
       }
     },
