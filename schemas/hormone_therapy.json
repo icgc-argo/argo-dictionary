@@ -71,7 +71,7 @@
         "validationDependency": true,
         "core": true,
         "notes": "This field uses a controlled vocabulary gathered from the DrugBank database of drug names. Either this or a valid drug_rxnormid must be provided.",
-        "displayName": "Hormone THerapy Drug Name"
+        "displayName": "Hormone Therapy Drug Name"
       },
       "restrictions": {
         "required": true
