@@ -52,7 +52,7 @@
     {
       "name": "drug_rxnormid",
       "description": "RxNormID assigned to the treatment regimen.",
-      "valueType": "integer",
+      "valueType": "string",
       "meta": {
         "validationDependency": true,
         "core": true,
