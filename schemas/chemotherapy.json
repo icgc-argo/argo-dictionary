@@ -57,7 +57,7 @@
         "validationDependency": true,
         "core": true,
         "notes": "This field uses a controlled vocabulary gathered from the RxNorm database of drug names provided by the NIH (https://www.nlm.nih.gov/research/umls/rxnorm).",
-        "displayName": "RxNormID"
+        "displayName": "RxNormCUI"
       },
       "restrictions": {
         "required": true
@@ -70,7 +70,7 @@
       "meta": {
         "validationDependency": true,
         "core": true,
-        "notes": "This field uses a controlled vocabulary gathered from the DrugBank database of drug names. Either this or a valid drug_rxnormid must be provided.",
+        "notes": "This field uses a controlled vocabulary gathered from the RxNorm database of drug names provided by the NIH (https://www.nlm.nih.gov/research/umls/rxnorm).",
         "displayName": "Chemotherapy Drug Name"
       },
       "restrictions": {
