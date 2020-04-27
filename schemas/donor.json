@@ -189,14 +189,17 @@
     {
       "description": "If donor has history of prior malignancy, indicate age at previous diagnosis, in years.",
       "name": "age_at_prior_malignancy",
-      "valueType": "integer"
+      "valueType": "integer",
+      "meta": {
+        "displayName": "Age at Prior Malignancy"
+      }
     },
     {
       "description": "If donor has history of prior malignancy, indicate laterality of previous diagnosis.",
       "name": "laterality_of_prior_malignancy",
       "valueType": "string",
       "meta": {
-        "displayName": "Age at Prior Malignancy"
+        "displayName": "Laterality at Prior Malignancy"
       }
     },
     {
@@ -222,11 +225,11 @@
       "name": "menopause_status",
       "restrictions": {
         "codeList": [
-          "Premenopausal",
+          "Indeterminate or unknown",
+          "Not applicable",
           "Perimenopausal",
           "Postmenopausal",
-          "Indeterminate or unknown",
-          "Not applicable"
+          "Premenopausal"
         ]
       },
       "valueType": "string",
