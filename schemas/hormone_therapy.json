@@ -50,14 +50,14 @@
       }
     },
     {
-      "name": "drug_rxnormid",
-      "description": "RxNormID assigned to the treatment regimen.",
+      "name": "drug_rxnormcui",
+      "description": "The unique RxNormID assigned to the treatment regimen drug.",
       "valueType": "string",
       "meta": {
         "validationDependency": true,
         "core": true,
-        "notes": "This field uses a controlled vocabulary gathered from the DrugBank database of drug names. Either this or a valid drug_name must be provided.",
-        "displayName": "RXNormID"
+        "notes": "This field uses a controlled vocabulary gathered from the RxNorm database of drug names provided by the NIH (https://www.nlm.nih.gov/research/umls/rxnorm).",
+        "displayName": "RxNormID"
       },
       "restrictions": {
         "required": true
