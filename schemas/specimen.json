@@ -175,10 +175,10 @@
           "Cryopreservation in liquid nitrogen (dead tissue)",
           "Cryopreservation in dry ice (dead tissue)",
           "Cryopreservation of live cells in liquid nitrogen",
-          "Cryopreservation, other",
+          "Cryopreservation - other",
           "Formalin fixed & paraffin embedded",
-          "Formalin fixed, buffered",
-          "Formalin fixed, unbuffered",
+          "Formalin fixed - buffered",
+          "Formalin fixed - unbuffered",
           "Fresh",
           "Other"
         ]
@@ -196,9 +196,9 @@
       "restrictions": {
         "codeList": [
           "Cut slide",
-          "Frozen, -70 freezer",
-          "Frozen, liquid nitrogen",
-          "Frozen, vapor phase",
+          "Frozen in -70 freezer",
+          "Frozen in liquid nitrogen",
+          "Frozen in vapour phase",
           "Not Applicable",
           "Other",
           "Paraffin block",
