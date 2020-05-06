@@ -88,10 +88,10 @@
       "valueType": "string",
       "description": "Indicate if the follow-up is related to a specific primary diagnosis event in the clinical timeline.",
       "meta": {
-        "displayName": "Submitter Primary Diagnosis ID"
+        "displayName": "Submitter Primary Diagnosis ID",
+        "primaryId": true
       },
       "restrictions": {
-        "primaryId": true,
         "regex": "#/regex/submitter_id"
       }
     },
