@@ -54,11 +54,11 @@
       "valueType": "integer",
       "restrictions": {
         "required": true,
-        "displayName": "Interval Of Follow-Up",
         "notes": "The associated Primary Diagnosis is used as the reference point for this interval. To calculate this, find the number of days since the date of primary diagnosis."
       },
       "meta": {
         "core": true,
+        "displayName": "Interval Of Follow-Up",
         "units": "days"
       }
     },
@@ -88,10 +88,10 @@
       "valueType": "string",
       "description": "Indicate if the follow-up is related to a specific primary diagnosis event in the clinical timeline.",
       "meta": {
-        "displayName": "Submitter Primary Diagnosis ID"
+        "displayName": "Submitter Primary Diagnosis ID",
+        "primaryId": true
       },
       "restrictions": {
-        "primaryId": true,
         "regex": "#/regex/submitter_id"
       }
     },
