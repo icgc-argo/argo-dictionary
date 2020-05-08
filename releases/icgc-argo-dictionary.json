@@ -622,7 +622,7 @@
           },
           "restrictions": {
             "required": true,
-            "enum": [
+            "codeList": [
               "Accessory sinuses",
               "Adrenal gland",
               "Anus and anal canal",
