@@ -50,6 +50,19 @@
       }
     },
     {
+      "name": "submitter_primary_diagnosis_id",
+      "valueType": "string",
+      "description": "Indicate the primary diagnosis event in the clinical timeline that this specimen aquisition was related to.",
+      "meta": {
+        "primaryId": true,
+        "displayName": "Submitter Primary Diagnosis ID"
+      },
+      "restrictions": {
+        "required": true,
+        "regex": "#/regex/submitter_id"
+      }
+    },
+    {
       "name": "pathological_tumour_staging_system",
       "description": "Specify the tumour staging system used to assess the cancer at the time the tumour specimen was resected. Pathological classification is based on the clinical stage information (acquired before treatment) and supplemented/modified by operative findings and pathological evaluation of the resected specimen.",
       "valueType": "string",
