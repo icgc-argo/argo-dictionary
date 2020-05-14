@@ -11,43 +11,91 @@ const validation = ($row, $field) =>
       let codeList = [];
 
       switch ($row.tumour_grading_system && $row.tumour_grading_system.trim().toLowerCase()) {
-        case 'default':
+        case 'two-grade system':
           codeList = [
-            'gx - cannot be assessed',
-            'g1 well differentiated/low grade',
-            'g2 moderately differentiated/intermediated grade',
-            'g3 poorly differentiated/high grade',
-            'g4 undifferentiated/high grade',
+            'Low grade',
+            'High grade',
           ];
           break;
-        case 'gleason':
+        case 'three-grade system':
           codeList = [
-            'gleason x: gleason score cannot be determined',
-            'gleason 2–6: the tumor tissue is well differentiated',
-            'gleason 7: the tumor tissue is moderately differentiated',
-            'gleason 8–10: the tumor tissue is poorly differentiated or undifferentiated',
+            'GX',
+            'G1',
+            'G2',
+            'G3',
           ];
           break;
-        case 'nottingham':
+        case 'four-grade system':
           codeList = [
-            'g1 (low grade or well differentiated)',
-            'g2 (intermediate grade or moderately differentiated)',
-            'g3 (high grade or poorly differentiated)',
+            'GX',
+            'G1',
+            'G2',
+            'G3',
+            'G4',
           ];
           break;
-        case 'brain cancer':
-          codeList = ['grade i', 'grade ii', 'grade iii', 'grade iv'];
-          break;
-        case 'isup for renal cell carcinoma':
+        case 'grading system for GISTs':
           codeList = [
-            'grade 1: tumor cell nucleoli invisible or small and basophilic at 400 x magnification',
-            'grade 2: tumor cell nucleoli conspicuous at 400 x magnification but inconspicuous at 100 x magnification',
-            'grade 3: tumor cell nucleoli eosinophilic and clearly visible at 100 x magnification',
-            'grade 4: tumors showing extreme nuclear pleomorphism and/or containing tumor giant cells and/or the presence of any proportion of tumor showing sarcomatoid and/or rhabdoid dedifferentiation',
+            'Low',
+            'High',
           ];
           break;
-        case 'lymphoid neoplasms':
-          codeList = ['low grade or indolent nhl', 'high grade or aggressive nhl'];
+        case 'grading system for GNETs':
+          codeList = [
+            'GX',
+            'G1',
+            'G2',
+            'G3',
+          ];
+          break;
+        case 'ISUP grading system':
+          codeList = [
+            'GX',
+            'G1',
+            'G2',
+            'G3',
+          ];
+          break;
+        case 'CNS WHO tumour grading system':
+          codeList = [
+            'I',
+            'II',
+            'III',
+            'IV',
+          ];
+          break;
+        case 'FNCLCC grading system':
+          codeList = [
+            'GX',
+            'G1',
+            'G2',
+            'G3',
+          ];
+          break;
+        case 'Gleason grade group system':
+          codeList = [
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+          ];
+          break;
+        case 'Scarff-Bloom-Richardson (SBR) grading system':
+          codeList = [
+            'GX',
+            'G1',
+            'G2',
+            'G3',
+          ];
+          break;
+        case 'Nuclear grading system for DCIS':
+          codeList = [
+            'GX',
+            'G1',
+            'G2',
+            'G3',
+          ];
           break;
         default:
           codelist = [];
