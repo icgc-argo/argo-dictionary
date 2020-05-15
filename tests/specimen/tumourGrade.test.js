@@ -114,10 +114,10 @@ const unitTests = [
     }),
   ],
   [
-    'Grading system set to "Nuclear grading for DCIS", tumour grade is "G3"',
+    'Grading system set to "Nuclear grading system for DCIS", tumour grade is "G3"',
     true,
     loadObjects(specimen, {
-      tumour_grading_system: 'Nuclear grading for DCIS ',
+      tumour_grading_system: 'Nuclear grading system for DCIS ',
       tumour_grade: 'G3',
     }),
   ],
