@@ -9,7 +9,7 @@ const validation = ($row, $field) =>
     let result = { valid: true, message: 'Ok' };
     if ($row.tumour_grading_system && $field) {
       let codeList = [];
-
+      const tieredGradingList = ['gx','g1','g2','g3'];
       switch ($row.tumour_grading_system && $row.tumour_grading_system.trim().toLowerCase()) {
         case 'two-tier grading system':
           codeList = [
@@ -18,12 +18,7 @@ const validation = ($row, $field) =>
           ];
           break;
         case 'three-tier grading system':
-          codeList = [
-            'gx',
-            'g1',
-            'g2',
-            'g3',
-          ];
+          codeList = tieredGradingList;
           break;
         case 'four-tier grading system':
           codeList = [
@@ -41,20 +36,10 @@ const validation = ($row, $field) =>
           ];
           break;
         case 'grading system for gnets':
-          codeList = [
-            'gx',
-            'g1',
-            'g2',
-            'g3',
-          ];
+          codeList = tieredGradingList;
           break;
         case 'isup grading system':
-          codeList = [
-            'gx',
-            'g1',
-            'g2',
-            'g3',
-          ];
+          codeList = tieredGradingList;
           break;
         case 'who grading system for cns tumours':
           codeList = [
@@ -65,12 +50,7 @@ const validation = ($row, $field) =>
           ];
           break;
         case 'fnclcc grading system':
-          codeList = [
-            'gx',
-            'g1',
-            'g2',
-            'g3',
-          ];
+          codeList = tieredGradingList;
           break;
         case 'gleason grade group system':
           codeList = [
@@ -82,20 +62,10 @@ const validation = ($row, $field) =>
           ];
           break;
         case 'scarff-bloom-richardson grading system':
-          codeList = [
-            'gx',
-            'g1',
-            'g2',
-            'g3',
-          ];
+          codeList = tieredGradingList;
           break;
         case 'nuclear grading system for dcis':
-          codeList = [
-            'gx',
-            'g1',
-            'g2',
-            'g3',
-          ];
+          codeList = tieredGradingList;
           break;
         default:
           codelist = [];
