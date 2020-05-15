@@ -11,68 +11,68 @@ const validation = ($row, $field) =>
       let codeList = [];
 
       switch ($row.tumour_grading_system && $row.tumour_grading_system.trim().toLowerCase()) {
-        case 'two-grade system':
+        case 'two-tier grading system':
           codeList = [
-            'Low grade',
-            'High grade',
+            'low grade',
+            'high grade',
           ];
           break;
-        case 'three-grade system':
+        case 'three-tier grading system':
           codeList = [
-            'GX',
-            'G1',
-            'G2',
-            'G3',
+            'gx',
+            'g1',
+            'g2',
+            'g3',
           ];
           break;
-        case 'four-grade system':
+        case 'four-tier grading system':
           codeList = [
-            'GX',
-            'G1',
-            'G2',
-            'G3',
-            'G4',
+            'gx',
+            'g1',
+            'g2',
+            'g3',
+            'g4',
           ];
           break;
-        case 'grading system for GISTs':
+        case 'grading system for gists':
           codeList = [
-            'Low',
-            'High',
+            'low',
+            'high',
           ];
           break;
-        case 'grading system for GNETs':
+        case 'grading system for gnets':
           codeList = [
-            'GX',
-            'G1',
-            'G2',
-            'G3',
+            'gx',
+            'g1',
+            'g2',
+            'g3',
           ];
           break;
-        case 'ISUP grading system':
+        case 'isup grading system':
           codeList = [
-            'GX',
-            'G1',
-            'G2',
-            'G3',
+            'gx',
+            'g1',
+            'g2',
+            'g3',
           ];
           break;
-        case 'CNS WHO tumour grading system':
+        case 'who grading system for cns tumours':
           codeList = [
-            'I',
-            'II',
-            'III',
-            'IV',
+            'i',
+            'ii',
+            'iii',
+            'iv',
           ];
           break;
-        case 'FNCLCC grading system':
+        case 'fnclcc grading system':
           codeList = [
-            'GX',
-            'G1',
-            'G2',
-            'G3',
+            'gx',
+            'g1',
+            'g2',
+            'g3',
           ];
           break;
-        case 'Gleason grade group system':
+        case 'gleason grade group system':
           codeList = [
             '1',
             '2',
@@ -81,20 +81,20 @@ const validation = ($row, $field) =>
             '5',
           ];
           break;
-        case 'Scarff-Bloom-Richardson (SBR) grading system':
+        case 'scarff-bloom-richardson grading system':
           codeList = [
-            'GX',
-            'G1',
-            'G2',
-            'G3',
+            'gx',
+            'g1',
+            'g2',
+            'g3',
           ];
           break;
-        case 'Nuclear grading system for DCIS':
+        case 'nuclear grading system for dcis':
           codeList = [
-            'GX',
-            'G1',
-            'G2',
-            'G3',
+            'gx',
+            'g1',
+            'g2',
+            'g3',
           ];
           break;
         default:
