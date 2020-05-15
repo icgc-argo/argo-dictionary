@@ -122,10 +122,10 @@ const unitTests = [
     }),
   ],
   [
-    'Grading system set to "Nuclear grading for DCIS", tumour grade is just whitespace',
+    'Grading system set to "Nuclear grading system for DCIS", tumour grade is just whitespace',
     false,
     loadObjects(specimen, {
-      tumour_grading_system: 'Nuclear grading for DCIS ',
+      tumour_grading_system: 'Nuclear grading system for DCIS ',
       tumour_grade: '          ',
     }),
   ],
