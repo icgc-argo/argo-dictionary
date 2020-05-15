@@ -228,6 +228,50 @@ const unitTests = {
         name: 'clinical_tumour_staging_system',
       },
     ],
+    // Load objects will prepopulate the input data with the same keys as the schema
+    // Not using it in these cases to simulate somebody not providing headers
+    [
+      'Non AJCC Value with <t,n,m>_category header not provided.',
+      true,
+      {
+        row: {
+          clinical_tumour_staging_system: 'Murphy',
+        },
+        name: 'clinical_tumour_staging_system',
+      },
+    ],
+    [
+      'Non AJCC Value with <m,n>_category header not provided, <t>_category field left empty.',
+      true,
+      {
+        row: {
+          clinical_tumour_staging_system: 'Murphy',
+          clinical_t_category: '',
+        },
+        name: 'clinical_tumour_staging_system',
+      },
+    ],
+    [
+      'Non AJCC Value with <m,n>_category header not provided, <t>_category field provided.',
+      false,
+      {
+        row: {
+          clinical_tumour_staging_system: 'Murphy',
+          clinical_t_category: 'Forbidden Provided Value!',
+        },
+        name: 'clinical_tumour_staging_system',
+      },
+    ],
+    [
+      'AJCC Value with <t,n,m>_category fields not provided.',
+      false,
+      {
+        row: {
+          clinical_tumour_staging_system: 'AJCC 8th Edition',
+        },
+        name: 'clinical_tumour_staging_system',
+      },
+    ],
   ],
 };
 
