@@ -155,7 +155,7 @@ const unitTests = [
   ],
   [
     'Grading system set to an unexpected value, tumour grade is any text',
-    false,
+    true,
     loadObjects(specimen, {
       tumour_grading_system: 'A possible new entry to the codelist for tumour grading system.',
       tumour_grade: 'any text here',
@@ -163,14 +163,14 @@ const unitTests = [
   ],
   [
     'Grading system undefined',
-    false,
+    true,
     loadObjects(specimen, {
       tumour_grade: 'any text here',
     }),
   ],
   [
     'grade system undefined',
-    false,
+    true,
     loadObjects(specimen, {
       tumour_grading_system: 'default',
     }),
