@@ -202,6 +202,7 @@
       "name": "presenting_symptoms",
       "description": "Indicate presenting symptoms at time of primary diagnosis.",
       "valueType": "string",
+      "isArray": true,
       "restrictions": {
         "codeList": [
           "Abdominal Pain",
