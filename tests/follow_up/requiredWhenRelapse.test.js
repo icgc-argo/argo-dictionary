@@ -15,7 +15,7 @@ const myUnitTests = {
             true,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "relapse",
+                    "disease_status_at_followup": "relapse or recurrence",
                     "relapse_interval": "500"
                 }
             )
@@ -35,7 +35,7 @@ const myUnitTests = {
             false,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "relapse"
+                    "disease_status_at_followup": "relapse or recurrence"
                 }
             )
         ],
@@ -44,7 +44,7 @@ const myUnitTests = {
             false,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "relapse",
+                    "disease_status_at_followup": "relapse or recurrence",
                     "relapse_interval" : "      "
                 }
             )
@@ -74,7 +74,7 @@ const myUnitTests = {
             true,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "relapse",
+                    "disease_status_at_followup": "relapse or recurrence",
                     "method_of_progression_status": "Autopsy"
                 }
             )
@@ -84,7 +84,7 @@ const myUnitTests = {
             false,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "relapse"
+                    "disease_status_at_followup": "relapse or recurrence"
                 }
             )
         ],
@@ -114,7 +114,7 @@ const myUnitTests = {
             true,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "relapse",
+                    "disease_status_at_followup": "relapse or recurrence",
                     "anatomic_site_progression_or_recurrences": "Ankle"
                 }
             )
@@ -124,7 +124,7 @@ const myUnitTests = {
             false,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "relapse"
+                    "disease_status_at_followup": "relapse or recurrence"
                 }
             )
         ],
@@ -135,7 +135,7 @@ const myUnitTests = {
             true,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "relapse",
+                    "disease_status_at_followup": "relapse or recurrence",
                     "recurrence_tumour_staging_system": "Binet"
                 }
             )
@@ -145,7 +145,7 @@ const myUnitTests = {
             false,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "relapse"
+                    "disease_status_at_followup": "relapse or recurrence"
                 }
             )
         ]
@@ -156,7 +156,7 @@ const myUnitTests = {
             true,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "Relapse",
+                    "disease_status_at_followup": "Relapse or Recurrence",
                     "posttherapy_tumour_staging_system": "Murphy"
                 }
             )
@@ -166,7 +166,7 @@ const myUnitTests = {
             false,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "relapse"
+                    "disease_status_at_followup": "relapse or recurrence"
                 }
             )
         ]
