@@ -1,10 +1,5 @@
 program_id	submitter_donor_id	submitter_treatment_id	radiation_therapy_modality	application_form	radiation_therapy_fractions	radiation_therapy_dosage	anatomical_site_irradiated
-DASH-CA	DASH-2	treatment2-1	Electron	Internal (including Brachytherapy)	1	45	Extremities
-DASH-CA	DASH-2	treatment2-3	Electron	Internal (including Brachytherapy)	5	60	Extremities
-DASH-CA	DASH-2	treatment2-4	Electron	External	1	50	Extremities
-DASH-CA	DASH-7	treatment7-2	Proton	External	1	49	Peritoneum
-							
-							
-							
-							
-							
+DASH-CA	DASH-2	dashtr2-1	Electron	Internal (including Brachytherapy)	1	45	Extremities
+DASH-CA	DASH-2	dashtr2-3	Electron	Internal (including Brachytherapy)	5	60	Extremities
+DASH-CA	DASH-2	dashtr2-4	Electron	External	1	50	Extremities
+DASH-CA	DASH-7	dashtr7-2	Proton	External	1	49	Peritoneum

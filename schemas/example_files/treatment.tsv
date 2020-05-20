@@ -1,21 +1,21 @@
-program_id	submitter_donor_id	submitter_treatment_id	treatment_type	age_at_consent_for_treatment	is_primary_treatment	treatment_start_interval	treatment_duration	therapeutic_intent	response_to_therapy
-DASH-CA	DASH-1	treatment1-1	Surgical resection		Yes	4	1	Curative	Complete response
-DASH-CA	DASH-2	treatment2-1	Radiation therapy		Yes	36	14	Neoadjuvant	Partial response
-DASH-CA	DASH-2	treatment2-2	Chemotherapy		No	82	20	Curative	Partial response
-DASH-CA	DASH-2	treatment2-3	Radiation therapy		No	125	3	Curative	Complete response
-DASH-CA	DASH-2	treatment2-4	Radiation therapy		No	640	3	Neoadjuvant	Partial response
-DASH-CA	DASH-2	treatment2-5	Surgical resection		No	662	3	Curative	Complete response
-DASH-CA	DASH-3	treatment3-1	Surgical resection		Yes	42	1	Curative	Complete response
-DASH-CA	DASH-3	treatment3-2	Hormonal therapy		No	42	90	Concurrent	Partial response
-DASH-CA	DASH-3	treatment3-3	Endoscopic therapy		No	120	1	Curative	Complete response
-DASH-CA	DASH-4	treatment4-1	Combined chemo-radiotherapy and surgery		Yes	20	41	Concurrent	Complete response
-DASH-CA	DASH-5	treatment5-1	Combined chemo-radiotherapy and surgery		No	2	7	Curative	Disease progression
-DASH-CA	DASH-6	treatment6-1	Combined chemo-radiotherapy and surgery		Yes	3	12	Concurrent	Disease progression
-DASH-CA	DASH-6	treatment6-2	Hormonal therapy		No	75	30	Palliative	Disease progression
-DASH-CA	DASH-7	treatment7-1	Combined chemo-radiotherapy and surgery		Yes	3	25	Neoadjuvant	Disease progression
-DASH-CA	DASH-7	treatment7-2	Radiation therapy		No	41	3	Neoadjuvant	Disease progression
-DASH-CA	DASH-7	treatment7-3	Surgical resection		No	82	1	Palliative	Disease progression
-DASH-CA	DASH-8	treatment8-1	Surgical resection		Yes	45	1	Curative	Stable disease
-DASH-CA	DASH-10	treatment10-1	Endoscopic therapy		Yes	15	1	Curative	Stable disease
-DASH-CA	DASH-10	treatment10-2	Chemotherapy		No	100	14	Curative	Partial response
-DASH-CA	DASH-10	treatment10-3	Chemotherapy		No	120	6	Curative	Complete response
+program_id	submitter_donor_id	submitter_treatment_id	submitter_primary_diagnosis_id	treatment_type	age_at_consent_for_treatment	is_primary_treatment	treatment_start_interval	treatment_duration	therapeutic_intent	response_to_therapy
+DASH-CA	DASH-1	dashtr1-1	dashpd-1	Surgical resection		Yes	4	1	Curative	Complete response
+DASH-CA	DASH-2	dashtr2-1	dashpd-1	Radiation therapy		Yes	36	14	Neoadjuvant	Partial response
+DASH-CA	DASH-2	dashtr2-2	dashpd-2	Chemotherapy		No	82	20	Curative	Partial response
+DASH-CA	DASH-2	dashtr2-3	dashpd-2	Radiation therapy		No	125	3	Curative	Complete response
+DASH-CA	DASH-2	dashtr2-5	dashpd-2	Surgical resection		No	662	3	Curative	Complete response
+DASH-CA	DASH-2	dashtr2-4	dashpd-2	Radiation therapy		No	640	3	Neoadjuvant	Partial response
+DASH-CA	DASH-3	dashtr3-1	dashpd-3	Surgical resection		Yes	42	1	Curative	Complete response
+DASH-CA	DASH-3	dashtr3-2	dashpd-3	Hormonal therapy		No	42	90	Concurrent	Partial response
+DASH-CA	DASH-3	dashtr3-3	dashpd-3	Endoscopic therapy		No	120	1	Curative	Complete response
+DASH-CA	DASH-4	dashtr4-1	dashpd-4	Combined chemo-radiotherapy and surgery		Yes	20	41	Concurrent	Complete response
+DASH-CA	DASH-5	dashtr5-1	dashpd-5	Combined chemo-radiotherapy and surgery		No	2	7	Curative	Disease progression
+DASH-CA	DASH-6	dashtr6-1	dashpd-6	Combined chemo-radiotherapy and surgery		Yes	3	12	Concurrent	Disease progression
+DASH-CA	DASH-6	dashtr6-2	dashpd-6	Hormonal therapy		No	75	30	Palliative	Disease progression
+DASH-CA	DASH-7	dashtr7-1	dashpd-7	Combined chemo-radiotherapy and surgery		Yes	3	25	Neoadjuvant	Disease progression
+DASH-CA	DASH-7	dashtr7-2	dashpd-7	Radiation therapy		No	41	3	Neoadjuvant	Disease progression
+DASH-CA	DASH-7	dashtr7-3	dashpd-7	Surgical resection		No	82	1	Palliative	Disease progression
+DASH-CA	DASH-8	dashtr8-1	dashpd-8	Surgical resection		Yes	45	1	Curative	Stable disease
+DASH-CA	DASH-10	dashtr10-1	dashpd-10	Endoscopic therapy		Yes	15	1	Curative	Stable disease
+DASH-CA	DASH-10	dashtr10-2	dashpd-10	Chemotherapy		No	100	14	Curative	Partial response
+DASH-CA	DASH-10	dashtr10-3	dashpd-10	Chemotherapy		No	120	6	Curative	Complete response

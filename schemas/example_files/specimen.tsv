@@ -1,18 +1,17 @@
-program_id	submitter_donor_id	submitter_specimen_id	pathological_tumour_staging_system	pathological_t_category	pathological_n_category	pathological_m_category	pathological_stage_group	specimen_acquisition_interval	tumour_histological_type	specimen_anatomic_location	specimen_processing	specimen_storage	central_pathology_confirmed	tumour_grading_system	tumour_grade	percent_tumour_cells	percent_proliferating_cells	percent_inflammatory_tissue	percent_stromal_cells	percent_necrosis
-DASH-CA	DASH-1	specimen-1						4		Blood										
-DASH-CA	DASH-1	specimen-1.1	Ann Arbor				Stage I	4	9691/36	Brain			Yes	Brain cancer	Grade I	0.2	0.2	0.2	0.2	0.2
-DASH-CA	DASH-1	specimen-1.2	Ann Arbor				Stage I	4	9691/36	Brain			Yes	Brain cancer	Grade I	0.3	0.2	0.4	0.05	0.05
-DASH-CA	DASH-2	specimen-2	AJCC 8th Edition	T1	N0	M0	Stage II	20	9691/36	Breast			No	ISUP	Grade I	0.1	0.1	0.1	0.6	0.1
-DASH-CA	DASH-3	specimen-3						42		Esophageal - mid										
-DASH-CA	DASH-4	specimen-4						12		Blood										
-DASH-CA	DASH-4	specimen-4.1	AJCC 8th Edition	T4a	N1	M1	Stage II	15	9691/36	Esophageal - mid			Unknown	ISUP	Grade I	0.1	0.1	0.1	0.6	0.1
-DASH-CA	DASH-5	specimen-5	AJCC 8th Edition	T1	N0	M0	Stage III	1	9691/36	Pancreas			Yes	ISUP	Grade I	0.4	0.2	0.1	0.1	0.1
-DASH-CA	DASH-5	specimen-5.1						1		Blood										
-DASH-CA	DASH-6	specimen-6.1						2		Blood										
-DASH-CA	DASH-6	specimen-6.2	AJCC 8th Edition	T1	N1	M0	Stage II	2	9691/36	Pancreas			Yes	ISUP	Grade I	0.1	0.6	0.2	0.1	0
-DASH-CA	DASH-7	specimen-7.2	AJCC 8th Edition	T1	N2	M0	Stage III	2	9691/36	Pancreas			Yes	ISUP	Grade I	0.3	0.2	0.4	0.05	0.05
-DASH-CA	DASH-8	sample-8						25		Blood										
-DASH-CA	DASH-8	sample-8.1	AJCC 8th Edition	T1	N1	M0	Stage I	31	9691/36	Pancreas			Unknown	ISUP	Grade I	0.1	0.1	0.1	0.6	0.1
-DASH-CA	DASH-9	sample-9						40		Blood										
-DASH-CA	DASH-10	sample-10						62		Blood										
-																				
+program_id	submitter_donor_id	submitter_specimen_id	submitter_primary_diagnosis_id	pathological_tumour_staging_system	pathological_t_category	pathological_n_category	pathological_m_category	pathological_stage_group	specimen_acquisition_interval	tumour_histological_type	specimen_anatomic_location	specimen_processing	specimen_storage	central_pathology_confirmed	tumour_grading_system	tumour_grade	percent_tumour_cells	percent_proliferating_cells	percent_inflammatory_tissue	percent_stromal_cells	percent_necrosis
+DASH-CA	DASH-1	dashsp-1	dashpd-1						4		Blood										
+DASH-CA	DASH-1	dashsp-1.1	dashpd-1	Ann Arbor				Stage I	4	9691/36	Brain			Yes	Brain cancer	Grade I	0.2	0.2	0.2	0.2	0.2
+DASH-CA	DASH-1	dashsp-1.2	dashpd-1	Ann Arbor				Stage I	4	9691/36	Brain			Yes	Brain cancer	Grade I	0.3	0.2	0.4	0.05	0.05
+DASH-CA	DASH-2	dashsp-2	dashpd-2	AJCC 8th Edition	T1	N0	M0	Stage II	20	9691/36	Breast			No	ISUP	Grade I	0.1	0.1	0.1	0.6	0.1
+DASH-CA	DASH-3	dashsp-3	dashpd-3						42		Esophageal - mid										
+DASH-CA	DASH-4	dashsp-4	dashpd-4						12		Blood										
+DASH-CA	DASH-4	dashsp-4.1	dashpd-4	AJCC 8th Edition	T4a	N1	M1	Stage II	15	9691/36	Esophageal - mid			Unknown	ISUP	Grade I	0.1	0.1	0.1	0.6	0.1
+DASH-CA	DASH-5	dashsp-5	dashpd-5	AJCC 8th Edition	T1	N0	M0	Stage III	1	9691/36	Pancreas			Yes	ISUP	Grade I	0.4	0.2	0.1	0.1	0.1
+DASH-CA	DASH-5	dashsp-5.1	dashpd-5						1		Blood										
+DASH-CA	DASH-6	dashsp-6.1	dashpd-6						2		Blood										
+DASH-CA	DASH-6	dashsp-6.2	dashpd-6	AJCC 8th Edition	T1	N1	M0	Stage II	2	9691/36	Pancreas			Yes	ISUP	Grade I	0.1	0.6	0.2	0.1	0
+DASH-CA	DASH-7	dashsp-7.2	dashpd-7	AJCC 8th Edition	T1	N2	M0	Stage III	2	9691/36	Pancreas			Yes	ISUP	Grade I	0.3	0.2	0.4	0.05	0.05
+DASH-CA	DASH-8	dashsp-8	dashpd-8						25		Blood										
+DASH-CA	DASH-8	dashsp-8.1	dashpd-8	AJCC 8th Edition	T1	N1	M0	Stage I	31	9691/36	Pancreas			Unknown	ISUP	Grade I	0.1	0.1	0.1	0.6	0.1
+DASH-CA	DASH-9	dashsp-9	dashpd-9						40		Blood										
+DASH-CA	DASH-10	dashsp-10	dashpd-10						62		Blood										
