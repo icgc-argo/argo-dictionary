@@ -1,6 +1,6 @@
 program_id	submitter_donor_id	submitter_treatment_id	submitter_primary_diagnosis_id	treatment_type	age_at_consent_for_treatment	is_primary_treatment	treatment_start_interval	treatment_duration	therapeutic_intent	response_to_therapy
 DASH-CA	DASH-1	dashtr1-1	dashpd-1	Surgical resection		Yes	4	1	Curative	Complete response
-DASH-CA	DASH-2	dashtr2-1	dashpd-1	Radiation therapy		Yes	36	14	Neoadjuvant	Partial response
+DASH-CA	DASH-2	dashtr2-1	dashpd-2	Radiation therapy		Yes	36	14	Neoadjuvant	Partial response
 DASH-CA	DASH-2	dashtr2-2	dashpd-2	Chemotherapy		No	82	20	Curative	Partial response
 DASH-CA	DASH-2	dashtr2-3	dashpd-2	Radiation therapy		No	125	3	Curative	Complete response
 DASH-CA	DASH-2	dashtr2-5	dashpd-2	Surgical resection		No	662	3	Curative	Complete response
