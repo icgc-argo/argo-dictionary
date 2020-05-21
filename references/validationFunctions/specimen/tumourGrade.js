@@ -39,7 +39,13 @@ const validation = ($row, $field) =>
           codeList = tieredGradingList;
           break;
         case 'isup grading system':
-          codeList = tieredGradingList;
+          codeList = [
+            'gx',
+            'g1',
+            'g2',
+            'g3',
+            'g4',
+          ];
           break;
         case 'who grading system for cns tumours':
           codeList = [
