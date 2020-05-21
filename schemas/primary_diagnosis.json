@@ -230,7 +230,11 @@
           "Weight Loss"
         ]
       },
-      "meta": { "displayName": "Presenting Symptoms" }
+      "meta": { 
+         "displayName": "Presenting Symptoms",
+         "notes": "To include multiple values, please separate values with a comma ',' within your file",
+        "examples": "Anemia,Bloating,Diabetes"
+      }
     },
     {
       "name": "performance_status",
