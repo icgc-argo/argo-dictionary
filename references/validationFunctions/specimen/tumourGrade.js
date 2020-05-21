@@ -9,45 +9,63 @@ const validation = ($row, $field) =>
     let result = { valid: true, message: 'Ok' };
     if ($row.tumour_grading_system && $field) {
       let codeList = [];
-
+      const tieredGradingList = ['gx','g1','g2','g3'];
       switch ($row.tumour_grading_system && $row.tumour_grading_system.trim().toLowerCase()) {
-        case 'default':
+        case 'two-tier grading system':
           codeList = [
-            'gx - cannot be assessed',
-            'g1 well differentiated/low grade',
-            'g2 moderately differentiated/intermediated grade',
-            'g3 poorly differentiated/high grade',
-            'g4 undifferentiated/high grade',
+            'low grade',
+            'high grade',
           ];
           break;
-        case 'gleason':
+        case 'three-tier grading system':
+          codeList = tieredGradingList;
+          break;
+        case 'four-tier grading system':
           codeList = [
-            'gleason x: gleason score cannot be determined',
-            'gleason 2–6: the tumor tissue is well differentiated',
-            'gleason 7: the tumor tissue is moderately differentiated',
-            'gleason 8–10: the tumor tissue is poorly differentiated or undifferentiated',
+            'gx',
+            'g1',
+            'g2',
+            'g3',
+            'g4',
           ];
           break;
-        case 'nottingham':
+        case 'grading system for gists':
           codeList = [
-            'g1 (low grade or well differentiated)',
-            'g2 (intermediate grade or moderately differentiated)',
-            'g3 (high grade or poorly differentiated)',
+            'low',
+            'high',
           ];
           break;
-        case 'brain cancer':
-          codeList = ['grade i', 'grade ii', 'grade iii', 'grade iv'];
+        case 'grading system for gnets':
+          codeList = tieredGradingList;
           break;
-        case 'isup for renal cell carcinoma':
+        case 'isup grading system':
+          codeList = tieredGradingList;
+          break;
+        case 'who grading system for cns tumours':
           codeList = [
-            'grade 1: tumor cell nucleoli invisible or small and basophilic at 400 x magnification',
-            'grade 2: tumor cell nucleoli conspicuous at 400 x magnification but inconspicuous at 100 x magnification',
-            'grade 3: tumor cell nucleoli eosinophilic and clearly visible at 100 x magnification',
-            'grade 4: tumors showing extreme nuclear pleomorphism and/or containing tumor giant cells and/or the presence of any proportion of tumor showing sarcomatoid and/or rhabdoid dedifferentiation',
+            'i',
+            'ii',
+            'iii',
+            'iv',
           ];
           break;
-        case 'lymphoid neoplasms':
-          codeList = ['low grade or indolent nhl', 'high grade or aggressive nhl'];
+        case 'fnclcc grading system':
+          codeList = tieredGradingList;
+          break;
+        case 'gleason grade group system':
+          codeList = [
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+          ];
+          break;
+        case 'scarff-bloom-richardson grading system':
+          codeList = tieredGradingList;
+          break;
+        case 'nuclear grading system for dcis':
+          codeList = tieredGradingList;
           break;
         default:
           codelist = [];
