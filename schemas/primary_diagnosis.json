@@ -232,7 +232,7 @@
       },
       "meta": { 
          "displayName": "Presenting Symptoms",
-         "notes": "To include multiple values, please separate values with a comma ',' within your file",
+         "notes": "To include multiple values, please separate values with a comma ',' within your file.",
         "examples": "Anemia,Bloating,Diabetes"
       }
     },
