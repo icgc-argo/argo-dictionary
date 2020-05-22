@@ -288,5 +288,6 @@
     "Vulva",
     "White blood cells",
     "Wrist"
-  ]
+  ],
+  "drug_dosage_units": ["mg/m2", "IU/m2", "ug/m2", "g/m2", "mg/kg"]
 }
