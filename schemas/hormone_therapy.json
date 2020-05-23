@@ -81,7 +81,7 @@
       "valueType": "string",
       "restrictions": {
         "required": true,
-        "codeList": ["mg/m2", "IU/m2", "µg/m2", "g/m2", "mg/kg"]
+        "codeList": "#list/drug_dosage_units"
       },
       "meta": {
         "core": true,
