@@ -91,7 +91,7 @@
     {
       "name": "cumulative_drug_dosage",
       "description": "Indicate total drug dose in units specified in hormone_drug_dosage_units.",
-      "valueType": "integer",
+      "valueType": "number",
       "restrictions": {
         "required": true
       },

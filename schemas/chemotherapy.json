@@ -93,7 +93,7 @@
     {
       "name": "cumulative_drug_dosage",
       "description": "Indicate the total drug dose in the same units specified in chemotherapy_dosage_units.",
-      "valueType": "integer",
+      "valueType": "number",
       "restrictions": {
         "required": true
       },
