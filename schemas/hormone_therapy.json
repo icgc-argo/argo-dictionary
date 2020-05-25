@@ -81,7 +81,7 @@
       "valueType": "string",
       "restrictions": {
         "required": true,
-        "codeList": "#list/drug_dosage_units"
+        "codeList": "#/list/drug_dosage_units"
       },
       "meta": {
         "core": true,
