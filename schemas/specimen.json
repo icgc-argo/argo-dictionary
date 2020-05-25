@@ -101,6 +101,9 @@
         "dependsOn": "specimen.pathological_tumour_staging_system",
         "notes": "This field is required only if the selected pathological_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Pathological T Category"
+      },
+      "restrictions": {
+         "codeList": "#/list/t_categories"
       }
     },
     {
@@ -112,6 +115,9 @@
         "dependsOn": "specimen.pathological_tumour_staging_system",
         "notes": "This field is required only if the selected pathological_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Pathological N Category"
+      },
+      "restrictions": {
+         "codeList": "#/list/n_categories"
       }
     },
     {
@@ -123,6 +129,9 @@
         "dependsOn": "specimen.pathological_tumour_staging_system",
         "notes": "This field is required only if the selected pathological_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Pathological M Category"
+      },
+      "restrictions": {
+         "codeList": "#/list/m_categories"
       }
     },
     {

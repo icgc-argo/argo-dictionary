@@ -174,6 +174,9 @@
         "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
         "notes": "This field is required only if the selected clinical_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Clinical T Category"
+      },
+      "restrictions": {
+         "codeList": "#/list/t_categories"
       }
     },
     {
@@ -185,6 +188,9 @@
         "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
         "notes": "This field is required only if the selected clinical_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Clinical N Category"
+      },
+      "restrictions": {
+         "codeList": "#/list/n_categories"
       }
     },
     {
@@ -196,6 +202,9 @@
         "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
         "notes": "This field is required only if the selected clinical_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Clinical M Category"
+      },
+      "restrictions": {
+         "codeList": "#/list/m_categories"
       }
     },
     {

@@ -244,6 +244,9 @@
         "dependsOn": "follow_up.recurrence_tumour_staging_system",
         "notes": "This field is required only if the selected recurrence_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Recurrence T Category"
+      },
+      "restrictions": {
+         "codeList": "#/list/t_categories"
       }
     },
     {
@@ -255,6 +258,9 @@
         "dependsOn": "follow_up.recurrence_tumour_staging_system",
         "notes": "This field is required only if the selected recurrence_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Recurrence N Category"
+      },
+      "restrictions": {
+         "codeList": "#/list/n_categories"
       }
     },
     {
@@ -266,6 +272,9 @@
         "dependsOn": "follow_up.recurrence_tumour_staging_system",
         "notes": "This field is required only if the selected recurrence_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Recurrence M Category"
+      },
+      "restrictions": {
+         "codeList": "#/list/m_categories"
       }
     },
     {
