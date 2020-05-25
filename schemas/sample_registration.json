@@ -1,6 +1,6 @@
 {
   "name": "sample_registration",
-  "description": "The collection of elements required to register the required Donor-Specimen-Sample data to the ARGO Platform. Registration of samples is required before genomic and clinical data submission can proceed.",
+  "description": "The collection of elements required to register the required Donor-Specimen-Sample data to the ARGO Platform. Registration of samples is required before molecular and clinical data submission can proceed.",
   "fields": [
     {
       "name": "program_id",
@@ -10,7 +10,7 @@
         "validationDependency": true,
         "primaryId": true,
         "examples": "PACA-AU,BR-CA",
-        "notes": "This is the unique id that is assigned to your program.  If you have logged into the platform, this is the Program Id that you see in the Submiission area.",
+        "notes": "This is the unique id that is assigned to your program.  If you have logged into the platform, this is the Program Id that you see in the Submission area. For example, PACA-CA is a Program ID.",
         "displayName": "Program ID"
       },
       "restrictions": {

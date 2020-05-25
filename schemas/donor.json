@@ -1,6 +1,6 @@
 {
   "name": "donor",
-  "description": "The collection of data elements related to a specific donor in a specific ICGC-ARGO program.",
+  "description": "The collection of data elements related to a specific donor in an ARGO program.",
   "meta": {
     "parent": "specimen"
   },
