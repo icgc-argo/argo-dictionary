@@ -1,6 +1,6 @@
 {
   "name": "hormone_therapy",
-  "description": "The collection of data elements describing the details of a hormone treatment therapy completed by a donor. For multiple treatment agents in a single regimen, submit multiple rows in the hormone_therapy file.",
+  "description": "The collection of data elements describing the details of a hormone treatment therapy completed by a donor. To submit multiple treatment drugs for a single regimen, submit multiple rows in the hormone_therapy file.",
   "meta": {
     "parent": "treatment"
   },
@@ -81,7 +81,7 @@
       "valueType": "string",
       "restrictions": {
         "required": true,
-        "codeList": "#list/drug_dosage_units"
+        "codeList": "#/list/drug_dosage_units"
       },
       "meta": {
         "core": true,
@@ -97,7 +97,7 @@
       },
       "meta": {
         "core": true,
-        "displayName": "Cumulative Drug Dose"
+        "displayName": "Cumulative Drug Dosage"
       }
     }
   ]
