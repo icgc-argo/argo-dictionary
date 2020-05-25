@@ -320,6 +320,9 @@
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
         "notes": "This field is required only if the selected posttherapy_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Post-therapy T Category"
+      },
+      "restrictions": {
+         "codeList": "#/list/t_categories"
       }
     },
     {
@@ -330,6 +333,9 @@
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
         "notes": "This field is required only if the selected posttherapy_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Post-therapy N Category"
+      },
+      "restrictions": {
+         "codeList": "#/list/n_categories"
       }
     },
     {
@@ -340,6 +346,9 @@
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
         "notes": "This field is required only if the selected posttherapy_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Post-therapy M Category"
+      },
+      "restrictions": {
+         "codeList": "#/list/m_categories"
       }
     },
     {
