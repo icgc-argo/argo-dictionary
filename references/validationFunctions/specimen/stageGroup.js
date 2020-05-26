@@ -9,7 +9,7 @@ const validation = ($row, $field) =>
     let result = { valid: true, message: 'Ok' };
     if ($row.pathological_tumour_staging_system && $field) {
       let codeList = [];
-      switch ($row.pathological_tumour_staging_system && $row.pathological_stage_group.trim().toLowerCase()) {
+      switch ($row.pathological_tumour_staging_system && $row.pathological_tumour_staging_system.trim().toLowerCase()) {
         case 'revised international staging system (riss)':
           codeList = [
             'stage i',
