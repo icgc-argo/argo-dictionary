@@ -3,7 +3,7 @@ const universalTest = require('../universal');
 const loadObjects = require('../loadObjects');
 
 // load in all fields with entries prepopulated to null
-const specimen = require('../constructDummyData').getSchemaDummy('follow_up');
+const follow_up = require('../constructDummyData').getSchemaDummy('follow_up');
 
 // the name of the field being validateds
 const name = 'recurrence_stage_group';
@@ -12,7 +12,7 @@ const unitTests = [
   [
     'Staging system set to "revised international staging system (riss)", stage group is: "stage ii"',
     true,
-    loadObjects(specimen, {
+    loadObjects(follow_up, {
       recurrence_tumour_staging_system: 'revised international staging system (riss)',
       recurrence_stage_group: 'stage ii',
     }),
@@ -20,7 +20,7 @@ const unitTests = [
   [
     'Staging system set to "lugano staging system", stage group is: "stage iva"',
     true,
-    loadObjects(specimen, {
+    loadObjects(follow_up, {
       recurrence_tumour_staging_system: 'lugano staging system',
       recurrence_stage_group: 'stage iva',
     }),
@@ -28,7 +28,7 @@ const unitTests = [
   [
     'Staging system set to "St Jude staging System", stage group is: "Stage III"',
     true,
-    loadObjects(specimen, {
+    loadObjects(follow_up, {
       recurrence_tumour_staging_system: 'St Jude staging System',
       recurrence_stage_group: 'Stage III',
     }),
@@ -36,7 +36,7 @@ const unitTests = [
   [
     'Staging system set to "Ann Arbor Staging System", stage group is: "stage IiIA"',
     true,
-    loadObjects(specimen, {
+    loadObjects(follow_up, {
       recurrence_tumour_staging_system: 'Ann Arbor Staging System',
       recurrence_stage_group: 'stage IiIA',
     }),
@@ -44,7 +44,7 @@ const unitTests = [
   [
     'Staging system set to " rai Staging syStem ", stage group is: " stage 0 "',
     true,
-    loadObjects(specimen, {
+    loadObjects(follow_up, {
       recurrence_tumour_staging_system: ' rai Staging syStem ',
       recurrence_stage_group: ' stage 0 ',
     }),
@@ -52,7 +52,7 @@ const unitTests = [
   [
     'Staging system set to " Durie-salmon Staging syStem ", stage group is: " stage iiB"',
     true,
-    loadObjects(specimen, {
+    loadObjects(follow_up, {
       recurrence_tumour_staging_system: ' Durie-salmon Staging syStem ',
       recurrence_stage_group: ' stage iiB',
     }),
@@ -60,7 +60,7 @@ const unitTests = [
   [
     'Staging system set to "FIGO Staging syStem ", stage group is: "stage iAB "',
     true,
-    loadObjects(specimen, {
+    loadObjects(follow_up, {
       recurrence_tumour_staging_system: 'FIGO Staging syStem ',
       recurrence_stage_group: 'stage iAB ',
     }),
@@ -68,7 +68,7 @@ const unitTests = [
   [
     'Staging system set to " binEt stAging SYSTEM", stage group is: "stAge C "',
     true,
-    loadObjects(specimen, {
+    loadObjects(follow_up, {
       recurrence_tumour_staging_system: ' binEt stAging SYSTEM',
       recurrence_stage_group: 'stAge C ',
     }),
@@ -76,7 +76,7 @@ const unitTests = [
   [
     'Staging system set to "AJCC 8th Edition", stage group is: "STAGE IB1"',
     true,
-    loadObjects(specimen, {
+    loadObjects(follow_up, {
       recurrence_tumour_staging_system: 'AJCC 8th Edition',
       recurrence_stage_group: 'STAGE IB1',
     }),
@@ -84,7 +84,7 @@ const unitTests = [
   [
     'Staging system set to "AJCC 7th edition", stage group is: "occult Carcinoma"',
     true,
-    loadObjects(specimen, {
+    loadObjects(follow_up, {
       recurrence_tumour_staging_system: 'AJCC 7th edition',
       recurrence_stage_group: 'occult Carcinoma',
     }),
@@ -92,7 +92,7 @@ const unitTests = [
   [
     'Staging system set to "AJCC 7th edition", stage group is: "occult Carcinoma"',
     true,
-    loadObjects(specimen, {
+    loadObjects(follow_up, {
       recurrence_tumour_staging_system: 'AJCC 7th edition',
       recurrence_stage_group: 'occult Carcinoma',
     }),
@@ -100,23 +100,15 @@ const unitTests = [
   [
     'Staging system set to "AJCC 7th edition", stage group is an impermissable value',
     false,
-    loadObjects(specimen, {
+    loadObjects(follow_up, {
       recurrence_tumour_staging_system: 'AJCC 7th edition',
       recurrence_stage_group: ' an impermissable VALUE!!! ',
     }),
   ],
   [
-    'Staging system set to "Binet staging system", stage group is: "Stage I"',
+    'Staging system set to "Binet staging system", stage group is value from another codelist',
     false,
-    loadObjects(specimen, {
-      recurrence_tumour_staging_system: 'Binet staging system',
-      recurrence_stage_group: 'Stage I',
-    }),
-  ],
-  [
-    'Staging system set to "Binet staging system", stage group is value from another codelist: "Stage I"',
-    false,
-    loadObjects(specimen, {
+    loadObjects(follow_up, {
       recurrence_tumour_staging_system: 'Binet staging system',
       recurrence_stage_group: 'Stage I',
     }),
@@ -124,7 +116,7 @@ const unitTests = [
   [
     'Staging system set to "Rai staging system", stage group is "iii"',
     false,
-    loadObjects(specimen, {
+    loadObjects(follow_up, {
       recurrence_tumour_staging_system: 'Rai staging system',
       recurrence_stage_group: 'iii',
     }),
@@ -132,7 +124,7 @@ const unitTests = [
   [
     'Staging system set to "ajcc 8th edition", stage group is just whitespace"',
     false,
-    loadObjects(specimen, {
+    loadObjects(follow_up, {
       recurrence_tumour_staging_system: 'ajcc 8th edition',
       recurrence_stage_group: '         ',
     }),
@@ -140,7 +132,7 @@ const unitTests = [
   [
     'Staging system set to "ajcc 7th edition", stage group is gibberish"',
     false,
-    loadObjects(specimen, {
+    loadObjects(follow_up, {
       recurrence_tumour_staging_system: 'ajcc 8th edition',
       recurrence_stage_group: 'gibberish!',
     }),
@@ -148,7 +140,7 @@ const unitTests = [
   [
     'Staging system set to "ann arbor staging system", stage group is any text"',
     false,
-    loadObjects(specimen, {
+    loadObjects(follow_up, {
       recurrence_tumour_staging_system: 'ann arbor staging system',
       recurrence_stage_group: 'any text',
     }),
@@ -156,7 +148,7 @@ const unitTests = [
   [
     'Staging system set to an unexpected value, stage group is any text"',
     true,
-    loadObjects(specimen, {
+    loadObjects(follow_up, {
       recurrence_tumour_staging_system: 'my staging system',
       recurrence_stage_group: 'any text here',
     }),
@@ -164,18 +156,18 @@ const unitTests = [
   [
     'Staging system undefined',
     true,
-    loadObjects(specimen, {
+    loadObjects(follow_up, {
       recurrence_stage_group: 'any text here',
     }),
   ],
   [
     'staging system undefined',
     true,
-    loadObjects(specimen, {
+    loadObjects(follow_up, {
       recurrence_tumour_staging_system: 'default',
     }),
   ],
-  ['both undefined', true, specimen],
+  ['both undefined', true, follow_up],
 ];
 
 describe('Common Tests', () => {
