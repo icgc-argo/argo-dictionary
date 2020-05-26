@@ -68,6 +68,38 @@ const myUnitTests = {
             )
         ]
     ],
+    'relapse_type': [
+        [
+            'Disease status is relapse, and relapse type is Local recurrence',
+            true,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "relapse",
+                    "relapse_type": "local recurrence"
+                }
+            )
+        ],
+        [
+            'Disease status is loco-regional progression, and relapse type is Progression (liquid tumours)',
+            true,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "progression",
+                    "relapse_type": "Progression (liquid tumours)"
+                }
+            )
+        ],
+        [
+            'Disease status is stable, and relapse type is recurrence',
+            false,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "stable",
+                    "relapse_type": "Distant recurrence/metastasis"
+                }
+            )
+        ]
+    ],
     'method_of_progression_status': [
         [
             'Disease status is relapse, with provided method of progression',

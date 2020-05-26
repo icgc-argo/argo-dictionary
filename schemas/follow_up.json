@@ -126,7 +126,8 @@
           "Local recurrence",
           "Local recurrence and distant metastasis",
           "Progression (liquid tumours)"
-        ]
+        ],
+        "script": "#/script/follow_up/relapse_type"
       },
       "meta": {
         "core": true,
