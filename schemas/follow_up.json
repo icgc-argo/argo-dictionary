@@ -211,20 +211,16 @@
       "valueType": "string",
       "restrictions": {
         "codeList": [
-          "Binet",
-          "Rai",
-          "FIGO",
-          "Ann Arbor",
-          "Murphy",
-          "Lugano",
-          "AJCC 8th Edition",
-          "AJCC 7th Edition",
-          "AJCC 6th Edition",
-          "AJCC 5th Edition",
-          "AJCC 4th Edition",
-          "AJCC 3rd Edition",
-          "AJCC 2nd Edition",
-          "AJCC 1st Edition"
+          "AJCC 8th edition",
+          "AJCC 7th edition",
+          "Ann Arbor staging system",
+          "Binet staging system",
+          "Durie-Salmon staging system",
+          "FIGO staging system",
+          "Lugano staging system",
+          "Rai staging system",
+          "Revised International staging system (RISS)",
+          "St Jude staging system"
         ],
         "script": "#/script/follow_up/recurrence_tumour_staging_system"
       },
@@ -285,6 +281,10 @@
         "core": true,
         "dependsOn": "follow_up.recurrence_tumour_staging_system",
         "displayName": "Recurrence Stage Group"
+      },
+      "restrictions": {
+        "codeList": "#/list/stage_groups",
+        "script": "#/script/follow_up/recurrence_stageGroup"
       }
     },
     {
@@ -294,20 +294,16 @@
       "restrictions": {
         "script": "#/script/follow_up/posttherapy_tumour_staging_system",
         "codeList": [
-          "Binet",
-          "Rai",
-          "FIGO",
-          "Ann Arbor",
-          "Murphy",
-          "Lugano",
-          "AJCC 8th Edition",
-          "AJCC 7th Edition",
-          "AJCC 6th Edition",
-          "AJCC 5th Edition",
-          "AJCC 4th Edition",
-          "AJCC 3rd Edition",
-          "AJCC 2nd Edition",
-          "AJCC 1st Edition"
+          "AJCC 8th edition",
+          "AJCC 7th edition",
+          "Ann Arbor staging system",
+          "Binet staging system",
+          "Durie-Salmon staging system",
+          "FIGO staging system",
+          "Lugano staging system",
+          "Rai staging system",
+          "Revised International staging system (RISS)",
+          "St Jude staging system"
         ]
       },
       "meta": { "displayName": "Post-therapy Tumour Staging System" }
@@ -359,6 +355,10 @@
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
         "notes": "This field is required only if the selected posttherapy_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Post-therapy Stage Group"
+      },
+      "restrictions": {
+        "codeList": "#/list/stage_groups",
+        "script": "#/script/follow_up/posttherapy_stageGroup"
       }
     }
   ]

@@ -78,13 +78,13 @@
           "AJCC 8th edition",
           "AJCC 7th edition",
           "Ann Arbor staging system",
-          "Rai staging system",
-          "FIGO staging system",
           "Binet staging system",
-          "Revised International staging system (RISS)",
+          "Durie-Salmon staging system",
+          "FIGO staging system",
           "Lugano staging system",
-          "St Jude staging system",
-          "Durie-Salmon staging system"
+          "Rai staging system",
+          "Revised International staging system (RISS)",
+          "St Jude staging system"
         ]
       }
     },
