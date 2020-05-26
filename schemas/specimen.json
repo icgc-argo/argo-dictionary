@@ -103,7 +103,7 @@
         "displayName": "Pathological T Category"
       },
       "restrictions": {
-         "codeList": "#/list/t_categories"
+        "codeList": "#/list/t_categories"
       }
     },
     {
@@ -117,7 +117,7 @@
         "displayName": "Pathological N Category"
       },
       "restrictions": {
-         "codeList": "#/list/n_categories"
+        "codeList": "#/list/n_categories"
       }
     },
     {
@@ -131,7 +131,7 @@
         "displayName": "Pathological M Category"
       },
       "restrictions": {
-         "codeList": "#/list/m_categories"
+        "codeList": "#/list/m_categories"
       }
     },
     {
@@ -254,17 +254,17 @@
       },
       "restrictions": {
         "codeList": [
-           "Two-tier grading system",
-           "Three-tier grading system",
-           "Four-tier grading system",
-           "Grading system for GISTs",
-           "Grading system for GNETs",
-           "ISUP grading system",
-           "WHO grading system for CNS tumours",
-           "FNCLCC grading system",
-           "Gleason grade group system",
-           "Scarff-Bloom-Richardson grading system",
-           "Nuclear grading system for DCIS"
+          "FNCLCC grading system",
+          "Four-tier grading system",
+          "Gleason grade group system",
+          "Grading system for GISTs",
+          "Grading system for GNETs",
+          "ISUP grading system",
+          "Nuclear grading system for DCIS",
+          "Scarff-Bloom-Richardson grading system",
+          "Three-tier grading system",
+          "Two-tier grading system",
+          "WHO grading system for CNS tumours"
         ]
       }
     },
@@ -280,24 +280,24 @@
       },
       "restrictions": {
         "codeList": [
-           "Low grade",
-           "High grade",
-           "GX",
-           "G1",
-           "G2",
-           "G3",
-           "G4",
-           "Low",
-           "High",
-           "I",
-           "II",
-           "III",
-           "IV",
-           "1",
-           "2",
-           "3",
-           "4",
-           "5"
+          "Low grade",
+          "High grade",
+          "GX",
+          "G1",
+          "G2",
+          "G3",
+          "G4",
+          "Low",
+          "High",
+          "I",
+          "II",
+          "III",
+          "IV",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
         ],
         "script": "#/script/specimen/tumourGrade"
       }

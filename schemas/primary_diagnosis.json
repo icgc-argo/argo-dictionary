@@ -79,13 +79,13 @@
       "description": "Indicate the most valid basis of how the primary diagnosis was identified. If more than one diagnosis technique was used, select the term that has the highest code number (see notes). (Reference: IACR Standard for Basis of Diagnosis http://www.iacr.com.fr/images/doc/basis.pdf)",
       "restrictions": {
         "codeList": [
-          "Death certificate only",
-          "Clinical",
           "Clinical investigation",
-          "Specific tumour markers",
+          "Clinical",
           "Cytology",
+          "Death certificate only",
           "Histology of a metastasis",
           "Histology of a primary tumour",
+          "Specific tumour markers",
           "Unknown"
         ]
       },
@@ -176,7 +176,7 @@
         "displayName": "Clinical T Category"
       },
       "restrictions": {
-         "codeList": "#/list/t_categories"
+        "codeList": "#/list/t_categories"
       }
     },
     {
@@ -190,7 +190,7 @@
         "displayName": "Clinical N Category"
       },
       "restrictions": {
-         "codeList": "#/list/n_categories"
+        "codeList": "#/list/n_categories"
       }
     },
     {
@@ -204,7 +204,7 @@
         "displayName": "Clinical M Category"
       },
       "restrictions": {
-         "codeList": "#/list/m_categories"
+        "codeList": "#/list/m_categories"
       }
     },
     {
