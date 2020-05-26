@@ -148,7 +148,8 @@
       "meta": {
         "core": true,
         "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
-        "displayName": "Clinical Stage Group",
+        "displayName": "Clinical Stage Group"
+      },
       "restrictions": {
         "codeList": "#/list/stage_groups",
         "script": "#/script/primary_diagnosis/stageGroup"
