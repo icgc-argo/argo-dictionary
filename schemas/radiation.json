@@ -64,7 +64,7 @@
       }
     },
     {
-      "name": "application_form",
+      "name": "radiation_treatment_type",
       "description": "Indicate type of radiation therapy administered.",
       "valueType": "string",
       "restrictions": {
