@@ -1,6 +1,6 @@
 {
   "name": "follow_up",
-  "description": "The collection of data elements related to a specific follow-up visit to a donor. A follow-up is defined as any point of contact with a patient after diagnosis. A donor can have multiple follow-up records.",
+  "description": "The collection of data elements related to a specific follow-up visit to a donor. A follow-up is defined as any point of contact with a patient after primary diagnosis. To submit multiple follow-ups for a single donor, please submit multiple rows in the follow-up file for this donor.",
   "meta": {
     "parent": "donor"
   },
@@ -157,7 +157,6 @@
       "restrictions": {
         "script": "#/script/follow_up/method_of_progression_status",
         "codeList": [
-          "Autopsy",
           "Biomarker in liquid biopsy (e.g. tumour marker in blood or urine)",
           "Biopsy",
           "Blood draw",
@@ -245,6 +244,9 @@
         "dependsOn": "follow_up.recurrence_tumour_staging_system",
         "notes": "This field is required only if the selected recurrence_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Recurrence T Category"
+      },
+      "restrictions": {
+         "codeList": "#/list/t_categories"
       }
     },
     {
@@ -256,6 +258,9 @@
         "dependsOn": "follow_up.recurrence_tumour_staging_system",
         "notes": "This field is required only if the selected recurrence_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Recurrence N Category"
+      },
+      "restrictions": {
+         "codeList": "#/list/n_categories"
       }
     },
     {
@@ -267,6 +272,9 @@
         "dependsOn": "follow_up.recurrence_tumour_staging_system",
         "notes": "This field is required only if the selected recurrence_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Recurrence M Category"
+      },
+      "restrictions": {
+         "codeList": "#/list/m_categories"
       }
     },
     {
@@ -312,6 +320,9 @@
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
         "notes": "This field is required only if the selected posttherapy_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Post-therapy T Category"
+      },
+      "restrictions": {
+         "codeList": "#/list/t_categories"
       }
     },
     {
@@ -322,6 +333,9 @@
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
         "notes": "This field is required only if the selected posttherapy_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Post-therapy N Category"
+      },
+      "restrictions": {
+         "codeList": "#/list/n_categories"
       }
     },
     {
@@ -332,6 +346,9 @@
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
         "notes": "This field is required only if the selected posttherapy_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Post-therapy M Category"
+      },
+      "restrictions": {
+         "codeList": "#/list/m_categories"
       }
     },
     {
@@ -340,7 +357,7 @@
       "valueType": "string",
       "meta": {
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
-        "notes": "This field value is dependent on the selected posttherapy_tumour_staging_system.",
+        "notes": "This field is required only if the selected posttherapy_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Post-therapy Stage Group"
       }
     }

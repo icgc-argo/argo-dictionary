@@ -288,5 +288,9 @@
     "Vulva",
     "White blood cells",
     "Wrist"
-  ]
+  ],
+  "drug_dosage_units": ["mg/m2", "IU/m2", "ug/m2", "g/m2", "mg/kg"],
+  "t_categories": ["T0","T1","T1a","T1a1","T1a2","T1b","T1b1","T1b2","T1c","T1d","T1mi","T2","T2a","T2a1","T2a2","T2b","T2c","T2d","T3","T3a","T3b","T3c","T3d","T3e","T4","T4a","T4b","T4c","T4d","T4e","Ta","Tis","Tis(DCIS)","Tis(LAMN)","Tis(LCIS)","Tis(Paget)","Tis(Paget’s)","Tis pd","Tis pu","TX"],
+  "n_categories": ["N0","N0a","N0a (biopsy)","N0b","N0b (no biopsy)","N0(i+)","N0(i-)","N0(mol+)","N0(mol-)","N1","N1a","N1a(sn)","N1b","N1c","N1mi","N2","N2a","N2b","N2c","N2mi","N3","N3a","N3b","N3c","N4","NX"],
+  "m_categories": ["M0","M0(i+)","M1","M1a","M1a(0)","M1a(1)","M1b","M1b(0)","M1b(1)","M1c","M1c(0)","M1c(1)","M1d","M1d(0)","M1d(1)","M1e"]
 }

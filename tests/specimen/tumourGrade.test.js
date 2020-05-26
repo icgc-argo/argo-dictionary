@@ -10,247 +10,146 @@ const name = 'tumour_grade';
 
 const unitTests = [
   [
-    'Grading system set to "default", tumour grade is: "Gx - cannot be assessed"',
+    'Grading system set to "three-tier grading system", tumour grade is: "G3"',
     true,
     loadObjects(specimen, {
       tumour_grading_system: 'default',
-      tumour_grade: 'Gx - cannot be assessed',
+      tumour_grade: 'G3',
     }),
   ],
   [
-    'Grading system set to "default", tumour grade is: "G1 well differentiated/low grade"',
+    'Grading system set to "Two-tier grading system", tumour grade is: "Low Grade"',
     true,
     loadObjects(specimen, {
-      tumour_grading_system: 'default',
-      tumour_grade: 'G1 well differentiated/low grade',
+      tumour_grading_system: 'Two-tier grading system',
+      tumour_grade: 'Low Grade',
     }),
   ],
   [
-    'Grading system set to "default", tumour grade is: "G2 moderately differentiated/intermediated grade"',
+    'Grading system set to "four-Tier grading SysTem", tumour grade is: "gx"',
     true,
     loadObjects(specimen, {
-      tumour_grading_system: 'default',
-      tumour_grade: 'G2 moderately differentiated/intermediated grade',
+      tumour_grading_system: 'four-Tier grading SysTem',
+      tumour_grade: 'gx',
     }),
   ],
   [
-    'Grading system set to "default", tumour grade is: "G3 poorly differentiated/high grade"',
+    'Grading system set to "grading system for GISTS", tumour grade is: "high"',
     true,
     loadObjects(specimen, {
-      tumour_grading_system: 'Default ',
-      tumour_grade: 'G3 poorly differentiated/high grade',
+      tumour_grading_system: 'grading system for GISTS',
+      tumour_grade: 'high',
     }),
   ],
   [
-    'Grading system set to "default", tumour grade is: "G4 undifferentiated/high grade"',
+    'Grading system set to " grading system for gnets ", tumour grade is: " g2 "',
     true,
     loadObjects(specimen, {
-      tumour_grading_system: ' DefaulT ',
-      tumour_grade: ' G4 undifferentiated/high grade ',
+      tumour_grading_system: ' grading system for gnets ',
+      tumour_grade: ' g2 ',
     }),
   ],
   [
-    'Grading system set to "default", tumour grade is an impermissable value',
+    'Grading system set to "two-tier grading system", tumour grade is an impermissable value',
     false,
     loadObjects(specimen, {
-      tumour_grading_system: ' DefaulT ',
+      tumour_grading_system: 'two-tier grading system ',
       tumour_grade: ' an impermissable VALUE!!! ',
     }),
   ],
   [
-    'Grading system set to "Gleason", tumour grade is "Gleason X: Gleason score cannot be determined"',
+    'Grading system set to "iSuP grading system", tumour grade is "G2"',
     true,
     loadObjects(specimen, {
-      tumour_grading_system: 'gleason',
-      tumour_grade: 'Gleason X: Gleason score cannot be determined',
+      tumour_grading_system: 'iSuP grading system',
+      tumour_grade: 'G2',
     }),
   ],
   [
-    'Grading system set to "Gleason", tumour grade is "Gleason 2–6: The tumor tissue is well differentiated"',
+    'Grading system set to "who grading system for cns tumours", tumour grade is "iii"',
     true,
     loadObjects(specimen, {
-      tumour_grading_system: ' gleason ',
-      tumour_grade: 'Gleason 2–6: The tumor tissue is well differentiated',
+      tumour_grading_system: 'who grading system for cns tumours ',
+      tumour_grade: 'iii',
     }),
   ],
   [
-    'Grading system set to "Gleason", tumour grade is "Gleason 7: The tumor tissue is moderately differentiated"',
+    'Grading system set to "WHO grading system for CNS tumours", tumour grade is "IV"',
     true,
     loadObjects(specimen, {
-      tumour_grading_system: 'gleason',
-      tumour_grade: 'Gleason 7: The tumor tissue is moderately differentiated',
+      tumour_grading_system: 'WHO grading system for cns tumours',
+      tumour_grade: 'IV',
     }),
   ],
   [
-    'Grading system set to "Gleason", tumour grade is "Gleason 8–10: The tumor tissue is poorly differentiated or undifferentiated"',
+    'Grading system set to "FNCLCC grading system", tumour grade is "G1"',
     true,
     loadObjects(specimen, {
-      tumour_grading_system: 'gleason',
-      tumour_grade: 'Gleason 8–10: The tumor tissue is poorly differentiated or undifferentiated',
+      tumour_grading_system: 'FNCLCC grading system',
+      tumour_grade: 'G1',
     }),
   ],
   [
-    'Grading system set to "Gleason", tumour grade is a value from another codelist',
+    'Grading system set to "Gleason grade group system", tumour grade is a value from another codelist',
     false,
     loadObjects(specimen, {
-      tumour_grading_system: 'gleason',
-      tumour_grade: 'Grade IV',
+      tumour_grading_system: 'Gleason grade group system',
+      tumour_grade: 'IV',
     }),
   ],
   [
-    'Grading system set to "Nottingham", tumour grade is "G1 (Low grade or well differentiated)"',
+    'Grading system set to "Gleason grade group system ", tumour grade is "5"',
     true,
     loadObjects(specimen, {
-      tumour_grading_system: 'nottingham ',
-      tumour_grade: 'G1 (Low grade or well differentiated)',
+      tumour_grading_system: 'Gleason grade group system ',
+      tumour_grade: '5',
     }),
   ],
   [
-    'Grading system set to "Nottingham", tumour grade is "G2 (Intermediate grade or moderately differentiated)"',
+    'Grading system set to "Scarff-Bloom-Richardson grading system", tumour grade is "G2"',
     true,
     loadObjects(specimen, {
-      tumour_grading_system: 'nottingham ',
-      tumour_grade: 'G2 (Intermediate grade or moderately differentiated)',
+      tumour_grading_system: 'Scarff-Bloom-Richardson grading system ',
+      tumour_grade: 'G2',
     }),
   ],
   [
-    'Grading system set to "Nottingham", tumour grade is "G3 (High grade or poorly differentiated)"',
+    'Grading system set to "Nuclear grading system for DCIS", tumour grade is "G3"',
     true,
     loadObjects(specimen, {
-      tumour_grading_system: 'nottingham ',
-      tumour_grade: 'G3 (High grade or poorly differentiated)',
+      tumour_grading_system: 'Nuclear grading system for DCIS ',
+      tumour_grade: 'G3',
     }),
   ],
   [
-    'Grading system set to "Nottingham", tumour grade is just whitespace',
+    'Grading system set to "Nuclear grading system for DCIS", tumour grade is just whitespace',
     false,
     loadObjects(specimen, {
-      tumour_grading_system: 'nottingham ',
+      tumour_grading_system: 'Nuclear grading system for DCIS ',
       tumour_grade: '          ',
     }),
   ],
   [
-    'Grading system set to "Brain cancer", tumour grade is "Grade I"',
+    'Grading system set to "WHO grading system for CNS tumours", tumour grade is "Iv"',
     true,
     loadObjects(specimen, {
-      tumour_grading_system: 'brain Cancer ',
-      tumour_grade: 'Grade I',
+      tumour_grading_system: 'WHO grading system for CNS tumours ',
+      tumour_grade: 'Iv',
     }),
   ],
   [
-    'Grading system set to "Brain cancer", tumour grade is "Grade II"',
+    'Grading system set to "WHO grading system for CNS tumours", tumour grade is "iII"',
     true,
     loadObjects(specimen, {
-      tumour_grading_system: 'brain Cancer ',
-      tumour_grade: 'Grade II',
+      tumour_grading_system: 'WHO grading system for CNS tumours ',
+      tumour_grade: 'iII',
     }),
   ],
   [
-    'Grading system set to "Brain cancer", tumour grade is "Grade III"',
-    true,
-    loadObjects(specimen, {
-      tumour_grading_system: 'brain Cancer ',
-      tumour_grade: 'Grade III',
-    }),
-  ],
-  [
-    'Grading system set to "Brain cancer", tumour grade is "Grade IV"',
-    true,
-    loadObjects(specimen, {
-      tumour_grading_system: 'brain Cancer ',
-      tumour_grade: 'Grade IV',
-    }),
-  ],
-  [
-    'Grading system set to "Brain cancer", tumour grade is "Grade V"',
+    'Grading system set to "WHO grading system for CNS tumours", tumour grade is gibberish',
     false,
     loadObjects(specimen, {
-      tumour_grading_system: 'brain Cancer ',
-      tumour_grade: 'Grade V',
-    }),
-  ],
-  [
-    'Grading system set to "ISUP for renal cell carcinoma", tumour grade is "Grade 1: Tumor cell nucleoli invisible or small and basophilic at 400 x magnification"',
-    true,
-    loadObjects(specimen, {
-      tumour_grading_system: 'ISUP for renal cell carcinoma ',
-      tumour_grade:
-        'Grade 1: Tumor cell nucleoli invisible or small and basophilic at 400 x magnification',
-    }),
-  ],
-  [
-    'Grading system set to "ISUP for renal cell carcinoma", tumour grade is "Grade 2: Tumor cell nucleoli conspicuous at 400 x magnification but inconspicuous at 100 x magnification"',
-    true,
-    loadObjects(specimen, {
-      tumour_grading_system: 'ISUP for renal cell carcinoma ',
-      tumour_grade:
-        'Grade 2: Tumor cell nucleoli conspicuous at 400 x magnification but inconspicuous at 100 x magnification',
-    }),
-  ],
-  [
-    'Grading system set to "ISUP for renal cell carcinoma", tumour grade is "Grade 3: Tumor cell nucleoli eosinophilic and clearly visible at 100 x magnification"',
-    true,
-    loadObjects(specimen, {
-      tumour_grading_system: 'ISUP for renal cell carcinoma ',
-      tumour_grade:
-        ' Grade 3: Tumor cell nucleoli eosinophilic and clearly visible at 100 x magnificatioN ',
-    }),
-  ],
-  [
-    'Grading system set to "ISUP for renal cell carcinoma", tumour grade is "Grade 4: Tumors showing extreme nuclear pleomorphism and/or containing tumor giant cells and/or the presence of any proportion of tumor showing sarcomatoid and/or rhabdoid dedifferentiation"',
-    true,
-    loadObjects(specimen, {
-      tumour_grading_system: 'ISUP for renal cell carcinoma ',
-      tumour_grade:
-        'Grade 4: Tumors showing extreme nuclear pleomorphism and/or containing tumor giant cells and/or the presence of any proportion of tumor showing sarcomatoid and/or rhabdoid dedifferentiation',
-    }),
-  ],
-  [
-    'Grading system set to "ISUP for renal cell carcinoma", tumour grade is grade 1 but with spelling mistakes',
-    false,
-    loadObjects(specimen, {
-      tumour_grading_system: 'ISUP for renal cell carcinoma ',
-      tumour_grade:
-        'Grade 1: Tumor cell nucleoolli invisible or small and basophililiic at 400 x magnification',
-    }),
-  ],
-  [
-    'Grading system set to "Lymphoid neoplasms", tumour grade is "Low grade or indolent NHL"',
-    true,
-    loadObjects(specimen, {
-      tumour_grading_system: 'Lymphoid neoplasms ',
-      tumour_grade: 'Low grade or indolent NHL',
-    }),
-  ],
-  [
-    'Grading system set to "Lymphoid neoplasms", tumour grade is "High grade or aggressive NHL"',
-    true,
-    loadObjects(specimen, {
-      tumour_grading_system: 'Lymphoid neoplasms ',
-      tumour_grade: 'High gRade or aggressive NHL',
-    }),
-  ],
-  [
-    'Grading system set to "Lymphoid neoplasms", tumour grade is "High grade or aggressive NHL"',
-    true,
-    loadObjects(specimen, {
-      tumour_grading_system: 'Lymphoid neoplasms ',
-      tumour_grade: 'High gRade or aggressive NHL',
-    }),
-  ],
-  [
-    'Grading system set to "Lymphoid neoplasms", tumour grade is "High grade or aggressive NHL"',
-    true,
-    loadObjects(specimen, {
-      tumour_grading_system: 'Lymphoid neoplasms ',
-      tumour_grade: 'High gRade or aggressive NHL',
-    }),
-  ],
-  [
-    'Grading system set to "Lymphoid neoplasms", tumour grade is gibberish',
-    false,
-    loadObjects(specimen, {
-      tumour_grading_system: 'Lymphoid neoplasms ',
+      tumour_grading_system: 'WHO grading system for CNS tumours ',
       tumour_grade: 'gibberish!',
     }),
   ],

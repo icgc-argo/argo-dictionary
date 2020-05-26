@@ -89,7 +89,7 @@
       "meta": {
         "validationDependency": true,
         "core": true,
-        "notes": "Depending on the treatment_type selected, additional treament details may be required to be submitted.",
+        "notes": "Depending on the treatment_type selected, additional treament details may be required to be submitted.  Depending on the treatment_type selected, additional treatment details may be required to be submitted. For example, if treatment_type includes 'Chemotherapy', the supplemental Chemotherapy treatment type file is required.",
         "displayName": "Treatment Type"
       }
     },
@@ -122,13 +122,13 @@
       "meta": {
         "core": true,
         "units": "days",
-        "notes": "The associated Primary Diagnosis is used as the reference point for this interval. To calculate this, find the number of days since the date of primary diagnosis",
+        "notes": "The associated Primary Diagnosis is used as the reference point for this interval. To calculate this, find the number of days since the date of primary diagnosis.",
         "displayName": "Treatment Start Interval"
       }
     },
     {
       "name": "treatment_duration",
-      "description": "The duration of treatment regimen, in days",
+      "description": "The duration of treatment regimen, in days.",
       "valueType": "integer",
       "restrictions": {
         "required": true
