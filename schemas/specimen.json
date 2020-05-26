@@ -143,6 +143,7 @@
       "restrictions": {
         "codeList": "#/list/stage_groups",
         "script": "#/script/specimen/stageGroup"
+      }
     },
     {
       "name": "specimen_acquisition_interval",
