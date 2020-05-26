@@ -186,7 +186,7 @@ describe('Common Tests', () => {
   });
 });
 
-describe('Unit Tests for Pathological Staging System', () => {
+describe('Unit Tests for Recurrence Staging System', () => {
   test.each(unitTests)(
     '\n Test %# : %s \nExpecting result.valid to be: %s',
     (description, target, inputs) => {
