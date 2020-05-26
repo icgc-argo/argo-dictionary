@@ -289,5 +289,6 @@
     "White blood cells",
     "Wrist"
   ],
-  "drug_dosage_units": ["mg/m2", "IU/m2", "ug/m2", "g/m2", "mg/kg"]
+  "drug_dosage_units": ["mg/m2", "IU/m2", "ug/m2", "g/m2", "mg/kg"],
+  "stage_groups": ["Stage 0","Stage 0a","Stage 0is","Stage I","Stage IA","Stage IA1","Stage IA2","Stage IA3","Stage IB","Stage IB1","Stage IB2","Stage IC","Stage IS","Stage IE","Stage II","Stage IIA","Stage IIA1","Stage IIA2","Stage IIE","Stage IIB","Stage IIC","Stage III","Stage IIIA","Stage IIIA1","Stage IIIA2","Stage IIIB","Stage IIIC","Stage IIIC1","Stage IIIC2","Stage IIID","Stage IV","Stage IVA","Stage IVA1","Stage IVA2","Stage IVB","Stage IVC","Occult carcinoma","Stage 1"]
 }
