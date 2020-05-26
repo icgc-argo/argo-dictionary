@@ -3,7 +3,7 @@ const universalTest = require('../universal');
 const loadObjects = require('../loadObjects');
 
 // load in all fields with entries prepopulated to null
-const specimen = require('../constructDummyData').getSchemaDummy('specimen');
+const specimen = require('../constructDummyData').getSchemaDummy('follow_up');
 
 // the name of the field being validateds
 const name = 'recurrence_stage_group';
