@@ -155,7 +155,7 @@ const unitTests = [
   ],
   [
     'Staging system set to an unexpected value, stage group is any text"',
-    false,
+    true,
     loadObjects(specimen, {
       pathological_tumour_staging_system: 'my staging system',
       pathological_stage_group: 'any text here',
@@ -163,19 +163,19 @@ const unitTests = [
   ],
   [
     'Staging system undefined',
-    false,
+    true,
     loadObjects(specimen, {
       pathological_stage_group: 'any text here',
     }),
   ],
   [
     'staging system undefined',
-    false,
+    true,
     loadObjects(specimen, {
       pathological_tumour_staging_system: 'default',
     }),
   ],
-  ['both undefined', false, specimen],
+  ['both undefined', true, specimen],
 ];
 
 describe('Common Tests', () => {
