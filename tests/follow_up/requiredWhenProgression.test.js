@@ -18,7 +18,7 @@ const myUnitTests = {
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "Distant progression",
-                    "method_of_progression_status": "Autopsy"
+                    "method_of_progression_status": "Biopsy"
                 }
             )
         ],
@@ -61,7 +61,7 @@ const myUnitTests = {
         ],
         [
             'Disease status is partial remission, with method of progression',
-            true,
+            false,
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "partial remission",
@@ -111,28 +111,7 @@ const myUnitTests = {
                 }
             )
         ]
-    ],
-    'posttherapy_tumour_staging_system': [
-        [
-            'Disease status is distant progression, with provided PTSS',
-            true,
-            loadObjects(followUp,
-                {   
-                    "disease_status_at_followup": "Distant progression",
-                    "posttherapy_tumour_staging_system": "Lugano"
-                }
-            )
-        ],
-        [
-            'Disease status is Loco-regional progression, without provided ASPOR',
-            false,
-            loadObjects(followUp,
-                {   
-                    "disease_status_at_followup": "Loco-regional progression"
-                }
-            )
-        ]
-    ]
+   ]
 }
 
 
