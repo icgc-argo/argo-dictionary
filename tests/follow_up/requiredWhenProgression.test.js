@@ -89,6 +89,25 @@ const myUnitTests = {
                     "disease_status_at_followup": "Loco-regional progression"
                 }
             )
+        ],
+        [
+            'Disease status is stable, without provided ASPOR',
+            true,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "stable"
+                }
+            )
+        ],
+        [
+            'Disease status is stable, with provided ASPOR',
+            false,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "stable",
+                    "anatomic_site_progression_or_recurrences": "Jaw"
+                }
+            )
         ]
     ],
     'recurrence_tumour_staging_system': [
@@ -103,14 +122,34 @@ const myUnitTests = {
             )
         ],
         [
-            'Disease status is Loco-regional progression, without provided ASPOR',
+            'Disease status is Loco-regional progression, without provided recurrence_tumour_staging_system',
             false,
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "Loco-regional progression"
                 }
             )
+        ],
+        [
+            'Disease status is complete remission, without provided recurrence_tumour_staging_system',
+            true,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "complete remission"
+                }
+            )
+        ],
+        [
+            'Disease status is complete remission, with provided recurrence_tumour_staging_system',
+            false,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "complete remission",
+                    "recurrence_tumour_staging_system": "FIGO"
+                }
+            )
         ]
+
    ]
 }
 

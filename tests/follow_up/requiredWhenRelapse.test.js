@@ -79,7 +79,16 @@ const myUnitTests = {
                     "relapse_type": "Distant recurrence/metastasis"
                 }
             )
-        ]
+        ],
+        [
+            'Disease status is complete remission, and relapse type is not provided',
+            true,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "complete remission",
+                }
+            )
+        ],
     ],
     'anatomic_site_progression_or_recurrences': [
         [
@@ -101,6 +110,25 @@ const myUnitTests = {
                 }
             )
         ],
+        [
+            'Disease status is stable, without provided ASPOR',
+            true,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "stable"
+                }
+            )
+        ],
+        [
+            'Disease status is stable, with provided ASPOR',
+            false,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "stable",
+                    "anatomic_site_progression_or_recurrences": "Ankle"
+                }
+            )
+        ],
     ],
     'recurrence_tumour_staging_system': [
         [
@@ -114,11 +142,30 @@ const myUnitTests = {
             )
         ],
         [
-            'Disease status is relapse, without provided ASPOR',
+            'Disease status is relapse, without provided RTSS',
             false,
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "relapse or recurrence"
+                }
+            )
+        ],
+        [
+            'Disease status is no evidence of disease, without provided RTSS',
+            true,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "no evidence of disease"
+                }
+            )
+        ],
+        [
+            'Disease status is no evidence of disease, without provided RTSS',
+            false,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "no evidence of disease",
+                    "recurrence_tumour_staging_system": "Binet"
                 }
             )
         ]
