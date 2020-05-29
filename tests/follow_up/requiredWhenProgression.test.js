@@ -18,7 +18,7 @@ const myUnitTests = {
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "Distant progression",
-                    "method_of_progression_status": "Autopsy"
+                    "method_of_progression_status": "Biopsy"
                 }
             )
         ],
@@ -61,7 +61,7 @@ const myUnitTests = {
         ],
         [
             'Disease status is partial remission, with method of progression',
-            true,
+            false,
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "partial remission",
@@ -89,6 +89,25 @@ const myUnitTests = {
                     "disease_status_at_followup": "Loco-regional progression"
                 }
             )
+        ],
+        [
+            'Disease status is stable, without provided ASPOR',
+            true,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "stable"
+                }
+            )
+        ],
+        [
+            'Disease status is stable, with provided ASPOR',
+            false,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "stable",
+                    "anatomic_site_progression_or_recurrences": "Jaw"
+                }
+            )
         ]
     ],
     'recurrence_tumour_staging_system': [
@@ -103,36 +122,35 @@ const myUnitTests = {
             )
         ],
         [
-            'Disease status is Loco-regional progression, without provided ASPOR',
+            'Disease status is Loco-regional progression, without provided recurrence_tumour_staging_system',
             false,
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "Loco-regional progression"
-                }
-            )
-        ]
-    ],
-    'posttherapy_tumour_staging_system': [
-        [
-            'Disease status is distant progression, with provided PTSS',
-            true,
-            loadObjects(followUp,
-                {   
-                    "disease_status_at_followup": "Distant progression",
-                    "posttherapy_tumour_staging_system": "Lugano"
                 }
             )
         ],
         [
-            'Disease status is Loco-regional progression, without provided ASPOR',
+            'Disease status is complete remission, without provided recurrence_tumour_staging_system',
+            true,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "complete remission"
+                }
+            )
+        ],
+        [
+            'Disease status is complete remission, with provided recurrence_tumour_staging_system',
             false,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "Loco-regional progression"
+                    "disease_status_at_followup": "complete remission",
+                    "recurrence_tumour_staging_system": "FIGO"
                 }
             )
         ]
-    ]
+
+   ]
 }
 
 
