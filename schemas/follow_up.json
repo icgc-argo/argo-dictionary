@@ -74,7 +74,7 @@
           "Loco-regional progression",
           "No evidence of disease",
           "Partial remission",
-          "Relapse",
+          "Relapse or recurrence",
           "Stable"
         ]
       },
@@ -126,17 +126,18 @@
           "Local recurrence",
           "Local recurrence and distant metastasis",
           "Progression (liquid tumours)"
-        ]
+        ],
+        "script": "#/script/follow_up/relapse_type"
       },
       "meta": {
         "core": true,
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates progression or relapse.",
+        "notes": "This field is required to be submitted if disease_status_at_followup indicatess a state of progression, relapse, or recurrence.",
         "displayName": "Relapse Type"
       }
     },
     {
-      "description": "If the donor was clinically disease free following primary treatment and then relapse or progression (for liquid tumours) occurred afterwards, then this field will indicate the length of disease free interval, in days.",
+      "description": "If the donor was clinically disease free following primary treatment and then relapse or recurrence or progression (for liquid tumours) occurred afterwards, then this field will indicate the length of disease free interval, in days.",
       "name": "relapse_interval",
       "valueType": "integer",
       "restrictions": {
@@ -146,7 +147,7 @@
         "core": true,
         "units": "days",
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates a progression or relapse value.",
+        "notes": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence.",
         "displayName": "Relapse Interval"
       }
     },
@@ -186,7 +187,7 @@
       "meta": {
         "core": true,
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates progression or relapse",
+        "notes": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence",
         "displayName": "Method Of Progression Status"
       }
     },
@@ -201,9 +202,10 @@
       "meta": {
         "core": true,
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates progression or relapse.",
         "displayName": "Anatomic Site Progression or Recurrences",
-        "examples": ""C50.1,C18"
+        "examples": ""C50.1,C18",
+        "notes": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence.",
+        "displayName": "Anatomic Site Progression or Recurrences"
       }
     },
     {
@@ -212,27 +214,23 @@
       "valueType": "string",
       "restrictions": {
         "codeList": [
-          "Binet",
-          "Rai",
-          "FIGO",
-          "Ann Arbor",
-          "Murphy",
-          "Lugano",
-          "AJCC 8th Edition",
-          "AJCC 7th Edition",
-          "AJCC 6th Edition",
-          "AJCC 5th Edition",
-          "AJCC 4th Edition",
-          "AJCC 3rd Edition",
-          "AJCC 2nd Edition",
-          "AJCC 1st Edition"
+          "AJCC 8th edition",
+          "AJCC 7th edition",
+          "Ann Arbor staging system",
+          "Binet staging system",
+          "Durie-Salmon staging system",
+          "FIGO staging system",
+          "Lugano staging system",
+          "Rai staging system",
+          "Revised International staging system (RISS)",
+          "St Jude staging system"
         ],
         "script": "#/script/follow_up/recurrence_tumour_staging_system"
       },
       "meta": {
         "core": true,
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates progression or relapse.",
+        "notes": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence.",
         "displayName": "Recurrance Tumour Staging System"
       }
     },
@@ -286,6 +284,10 @@
         "core": true,
         "dependsOn": "follow_up.recurrence_tumour_staging_system",
         "displayName": "Recurrence Stage Group"
+      },
+      "restrictions": {
+        "codeList": "#/list/stage_groups",
+        "script": "#/script/follow_up/recurrence_stageGroup"
       }
     },
     {
@@ -295,20 +297,16 @@
       "restrictions": {
         "script": "#/script/follow_up/posttherapy_tumour_staging_system",
         "codeList": [
-          "Binet",
-          "Rai",
-          "FIGO",
-          "Ann Arbor",
-          "Murphy",
-          "Lugano",
-          "AJCC 8th Edition",
-          "AJCC 7th Edition",
-          "AJCC 6th Edition",
-          "AJCC 5th Edition",
-          "AJCC 4th Edition",
-          "AJCC 3rd Edition",
-          "AJCC 2nd Edition",
-          "AJCC 1st Edition"
+          "AJCC 8th edition",
+          "AJCC 7th edition",
+          "Ann Arbor staging system",
+          "Binet staging system",
+          "Durie-Salmon staging system",
+          "FIGO staging system",
+          "Lugano staging system",
+          "Rai staging system",
+          "Revised International staging system (RISS)",
+          "St Jude staging system"
         ]
       },
       "meta": { "displayName": "Post-therapy Tumour Staging System" }
@@ -360,6 +358,10 @@
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
         "notes": "This field is required only if the selected posttherapy_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Post-therapy Stage Group"
+      },
+      "restrictions": {
+        "codeList": "#/list/stage_groups",
+        "script": "#/script/follow_up/posttherapy_stageGroup"
       }
     }
   ]

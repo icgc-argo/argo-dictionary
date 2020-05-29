@@ -75,20 +75,16 @@
       "restrictions": {
         "script": "#/script/common/ajccValidation",
         "codeList": [
-          "Binet",
-          "Rai",
-          "FIGO",
-          "Ann Arbor",
-          "Murphy",
-          "Lugano",
-          "AJCC 8th Edition",
-          "AJCC 7th Edition",
-          "AJCC 6th Edition",
-          "AJCC 5th Edition",
-          "AJCC 4th Edition",
-          "AJCC 3rd Edition",
-          "AJCC 2nd Edition",
-          "AJCC 1st Edition"
+          "AJCC 8th edition",
+          "AJCC 7th edition",
+          "Ann Arbor staging system",
+          "Binet staging system",
+          "Durie-Salmon staging system",
+          "FIGO staging system",
+          "Lugano staging system",
+          "Rai staging system",
+          "Revised International staging system (RISS)",
+          "St Jude staging system"
         ]
       }
     },
@@ -143,6 +139,10 @@
         "dependsOn": "specimen.pathological_tumour_staging_system",
         "notes": "This field depends on the selected pathological staging system, and is only required if the specimen is a tumour.",
         "displayName": "Pathological Stage Group"
+      },
+      "restrictions": {
+        "codeList": "#/list/stage_groups",
+        "script": "#/script/specimen/stageGroup"
       }
     },
     {
