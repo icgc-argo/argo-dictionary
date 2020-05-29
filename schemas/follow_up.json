@@ -132,7 +132,7 @@
       "meta": {
         "core": true,
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates progression or relapse or recurrence.",
+        "notes": "This field is required to be submitted if disease_status_at_followup indicatess a state of progression, relapse, or recurrence.",
         "displayName": "Relapse Type"
       }
     },
@@ -147,7 +147,7 @@
         "core": true,
         "units": "days",
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates a progression or relapse or recurrence value.",
+        "notes": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence.",
         "displayName": "Relapse Interval"
       }
     },
@@ -188,7 +188,7 @@
       "meta": {
         "core": true,
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates progression or relapse or recurrence",
+        "notes": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence",
         "displayName": "Method Of Progression Status"
       }
     },
@@ -203,7 +203,7 @@
       "meta": {
         "core": true,
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates progression or relapse or recurrence.",
+        "notes": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence.",
         "displayName": "Anatomic Site Progression or Recurrences"
       }
     },
@@ -233,7 +233,7 @@
       "meta": {
         "core": true,
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates progression or relapse or recurrence.",
+        "notes": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence.",
         "displayName": "Recurrance Tumour Staging System"
       }
     },
