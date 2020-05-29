@@ -284,6 +284,7 @@
       "meta": {
         "core": true,
         "dependsOn": "follow_up.recurrence_tumour_staging_system",
+        "notes": "This field is dependent on the selected recurrence_tumour_staging_system.",
         "displayName": "Recurrence Stage Group"
       }
     },
@@ -357,7 +358,7 @@
       "valueType": "string",
       "meta": {
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
-        "notes": "This field is required only if the selected posttherapy_tumour_staging_system is any edition of the AJCC cancer staging system.",
+        "notes": "This field is dependent on the selected posttherapy_tumour_staging_system.",
         "displayName": "Post-therapy Stage Group"
       }
     }

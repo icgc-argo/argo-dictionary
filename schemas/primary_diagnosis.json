@@ -152,6 +152,7 @@
       "meta": {
         "core": true,
         "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
+        "notes": "This field is dependent on the selected clinical_tumour_staging_system",
         "displayName": "Clinical Stage Group"
       }
     },
