@@ -19,7 +19,7 @@ const validation = ($row, $field, $name) =>
             result = {valid: false, message: `'${$name}' is a required field if 'disease_status_at_followup' is of type 'progression'.` }
         }
         else if (!isRequired && ! (!$field || checkforEmpty($field))) {
-            result = {valid: false, message: `'${$name}' cannot be provided ..etc etc` }
+            result = {valid: false, message: `'${$name}' cannot be provided if 'disease_status_at_followup' is not of type 'progression'.` }
         }        
         return result;
     })();

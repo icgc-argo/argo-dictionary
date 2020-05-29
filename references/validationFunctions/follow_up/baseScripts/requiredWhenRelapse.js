@@ -17,10 +17,10 @@ const validation = ($row, $field, $name) =>
         const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
 
         if (isRequired && (!$field || checkforEmpty($field))){
-            result = {valid: false, message: `'${$name}' is a required field if 'disease_status_at_followup' set to 'relapse or recurrence'.` }
+            result = {valid: false, message: `'${$name}' is a required field if 'disease_status_at_followup' is set to 'relapse or recurrence'.` }
         }
         else if (!isRequired && ! (!$field || checkforEmpty($field))){
-            result = {valid: false, message: `'${$name}' cannot be provided ..etc etc` }
+            result = {valid: false, message: `'${$name}' cannot be provided if 'disease_status_at_folloup' is not set to 'relapse or recurrence'.` }
         }
         return result;
     })();
