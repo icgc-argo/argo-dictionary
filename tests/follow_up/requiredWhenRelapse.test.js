@@ -97,7 +97,7 @@ const myUnitTests = {
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "relapse or recurrence",
-                    "anatomic_site_progression_or_recurrences": "Ankle"
+                    "anatomic_site_progression_or_recurrences": "C50.1"
                 }
             )
         ],
@@ -125,7 +125,7 @@ const myUnitTests = {
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "stable",
-                    "anatomic_site_progression_or_recurrences": "Ankle"
+                    "anatomic_site_progression_or_recurrences": "C50"
                 }
             )
         ],
@@ -137,7 +137,7 @@ const myUnitTests = {
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "relapse or recurrence",
-                    "recurrence_tumour_staging_system": "Binet"
+                    "recurrence_tumour_staging_system": "AJCC 8th edition"
                 }
             )
         ],
@@ -165,7 +165,7 @@ const myUnitTests = {
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "no evidence of disease",
-                    "recurrence_tumour_staging_system": "Binet"
+                    "recurrence_tumour_staging_system": "Binet staging system"
                 }
             )
         ]
