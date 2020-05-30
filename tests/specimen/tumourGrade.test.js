@@ -13,7 +13,7 @@ const unitTests = [
     'Grading system set to "three-tier grading system", tumour grade is: "G3"',
     true,
     loadObjects(specimen, {
-      tumour_grading_system: 'default',
+      tumour_grading_system: 'three-tier grading system',
       tumour_grade: 'G3',
     }),
   ],
@@ -155,7 +155,7 @@ const unitTests = [
   ],
   [
     'Grading system set to an unexpected value, tumour grade is any text',
-    true,
+    false,
     loadObjects(specimen, {
       tumour_grading_system: 'A possible new entry to the codelist for tumour grading system.',
       tumour_grade: 'any text here',
@@ -163,19 +163,33 @@ const unitTests = [
   ],
   [
     'Grading system undefined',
-    true,
+    false,
     loadObjects(specimen, {
       tumour_grade: 'any text here',
     }),
   ],
   [
-    'grade system undefined',
-    true,
+    'grade is g2 but grading system is undefined',
+    false,
     loadObjects(specimen, {
-      tumour_grading_system: 'default',
+      tumour_grade: 'g2',
     }),
   ],
-  ['both undefined', true, specimen],
+  [
+    'grade system is not one of the valid grading systems',
+    false,
+    loadObjects(specimen, {
+      tumour_grading_system: 'my own grading system',
+      tumour_grade: 'g4'
+    }),
+  ],
+  [
+    'both grade system and grade are undefined',
+    false,
+    loadObjects(specimen, {
+    }),
+  ],
+  ['both undefined', false, specimen]
 ];
 
 describe('Common Tests', () => {
