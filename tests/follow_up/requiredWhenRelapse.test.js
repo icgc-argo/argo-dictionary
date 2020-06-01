@@ -15,14 +15,14 @@ const myUnitTests = {
             true,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "relapse",
+                    "disease_status_at_followup": "relapse or recurrence",
                     "relapse_interval": "500"
                 }
             )
         ],
         [
             'Disease status is not relapse, with provided relapse interval',
-            true,
+            false,
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "partial remission",
@@ -35,7 +35,7 @@ const myUnitTests = {
             false,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "relapse"
+                    "disease_status_at_followup": "relapse or recurrence"
                 }
             )
         ],
@@ -44,13 +44,13 @@ const myUnitTests = {
             false,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "relapse",
+                    "disease_status_at_followup": "relapse or recurrence",
                     "relapse_interval" : "      "
                 }
             )
         ],
         [
-            'Disease status is not progression, and relapse interval is not provided',
+            'Disease status is not relapse or recurrence, and relapse interval is not provided',
             true,
             loadObjects(followUp,
                 {   
@@ -58,55 +58,37 @@ const myUnitTests = {
                 }
             )
         ],
-        [
-            'Disease status is progression, and relapse interval is not provided',
-            true,
-            loadObjects(followUp,
-                {   
-                    "disease_status_at_followup": "Distant progression"
-                }
-            )
-        ]
     ],
-    'method_of_progression_status': [
+    'relapse_type': [
         [
-            'Disease status is relapse, with provided method of progression',
+            'Disease status is relapse, and relapse type is Local recurrence',
             true,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "relapse",
-                    "method_of_progression_status": "Autopsy"
+                    "disease_status_at_followup": "relapse or recurrence",
+                    "relapse_type": "local recurrence"
                 }
             )
         ],
         [
-            'Disease status is relapse, without provided method of progression',
+            'Disease status is stable, and relapse type is recurrence',
             false,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "relapse"
+                    "disease_status_at_followup": "stable",
+                    "relapse_type": "Distant recurrence/metastasis"
                 }
             )
         ],
         [
-            'Disease status is partial remission, without method of progression',
+            'Disease status is complete remission, and relapse type is not provided',
             true,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "partial remission"
+                    "disease_status_at_followup": "complete remission",
                 }
             )
         ],
-        [
-            'Disease status is partial remission, with method of progression',
-            true,
-            loadObjects(followUp,
-                {   
-                    "disease_status_at_followup": "partial remission",
-                    "method_of_progression_status": "imaging"
-                }
-            )
-        ]
     ],
     'anatomic_site_progression_or_recurrences': [
         [
@@ -114,8 +96,8 @@ const myUnitTests = {
             true,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "relapse",
-                    "anatomic_site_progression_or_recurrences": "Ankle"
+                    "disease_status_at_followup": "relapse or recurrence",
+                    "anatomic_site_progression_or_recurrences": "C50.1"
                 }
             )
         ],
@@ -124,7 +106,26 @@ const myUnitTests = {
             false,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "relapse"
+                    "disease_status_at_followup": "relapse or recurrence"
+                }
+            )
+        ],
+        [
+            'Disease status is stable, without provided ASPOR',
+            true,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "stable"
+                }
+            )
+        ],
+        [
+            'Disease status is stable, with provided ASPOR',
+            false,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "stable",
+                    "anatomic_site_progression_or_recurrences": "C50"
                 }
             )
         ],
@@ -135,38 +136,36 @@ const myUnitTests = {
             true,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "relapse",
-                    "recurrence_tumour_staging_system": "Binet"
+                    "disease_status_at_followup": "relapse or recurrence",
+                    "recurrence_tumour_staging_system": "AJCC 8th edition"
                 }
             )
         ],
         [
-            'Disease status is relapse, without provided ASPOR',
+            'Disease status is relapse, without provided RTSS',
             false,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "relapse"
+                    "disease_status_at_followup": "relapse or recurrence"
                 }
             )
-        ]
-    ],
-    'posttherapy_tumour_staging_system': [
+        ],
         [
-            'Disease status is relapse, with provided PTSS',
+            'Disease status is no evidence of disease, without provided RTSS',
             true,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "Relapse",
-                    "posttherapy_tumour_staging_system": "Murphy"
+                    "disease_status_at_followup": "no evidence of disease"
                 }
             )
         ],
         [
-            'Disease status is relapse, without provided ASPOR',
+            'Disease status is no evidence of disease, without provided RTSS',
             false,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "relapse"
+                    "disease_status_at_followup": "no evidence of disease",
+                    "recurrence_tumour_staging_system": "Binet staging system"
                 }
             )
         ]

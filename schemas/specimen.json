@@ -75,20 +75,16 @@
       "restrictions": {
         "script": "#/script/common/ajccValidation",
         "codeList": [
-          "Binet",
-          "Rai",
-          "FIGO",
-          "Ann Arbor",
-          "Murphy",
-          "Lugano",
-          "AJCC 8th Edition",
-          "AJCC 7th Edition",
-          "AJCC 6th Edition",
-          "AJCC 5th Edition",
-          "AJCC 4th Edition",
-          "AJCC 3rd Edition",
-          "AJCC 2nd Edition",
-          "AJCC 1st Edition"
+          "AJCC 8th edition",
+          "AJCC 7th edition",
+          "Ann Arbor staging system",
+          "Binet staging system",
+          "Durie-Salmon staging system",
+          "FIGO staging system",
+          "Lugano staging system",
+          "Rai staging system",
+          "Revised International staging system (RISS)",
+          "St Jude staging system"
         ]
       }
     },
@@ -143,6 +139,10 @@
         "dependsOn": "specimen.pathological_tumour_staging_system",
         "notes": "This field depends on the selected pathological staging system, and is only required if the specimen is a tumour.",
         "displayName": "Pathological Stage Group"
+      },
+      "restrictions": {
+        "codeList": "#/list/stage_groups",
+        "script": "#/script/specimen/stageGroup"
       }
     },
     {
@@ -162,7 +162,7 @@
     },
     {
       "name": "tumour_histological_type",
-      "description": "The code to represent the histology (morphology) of neoplasms that is usually obtained from a pathology report, according to the International Classification of Diseases for Oncology, 3rd Edition (WHO ICD-O-3). Please refer to the guidelines provided in the ICD-O-3 manual at https://apps.who.int/iris/handle/10665/42344.",
+      "description": "The code to represent the histology (morphology) of neoplasms that is usually obtained from a pathology report, according to the International Classification of Diseases for Oncology, 3rd Edition (WHO ICD-O-3). Refer to the ICD-O-3 manual for guidelines at https://apps.who.int/iris/handle/10665/42344.",
       "valueType": "string",
       "meta": {
         "validationDependency": true,
@@ -178,15 +178,16 @@
     },
     {
       "name": "specimen_anatomic_location",
-      "description": "Anatomic location of a specimen when it was collected.",
+      "description": "Indicate the ICD-O-3 topography code for the anatomic location of a specimen when it was collected. Refer to the guidelines provided in the ICD-O-3 manual at https://apps.who.int/iris/handle/10665/42344.",
       "valueType": "string",
       "meta": {
         "core": true,
-        "displayName": "Specimen Anatomic Location"
+        "displayName": "Specimen Anatomic Location",
+        "examples": "C50.1,C18"
       },
       "restrictions": {
         "required": true,
-        "codeList": "#/list/anatomic_locations"
+        "regex": "^[C][0-9]{2}(.[0-9]{1})?$"
       }
     },
     {

@@ -17,7 +17,7 @@ const unitTests = {
       false,
       {
         row: loadObjects(specimen, {
-          pathological_tumour_staging_system: 'AJCC 8th Edition',
+          pathological_tumour_staging_system: 'AJCC 8th edition',
         }),
         name: 'pathological_tumour_staging_system',
       },
@@ -27,9 +27,9 @@ const unitTests = {
       false,
       {
         row: loadObjects(specimen, {
-          pathological_tumour_staging_system: 'AJCC 6th Edition',
-          pathological_m_category: 'Some M Value',
-          pathological_n_category: 'Some N Value',
+          pathological_tumour_staging_system: 'AJCC 7th Edition',
+          pathological_m_category: 'M1',
+          pathological_n_category: 'N2',
         }),
         name: 'pathological_tumour_staging_system',
       },
@@ -39,10 +39,10 @@ const unitTests = {
       false,
       {
         row: loadObjects(specimen, {
-          pathological_tumour_staging_system: 'AJCC 6th Edition',
+          pathological_tumour_staging_system: 'AJCC 8th Edition',
           pathological_t_category: ' ',
           pathological_m_category: '',
-          pathological_n_category: 'Some N Value',
+          pathological_n_category: 'N3',
         }),
         name: 'pathological_tumour_staging_system',
       },
@@ -62,10 +62,10 @@ const unitTests = {
       false,
       {
         row: loadObjects(specimen, {
-          pathological_tumour_staging_system: 'binet',
-          pathological_t_category: 'some val',
-          pathological_m_category: 'some val',
-          pathological_n_category: 'some val',
+          pathological_tumour_staging_system: 'binet staging system',
+          pathological_t_category: 'T2',
+          pathological_m_category: 'M1a',
+          pathological_n_category: 'N3a',
         }),
         name: 'pathological_tumour_staging_system',
       },
@@ -77,7 +77,7 @@ const unitTests = {
       false,
       {
         row: loadObjects(followUp, {
-          posttherapy_tumour_staging_system: 'AJCC 4th Edition',
+          posttherapy_tumour_staging_system: 'AJCC 8th Edition',
         }),
         name: 'posttherapy_tumour_staging_system',
       },
@@ -87,9 +87,9 @@ const unitTests = {
       false,
       {
         row: loadObjects(followUp, {
-          posttherapy_tumour_staging_system: 'AJCC 5th Edition',
-          posttherapy_n_category: 'Some Value',
-          posttherapy_m_category: 'some Value',
+          posttherapy_tumour_staging_system: 'AJCC 8th Edition',
+          posttherapy_n_category: 'n3',
+          posttherapy_m_category: 'm1',
         }),
         name: 'posttherapy_tumour_staging_system',
       },
@@ -99,7 +99,7 @@ const unitTests = {
       true,
       {
         row: loadObjects(followUp, {
-          posttherapy_tumour_staging_system: 'Lugano',
+          posttherapy_tumour_staging_system: 'Lugano staging system',
         }),
         name: 'posttherapy_tumour_staging_system',
       },
@@ -109,10 +109,10 @@ const unitTests = {
       false,
       {
         row: loadObjects(followUp, {
-          posttherapy_tumour_staging_system: 'Lugano',
-          posttherapy_t_category: 'Some Value',
-          posttherapy_n_category: 'some Value',
-          posttherapy_m_category: 'some Value',
+          posttherapy_tumour_staging_system: 'Lugano staging system',
+          posttherapy_t_category: 'T1',
+          posttherapy_n_category: 'N3',
+          posttherapy_m_category: 'M0',
         }),
         name: 'posttherapy_tumour_staging_system',
       },
@@ -122,7 +122,7 @@ const unitTests = {
       false,
       {
         row: loadObjects(followUp, {
-          recurrence_tumour_staging_system: 'AJCC 1st Edition',
+          recurrence_tumour_staging_system: 'AJCC 8th Edition',
         }),
         name: 'recurrence_tumour_staging_system',
       },
@@ -143,7 +143,7 @@ const unitTests = {
       true,
       {
         row: loadObjects(followUp, {
-          recurrence_tumour_staging_system: 'FIGO',
+          recurrence_tumour_staging_system: 'FIGO staging system',
         }),
         name: 'recurrence_tumour_staging_system',
       },
@@ -153,10 +153,10 @@ const unitTests = {
       false,
       {
         row: loadObjects(followUp, {
-          recurrence_tumour_staging_system: 'FIGO',
+          recurrence_tumour_staging_system: 'FIGO staging system',
           recurrence_t_category: ' ',
-          recurrence_m_category: 'some value',
-          recurrence_n_category: 'some value',
+          recurrence_m_category: 'm1',
+          recurrence_n_category: 'n2',
         }),
         name: 'recurrence_tumour_staging_system',
       },
@@ -168,7 +168,7 @@ const unitTests = {
       false,
       {
         row: loadObjects(primaryDiag, {
-          clinical_tumour_staging_system: 'AJCC 9th Edition',
+          clinical_tumour_staging_system: 'AJCC 8th Edition',
         }),
         name: 'clinical_tumour_staging_system',
       },
@@ -178,8 +178,8 @@ const unitTests = {
       false,
       {
         row: loadObjects(primaryDiag, {
-          clinical_tumour_staging_system: 'AJCC 2nd Edition',
-          clinical_t_category: 'some val',
+          clinical_tumour_staging_system: 'AJCC 8th Edition',
+          clinical_t_category: 'T2',
         }),
         name: 'clinical_tumour_staging_system',
       },
@@ -189,7 +189,7 @@ const unitTests = {
       true,
       {
         row: loadObjects(primaryDiag, {
-          clinical_tumour_staging_system: 'Ann Arbor',
+          clinical_tumour_staging_system: 'Ann Arbor staging system',
         }),
         name: 'clinical_tumour_staging_system',
       },
@@ -199,7 +199,7 @@ const unitTests = {
       false,
       {
         row: loadObjects(primaryDiag, {
-          clinical_tumour_staging_system: 'Ann Arbor',
+          clinical_tumour_staging_system: 'Ann Arbor staging system',
           clinical_t_category: 'some val',
         }),
         name: 'clinical_tumour_staging_system',
@@ -220,10 +220,10 @@ const unitTests = {
       true,
       {
         row: loadObjects(primaryDiag, {
-          clinical_tumour_staging_system: 'AJCC 5th Edition',
-          clinical_t_category: 'some val',
-          clinical_m_category: 'some val',
-          clinical_n_category: 'some val',
+          clinical_tumour_staging_system: 'AJCC 8th Edition',
+          clinical_t_category: 'T2',
+          clinical_m_category: 'M1',
+          clinical_n_category: 'N0(i-)',
         }),
         name: 'clinical_tumour_staging_system',
       },
@@ -235,7 +235,7 @@ const unitTests = {
       true,
       {
         row: {
-          clinical_tumour_staging_system: 'Murphy',
+          clinical_tumour_staging_system: 'Rai staging system',
         },
         name: 'clinical_tumour_staging_system',
       },
@@ -245,7 +245,7 @@ const unitTests = {
       true,
       {
         row: {
-          clinical_tumour_staging_system: 'Murphy',
+          clinical_tumour_staging_system: 'revised international staging sytem (riss)',
           clinical_t_category: '',
         },
         name: 'clinical_tumour_staging_system',
@@ -256,7 +256,7 @@ const unitTests = {
       false,
       {
         row: {
-          clinical_tumour_staging_system: 'Murphy',
+          clinical_tumour_staging_system: 'St Jude staging system',
           clinical_t_category: 'Forbidden Provided Value!',
         },
         name: 'clinical_tumour_staging_system',
