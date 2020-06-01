@@ -162,7 +162,7 @@
     },
     {
       "name": "tumour_histological_type",
-      "description": "The code to represent the histology (morphology) of neoplasms that is usually obtained from a pathology report, according to the International Classification of Diseases for Oncology, 3rd Edition (WHO ICD-O-3). Please refer to the guidelines provided in the ICD-O-3 manual at https://apps.who.int/iris/handle/10665/42344.",
+      "description": "The code to represent the histology (morphology) of neoplasms that is usually obtained from a pathology report, according to the International Classification of Diseases for Oncology, 3rd Edition (WHO ICD-O-3). Refer to the ICD-O-3 manual for guidelines at https://apps.who.int/iris/handle/10665/42344.",
       "valueType": "string",
       "meta": {
         "core": true,
@@ -177,15 +177,16 @@
     },
     {
       "name": "specimen_anatomic_location",
-      "description": "Anatomic location of a specimen when it was collected.",
+      "description": "Indicate the ICD-O-3 topography code for the anatomic location of a specimen when it was collected. Refer to the guidelines provided in the ICD-O-3 manual at https://apps.who.int/iris/handle/10665/42344.",
       "valueType": "string",
       "meta": {
         "core": true,
-        "displayName": "Specimen Anatomic Location"
+        "displayName": "Specimen Anatomic Location",
+        "examples": "C50.1,C18"
       },
       "restrictions": {
         "required": true,
-        "codeList": "#/list/anatomic_locations"
+        "regex": "^[C][0-9]{2}(.[0-9]{1})?$"
       }
     },
     {

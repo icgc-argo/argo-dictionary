@@ -77,7 +77,7 @@ const myUnitTests = {
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "Distant progression",
-                    "anatomic_site_progression_or_recurrences": "Jaw"
+                    "anatomic_site_progression_or_recurrences": "C50"
                 }
             )
         ],
@@ -105,7 +105,7 @@ const myUnitTests = {
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "stable",
-                    "anatomic_site_progression_or_recurrences": "Jaw"
+                    "anatomic_site_progression_or_recurrences": "C50.1"
                 }
             )
         ]
@@ -117,7 +117,7 @@ const myUnitTests = {
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "Distant progression",
-                    "recurrence_tumour_staging_system": "FIGO"
+                    "recurrence_tumour_staging_system": "FIGO staging system"
                 }
             )
         ],
@@ -145,7 +145,7 @@ const myUnitTests = {
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "complete remission",
-                    "recurrence_tumour_staging_system": "FIGO"
+                    "recurrence_tumour_staging_system": "FIGO staging system"
                 }
             )
         ]

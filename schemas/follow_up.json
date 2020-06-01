@@ -192,18 +192,19 @@
       }
     },
     {
-      "description": "Indicate the anatomic site where disease progression or recurrence occurred. (Codelist reference: NCI CDE ID: 4742851)",
+      "description": "Indicate the ICD-O-3 topography code for the anatomic site where disease progression or recurrence occurred, according to the International Classification of Diseases for Oncology, 3rd Edition (WHO ICD-O-3). Refer to the ICD-O-3 manual for guidelines at https://apps.who.int/iris/handle/10665/42344.",
       "name": "anatomic_site_progression_or_recurrences",
       "valueType": "string",
       "restrictions": {
         "script": "#/script/follow_up/anatomic_site_progression_or_recurrences",
-        "codeList": "#/list/anatomic_locations"
+        "regex": "^[C][0-9]{2}(.[0-9]{1})?$"
       },
       "meta": {
         "core": true,
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence.",
-        "displayName": "Anatomic Site Progression or Recurrences"
+        "displayName": "Anatomic Site Progression or Recurrences",
+        "examples": "C50.1,C18",
+        "notes": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence."
       }
     },
     {
