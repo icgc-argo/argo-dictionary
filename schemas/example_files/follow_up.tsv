@@ -5,7 +5,7 @@ DASH-CA	DASH-1	visit1-3	369	No evidence of disease
 DASH-CA	DASH-2	visit2-1	100	Partial remission														
 DASH-CA	DASH-2	visit2-2	221	Complete remission														
 DASH-CA	DASH-2	visit2-3	422	No evidence of disease														
-DASH-CA	DASH-2	visit2-4	623	Relapse	Local recurrence	321	Biopsy	Breast	AJCC 8th Edition	T1	N0	M0	Stage I					
+DASH-CA	DASH-2	visit2-4	623	Relapse	Local recurrence	321	Biopsy	C50.1	AJCC 8th Edition	T1	N0	M0	Stage I					
 DASH-CA	DASH-2	visit2-5	720	Complete remission														
 DASH-CA	DASH-3	visit3-1	40	Stable														
 DASH-CA	DASH-3	visit3-2	145	Complete remission														
@@ -14,18 +14,16 @@ DASH-CA	DASH-4	visit4-1	14	Stable
 DASH-CA	DASH-4	visit4-2	39	Partial remission														
 DASH-CA	DASH-4	visit4-3	124	Complete remission														
 DASH-CA	DASH-4	visit4-4	387	No evidence of disease														
-DASH-CA	DASH-5	visit5-1	45	Distant progression	Distant recurrence/metastasis	0	Diagnostic imaging	Liver	AJCC 8th Edition	T2	N2	M1	Stage III					
-DASH-CA	DASH-6	visit6-1	64	Loco-regional progression	Local recurrence	0	Diagnostic imaging	Pancreas	AJCC 8th Edition	T1	N1	M0	Stage II					
-DASH-CA	DASH-6	visit6-2	136	Distant progression	Distant recurrence/metastasis	0	Ultrasound guided biopsy	Pancreas	AJCC 8th Edition	T2	N2	M1	Stage III					
-DASH-CA	DASH-7	visit7-1	36	Loco-regional progression	Local recurrence	0	Surgical resection	Pancreas	AJCC 8th Edition	T1	N1	M0	Stage I					
-DASH-CA	DASH-7	visit7-2	78	Loco-regional progression	Local recurrence	0	Surgical resection	Pancreas	AJCC 8th Edition	T1	N1	M0	Stage I					
-DASH-CA	DASH-7	visit7-3	92	Loco-regional progression	Local recurrence	0	Blood draw	Pancreas	AJCC 8th Edition	T1	N2	M0	Stage I					
+DASH-CA	DASH-5	visit5-1	45	Distant progression	Distant recurrence/metastasis	0	Diagnostic imaging	C22.0	AJCC 8th Edition	T2	N2	M1	Stage III					
+DASH-CA	DASH-6	visit6-1	64	Loco-regional progression	Local recurrence	0	Diagnostic imaging	c25	AJCC 8th Edition	T1	N1	M0	Stage II					
+DASH-CA	DASH-6	visit6-2	136	Distant progression	Distant recurrence/metastasis	0	Ultrasound guided biopsy	C25	AJCC 8th Edition	T2	N2	M1	Stage III					
+DASH-CA	DASH-7	visit7-1	36	Loco-regional progression	Local recurrence	0	Surgical resection	C25.1	AJCC 8th Edition	T1	N1	M0	Stage I					
+DASH-CA	DASH-7	visit7-2	78	Loco-regional progression	Local recurrence	0	Surgical resection	C25.1	AJCC 8th Edition	T1	N1	M0	Stage I					
+DASH-CA	DASH-7	visit7-3	92	Loco-regional progression	Local recurrence	0	Blood draw	C25.0	AJCC 8th Edition	T1	N2	M0	Stage I					
 DASH-CA	DASH-8	visit8-1	135	Stable														
 DASH-CA	DASH-8	visit8-2	265	No evidence of disease														
 DASH-CA	DASH-9	visit9-1	193	Stable														
-DASH-CA	DASH-10	visit10-1	92	Loco-regional progression	Local recurrence	0	Physical exam	Colon - mucosa only	AJCC 8th Edition	T1	N0	M0	Stage I					
+DASH-CA	DASH-10	visit10-1	92	Loco-regional progression	Local recurrence	0	Physical exam	C18	AJCC 8th Edition	T1	N0	M0	Stage I					
 DASH-CA	DASH-10	visit10-2	179	Partial remission														
 DASH-CA	DASH-10	visit10-3	290	No evidence of disease														
-DASH-CA	DASH-11	visit11-1	100	Loco-regional progression		20	Surgical resection	Ovary	FIGO staging system				stage ib					
-																		
-																		
+DASH-CA	DASH-11	visit11-1	100	Loco-regional progression		20	Surgical resection	C56.9	FIGO staging system				stage ib					
