@@ -162,19 +162,19 @@ const unitTests = [
     }),
   ],
   [
-    'Grading system undefined',
-    false,
+    'Grading system is undefined',
+    true,
     loadObjects(specimen, {
       tumour_grade: 'any text here',
     }),
   ],
-  [
-    'grade is g2 but grading system is undefined',
-    false,
-    loadObjects(specimen, {
-      tumour_grade: 'g2',
-    }),
-  ],
+ // [
+ //   'grade is g2 but grading system is undefined',
+ //   false,
+ //   loadObjects(specimen, {
+ //     tumour_grade: 'g2',
+ //   }),
+ // ],
   [
     'grade system is not one of the valid grading systems',
     false,
@@ -183,13 +183,14 @@ const unitTests = [
       tumour_grade: 'g4'
     }),
   ],
-  [
-    'both grade system and grade are undefined',
-    false,
-    loadObjects(specimen, {
-    }),
-  ],
-  ['both undefined', false, specimen]
+ // [
+ //   'both grade system and grade are undefined',
+ //   false,
+ //   loadObjects(specimen, {
+ //   }),
+ // ],
+ // ['both undefined', false, specimen]
+  ['both undefined', true, specimen]
 ];
 
 describe('Common Tests', () => {
