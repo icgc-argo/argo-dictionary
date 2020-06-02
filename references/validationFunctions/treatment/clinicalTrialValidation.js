@@ -21,10 +21,10 @@ const validation = ($row, $field, $name) =>
            result = {valid: false, message: "'${$name}' must be provided if 'clinicals_trial_database' is set to '${$clinicalTrialsDB}'."};
         }
         else if ((clinicalTrialsDB === "nci clinical trials") && (!$field.trim().match(/(^([Nn][Cc][Tt])[0-9]{8})/))) {
-              result = {valid: false, message: 'NCI clinical number is in incorrect format.'};
+              result = {valid: false, message: 'The submitted NCI clinical trial number is in incorrect format.'};
         }
         else if ((clinicalTrialsDB === "eu clinical trials register") && (!$field.trim().match(/(^[2][0-9]{3}-[0-9]{6}-[0-9]{2})/))) {
-             result = {valid: false, message: "EudraCT clinical number is in incorrect format."};
+             result = {valid: false, message: "The submitted EudraCT clinical trial number is in incorrect format."};
         } 
         return result;
     })();

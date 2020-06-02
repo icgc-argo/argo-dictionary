@@ -181,7 +181,7 @@
     },
     {
       "name": "clinical_trials_database",
-      "description": "",
+      "description": "If the donor is a participant in a clinical trial, indicate the clinical trial database where the clinical trial is registered.",
       "valueType": "string",
       "meta": { "display name": "Clinical Trials Database" },
       "restrictions": {
@@ -193,11 +193,12 @@
     },
     {
       "name": "clinical_trial_number",
-      "description": "",
+      "description": "Based on the clinical_trial_database, indicate the unique NCT or EudraCT clinical trial identifier of which the donor is a participant.",
       "valueType": "string",
       "meta": {
         "display name": "Clinical Trial Number",
-        "dependsOn": "treatment.clinical_trials_database"
+        "dependsOn": "treatment.clinical_trials_database",
+        "examples": "2016-002120-83,NCT02465060"
       },
       "restrictions": {
         "script": "#/script/treatment/clinicalTrialValidation"
