@@ -8,5 +8,5 @@ DASH-CA	DASH-6	dashpd-6	63	C25.1	Specific tumour markers	2		AJCC 8th Edition	Sta
 DASH-CA	DASH-7	dashpd-7	56	C25.2	Specific tumour markers	6		AJCC 8th Edition	Stage III	T1	N2	M0		Grade 0
 DASH-CA	DASH-8	dashpd-8	68	C25.9	Histology of a primary tumour	1		AJCC 8th Edition	Stage I	T1	N1	M0		Grade 0
 DASH-CA	DASH-9	dashpd-9	37	C18.4		0		AJCC 8th Edition	Stage I	T2	N0	M0	Nausea	Grade 0
-DASH-CA	DASH-10	dashpd-10	34	C18.9		0		AJCC 8th Edition	Stage IV	T1	N0	M0	"Nausea, Anemia"	Grade 1
+DASH-CA	DASH-10	dashpd-10	34	C18.9		0		AJCC 8th Edition	Stage IV	T1	N0	M0	"Nausea| Anemia"	Grade 1
 DASH-CA	DASH-10	dashpd-10.1	34	C44.9		1		AJCC 8th Edition	Stage I	T0	N0	M0	Nausea	Grade 1

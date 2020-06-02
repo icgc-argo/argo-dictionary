@@ -5,7 +5,7 @@ DASH-CA	DASH-1	visit1-3	369	No evidence of disease
 DASH-CA	DASH-2	visit2-1	100	Partial remission														
 DASH-CA	DASH-2	visit2-2	221	Complete remission														
 DASH-CA	DASH-2	visit2-3	422	No evidence of disease														
-DASH-CA	DASH-2	visit2-4	623	Relapse	Local recurrence	321	Biopsy	C50.1	AJCC 8th Edition	T1	N0	M0	Stage I					
+DASH-CA	DASH-2	visit2-4	623	Relapse or recurrence	Local recurrence	321	Biopsy	C50.1	AJCC 8th Edition	T1	N0	M0	Stage I					
 DASH-CA	DASH-2	visit2-5	720	Complete remission														
 DASH-CA	DASH-3	visit3-1	40	Stable														
 DASH-CA	DASH-3	visit3-2	145	Complete remission														
