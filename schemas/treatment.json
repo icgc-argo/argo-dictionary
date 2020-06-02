@@ -178,6 +178,30 @@
         "core": true,
         "displayName": "Response to Therapy"
       }
+    },
+    {
+      "name": "clinical_trials_database",
+      "description": "",
+      "valueType": "string",
+      "meta": { "display name": "Clinical Trials Database" },
+      "restrictions": {
+        "codeList": [
+           "NCI Clinical Trials",
+           "EU Clinical Trials Register"
+        ]
+      }
+    },
+    {
+      "name": "clinical_trial_number",
+      "description": "",
+      "valueType": "string",
+      "meta": {
+        "display name": "Clinical Trial Number",
+        "dependsOn": "treatment.clinical_trials_database"
+      },
+      "restrictions": {
+        "script": "#/script/treatment/clinicalTrialValidation"
+      }
     }
   ]
 }
