@@ -132,7 +132,7 @@
       "meta": {
         "core": true,
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicatess a state of progression, relapse, or recurrence.",
+        "notes": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence.",
         "displayName": "Relapse Type"
       }
     },
@@ -152,7 +152,7 @@
       }
     },
     {
-      "description": "Indicate the method(s) used to confirm the donor's progression disease status. (Codelist reference: NCI CDE ID: 6161031)",
+      "description": "Indicate the method(s) used to confirm the donor's progression or relapse or recurrence disease status. (Codelist reference: NCI CDE ID: 6161031)",
       "name": "method_of_progression_status",
       "valueType": "string",
       "restrictions": {
