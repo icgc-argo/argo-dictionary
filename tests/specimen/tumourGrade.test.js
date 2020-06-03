@@ -66,19 +66,19 @@ const unitTests = [
     }),
   ],
   [
-    'Grading system set to "who grading system for cns tumours", tumour grade is "iii"',
+    'Grading system set to "who grading system for cns tumours", tumour grade is "grade iii"',
     true,
     loadObjects(specimen, {
       tumour_grading_system: 'who grading system for cns tumours ',
-      tumour_grade: 'iii',
+      tumour_grade: 'grade iii',
     }),
   ],
   [
-    'Grading system set to "WHO grading system for CNS tumours", tumour grade is "IV"',
+    'Grading system set to "WHO grading system for CNS tumours", tumour grade is "GRADE IV"',
     true,
     loadObjects(specimen, {
       tumour_grading_system: 'WHO grading system for cns tumours',
-      tumour_grade: 'IV',
+      tumour_grade: 'GRADE IV',
     }),
   ],
   [
@@ -98,11 +98,11 @@ const unitTests = [
     }),
   ],
   [
-    'Grading system set to "Gleason grade group system ", tumour grade is "5"',
+    'Grading system set to "Gleason grade group system ", tumour grade is "Grade group 5"',
     true,
     loadObjects(specimen, {
       tumour_grading_system: 'Gleason grade group system ',
-      tumour_grade: '5',
+      tumour_grade: 'Grade group 5',
     }),
   ],
   [
@@ -130,19 +130,19 @@ const unitTests = [
     }),
   ],
   [
-    'Grading system set to "WHO grading system for CNS tumours", tumour grade is "Iv"',
+    'Grading system set to "WHO grading system for CNS tumours", tumour grade is "grade Iv"',
     true,
     loadObjects(specimen, {
       tumour_grading_system: 'WHO grading system for CNS tumours ',
-      tumour_grade: 'Iv',
+      tumour_grade: 'grade Iv',
     }),
   ],
   [
-    'Grading system set to "WHO grading system for CNS tumours", tumour grade is "iII"',
+    'Grading system set to "WHO grading system for CNS tumours", tumour grade is "Grade iII"',
     true,
     loadObjects(specimen, {
       tumour_grading_system: 'WHO grading system for CNS tumours ',
-      tumour_grade: 'iII',
+      tumour_grade: 'Grade iII',
     }),
   ],
   [
