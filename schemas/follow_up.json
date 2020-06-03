@@ -187,7 +187,7 @@
       "meta": {
         "core": true,
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence",
+        "notes": "This field is required to be submitted if disease_status_at_followup indicates a state of progression.",
         "displayName": "Method Of Progression Status"
       }
     },
