@@ -52,7 +52,7 @@
       "description": "Indicate the cause of a donor's death.",
       "name": "cause_of_death",
       "restrictions": {
-        "codeList": ["Died of cancer", "Died of other reasons"],
+        "codeList": ["Died of cancer", "Died of other reasons", "Unknown"],
         "script": "#/script/donor/ensureDeceased"
       },
       "valueType": "string",
@@ -196,9 +196,12 @@
       }
     },
     {
-      "description": "If donor has history of prior malignancy, indicate laterality of previous diagnosis.",
+      "description": "If donor has history of prior malignancy, indicate laterality of previous diagnosis. (Codelist reference: NCI CDE: 4122391)",
       "name": "laterality_of_prior_malignancy",
       "valueType": "string",
+      "restrictions": {
+        "codeList": ["Bilateral", "Left", "Midline", "Not applicable", "Right", "Unilateral", "Unilateral, side not specified", "Unknown"]
+      },
       "meta": {
         "displayName": "Laterality at Prior Malignancy"
       }
