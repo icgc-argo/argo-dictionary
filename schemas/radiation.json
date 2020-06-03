@@ -64,16 +64,17 @@
       }
     },
     {
-      "name": "application_form",
+      "name": "radiation_treatment_type",
       "description": "Indicate type of radiation therapy administered.",
       "valueType": "string",
       "restrictions": {
         "required": true,
-        "codeList": ["External", "Internal (including Brachytherapy)"]
+        "codeList": ["External", "Internal"]
       },
       "meta": {
         "core": true,
-        "displayName": "Application Form"
+        "displayName": "Application Form",
+        "notes": "Internal application includes Brachytherapy."
       }
     },
     {

@@ -1,6 +1,6 @@
 {
   "name": "chemotherapy",
-  "description": "The collection of data elements describing the details of a chemotherapy treatment regimen completed by a donor. For multiple treatment agents in a single regimen, submit multiple rows in the chemotherapy file.",
+  "description": "The collection of data elements describing the details of a chemotherapy treatment regimen completed by a donor. To submit multiple treatment drugs for a single regimen, submit multiple rows in the chemotherapy file.",
   "meta": {
     "parent": "treatment"
   },
@@ -56,7 +56,7 @@
       "meta": {
         "validationDependency": true,
         "core": true,
-        "notes": "This field uses a controlled vocabulary gathered from the RxNorm database of drug names provided by the NIH (https://www.nlm.nih.gov/research/umls/rxnorm).",
+        "notes": "This field uses standardized vocabulary from the RxNorm database (https://www.nlm.nih.gov/research/umls/rxnorm), provided by the NIH.\n\nYou can search for RX Norm values through the web interface (https://mor.nlm.nih.gov/RxNav/) or API (https://mor.nlm.nih.gov/download/rxnav/RxNormAPIs.html).\n\nFor example, to find the rxnormcui based on drug name, you can use: https://rxnav.nlm.nih.gov/REST/rxcui.json?name=leucovorin",
         "displayName": "RxNormCUI"
       },
       "restrictions": {
@@ -70,7 +70,7 @@
       "meta": {
         "validationDependency": true,
         "core": true,
-        "notes": "This field uses a controlled vocabulary gathered from the RxNorm database of drug names provided by the NIH (https://www.nlm.nih.gov/research/umls/rxnorm).",
+        "notes": "This field uses standardized vocabulary from the RxNorm database (https://www.nlm.nih.gov/research/umls/rxnorm), provided by the NIH.\n\nYou can search for RX Norm values through the web interface (https://mor.nlm.nih.gov/RxNav/) or API (https://mor.nlm.nih.gov/download/rxnav/RxNormAPIs.html).\n\nFor example, to find the rxnormcui based on drug name, you can use: https://rxnav.nlm.nih.gov/REST/rxcui.json?name=leucovorin",
         "displayName": "Chemotherapy Drug Name"
       },
       "restrictions": {
@@ -83,7 +83,7 @@
       "valueType": "string",
       "restrictions": {
         "required": true,
-        "codeList": ["mg/m2", "IU/m2", "µg/m2", "g/m2", "mg/kg"]
+        "codeList": "#/list/drug_dosage_units"
       },
       "meta": {
         "core": true,
@@ -93,7 +93,7 @@
     {
       "name": "cumulative_drug_dosage",
       "description": "Indicate the total drug dose in the same units specified in chemotherapy_dosage_units.",
-      "valueType": "integer",
+      "valueType": "number",
       "restrictions": {
         "required": true
       },
