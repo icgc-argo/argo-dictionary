@@ -1,5 +1,5 @@
-const requiredWhenRelapse = require('./baseScripts/requiredWhenRelapse');
+const requiredWhenProgressOrRelapseRecur = require('./baseScripts/requiredWhenProgressOrRelapseRecur');
 
 module.exports = [
-    requiredWhenRelapse
+    requiredWhenProgressOrRelapseRecur
 ];
