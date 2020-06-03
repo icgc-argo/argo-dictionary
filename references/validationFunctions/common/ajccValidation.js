@@ -28,11 +28,10 @@ const validation = ($row, $name, $field) =>
       const checkforEmpty = entry => {
         return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'));
       };
-      /* search for fields with falsy values, given the field exists */
+
+      /* search for fields with falsy values*/
       const emptyFields = requiredFields.filter(
-        field =>
-          Object.keys(convertedRow).includes(field) &&
-          (!convertedRow[field] || checkforEmpty(convertedRow[field])),
+        field => !convertedRow[field] || checkforEmpty(convertedRow[field]),
       );
 
       /* The fields should be provided IF and ONLY IF the AJCC regex passes */

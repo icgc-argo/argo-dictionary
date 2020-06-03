@@ -1,0 +1,17 @@
+program_id	submitter_donor_id	gender	submitter_specimen_id	specimen_tissue_source	specimen_type	submitter_sample_id	sample_type	tumour_normal_designation
+DASH-CA	DASH-1	male	dashsp-1	Blood derived 	Normal	dashsa-1	Amplified DNA	Normal
+DASH-CA	DASH-1	male	dashsp-1.1	Cerebellum 	Primary tumour	dashsa-1.1	Amplified DNA	Tumour
+DASH-CA	DASH-1	male	dashsp-1.2	Blood derived 	Recurrent tumour	dashsa-1.2	Amplified DNA	Tumour
+DASH-CA	DASH-2	female	dashsp-2	Esophagus	Primary tumour	dashsa-2	ctDNA	Tumour
+DASH-CA	DASH-3	female	dashsp-3	Blood derived	Normal	dashsa-3	ctDNA	Normal
+DASH-CA	DASH-4	male	dashsp-4	Blood derived 	Normal	dashsa-4	Amplified DNA	Normal
+DASH-CA	DASH-4	male	dashsp-4.1	Esophagus	Primary tumour	dashsa-4.1	Amplified DNA	Tumour
+DASH-CA	DASH-5	male	dashsp-5	Solid tissue 	Primary tumour	dashsa-5	Amplified DNA	Tumour
+DASH-CA	DASH-5	male	dashsp-5.1	Blood derived 	Normal	dashsa-5.1	Amplified DNA	Normal
+DASH-CA	DASH-6	male	dashsp-6.1	Blood derived 	Normal	dashsa-6.1	Amplified DNA	Normal
+DASH-CA	DASH-6	male	dashsp-6.2	Solid tissue 	Primary tumour	dashsa-6.2	Amplified DNA	Tumour
+DASH-CA	DASH-7	male	dashsp-7.2	Solid tissue 	Primary tumour	dashsa-7.2	Amplified DNA	Tumour
+DASH-CA	DASH-8	female	dashsp-8	Blood derived 	Normal	dashsa-id-8	Total DNA	Normal
+DASH-CA	DASH-8	female	dashsp-8.1	Blood derived 	Primary tumour	dashsa-id-8.1	Total DNA	Tumour
+DASH-CA	DASH-9	Male	dashsp-9	Blood derived 	Normal	dashsa-id-9	Total DNA	Normal
+DASH-CA	DASH-10	Male	dashsp-10	Blood derived 	Normal	dashsa-id-10	ctDNA	Normal

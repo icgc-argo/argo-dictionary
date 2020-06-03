@@ -1,6 +1,6 @@
 {
   "name": "follow_up",
-  "description": "The collection of data elements related to a specific follow-up visit to a donor. A follow-up is defined as any point of contact with a patient after diagnosis. A donor can have multiple follow-up records.",
+  "description": "The collection of data elements related to a specific follow-up visit to a donor. A follow-up is defined as any point of contact with a patient after primary diagnosis. To submit multiple follow-ups for a single donor, please submit multiple rows in the follow-up file for this donor.",
   "meta": {
     "parent": "donor"
   },
@@ -74,13 +74,37 @@
           "Loco-regional progression",
           "No evidence of disease",
           "Partial remission",
-          "Relapse",
+          "Relapse or recurrence",
           "Stable"
         ]
       },
       "meta": {
         "core": true,
         "displayName": "Disease Status at Follow-Up"
+      }
+    },
+    {
+      "name": "submitter_primary_diagnosis_id",
+      "valueType": "string",
+      "description": "Indicate if the follow-up is related to a specific primary diagnosis event in the clinical timeline.",
+      "meta": {
+        "displayName": "Submitter Primary Diagnosis ID",
+        "primaryId": true
+      },
+      "restrictions": {
+        "regex": "#/regex/submitter_id"
+      }
+    },
+    {
+      "name": "submitter_treatment_id",
+      "valueType": "string",
+      "description": "Indicate if the follow-up is related to a specific treatment event in the clinical timeline.",
+      "meta": {
+        "primaryId": true,
+        "displayName": "Submitter Treatment ID"
+      },
+      "restrictions": {
+        "regex": "#/regex/submitter_id"
       }
     },
     {
@@ -102,17 +126,18 @@
           "Local recurrence",
           "Local recurrence and distant metastasis",
           "Progression (liquid tumours)"
-        ]
+        ],
+        "script": "#/script/follow_up/relapse_type"
       },
       "meta": {
         "core": true,
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates progression or relapse.",
+        "notes": "This field is required to be submitted if disease_status_at_followup indicatess a state of progression, relapse, or recurrence.",
         "displayName": "Relapse Type"
       }
     },
     {
-      "description": "If the donor was clinically disease free following primary treatment and then relapse or progression (for liquid tumours) occurred afterwards, then this field will indicate the length of disease free interval, in days.",
+      "description": "If the donor was clinically disease free following primary treatment and then relapse or recurrence or progression (for liquid tumours) occurred afterwards, then this field will indicate the length of disease free interval, in days.",
       "name": "relapse_interval",
       "valueType": "integer",
       "restrictions": {
@@ -122,7 +147,7 @@
         "core": true,
         "units": "days",
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates a progression or relapse value.",
+        "notes": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence.",
         "displayName": "Relapse Interval"
       }
     },
@@ -133,7 +158,6 @@
       "restrictions": {
         "script": "#/script/follow_up/method_of_progression_status",
         "codeList": [
-          "Autopsy",
           "Biomarker in liquid biopsy (e.g. tumour marker in blood or urine)",
           "Biopsy",
           "Blood draw",
@@ -163,23 +187,24 @@
       "meta": {
         "core": true,
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates progression or relapse",
+        "notes": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence",
         "displayName": "Method Of Progression Status"
       }
     },
     {
-      "description": "Indicate the anatomic site where disease progression or recurrence occurred. (Codelist reference: NCI CDE ID: 4742851)",
+      "description": "Indicate the ICD-O-3 topography code for the anatomic site where disease progression or recurrence occurred, according to the International Classification of Diseases for Oncology, 3rd Edition (WHO ICD-O-3). Refer to the ICD-O-3 manual for guidelines at https://apps.who.int/iris/handle/10665/42344.",
       "name": "anatomic_site_progression_or_recurrences",
       "valueType": "string",
       "restrictions": {
         "script": "#/script/follow_up/anatomic_site_progression_or_recurrences",
-        "codeList": "#/list/anatomic_locations"
+        "regex": "^[C][0-9]{2}(.[0-9]{1})?$"
       },
       "meta": {
         "core": true,
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates progression or relapse.",
-        "displayName": "Anatomic Site Progression or Recurrences"
+        "displayName": "Anatomic Site Progression or Recurrences",
+        "examples": "C50.1,C18",
+        "notes": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence."
       }
     },
     {
@@ -188,27 +213,23 @@
       "valueType": "string",
       "restrictions": {
         "codeList": [
-          "Binet",
-          "Rai",
-          "FIGO",
-          "Ann Arbor",
-          "Murphy",
-          "Lugano",
-          "AJCC 8th Edition",
-          "AJCC 7th Edition",
-          "AJCC 6th Edition",
-          "AJCC 5th Edition",
-          "AJCC 4th Edition",
-          "AJCC 3rd Edition",
-          "AJCC 2nd Edition",
-          "AJCC 1st Edition"
+          "AJCC 8th edition",
+          "AJCC 7th edition",
+          "Ann Arbor staging system",
+          "Binet staging system",
+          "Durie-Salmon staging system",
+          "FIGO staging system",
+          "Lugano staging system",
+          "Rai staging system",
+          "Revised International staging system (RISS)",
+          "St Jude staging system"
         ],
         "script": "#/script/follow_up/recurrence_tumour_staging_system"
       },
       "meta": {
         "core": true,
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates progression or relapse.",
+        "notes": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence.",
         "displayName": "Recurrance Tumour Staging System"
       }
     },
@@ -221,6 +242,9 @@
         "dependsOn": "follow_up.recurrence_tumour_staging_system",
         "notes": "This field is required only if the selected recurrence_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Recurrence T Category"
+      },
+      "restrictions": {
+         "codeList": "#/list/t_categories"
       }
     },
     {
@@ -232,6 +256,9 @@
         "dependsOn": "follow_up.recurrence_tumour_staging_system",
         "notes": "This field is required only if the selected recurrence_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Recurrence N Category"
+      },
+      "restrictions": {
+         "codeList": "#/list/n_categories"
       }
     },
     {
@@ -243,6 +270,9 @@
         "dependsOn": "follow_up.recurrence_tumour_staging_system",
         "notes": "This field is required only if the selected recurrence_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Recurrence M Category"
+      },
+      "restrictions": {
+         "codeList": "#/list/m_categories"
       }
     },
     {
@@ -252,7 +282,12 @@
       "meta": {
         "core": true,
         "dependsOn": "follow_up.recurrence_tumour_staging_system",
+        "notes": "This field is dependent on the selected recurrence_tumour_staging_system.",
         "displayName": "Recurrence Stage Group"
+      },
+      "restrictions": {
+        "codeList": "#/list/stage_groups",
+        "script": "#/script/follow_up/recurrence_stageGroup"
       }
     },
     {
@@ -262,20 +297,16 @@
       "restrictions": {
         "script": "#/script/follow_up/posttherapy_tumour_staging_system",
         "codeList": [
-          "Binet",
-          "Rai",
-          "FIGO",
-          "Ann Arbor",
-          "Murphy",
-          "Lugano",
-          "AJCC 8th Edition",
-          "AJCC 7th Edition",
-          "AJCC 6th Edition",
-          "AJCC 5th Edition",
-          "AJCC 4th Edition",
-          "AJCC 3rd Edition",
-          "AJCC 2nd Edition",
-          "AJCC 1st Edition"
+          "AJCC 8th edition",
+          "AJCC 7th edition",
+          "Ann Arbor staging system",
+          "Binet staging system",
+          "Durie-Salmon staging system",
+          "FIGO staging system",
+          "Lugano staging system",
+          "Rai staging system",
+          "Revised International staging system (RISS)",
+          "St Jude staging system"
         ]
       },
       "meta": { "displayName": "Post-therapy Tumour Staging System" }
@@ -288,6 +319,9 @@
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
         "notes": "This field is required only if the selected posttherapy_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Post-therapy T Category"
+      },
+      "restrictions": {
+         "codeList": "#/list/t_categories"
       }
     },
     {
@@ -298,6 +332,9 @@
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
         "notes": "This field is required only if the selected posttherapy_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Post-therapy N Category"
+      },
+      "restrictions": {
+         "codeList": "#/list/n_categories"
       }
     },
     {
@@ -308,6 +345,9 @@
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
         "notes": "This field is required only if the selected posttherapy_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Post-therapy M Category"
+      },
+      "restrictions": {
+         "codeList": "#/list/m_categories"
       }
     },
     {
@@ -316,8 +356,12 @@
       "valueType": "string",
       "meta": {
         "dependsOn": "follow_up.post_therapy_tumour_staging_system",
-        "notes": "This field value is dependent on the selected posttherapy_tumour_staging_system.",
+        "notes": "This field is dependent on the selected posttherapy_tumour_staging_system.",
         "displayName": "Post-therapy Stage Group"
+      },
+      "restrictions": {
+        "codeList": "#/list/stage_groups",
+        "script": "#/script/follow_up/posttherapy_stageGroup"
       }
     }
   ]
