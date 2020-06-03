@@ -91,18 +91,6 @@ const validation = ($row, $field) =>
          result.message = msg;
       }
     }
-    else if (!$row.tumour_grading_system) {
-       result.valid = false;
-       result.message = "'tumour_grading_system' is required for tumour specimens.";
-    }
-    else if ($row.tumour_grading_system && !$field) {
-       result.valid = false;
-       result.message = "'tumour_grade' is required for tumour specimens.";
-    }
-    else if (!$row.tumour_grading_system && !$field) {
-       result.valid = false;
-       result.message = "'tumour_grading_system' and 'tumour_grade' are both required for tumour specimens.";
-    }
     return result;
   })();
 
