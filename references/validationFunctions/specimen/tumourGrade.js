@@ -49,10 +49,10 @@ const validation = ($row, $field) =>
           break;
         case 'who grading system for cns tumours':
           codeList = [
-            'i',
-            'ii',
-            'iii',
-            'iv',
+            'grade i',
+            'grade ii',
+            'grade iii',
+            'grade iv',
           ];
           break;
         case 'fnclcc grading system':
@@ -60,11 +60,11 @@ const validation = ($row, $field) =>
           break;
         case 'gleason grade group system':
           codeList = [
-            '1',
-            '2',
-            '3',
-            '4',
-            '5',
+            'grade group 1',
+            'grade group 2',
+            'grade group 3',
+            'grade group 4',
+            'grade group 5',
           ];
           break;
         case 'scarff-bloom-richardson grading system':

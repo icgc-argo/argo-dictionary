@@ -267,15 +267,15 @@
            "G4",
            "Low",
            "High",
-           "I",
-           "II",
-           "III",
-           "IV",
-           "1",
-           "2",
-           "3",
-           "4",
-           "5"
+           "Grade I",
+           "Grade II",
+           "Grade III",
+           "Grade IV",
+           "Grade Group 1",
+           "Grade Group 2",
+           "Grade Group 3",
+           "Grade Group 4",
+           "Grade Group 5"
         ],
         "script": "#/script/specimen/tumourGrade"
       }
