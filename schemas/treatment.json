@@ -1,6 +1,6 @@
 {
   "name": "treatment",
-  "description": "The collection of data elements related to a donor's treatment at a specific point in the clinical record. A donor can have multiple treatments.",
+  "description": "The collection of data elements related to a donor's treatment at a specific point in the clinical record. To submit multiple treatments for a single donor, please submit treatment rows in the treatment file for this donor.",
   "meta": {
     "parent": "donor"
   },
