@@ -1,6 +1,6 @@
 {
   "name": "treatment",
-  "description": "The collection of data elements related to a donor's treatment at a specific point in the clinical record. A donor can have multiple treatments.",
+  "description": "The collection of data elements related to a donor's treatment at a specific point in the clinical record. To submit multiple treatments for a single donor, please submit treatment rows in the treatment file for this donor.",
   "meta": {
     "parent": "donor"
   },
@@ -71,19 +71,18 @@
           "Ablation",
           "Bone marrow transplant",
           "Chemotherapy",
-          "Combined chemo+immunotherapy",
-          "Combined chemo+radiation therapy",
-          "Combined chemo-radiotherapy and surgery",
+          "Combined chemotherapy and immunotherapy",
+          "Combined chemotherapy and radiation therapy",
+          "Combined chemotherapy, radiation therapy and surgery",
           "Endoscopic therapy",
           "Hormonal therapy",
           "Immunotherapy",
-          "Monoclonal antibodies (for liquid tumours)",
           "No treatment",
           "Other targeting molecular therapy",
           "Photodynamic therapy",
           "Radiation therapy",
           "Stem cell transplant",
-          "Surgical resection"
+          "Surgery"
         ]
       },
       "meta": {
@@ -113,6 +112,15 @@
       }
     },
     {
+      "name": "line_of_treatment",
+      "description": "Indicate the line of treatment if it is not the primary treatment.",
+      "valueType": "integer",
+      "meta": {
+        "displayName": "Line Of treatment",
+        "examples": "2,3,4"
+      }
+    },
+    {
       "name": "treatment_start_interval",
       "description": "The interval between the primary diagnosis and initiation of treatment, in days.",
       "valueType": "integer",
@@ -138,6 +146,18 @@
         "units": "days",
         "displayName": "Treatment Duration"
       }
+    },
+    {
+      "name": "days_per_cycle",
+      "description": "Indicate the number of days in a treatment cycle.",
+      "valueType": "integer",
+      "meta": { "displayName": "Days Per Cycle" }
+    },
+    {
+      "name": "number_of_cycles",
+      "description": "Indicate the number of treatment cycles.",
+      "valueType": "integer",
+      "meta": { "displayName": "Number Of Cycles" }
     },
     {
       "name": "therapeutic_intent",
@@ -176,7 +196,76 @@
       },
       "meta": {
         "core": true,
-        "displayName": "Response to Therapy"
+        "displayName": "Response To Therapy"
+      }
+    },
+    {
+      "name": "outcome_of_therapy",
+      "description": "Indicate the donor's outcome of the prescribed treatment.",
+      "valueType": "string",
+      "restrictions": {
+        "codeList": [
+          "Treatment completed as prescribed",
+          "Treatment incomplete due to technical or organizational problems",
+          "Treatment incomplete because patient died",
+          "Patient choice (stopped or interrupted treatment)",
+          "Physician decision (stopped or interrupted treatment)",
+          "Treatment stopped due to lack of efficacy (disease progression)",
+          "Treatment stopped due to acute toxicity",
+          "Other",
+          "Not applicable",
+          "Unknown"
+        ]
+      },
+      "meta": {
+        "displayName": "Outcome Of Therapy"
+      }
+    },
+    {
+      "name": "toxicity_type",
+      "description": "If the treatment was terminated early due to acute toxicity, indicate whether it was due to hemotological toxicity or non-hemotological toxicity.",
+      "valueType": "string",
+      "restrictions": {
+        "codeList": [
+          "Hemotological",
+          "Non-hemotological"
+        ]
+      },
+      "meta": {
+        "displayName": "Toxicity Type"
+      }
+    },
+    {
+      "name": "hemotological_toxicity",
+      "description": "Indicate the hemotological toxicities which caused early termination of the treatment. (Codelist reference: NCI-CTCAE (v5.0))", 
+      "valueType": "string",
+      "restrictions": {
+        "codeList": [
+          "Anemia - Grade 3",
+          "Anemia - Grade 4",
+          "Anemia - Grade 5",
+          "Neutropenia - Grade 3",
+          "Neutropenia - Grade 4",
+          "Neutropenia - Grade 5",
+          "Thrombocytopenia - Grade 3",
+          "Thrombocytopenia - Grade 4",
+          "Thrombocytopenia - Grade 5"
+        ]
+      },
+      "meta": {
+        "displayName": "Hemotological Toxicity"
+      }
+    },
+    {
+      "name": "adverse_events",
+      "description": "Report any treatment related adverse events. (Codelist reference: NCI-CTCAE (v5.0))", 
+      "valueType": "string",
+      "isArray": true,
+      "restrictions" : {
+         "codeList": "#/list/adverse_events"
+      },
+      "meta": {
+         "displayName": "Adverse Events"
       }
     },
     {

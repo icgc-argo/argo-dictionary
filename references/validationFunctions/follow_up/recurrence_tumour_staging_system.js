@@ -19,11 +19,9 @@
  */
 
 const ajccValidation = require('../common/ajccValidation');
-const requiredWhenProgression = require('./baseScripts/requiredWhenProgression');
-const requiredWhenRelapse = require('./baseScripts/requiredWhenRelapse');
+const requiredWhenProgressOrRelapseRecur = require('./baseScripts/requiredWhenProgressOrRelapseRecur');
 
 module.exports = [
     ajccValidation,
-    requiredWhenProgression,
-    requiredWhenRelapse
+    requiredWhenProgressOrRelapseRecur
 ];

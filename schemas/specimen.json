@@ -165,6 +165,7 @@
       "description": "The code to represent the histology (morphology) of neoplasms that is usually obtained from a pathology report, according to the International Classification of Diseases for Oncology, 3rd Edition (WHO ICD-O-3). Refer to the ICD-O-3 manual for guidelines at https://apps.who.int/iris/handle/10665/42344.",
       "valueType": "string",
       "meta": {
+        "validationDependency": true,
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
         "notes": "This field is only required if the specimen is a tumour.",
@@ -234,6 +235,7 @@
       "description": "Indicate whether the pathological diagnosis was confirmed by a (central) reference pathologist. This only applies to clinical studies.",
       "valueType": "string",
       "meta": {
+        "validationDependency": true,
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
         "notes": "This field is only required if the specimen is a tumour.",

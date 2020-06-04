@@ -15,3 +15,5 @@ DASH-CA	DASH-8	female	dashsp-8	Blood derived 	Normal	dashsa-id-8	Total DNA	Norma
 DASH-CA	DASH-8	female	dashsp-8.1	Blood derived 	Primary tumour	dashsa-id-8.1	Total DNA	Tumour
 DASH-CA	DASH-9	Male	dashsp-9	Blood derived 	Normal	dashsa-id-9	Total DNA	Normal
 DASH-CA	DASH-10	Male	dashsp-10	Blood derived 	Normal	dashsa-id-10	ctDNA	Normal
+DASH-CA	DASH-11	female	dashsp-11	Blood derived 	Normal	dashsa-11	Total DNA	Normal
+DASH-CA	DASH-11	female	dashsp-11.1	Solid tissue 	Primary tumour	dashsa-11.1	Total DNA	Tumour

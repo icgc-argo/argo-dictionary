@@ -20,8 +20,9 @@
 
 const requiredWhenProgression = require('./baseScripts/requiredWhenProgression');
 const requiredWhenRelapse = require('./baseScripts/requiredWhenRelapse');
+const requiredWhenProgressOrRelapseRecur = require('./baseScripts/requiredWhenProgressOrRelapseRecur');
+
 
 module.exports = [
-    requiredWhenProgression,
-    requiredWhenRelapse
+    requiredWhenProgressOrRelapseRecur
 ];
