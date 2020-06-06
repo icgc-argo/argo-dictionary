@@ -24,7 +24,7 @@ spec:
                 container('node') {
                     sh "npm ci"
                     sh "npm run test"
-                    sh "npm run compile"
+                    sh "DICTIONARY_NAME=test DICTIONARY_VERSION=0.0 npm run compile"
                 }
             }
         }

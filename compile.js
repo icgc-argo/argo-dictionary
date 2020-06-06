@@ -59,11 +59,11 @@ async function promptVersion(versions) {
 }
 
 async function run() {
-  const name = await promptName();
-  const version = await promptVersion();
+  const name = process.env.DICTIONARY_NAME || (await promptName());
+  const version = process.env.DICTIONARY_VERSION || (await promptVersion());
   const dictionary = { name, version, references, schemas };
 
-  fs.writeFileSync('./dictionary.json', JSON.stringify(dictionary,null,whitespace));
+  fs.writeFileSync('./dictionary.json', JSON.stringify(dictionary, null, whitespace));
   console.log(dictionary);
 }
 
