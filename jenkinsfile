@@ -6,7 +6,7 @@ def uikitVersion = "UNKNOWN"
 pipeline {
     agent {
         kubernetes {
-            label 'platform-ui-executor'
+            label 'argo-dictionary-executor'
             yaml """
 apiVersion: v1
 kind: Pod
