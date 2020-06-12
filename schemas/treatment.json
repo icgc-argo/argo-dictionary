@@ -65,15 +65,13 @@
       "name": "treatment_type",
       "description": "Indicate the type of treatment regimen that the donor completed.",
       "valueType": "string",
+      "isArray": true,
       "restrictions": {
         "required": true,
         "codeList": [
           "Ablation",
           "Bone marrow transplant",
           "Chemotherapy",
-          "Combined chemotherapy and immunotherapy",
-          "Combined chemotherapy and radiation therapy",
-          "Combined chemotherapy, radiation therapy and surgery",
           "Endoscopic therapy",
           "Hormonal therapy",
           "Immunotherapy",
@@ -88,7 +86,7 @@
       "meta": {
         "validationDependency": true,
         "core": true,
-        "notes": "Depending on the treatment_type selected, additional treatment details may be required to be submitted. For example, if treatment_type includes 'Chemotherapy', the supplemental Chemotherapy treatment type file is required.",
+        "notes": "Depending on the treatment_type(s) selected, additional treatment details may be required to be submitted. For example, if treatment_type includes 'Chemotherapy', the supplemental Chemotherapy treatment type file is required.",
         "displayName": "Treatment Type"
       }
     },
@@ -226,10 +224,7 @@
       "description": "If the treatment was terminated early due to acute toxicity, indicate whether it was due to hemotological toxicity or non-hemotological toxicity.",
       "valueType": "string",
       "restrictions": {
-        "codeList": [
-          "Hemotological",
-          "Non-hemotological"
-        ]
+        "codeList": ["Hemotological", "Non-hemotological"]
       },
       "meta": {
         "displayName": "Toxicity Type"
@@ -237,7 +232,7 @@
     },
     {
       "name": "hemotological_toxicity",
-      "description": "Indicate the hemotological toxicities which caused early termination of the treatment. (Codelist reference: NCI-CTCAE (v5.0))", 
+      "description": "Indicate the hemotological toxicities which caused early termination of the treatment. (Codelist reference: NCI-CTCAE (v5.0))",
       "valueType": "string",
       "restrictions": {
         "codeList": [
@@ -258,14 +253,14 @@
     },
     {
       "name": "adverse_events",
-      "description": "Report any treatment related adverse events. (Codelist reference: NCI-CTCAE (v5.0))", 
+      "description": "Report any treatment related adverse events. (Codelist reference: NCI-CTCAE (v5.0))",
       "valueType": "string",
       "isArray": true,
-      "restrictions" : {
-         "codeList": "#/list/adverse_events"
+      "restrictions": {
+        "codeList": "#/list/adverse_events"
       },
       "meta": {
-         "displayName": "Adverse Events"
+        "displayName": "Adverse Events"
       }
     },
     {
@@ -274,10 +269,7 @@
       "valueType": "string",
       "meta": { "display name": "Clinical Trials Database" },
       "restrictions": {
-        "codeList": [
-           "NCI Clinical Trials",
-           "EU Clinical Trials Register"
-        ]
+        "codeList": ["NCI Clinical Trials", "EU Clinical Trials Register"]
       }
     },
     {
