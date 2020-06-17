@@ -25,7 +25,8 @@
         "validationDependency": true,
         "primaryId": true,
         "examples": "90234,BLD_donor_89,AML-90",
-        "displayName": "Submitter Donor ID"
+        "displayName": "Submitter Donor ID",
+        "notes": "Identifier cannot begin with prefix 'DO'."
       },
       "restrictions": {
         "required": true,
@@ -54,7 +55,8 @@
         "validationDependency": true,
         "primaryId": true,
         "examples": "LAML_PO,00445,THY_099-tumour",
-        "displayName": "Submitter Specimen ID"
+        "displayName": "Submitter Specimen ID",
+        "notes": "Identifier cannot begin with prefix 'SP'."
       },
       "restrictions": {
         "required": true,
@@ -155,7 +157,8 @@
         "validationDependency": true,
         "primaryId": true,
         "examples": "hnc_12,CCG_34_94583,BRCA47832-3239",
-        "displayName": "Submitter Sample ID"
+        "displayName": "Submitter Sample ID",
+        "notes": "Identifier cannot begin with prefix 'SA'."
       },
       "restrictions": {
         "required": true,

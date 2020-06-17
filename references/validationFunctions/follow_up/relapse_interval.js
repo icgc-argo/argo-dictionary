@@ -18,10 +18,8 @@
  *
  */
 
-const requiredWhenRelapse = require('./baseScripts/requiredWhenRelapse');
-const requiredWhenProgressOrRelapseRecur = require('./baseScripts/requiredWhenProgressOrRelapseRecur');
-
+const checkRelapseInterval = require('./baseScripts/checkRelapseInterval');
 
 module.exports = [
-    requiredWhenProgressOrRelapseRecur
+      checkRelapseInterval
 ];
