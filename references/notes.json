@@ -1,0 +1,3 @@
+{
+  "submitter_id": "To prevent data collisions, submitter_id cannot begin with any of the ARGO ID prefixes.  The restricted prefixed include: `DO`, `SP`, `SA`,`TR`,`PD`"
+}
