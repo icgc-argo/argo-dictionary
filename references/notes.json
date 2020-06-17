@@ -1,3 +1,5 @@
 {
-  "submitter_id": "To prevent data collisions, submitter_id cannot begin with any of the ARGO ID prefixes.  The restricted prefixed include: `DO`, `SP`, `SA`,`TR`,`PD`"
+  "submitter_id": "To prevent data collisions, submitter_id cannot begin with any of the ARGO ID prefixes.  The restricted prefixed include: `DO`, `SP`, `SA`,`TR`,`FU`, `PD`.",
+  "if_tumour": "This field is only required if the specimen is a tumour.",
+  "disease_status_requirement": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence."
 }

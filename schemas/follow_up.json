@@ -28,7 +28,7 @@
         "primaryId": true,
         "foreignKey": "sample_registration.submitter_donor_id",
         "displayName": "Submitter Donor ID",
-        "notes": "Identifier cannot begin with prefix 'DO'."
+        "notes": "#/notes/submitter_id"
       },
       "restrictions": {
         "required": true,
@@ -43,7 +43,7 @@
         "validationDependency": true,
         "primaryId": true,
         "displayName": "Submitter Follow-Up ID",
-        "notes": "Identifier cannot begin with prefix 'FU'."
+        "notes": "#/notes/submitter_id"
       },
       "restrictions": {
         "required": true,
@@ -92,7 +92,7 @@
       "meta": {
         "displayName": "Submitter Primary Diagnosis ID",
         "primaryId": true,
-        "notes": "Identifier cannot begin with prefix 'PD'."
+        "notes": "#/notes/submitter_id"
       },
       "restrictions": {
         "regex": "#/regex/submitter_id"
@@ -105,7 +105,7 @@
       "meta": {
         "primaryId": true,
         "displayName": "Submitter Treatment ID",
-        "notes": "Identifier cannot begin with prefix 'TR'."
+        "notes": "#/notes/submitter_id"
       },
       "restrictions": {
         "regex": "#/regex/submitter_id"
@@ -136,7 +136,7 @@
       "meta": {
         "core": true,
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence.",
+        "notes": "#/notes/disease_status_requirement",
         "displayName": "Relapse Type"
       }
     },
@@ -151,7 +151,7 @@
         "core": true,
         "units": "days",
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence.",
+        "notes": "#/notes/disease_status_requirement",
         "displayName": "Relapse Interval"
       }
     },
@@ -197,7 +197,7 @@
       }
     },
     {
-      "description": "Indicate the ICD-O-3 topography code for the anatomic site where disease progression or recurrence occurred, according to the International Classification of Diseases for Oncology, 3rd Edition (WHO ICD-O-3). Refer to the ICD-O-3 manual for guidelines at https://apps.who.int/iris/handle/10665/42344.",
+      "description": "Indicate the ICD-O-3 topography code for the anatomic site where disease progression, relapse or recurrence occurred, according to the International Classification of Diseases for Oncology, 3rd Edition (WHO ICD-O-3). Refer to the ICD-O-3 manual for guidelines at https://apps.who.int/iris/handle/10665/42344.",
       "name": "anatomic_site_progression_or_recurrences",
       "valueType": "string",
       "restrictions": {
@@ -209,7 +209,7 @@
         "dependsOn": "follow_up.disease_status_at_followup",
         "displayName": "Anatomic Site Progression or Recurrences",
         "examples": "C50.1,C18",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence."
+        "notes": "#/notes/disease_status_requirement"
       }
     },
     {
@@ -234,7 +234,7 @@
       "meta": {
         "core": true,
         "dependsOn": "follow_up.disease_status_at_followup",
-        "notes": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence.",
+        "notes": "#/notes/disease_status_requirement",
         "displayName": "Recurrance Tumour Staging System"
       }
     },

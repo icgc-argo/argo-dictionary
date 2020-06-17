@@ -28,7 +28,7 @@
         "primaryId": true,
         "foreignKey": "sample_registration.submitter_donor_id",
         "displayName": "Submitter Donor ID",
-        "notes": "Identifier cannot begin with 'DO'."
+        "notes": "#/notes/submitter_id"
       },
       "restrictions": {
         "required": true,
@@ -44,7 +44,7 @@
         "primaryId": true,
         "foreignKey": "sample_registration.submitter_specimen_id",
         "displayName": "Submitter Specimen ID",
-        "notes": "Identifier cannot begin with 'SP'."
+        "notes": "#/notes/submitter_id"
       },
       "restrictions": {
         "required": true,
@@ -58,7 +58,7 @@
       "meta": {
         "primaryId": true,
         "displayName": "Submitter Primary Diagnosis ID",
-        "notes": "Identifier cannot begin with 'PD'."
+        "notes": "#/notes/submitter_id"
       },
       "restrictions": {
         "required": true,
@@ -72,7 +72,7 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "This field is only required if the specimen is a tumour.",
+        "notes": "#/notes/if_tumour",
         "displayName": "Pathological Tumour Staging System"
       },
       "restrictions": {
@@ -171,7 +171,7 @@
         "validationDependency": true,
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "This field is only required if the specimen is a tumour.",
+        "notes": "#/notes/if_tumour",
         "examples": "8260/3,9691/36",
         "displayName": "Tumour Histological Type"
       },
@@ -241,7 +241,7 @@
         "validationDependency": true,
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "This field is only required if the specimen is a tumour.",
+        "notes": "#/notes/if_tumour",
         "displayName": "Reference Pathology Confirmed"
       },
       "restrictions": {
@@ -255,7 +255,7 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "This field is only required if the specimen is a tumour.",
+        "notes": "#/notes/if_tumour",
         "displayName": "Tumour Grading System"
       },
       "restrictions": {
@@ -315,7 +315,7 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "This field is only required if the specimen is a tumour.",
+        "notes": "#/notes/if_tumour",
         "displayName": "Percent Tumour Cells"
       }
     },
@@ -326,7 +326,7 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "This field is only required if the specimen is a tumour.",
+        "notes": "#/notes/if_tumour",
         "displayName": "Percent Proliferating Cells"
       }
     },
@@ -337,7 +337,7 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "This field is only required if the specimen is a tumour.",
+        "notes": "#/notes/if_tumour",
         "displayName": "Percent Inflammatory Tissue"
       }
     },
@@ -348,7 +348,7 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "This field is only required if the specimen is a tumour.",
+        "notes": "#/notes/if_tumour",
         "displayName": "Percent Stromal Cells"
       }
     },
@@ -359,7 +359,7 @@
       "meta": {
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "This field is only required if the specimen is a tumour.",
+        "notes": "#/notes/if_tumour",
         "displayName": "Percent Necrosis"
       }
     }

@@ -28,7 +28,7 @@
         "primaryId": true,
         "foreignKey": "sample_registration.submitter_donor_id",
         "displayName": "Submitter Donor ID",
-        "notes": "Identifier cannot begin with prefix 'DO'."
+        "notes": "#/notes/submitter_id"
       },
       "restrictions": {
         "required": true,
@@ -44,7 +44,7 @@
         "primaryId": true,
         "foreignKey": "treatment.submitter_treatment_id",
         "displayName": "Submitter Treatment ID",
-        "notes": "Identifier cannot begin with prefix 'TR'."
+        "notes": "#/notes/submitter_id"
       },
       "restrictions": {
         "required": true,

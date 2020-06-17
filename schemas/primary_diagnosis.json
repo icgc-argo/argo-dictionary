@@ -28,7 +28,7 @@
         "primaryId": true,
         "foreignKey": "sample_registration.submitter_donor_id",
         "displayName": "Submitter Donor ID",
-        "notes": "Identifier cannot begin with the prefix 'DO'."
+        "notes": "#/notes/submitter_id"
       },
       "restrictions": {
         "required": true,
@@ -42,7 +42,7 @@
       "meta": {
         "primaryId": true,
         "displayName": "Submitter Primary Diagnosis ID",
-        "notes": "Identifier cannot begin with the prefix 'PD'."
+        "notes": "#/notes/submitter_id"
       },
       "restrictions": {
         "required": true,
