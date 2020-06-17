@@ -27,7 +27,8 @@
         "validationDependency": true,
         "primaryId": true,
         "foreignKey": "sample_registration.submitter_donor_id",
-        "displayName": "Submitter Donor ID"
+        "displayName": "Submitter Donor ID",
+        "notes": "Identifier cannot begin with prefix 'DO'."
       },
       "restrictions": {
         "required": true,
@@ -42,7 +43,8 @@
         "validationDependency": true,
         "primaryId": true,
         "foreignKey": "treatment.submitter_treatment_id",
-        "displayName": "Submitter Treatment ID"
+        "displayName": "Submitter Treatment ID",
+        "notes": "Identifier cannot begin with prefix 'TR'."
       },
       "restrictions": {
         "required": true,
@@ -64,7 +66,7 @@
       }
     },
     {
-      "name": "radiation_treatment_type",
+      "name": "radiation_therapy_type",
       "description": "Indicate type of radiation therapy administered.",
       "valueType": "string",
       "restrictions": {
@@ -73,7 +75,7 @@
       },
       "meta": {
         "core": true,
-        "displayName": "Application Form",
+        "displayName": "Type of Radiation Therapy",
         "notes": "Internal application includes Brachytherapy."
       }
     },

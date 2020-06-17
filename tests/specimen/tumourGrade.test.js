@@ -1,3 +1,23 @@
+/*
+ * Copyright (c) 2020 The Ontario Institute for Cancer Research. All rights reserved
+ *
+ * This program and the accompanying materials are made available under the terms of the GNU Affero General Public License v3.0.
+ * You should have received a copy of the GNU Affero General Public License along with
+ * this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY                           
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES                          
+ * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT                           
+ * SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,                                
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED                          
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;                               
+ * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER                              
+ * IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN                         
+ * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *  
+ *
+ */
+
 const validation = require('./../../references/validationFunctions/specimen/tumourGrade.js');
 const universalTest = require('../universal');
 const loadObjects = require('../loadObjects');
@@ -66,19 +86,19 @@ const unitTests = [
     }),
   ],
   [
-    'Grading system set to "who grading system for cns tumours", tumour grade is "iii"',
+    'Grading system set to "who grading system for cns tumours", tumour grade is "grade iii"',
     true,
     loadObjects(specimen, {
       tumour_grading_system: 'who grading system for cns tumours ',
-      tumour_grade: 'iii',
+      tumour_grade: 'grade iii',
     }),
   ],
   [
-    'Grading system set to "WHO grading system for CNS tumours", tumour grade is "IV"',
+    'Grading system set to "WHO grading system for CNS tumours", tumour grade is "GRADE IV"',
     true,
     loadObjects(specimen, {
       tumour_grading_system: 'WHO grading system for cns tumours',
-      tumour_grade: 'IV',
+      tumour_grade: 'GRADE IV',
     }),
   ],
   [
@@ -98,11 +118,11 @@ const unitTests = [
     }),
   ],
   [
-    'Grading system set to "Gleason grade group system ", tumour grade is "5"',
+    'Grading system set to "Gleason grade group system ", tumour grade is "Grade group 5"',
     true,
     loadObjects(specimen, {
       tumour_grading_system: 'Gleason grade group system ',
-      tumour_grade: '5',
+      tumour_grade: 'Grade group 5',
     }),
   ],
   [
@@ -130,19 +150,19 @@ const unitTests = [
     }),
   ],
   [
-    'Grading system set to "WHO grading system for CNS tumours", tumour grade is "Iv"',
+    'Grading system set to "WHO grading system for CNS tumours", tumour grade is "grade Iv"',
     true,
     loadObjects(specimen, {
       tumour_grading_system: 'WHO grading system for CNS tumours ',
-      tumour_grade: 'Iv',
+      tumour_grade: 'grade Iv',
     }),
   ],
   [
-    'Grading system set to "WHO grading system for CNS tumours", tumour grade is "iII"',
+    'Grading system set to "WHO grading system for CNS tumours", tumour grade is "Grade iII"',
     true,
     loadObjects(specimen, {
       tumour_grading_system: 'WHO grading system for CNS tumours ',
-      tumour_grade: 'iII',
+      tumour_grade: 'Grade iII',
     }),
   ],
   [
@@ -162,19 +182,19 @@ const unitTests = [
     }),
   ],
   [
-    'Grading system undefined',
-    false,
+    'Grading system is undefined',
+    true,
     loadObjects(specimen, {
       tumour_grade: 'any text here',
     }),
   ],
-  [
-    'grade is g2 but grading system is undefined',
-    false,
-    loadObjects(specimen, {
-      tumour_grade: 'g2',
-    }),
-  ],
+ // [
+ //   'grade is g2 but grading system is undefined',
+ //   false,
+ //   loadObjects(specimen, {
+ //     tumour_grade: 'g2',
+ //   }),
+ // ],
   [
     'grade system is not one of the valid grading systems',
     false,
@@ -183,13 +203,14 @@ const unitTests = [
       tumour_grade: 'g4'
     }),
   ],
-  [
-    'both grade system and grade are undefined',
-    false,
-    loadObjects(specimen, {
-    }),
-  ],
-  ['both undefined', false, specimen]
+ // [
+ //   'both grade system and grade are undefined',
+ //   false,
+ //   loadObjects(specimen, {
+ //   }),
+ // ],
+ // ['both undefined', false, specimen]
+  ['both undefined', true, specimen]
 ];
 
 describe('Common Tests', () => {

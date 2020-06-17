@@ -1,24 +1,4 @@
-/*
- * Copyright (c) 2020 The Ontario Institute for Cancer Research. All rights reserved
- *
- * This program and the accompanying materials are made available under the terms of the GNU Affero General Public License v3.0.
- * You should have received a copy of the GNU Affero General Public License along with
- * this program. If not, see <http://www.gnu.org/licenses/>.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY                           
- * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES                          
- * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT                           
- * SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,                                
- * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED                          
- * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;                               
- * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER                              
- * IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN                         
- * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *  
- *
- */
-
-const validation = require('../../references/validationFunctions/follow_up/baseScripts/requiredWhenRelapse');
+const validation = require('../../references/validationFunctions/follow_up/baseScripts/requiredWhenProgressOrRelapseRecur');
 
 const universalTest = require('../universal');
 const loadObjects = require('../loadObjects');
@@ -112,21 +92,21 @@ const myUnitTests = {
     ],
     'anatomic_site_progression_or_recurrences': [
         [
-            'Disease status is relapse, with provided ASPOR',
+            'Disease status is distant progression, with provided ASPOR',
             true,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "relapse or recurrence",
-                    "anatomic_site_progression_or_recurrences": "C50.1"
+                    "disease_status_at_followup": "Distant progression",
+                    "anatomic_site_progression_or_recurrences": "C50"
                 }
             )
         ],
         [
-            'Disease status is relapse, without provided ASPOR',
+            'Disease status is Loco-regional progression, without provided ASPOR',
             false,
             loadObjects(followUp,
                 {   
-                    "disease_status_at_followup": "relapse or recurrence"
+                    "disease_status_at_followup": "Loco-regional progression"
                 }
             )
         ],
@@ -145,11 +125,30 @@ const myUnitTests = {
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "stable",
-                    "anatomic_site_progression_or_recurrences": "C50"
+                    "anatomic_site_progression_or_recurrences": "C50.1"
                 }
             )
         ],
-    ],
+        [
+            'Disease status is relapse or recurrence, with provided ASPOR',
+            true,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "relapse or recurrence",
+                    "anatomic_site_progression_or_recurrences": "C50.1"
+                }
+            )
+        ],
+        [
+            'Disease status is relapse or recurrenc, without provided ASPOR',
+            false,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "relapse or recurrence"
+                }
+            )
+        ]
+   ],
     'recurrence_tumour_staging_system': [
         [
             'Disease status is relapse, with provided RTSS',
@@ -167,6 +166,26 @@ const myUnitTests = {
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "relapse or recurrence"
+                }
+            )
+        ],
+        [
+            'Disease status is distant progression, without provided RTSS',
+            false,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "distant progression"
+                }
+            )
+        ],
+        [
+            'Disease status is loco-regional progression, without provided RTSS',
+            true,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "loco-regional progression",
+                    "recurrence_tumour_staging_system": "Binet staging system"
+                    
                 }
             )
         ],
@@ -189,9 +208,68 @@ const myUnitTests = {
                 }
             )
         ]
+    ],
+    'method_of_progression_status': [
+
+        [
+            'Disease status is distant progression, with provided method of progression',
+            true,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "Distant progression",
+                    "method_of_progression_status": "Biopsy"
+                }
+            )
+        ],
+        [
+            'Disease status is Loco-regional progression, with provided method of progression',
+            true,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "Loco-regional progression",
+                    "method_of_progression_status": "blood draw"
+                }
+            )
+        ],
+        [
+            'Disease status is distant progression, without method of progression',
+            false,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "Distant progression"
+                }
+            )
+        ],
+        [
+            'Disease status is Loco-regional progression, without method of progression',
+            false,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "Loco-regional progression"
+                }
+            )
+        ],
+        [
+            'Disease status is partial remission, without method of progression',
+            true,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "partial remission"
+                }
+            )
+        ],
+        [
+            'Disease status is partial remission, with method of progression',
+            false,
+            loadObjects(followUp,
+                {   
+                    "disease_status_at_followup": "partial remission",
+                    "method_of_progression_status": "imaging"
+                }
+            )
+        ]
     ]
 }
-
 
 describe("Common Tests",()=>{
     Object.entries(myUnitTests).forEach(field =>{

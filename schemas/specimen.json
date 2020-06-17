@@ -27,7 +27,8 @@
         "validationDependency": true,
         "primaryId": true,
         "foreignKey": "sample_registration.submitter_donor_id",
-        "displayName": "Submitter Donor ID"
+        "displayName": "Submitter Donor ID",
+        "notes": "Identifier cannot begin with 'DO'."
       },
       "restrictions": {
         "required": true,
@@ -42,7 +43,8 @@
         "validationDependency": true,
         "primaryId": true,
         "foreignKey": "sample_registration.submitter_specimen_id",
-        "displayName": "Submitter Specimen ID"
+        "displayName": "Submitter Specimen ID",
+        "notes": "Identifier cannot begin with 'SP'."
       },
       "restrictions": {
         "required": true,
@@ -55,7 +57,8 @@
       "description": "Indicate the primary diagnosis event in the clinical timeline that this specimen aquisition was related to.",
       "meta": {
         "primaryId": true,
-        "displayName": "Submitter Primary Diagnosis ID"
+        "displayName": "Submitter Primary Diagnosis ID",
+        "notes": "Identifier cannot begin with 'PD'."
       },
       "restrictions": {
         "required": true,
@@ -137,7 +140,7 @@
       "meta": {
         "core": true,
         "dependsOn": "specimen.pathological_tumour_staging_system",
-        "notes": "This field depends on the selected pathological staging system, and is only required if the specimen is a tumour.",
+        "notes": "This field depends on the selected pathological staging system, and is only required if the specimen is a tumour.\nPlease refer to the documentation for Tumour Staging Classifications: http://docs.icgc-argo.org/docs/submission/dictionary-overview#tumour-staging-classifications",
         "displayName": "Pathological Stage Group"
       },
       "restrictions": {
@@ -165,6 +168,7 @@
       "description": "The code to represent the histology (morphology) of neoplasms that is usually obtained from a pathology report, according to the International Classification of Diseases for Oncology, 3rd Edition (WHO ICD-O-3). Refer to the ICD-O-3 manual for guidelines at https://apps.who.int/iris/handle/10665/42344.",
       "valueType": "string",
       "meta": {
+        "validationDependency": true,
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
         "notes": "This field is only required if the specimen is a tumour.",
@@ -234,6 +238,7 @@
       "description": "Indicate whether the pathological diagnosis was confirmed by a (central) reference pathologist. This only applies to clinical studies.",
       "valueType": "string",
       "meta": {
+        "validationDependency": true,
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
         "notes": "This field is only required if the specimen is a tumour.",
@@ -276,29 +281,29 @@
       "meta": {
         "core": true,
         "dependsOn": "specimen.tumour_grading_system",
-        "notes": "This field depends on the selected tumour grading system, and is only required if the specimen is a tumour.",
+        "notes": "This field depends on the selected tumour grading system, and is only required if the specimen is a tumour.\nPlease refer to the documentation for Tumour Grading Classifications: http://docs.icgc-argo.org/docs/submission/dictionary-overview#tumour-grading-classifications",
         "displayName": "Tumour Grade"
       },
       "restrictions": {
         "codeList": [
-          "Low grade",
-          "High grade",
-          "GX",
-          "G1",
-          "G2",
-          "G3",
-          "G4",
-          "Low",
-          "High",
-          "I",
-          "II",
-          "III",
-          "IV",
-          "1",
-          "2",
-          "3",
-          "4",
-          "5"
+           "Low grade",
+           "High grade",
+           "GX",
+           "G1",
+           "G2",
+           "G3",
+           "G4",
+           "Low",
+           "High",
+           "Grade I",
+           "Grade II",
+           "Grade III",
+           "Grade IV",
+           "Grade Group 1",
+           "Grade Group 2",
+           "Grade Group 3",
+           "Grade Group 4",
+           "Grade Group 5"
         ],
         "script": "#/script/specimen/tumourGrade"
       }

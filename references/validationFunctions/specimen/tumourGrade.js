@@ -1,3 +1,23 @@
+/*
+ * Copyright (c) 2020 The Ontario Institute for Cancer Research. All rights reserved
+ *
+ * This program and the accompanying materials are made available under the terms of the GNU Affero General Public License v3.0.
+ * You should have received a copy of the GNU Affero General Public License along with
+ * this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY                           
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES                          
+ * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT                           
+ * SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,                                
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED                          
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;                               
+ * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER                              
+ * IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN                         
+ * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *  
+ *
+ */
+
 /**
  * Validates that tumour_grade is a permissable value based on tumour_grading_system
  *
@@ -50,10 +70,10 @@ const validation = ($row, $field) =>
           break;
         case 'who grading system for cns tumours':
           codeList = [
-            'i',
-            'ii',
-            'iii',
-            'iv',
+            'grade i',
+            'grade ii',
+            'grade iii',
+            'grade iv',
           ];
           break;
         case 'fnclcc grading system':
@@ -61,11 +81,11 @@ const validation = ($row, $field) =>
           break;
         case 'gleason grade group system':
           codeList = [
-            '1',
-            '2',
-            '3',
-            '4',
-            '5',
+            'grade group 1',
+            'grade group 2',
+            'grade group 3',
+            'grade group 4',
+            'grade group 5',
           ];
           break;
         case 'scarff-bloom-richardson grading system':
@@ -90,18 +110,6 @@ const validation = ($row, $field) =>
          const msg = "'${$row.tumour_grading_system}' is not a permissible value for 'tumour_grading_system'. If the tumour grading system you use is missing, please contact the DCC.";
          result.message = msg;
       }
-    }
-    else if (!$row.tumour_grading_system) {
-       result.valid = false;
-       result.message = "'tumour_grading_system' is required for tumour specimens.";
-    }
-    else if ($row.tumour_grading_system && !$field) {
-       result.valid = false;
-       result.message = "'tumour_grade' is required for tumour specimens.";
-    }
-    else if (!$row.tumour_grading_system && !$field) {
-       result.valid = false;
-       result.message = "'tumour_grading_system' and 'tumour_grade' are both required for tumour specimens.";
     }
     return result;
   })();

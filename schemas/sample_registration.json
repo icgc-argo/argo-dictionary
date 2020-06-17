@@ -1,6 +1,6 @@
 {
   "name": "sample_registration",
-  "description": "The collection of elements required to register the required Donor-Specimen-Sample data to the ARGO Platform. Registration of samples is required before molecular and clinical data submission can proceed.",
+  "description": "The collection of data elements required to register the required Donor-Specimen-Sample data to the ARGO Data Platform. Registration of samples is required before molecular and clinical data submission can proceed.",
   "fields": [
     {
       "name": "program_id",
@@ -25,7 +25,8 @@
         "validationDependency": true,
         "primaryId": true,
         "examples": "90234,BLD_donor_89,AML-90",
-        "displayName": "Submitter Donor ID"
+        "displayName": "Submitter Donor ID",
+        "notes": "Identifier cannot begin with prefix 'DO'."
       },
       "restrictions": {
         "required": true,
@@ -43,7 +44,7 @@
       },
       "restrictions": {
         "required": true,
-        "codeList": ["Male", "Female", "Other"]
+        "codeList": ["Female", "Male", "Other"]
       }
     },
     {
@@ -54,7 +55,8 @@
         "validationDependency": true,
         "primaryId": true,
         "examples": "LAML_PO,00445,THY_099-tumour",
-        "displayName": "Submitter Specimen ID"
+        "displayName": "Submitter Specimen ID",
+        "notes": "Identifier cannot begin with prefix 'SP'."
       },
       "restrictions": {
         "required": true,
@@ -73,32 +75,32 @@
       "restrictions": {
         "required": true,
         "codeList": [
-          "Blood derived",
           "Blood derived - bone marrow",
           "Blood derived - peripheral blood",
+          "Blood derived",
           "Bone marrow",
-          "Buccal cell",
-          "Lymph node",
-          "Solid tissue",
-          "Plasma",
-          "Serum",
-          "Urine",
-          "Cerebrospinal fluid",
-          "Sputum",
-          "Other",
-          "Pleural effusion",
-          "Mononuclear cells from bone marrow",
-          "Saliva",
-          "Skin",
-          "Intestine",
-          "Buffy coat",
-          "Stomach",
-          "Esophagus",
-          "Tonsil",
-          "Spleen",
           "Bone",
+          "Buccal cell",
+          "Buffy coat",
           "Cerebellum",
-          "Endometrium"
+          "Cerebrospinal fluid",
+          "Endometrium",
+          "Esophagus",
+          "Intestine",
+          "Lymph node",
+          "Mononuclear cells from bone marrow",
+          "Other",
+          "Plasma",
+          "Pleural effusion",
+          "Saliva",
+          "Serum",
+          "Skin",
+          "Solid tissue",
+          "Spleen",
+          "Sputum",
+          "Stomach",
+          "Tonsil",
+          "Urine"
         ]
       }
     },
@@ -123,21 +125,21 @@
       "restrictions": {
         "required": true,
         "codeList": [
-          "Normal",
-          "Normal - tissue adjacent to primary tumour",
-          "Primary tumour",
-          "Primary tumour - adjacent to normal",
-          "Primary tumour - additional new primary",
-          "Recurrent tumour",
-          "Metastatic tumour",
+          "Cell line - derived from normal",
+          "Cell line - derived from tumour",
+          "Cell line - derived from xenograft tumour",
+          "Metastatic tumour - additional metastatic",
           "Metastatic tumour - metastasis local to lymph node",
           "Metastatic tumour - metastasis to distant location",
-          "Metastatic tumour - additional metastatic",
+          "Metastatic tumour",
+          "Normal - tissue adjacent to primary tumour",
+          "Normal",
+          "Primary tumour - additional new primary",
+          "Primary tumour - adjacent to normal",
+          "Primary tumour",
+          "Recurrent tumour",
           "Xenograft - derived from primary tumour",
-          "Xenograft - derived from tumour cell line",
-          "Cell line - derived from xenograft tumour",
-          "Cell line - derived from tumour",
-          "Cell line - derived from normal"
+          "Xenograft - derived from tumour cell line"
         ],
         "script": "#/script/sample_registration/specimentypeDesignation"
       },
@@ -155,7 +157,8 @@
         "validationDependency": true,
         "primaryId": true,
         "examples": "hnc_12,CCG_34_94583,BRCA47832-3239",
-        "displayName": "Submitter Sample ID"
+        "displayName": "Submitter Sample ID",
+        "notes": "Identifier cannot begin with prefix 'SA'."
       },
       "restrictions": {
         "required": true,
@@ -174,14 +177,14 @@
       "restrictions": {
         "required": true,
         "codeList": [
-          "Total DNA",
           "Amplified DNA",
           "ctDNA",
           "Other DNA enrichments",
-          "Total RNA",
-          "Ribo-Zero RNA",
+          "Other RNA fractions",
           "polyA+ RNA",
-          "Other RNA fractions"
+          "Ribo-Zero RNA",
+          "Total DNA",
+          "Total RNA"
         ]
       }
     }
