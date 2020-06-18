@@ -1,4 +1,4 @@
-const validation = require('../../references/validationFunctions/follow_up/baseScripts/checkRelapseInterval');
+const validation = require('../../references/validationFunctions/follow_up/relapse_interval');
 
 const universalTest = require('../universal');
 const loadObjects = require('../loadObjects');
@@ -15,9 +15,9 @@ const myUnitTests = {
             true,
             loadObjects(followUp,
                 {   
-                    "interval_of_followup": "1200",
+                    "interval_of_followup": "70",
                     "disease_status_at_followup": "relapse or recurrence",
-                    "relapse_interval": "500"
+                    "relapse_interval": "20"
                 }
             )
         ],
@@ -95,7 +95,7 @@ const myUnitTests = {
                     "relapse_interval": "50"
                 }
             )
-        ],
+        ]
     ]
 }
 
