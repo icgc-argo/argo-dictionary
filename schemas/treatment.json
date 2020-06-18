@@ -27,7 +27,8 @@
         "validationDependency": true,
         "primaryId": true,
         "foreignKey": "sample_registration.submitter_donor_id",
-        "displayName": "Submitter Donor ID"
+        "displayName": "Submitter Donor ID",
+        "notes": "#/notes/submitter_id"
       },
       "restrictions": {
         "required": true,
@@ -41,7 +42,8 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "displayName": "Submitter Treatment ID"
+        "displayName": "Submitter Treatment ID",
+        "notes": "#/notes/submitter_id"
       },
       "restrictions": {
         "required": true,
@@ -54,7 +56,8 @@
       "description": "Indicate the primary diagnosis event in the clinical timeline that this treatment was related to.",
       "meta": {
         "primaryId": true,
-        "displayName": "Submitter Primary Diagnosis ID"
+        "displayName": "Submitter Primary Diagnosis ID",
+        "notes": "#/notes/submitter_id"
       },
       "restrictions": {
         "required": true,

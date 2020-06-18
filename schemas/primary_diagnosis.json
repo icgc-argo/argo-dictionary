@@ -27,7 +27,8 @@
         "validationDependency": true,
         "primaryId": true,
         "foreignKey": "sample_registration.submitter_donor_id",
-        "displayName": "Submitter Donor ID"
+        "displayName": "Submitter Donor ID",
+        "notes": "#/notes/submitter_id"
       },
       "restrictions": {
         "required": true,
@@ -40,7 +41,8 @@
       "description": "Unique identifier of the primary diagnosis event, assigned by the data provider.",
       "meta": {
         "primaryId": true,
-        "displayName": "Submitter Primary Diagnosis ID"
+        "displayName": "Submitter Primary Diagnosis ID",
+        "notes": "#/notes/submitter_id"
       },
       "restrictions": {
         "required": true,
@@ -75,6 +77,14 @@
       }
     },
     {
+      "name": "cancer_type_additional_information",
+      "valueType": "string",
+      "description": "Additional details related to the cancer type that are not covered by the ICD-10 code provided in the cancer_type field.",
+      "meta": {
+         "displayName": "Cancer Type Additional Information"
+      }
+    },
+    {
       "name": "basis_of_diagnosis",
       "description": "Indicate the most valid basis of how the primary diagnosis was identified. If more than one diagnosis technique was used, select the term that has the highest code number (see notes). (Reference: IACR Standard for Basis of Diagnosis http://www.iacr.com.fr/images/doc/basis.pdf)",
       "restrictions": {
@@ -91,7 +101,7 @@
       },
       "valueType": "string",
       "meta": {
-        "notes": "0: Death certificate only: Information provided is from a death certificate.\n1: Clinical: Diagnosis made before death.\n2: Clinical investigation: All diagnostic techniques, including X-ray, endoscopy, imaging, ultrasound, exploratory surgery (such as laparotomy), and autopsy, without a tissue diagnosis.\n4: Specific tumour markers: Including biochemical and/or immunologic markers that are specific for a tumour site.\n5: Cytology: Examination of cells from a primary or secondary site, including fluids aspirated by endoscopy or needle; also includes the microscopic examination of peripheral blood and bone marrow aspirates.\n6: Histology of a metastasis: Histologic examination of tissue from a metastasis, including autopsy specimens.\n7: Histology of a primary tumour: Histologic examination of tissue from primary tumour, however obtained, including all cutting techniques and bone marrow biopsies; also includes autopsy specimens of primary tumour.\n9: Unknown: No information on how the diagnosis has been made.",
+        "notes": "Death certificate only: Information provided is from a death certificate.\nClinical: Diagnosis made before death.\nClinical investigation: All diagnostic techniques, including X-ray, endoscopy, imaging, ultrasound, exploratory surgery (such as laparotomy), and autopsy, without a tissue diagnosis.\nSpecific tumour markers: Including biochemical and/or immunologic markers that are specific for a tumour site.\nCytology: Examination of cells from a primary or secondary site, including fluids aspirated by endoscopy or needle; also includes the microscopic examination of peripheral blood and bone marrow aspirates.\nHistology of a metastasis: Histologic examination of tissue from a metastasis, including autopsy specimens.\nHistology of a primary tumour: Histologic examination of tissue from primary tumour, however obtained, including all cutting techniques and bone marrow biopsies; also includes autopsy specimens of primary tumour.\nUnknown: No information on how the diagnosis has been made.",
         "displayName": "Basis of Diagnosis"
       }
     },
@@ -148,7 +158,7 @@
       "meta": {
         "core": true,
         "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
-        "notes": "This field is dependent on the selected clinical_tumour_staging_system",
+        "notes": "This field is dependent on the selected clinical_tumour_staging_system.\nPlease refer to the documentation for Tumour Staging Classifications: http://docs.icgc-argo.org/docs/submission/dictionary-overview#tumour-staging-classifications",
         "displayName": "Clinical Stage Group"
       },
       "restrictions": {
@@ -219,6 +229,7 @@
           "Fever",
           "Hypoglycemia",
           "Jaundice",
+          "Loss of Appetite",
           "Nausea",
           "None",
           "Pale Stools",
@@ -244,7 +255,7 @@
         "codeList": ["Grade 0", "Grade 1", "Grade 2", "Grade 3", "Grade 4"]
       },
       "meta": {
-        "notes": "Grade 0: Fully active, able to carry on all pre-disease performance without restriction \n Grade 1: Restricted in physically strenuous activity but ambulatory and able to carry out work of a light or sedentary nature (ie. Light house work, office work) \n Grade 2: Ambulatory and capable of all selfcare but unable to carry out any work activities; up and about more than 50% of waking hours \n Grade 3: Capable of only limited selfcare; confined to bed or chair more than 50% of waking hours \n Grade 4: Completely disabled; cannot carry on any selfcare; totally confined to bed or chair",
+        "notes": "Grade 0: Fully active, able to carry on all pre-disease performance without restriction.\nGrade 1: Restricted in physically strenuous activity but ambulatory and able to carry out work of a light or sedentary nature (ie. Light house work, office work).\nGrade 2: Ambulatory and capable of all selfcare but unable to carry out any work activities; up and about more than 50% of waking hours.\nGrade 3: Capable of only limited selfcare; confined to bed or chair more than 50% of waking hours.\nGrade 4: Completely disabled; cannot carry on any selfcare; totally confined to bed or chair",
         "displayName": "Performance Status"
       }
     }
