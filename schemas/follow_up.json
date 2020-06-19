@@ -240,7 +240,7 @@
     },
     {
       "name": "recurrence_t_category",
-      "description": "The code to represent the extent of the primary tumour (T) based on evidence obtained from clinical assessment parameters determined after treatment for patients receiving systemic and/or radiation therapy alone or as a component of their initial treatment, or as neoadjuvant therapy before planned surgery, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
+      "description": "The code to represent the extent of the primary tumour (T) based on evidence obtained from clinical assessment parameters determined at the time of retreatment for a recurrence or disease progression, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
       "meta": {
         "core": true,
@@ -254,7 +254,7 @@
     },
     {
       "name": "recurrence_n_category",
-      "description": "The code to represent the stage of cancer defined by which is the extent of the regional lymph node (N) involvement for the cancer based on evidence obtained from clinical assessment parameters determined determined at the time of retreatment for a recurrence or disease progression, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
+      "description": "The code to represent the stage of cancer defined by the extent of the regional lymph node (N) involvement for the cancer based on evidence obtained from clinical assessment parameters determined at the time of retreatment for a recurrence or disease progression, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
       "meta": {
         "core": true,
@@ -268,7 +268,7 @@
     },
     {
       "name": "recurrence_m_category",
-      "description": "The code to represent the stage of cancer defined by the extent of the distant metastasis (M) for the cancer based on evidence obtained from clinical assessment parameters determined determined at the time of retreatment for a recurrence or disease progression, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
+      "description": "The code to represent the stage of cancer defined by the extent of the distant metastasis (M) for the cancer based on evidence obtained from clinical assessment parameters determined at the time of retreatment for a recurrence or disease progression, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
       "meta": {
         "core": true,
@@ -282,7 +282,7 @@
     },
     {
       "name": "recurrence_stage_group",
-      "description": "The code to represent the stage group of the tumour, as assigned by the reporting recurrence_tumour_staging_system, that indicates the overall prognostic tumour stage (ie. Stage I, Stage II, Stage III etc.) after treatment for patients receiving systemic and/or radiation therapy alone or as a component of their initial treatment, or as neoadjuvant therapy before planned surgery.",
+      "description": "The code to represent the stage group of the tumour, as assigned by the reporting recurrence_tumour_staging_system, that indicates the overall prognostic tumour stage (ie. Stage I, Stage II, Stage III etc.) at the time of retreatment for a recurrence or disease progression.",
       "valueType": "string",
       "meta": {
         "core": true,
@@ -331,7 +331,7 @@
     },
     {
       "name": "posttherapy_n_category",
-      "description": "The code to represent the stage of cancer defined by which is the extent of the regional lymph node (N) involvement for the cancer based on evidence obtained from clinical assessment parameters determined determined after treatment for patients receiving systemic and/or radiation therapy alone or as a component of their initial treatment, or as neoadjuvant therapy before planned surgery, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
+      "description": "The code to represent the stage of cancer defined by the extent of the regional lymph node (N) involvement for the cancer based on evidence obtained from clinical assessment parameters determined determined after treatment for patients receiving systemic and/or radiation therapy alone or as a component of their initial treatment, or as neoadjuvant therapy before planned surgery, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
       "meta": {
         "dependsOn": "follow_up.posttherapy_tumour_staging_system",
@@ -344,7 +344,7 @@
     },
     {
       "name": "posttherapy_m_category",
-      "description": "The code to represent the stage of cancer defined by the extent of the distant metastasis (M) for the cancer based on evidence obtained from clinical assessment parameters determined determined after treatment for patients receiving systemic and/or radiation therapy alone or as a component of their initial treatment, or as neoadjuvant therapy before planned surgery, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
+      "description": "The code to represent the stage of cancer defined by the extent of the distant metastasis (M) for the cancer based on evidence obtained from clinical assessment parameters determined after treatment for patients receiving systemic and/or radiation therapy alone or as a component of their initial treatment, or as neoadjuvant therapy before planned surgery, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
       "meta": {
         "dependsOn": "follow_up.posttherapy_tumour_staging_system",

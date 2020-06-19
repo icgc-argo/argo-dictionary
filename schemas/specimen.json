@@ -135,12 +135,12 @@
     },
     {
       "name": "pathological_stage_group",
-      "description": "Specify the tumour stage, based on tumour_staging_system, used to assess the cancer at the time the tumour specimen was resected.",
+      "description": "Specify the tumour stage, based on pathological_tumour_staging_system, used to assess the cancer at the time the tumour specimen was resected.",
       "valueType": "string",
       "meta": {
         "core": true,
         "dependsOn": "specimen.pathological_tumour_staging_system",
-        "notes": "This field depends on the selected pathological staging system, and is only required if the specimen is a tumour.\nPlease refer to the documentation for Tumour Staging Classifications: http://docs.icgc-argo.org/docs/submission/dictionary-overview#tumour-staging-classifications",
+        "notes": "This field depends on the selected pathological_tumour_staging_system, and is only required if the specimen is a tumour.\nPlease refer to the documentation for Tumour Staging Classifications: http://docs.icgc-argo.org/docs/submission/dictionary-overview#tumour-staging-classifications",
         "displayName": "Pathological Stage Group"
       },
       "restrictions": {
@@ -281,7 +281,7 @@
       "meta": {
         "core": true,
         "dependsOn": "specimen.tumour_grading_system",
-        "notes": "This field depends on the selected tumour grading system, and is only required if the specimen is a tumour.\nPlease refer to the documentation for Tumour Grading Classifications: http://docs.icgc-argo.org/docs/submission/dictionary-overview#tumour-grading-classifications",
+        "notes": "This field depends on the selected tumour_grading_system, and is only required if the specimen is a tumour.\nPlease refer to the documentation for Tumour Grading Classifications: http://docs.icgc-argo.org/docs/submission/dictionary-overview#tumour-grading-classifications",
         "displayName": "Tumour Grade"
       },
       "restrictions": {
