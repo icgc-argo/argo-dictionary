@@ -156,7 +156,7 @@
         "validationDependency": true,
         "units": "days",
         "core": true,
-        "notes": "The associated Primary Diagnosis is used as the reference point for this interval. To calculate this, find the number of days since the date of primary diagnosis.",
+        "notes": "The associated primary diagnosis is used as the reference point for this interval. To calculate this, find the number of days since the date of primary diagnosis.",
         "displayName": "Specimen Acquisition Interval"
       },
       "restrictions": {

@@ -90,7 +90,8 @@
         "validationDependency": true,
         "core": true,
         "notes": "Depending on the treatment_type(s) selected, additional treatment details may be required to be submitted. For example, if treatment_type includes 'Chemotherapy', the supplemental Chemotherapy treatment type file is required.\nTo include multiple values, separate values with a pipe delimiter '|' within your file.",
-        "displayName": "Treatment Type"
+        "displayName": "Treatment Type",
+        "examples": "Chemotherapy|Hormonal therapy"
       }
     },
     {

@@ -9,8 +9,8 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "examples": "PACA-AU,BR-CA",
-        "notes": "This is the unique id that is assigned to your program.  If you have logged into the platform, this is the Program Id that you see in the Submission area. For example, PACA-CA is a Program ID.",
+        "examples": "TEST-CA",
+        "notes": "This is the unique id that is assigned to your program.  If you have logged into the platform, this is the Program Id that you see in the Program Services area. For example, TEST-CA is a Program ID.",
         "displayName": "Program ID"
       },
       "restrictions": {
