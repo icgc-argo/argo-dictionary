@@ -81,7 +81,7 @@
     },
     {
       "name": "radiation_therapy_fractions",
-      "description": "Indicate the number of total fractions delivered as part of treatment.",
+      "description": "Indicate the total number of fractions delivered as part of treatment.",
       "valueType": "integer",
       "restrictions": {
         "required": true

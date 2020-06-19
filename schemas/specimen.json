@@ -54,7 +54,7 @@
     {
       "name": "submitter_primary_diagnosis_id",
       "valueType": "string",
-      "description": "Indicate the primary diagnosis event in the clinical timeline that this specimen aquisition was related to.",
+      "description": "Indicate the primary diagnosis event in the clinical timeline that this specimen acquisition was related to.",
       "meta": {
         "primaryId": true,
         "displayName": "Submitter Primary Diagnosis ID",
@@ -157,7 +157,7 @@
         "units": "days",
         "core": true,
         "notes": "The associated Primary Diagnosis is used as the reference point for this interval. To calculate this, find the number of days since the date of primary diagnosis.",
-        "displayName": "Specimen Aquisition Interval"
+        "displayName": "Specimen Acquisition Interval"
       },
       "restrictions": {
         "required": true
@@ -235,7 +235,7 @@
     },
     {
       "name": "reference_pathology_confirmed",
-      "description": "Indicate whether the pathological diagnosis was confirmed by a (central) reference pathologist. This only applies to clinical studies.",
+      "description": "Indicate whether the pathological diagnosis was confirmed by a (central) reference pathologist.",
       "valueType": "string",
       "meta": {
         "validationDependency": true,

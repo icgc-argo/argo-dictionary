@@ -101,7 +101,7 @@
       },
       "valueType": "string",
       "meta": {
-        "notes": "Death certificate only: Information provided is from a death certificate.\nClinical: Diagnosis made before death.\nClinical investigation: All diagnostic techniques, including X-ray, endoscopy, imaging, ultrasound, exploratory surgery (such as laparotomy), and autopsy, without a tissue diagnosis.\nSpecific tumour markers: Including biochemical and/or immunologic markers that are specific for a tumour site.\nCytology: Examination of cells from a primary or secondary site, including fluids aspirated by endoscopy or needle; also includes the microscopic examination of peripheral blood and bone marrow aspirates.\nHistology of a metastasis: Histologic examination of tissue from a metastasis, including autopsy specimens.\nHistology of a primary tumour: Histologic examination of tissue from primary tumour, however obtained, including all cutting techniques and bone marrow biopsies; also includes autopsy specimens of primary tumour.\nUnknown: No information on how the diagnosis has been made.",
+        "notes": "0: Death certificate only: Information provided is from a death certificate.\n1: Clinical: Diagnosis made before death.\n2: Clinical investigation: All diagnostic techniques, including X-ray, endoscopy, imaging, ultrasound, exploratory surgery (such as laparotomy), and autopsy, without a tissue diagnosis.\n4: Specific tumour markers: Including biochemical and/or immunologic markers that are specific for a tumour site.\n5: Cytology: Examination of cells from a primary or secondary site, including fluids aspirated by endoscopy or needle; also includes the microscopic examination of peripheral blood and bone marrow aspirates.\n6: Histology of a metastasis: Histologic examination of tissue from a metastasis, including autopsy specimens.\n7: Histology of a primary tumour: Histologic examination of tissue from primary tumour, however obtained, including all cutting techniques and bone marrow biopsies; also includes autopsy specimens of primary tumour.\n9: Unknown: No information on how the diagnosis has been made.",
         "displayName": "Basis of Diagnosis"
       }
     },
@@ -196,7 +196,7 @@
     },
     {
       "name": "clinical_m_category",
-      "description": "The code to represent the stage of cancer defined bythe extent of the distant metastasis (M) for the cancer based on evidence obtained from clinical assessment parameters determined at time of primary diagnosis and prior to treatment, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual. MX is NOT a valid category and cannot be assigned.",
+      "description": "The code to represent the stage of cancer defined by the extent of the distant metastasis (M) for the cancer based on evidence obtained from clinical assessment parameters determined at time of primary diagnosis and prior to treatment, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual. MX is NOT a valid category and cannot be assigned.",
       "valueType": "string",
       "meta": {
         "core": true,
