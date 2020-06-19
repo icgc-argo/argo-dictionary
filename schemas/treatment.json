@@ -101,7 +101,7 @@
     },
     {
       "name": "is_primary_treatment",
-      "description": "Indicate if the treamtment was the primary treatment following the initial diagnosis.",
+      "description": "Indicate if the treatment was the primary treatment following the initial diagnosis.",
       "valueType": "string",
       "restrictions": {
         "required": true,
@@ -183,7 +183,7 @@
     },
     {
       "name": "response_to_therapy",
-      "description": "The donors's response to the applied treatment regimen. (Source: RECIST)",
+      "description": "The donor's response to the applied treatment regimen. (Source: RECIST)",
       "valueType": "string",
       "restrictions": {
         "required": true,
