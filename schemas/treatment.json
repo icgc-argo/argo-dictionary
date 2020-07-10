@@ -163,7 +163,7 @@
     },
     {
       "name": "treatment_intent",
-      "description": "Indicate the intended disease outcome for which the treatment is given. (Reference: CDISC [NCI code: C124307])",
+      "description": "Indicate the intended disease outcome for which the treatment is given. (Reference: CDISC [NCIt code: C124307])",
       "valueType": "string",
       "restrictions": {
         "required": true,
@@ -180,7 +180,7 @@
     },
     {
       "name": "treatment_setting",
-      "description": "Indicate the treatment setting, which describes the treatment's purpose in relation to the primary treatment. (Reference: CDISC [NCI code: C124308])",
+      "description": "Indicate the treatment setting, which describes the treatment's purpose in relation to the primary treatment. (Reference: CDISC [NCIt code: C124308])",
       "valueType": "string",
       "restrictions": {
         "required": true,
