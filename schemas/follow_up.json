@@ -65,7 +65,7 @@
       }
     },
     {
-      "description": "Indicate the donor's disease status at time of follow-up.",
+      "description": "Indicate the donor's disease status at time of follow-up. (Reference: RECIST)",
       "name": "disease_status_at_followup",
       "valueType": "string",
       "restrictions": {
@@ -76,6 +76,7 @@
           "Loco-regional progression",
           "No evidence of disease",
           "Partial remission",
+          "Progression NOS",
           "Relapse or recurrence",
           "Stable"
         ]
