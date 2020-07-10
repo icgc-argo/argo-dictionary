@@ -186,8 +186,8 @@
         "required": true,
         "codeList": [
           "Adjuvant",
-          "Neoadjuvant",
           "Advanced/Metastatic",
+          "Neoadjuvant",
           "Not applicable"
         ]
       },
