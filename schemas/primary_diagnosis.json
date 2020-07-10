@@ -52,7 +52,7 @@
     {
       "name": "age_at_diagnosis",
       "valueType": "integer",
-      "description": "Age that the donor was first diagnosed with cancer, in years.",
+      "description": "Age that the donor was first diagnosed with cancer, in years. This should be based on the earliest diagnosis of cancer.",
       "restrictions": {
         "required": true
       },
