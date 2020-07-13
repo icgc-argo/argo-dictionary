@@ -300,7 +300,7 @@ describe('Common Tests', () => {
     schema[1].forEach(testSuite => {
       const testIndex = 2;
       const testInputs = testSuite[testIndex];
-      universalTest(validation(testInputs.row, testInputs.name, testInputs.row[testInputs.name]));
+      universalTest(validation()({$row: testInputs.row, $name: testInputs.name, $field: testInputs.row[testInputs.name]}));
     });
   });
 });
@@ -321,7 +321,7 @@ describe('Unit Tests for AJCC validation script', () => {
       test.each(schema[testsIndex])(
         '\n Test %# : %s \nExpecting result.valid to be: %s',
         (description, target, inputs) => {
-          const scriptOutput = validation(inputs.row, inputs.name, inputs.row[inputs.name]);
+          const scriptOutput = validation()({ $row: inputs.row, $name: inputs.name, $field: inputs.row[inputs.name]});
           expect(scriptOutput.valid).toBe(target);
         },
       );

@@ -21,8 +21,9 @@
 /**
  * If and only if a donor is deceased, then the cause of death must be provided.
  */
-const validation = ($row, $field, $name) => 
-    (function validate() {
+const validation = () => 
+    (function validate(inputs) {
+        const {$row, $name, $field} = inputs;
         let result = {valid: true, message: "Ok"};
         const currField = typeof($field) === 'string' ? $field.trim().toLowerCase() : $field;
         const vitalStatus = $row.vital_status.trim().toLowerCase();
@@ -34,7 +35,7 @@ const validation = ($row, $field, $name) =>
             result = {valid: false, message: `${$name} cannot be provided if the donor's vital_status is not deceased.`}
         }
         return result;
-    })();
+    });
 
 
 module.exports = validation;

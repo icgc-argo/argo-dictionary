@@ -24,8 +24,9 @@
  * @param {string} $field
  * @param {string} $name
  */
-const validation = ($row, $field, $name) =>
-  (function validate() {
+const validation = () => 
+  (function validate(inputs) {
+    const {$row, $name, $field} = inputs;
     let result = { valid: true, message: 'Ok' };
 
     /* required field, cannot be null */
@@ -50,6 +51,6 @@ const validation = ($row, $field, $name) =>
       };
     }
     return result;
-  })();
+  });
 
 module.exports = validation;

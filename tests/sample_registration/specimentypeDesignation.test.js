@@ -124,13 +124,13 @@ describe("Common Tests",()=>{
     unitTests.forEach(test=>{
         const testIndex = 2;
         const testInputs = test[testIndex];
-        universalTest(validation(testInputs,name,testInputs[name]));
+        universalTest(validation()({ $row: testInputs, $name: name, $field: testInputs[name]}));
     })
 })
 
 describe("Unit Tests for Ensure Deceased Validation",()=>{
     test.each(unitTests)('\n Test %# : %s \nExpecting result.valid to be: %s',(description,target,inputs) =>{
-        const scriptOutput = validation(inputs, inputs[name], inputs[inputs.name]);
+        const scriptOutput = validation()({ $row: inputs, $field: inputs[name], $name: name});
         expect(scriptOutput.valid).toBe(target);
     })
 })

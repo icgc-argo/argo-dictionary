@@ -25,8 +25,9 @@
  * @param {string} $name 
  */
 
-const validation = ($row, $field, $name) => 
-    (function validate() {
+const validation = () => 
+   (function validate(inputs) {
+      const {$row, $name, $field} = inputs;
         let result = {valid: true, message: "Ok"};
         
         /* required field, cannot be null */
@@ -46,6 +47,6 @@ const validation = ($row, $field, $name) =>
             result = {valid: false, message: `'${$name}' cannot be provided if 'disease_status_at_followup' is not a state of progression, relapse, or recurrence.` }
         }
         return  result;
-    })();
+    });
 
 module.exports = validation;
