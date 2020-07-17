@@ -24,8 +24,9 @@
  * @param {Object} $row The object representing the row for a donor. Object keys represent the fields.
  * @param {String} $field The value for the field.
  */
-const validation = ($row, $field) =>
-  (function validate() {
+const validation = () => 
+  (function validate(inputs) {
+    const {$row, $name, $field} = inputs;
     let result = { valid: true, message: 'Ok' };
     if ($row.recurrence_tumour_staging_system && $field) {
       let codeList = [];
@@ -159,6 +160,6 @@ const validation = ($row, $field) =>
       }
     }
     return result;
-  })();
+  });
 
 module.exports = validation;

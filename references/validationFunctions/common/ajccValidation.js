@@ -25,8 +25,9 @@
  * @param {String} $name The name of the field this validation function runs on.
  * @param {String} $field The value for the field.
  */
-const validation = ($row, $name, $field) =>
-  (function validate() {
+const validation = () =>
+  (function validate(inputs) {
+    const {$row, $name, $field} = inputs;
     let result = { valid: true, message: 'Ok' };
     const arrayFormatter = arr => `\n${arr.map(entry => `- "${entry}"`).join('\n')}`;
     /* This is not a required field, so first ensure that it exists */
@@ -73,6 +74,6 @@ const validation = ($row, $name, $field) =>
       }
     }
     return result;
-  })();
+  });
 
 module.exports = validation;
