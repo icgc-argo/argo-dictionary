@@ -1,12 +1,12 @@
 program_id	submitter_donor_id	submitter_primary_diagnosis_id	age_at_diagnosis	cancer_type_code	basis_of_diagnosis	number_lymph_nodes_positive	number_lymph_nodes_examined	clinical_tumour_staging_system	clinical_stage_group	clinical_t_category	clinical_n_category	clinical_m_category	presenting_symptoms	performance_status
-DASH-CA	DASH-1	dashpd-1	51	C71.1	Clinical	2		Ann Arbor staging system	Stage I					Grade 1
+DASH-CA	DASH-1	dashpd-1	51	C71.1	Clinical	5		Ann Arbor staging system	Stage I					Grade 1
 DASH-CA	DASH-2	dashpd-2	53	C50.2	Histology of a primary tumour	0		AJCC 8th Edition	Stage II	T1	N0	M0		Grade 0
 DASH-CA	DASH-3	dashpd-3	28	C15.2		0		AJCC 8th Edition	Stage II	T2	N0	M0		Grade 0
 DASH-CA	DASH-4	dashpd-4	19	C15.5		2		AJCC 8th Edition	Stage II	T4a	N1	M1		Grade 1
 DASH-CA	DASH-5	dashpd-5	20	C25.1		0		AJCC 8th Edition	Stage III	T1	N0	M0		Grade 0
 DASH-CA	DASH-6	dashpd-6	63	C25.1	Specific tumour markers	2		AJCC 8th Edition	Stage II	T1	N1	M0		Grade 0
-DASH-CA	DASH-7	dashpd-7	56	C25.2	Specific tumour markers	6		AJCC 8th Edition	Stage III	T1	N2	M0		Grade 0
+DASH-CA	DASH-7	dashpd-7	56	C25.2	Specific tumour markers	5		AJCC 8th Edition	Stage III	T1	N2	M0		Grade 0
 DASH-CA	DASH-8	dashpd-8	68	C25.9	Histology of a primary tumour	1		AJCC 8th Edition	Stage I	T1	N1	M0		Grade 0
 DASH-CA	DASH-9	dashpd-9	37	C18.4		0		AJCC 8th Edition	Stage I	T2	N0	M0	Nausea	Grade 0
-DASH-CA	DASH-10	dashpd-10	34	C18.9		0		AJCC 8th Edition	Stage IV	T1	N0	M0	"Nausea| Anemia"	Grade 1
+DASH-CA	DASH-10	dashpd-10	34	C18.9		0		AJCC 8th Edition	Stage IV	T1	N0	M0	Nausea| Anemia	Grade 1
 DASH-CA	DASH-10	dashpd-10.1	34	C44.9		1		AJCC 8th Edition	Stage I	T0	N0	M0	Nausea	Grade 1

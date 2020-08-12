@@ -16,8 +16,4 @@ DASH-CA	DASH-7	dashtr7-1	4492	fluorouracil	mg/m2	1
 DASH-CA	DASH-7	dashtr7-1	6313	leucovorin	mg/m2	3
 DASH-CA	DASH-7	dashtr7-1	51499	irinotecan	mg/m2	5
 DASH-CA	DASH-7	dashtr7-1	32592	oxaliplatin	mg/m2	4
-DASH-CA	DASH-10	dashtr10-2	4492	5-FU	mg/m2	1
-DASH-CA	DASH-10	dashtr10-2	32592	oxaliplatin	g/m2	16
-DASH-CA	DASH-10	dashtr10-2	6313	leucovorin	g/m2	8
-DASH-CA	DASH-10	dashtr10-3	194000	capecitabine	mg/m2	5
-DASH-CA	DASH-10	dashtr10-3	32592	oxaliplatin	mg/m2	2
+DASH-CA	DASH-10	dashtr10-2	32592	oxaliplatin	mg/m2	4
