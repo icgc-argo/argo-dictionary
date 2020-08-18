@@ -1,20 +1,20 @@
-program_id	submitter_donor_id	submitter_treatment_id	submitter_primary_diagnosis_id	treatment_type	age_at_consent_for_treatment	is_primary_treatment	line_of_treatment	treatment_start_interval	treatment_duration	days_per_cycle	number_of_cycles	therapeutic_intent	response_to_therapy	outcome_of_therapy	toxicity_type	hemotological_toxicity	adverse_events	clinical_trials_database	clinical_trial_number
-DASH-CA	DASH-1	dashtr1-1	dashpd-1	Surgery		Yes	1	4	1	5	1	Curative	Complete response	Treatment completed as prescribed
-DASH-CA	DASH-2	dashtr2-1	dashpd-2	Radiation therapy		Yes	1	36	14	12	1	Neoadjuvant	Partial response					NCI Clinical Trials	NCT02201992
-DASH-CA	DASH-2	dashtr2-2	dashpd-2	Chemotherapy		No	2	82	20			Curative	Partial response	Treatment stopped due to acute toxicity	Hemotological	Anemia - Grade 4	Bronchial infection
-DASH-CA	DASH-2	dashtr2-3	dashpd-2	Radiation therapy		No	1	125	3			Curative	Complete response
-DASH-CA	DASH-2	dashtr2-5	dashpd-2	Surgery		No		662	3			Curative	Complete response					NCI Clinical Trials	NCT02201992
-DASH-CA	DASH-2	dashtr2-4	dashpd-2	Radiation therapy		No		640	3			Neoadjuvant	Partial response					EU Clinical Trials Register	2016-002120-83
-DASH-CA	DASH-3	dashtr3-1	dashpd-3	Surgery		Yes		42	1	14	2	Curative	Complete response					EU Clinical Trials Register	2016-002120-83
-DASH-CA	DASH-3	dashtr3-2	dashpd-3	Hormonal therapy		No		42	90			Concurrent	Partial response
-DASH-CA	DASH-3	dashtr3-3	dashpd-3	Endoscopic therapy		No		120	1			Curative	Complete response
-DASH-CA	DASH-4	dashtr4-1	dashpd-4	Chemotherapy		Yes		20	41			Concurrent	Complete response
-DASH-CA	DASH-5	dashtr5-1	dashpd-5	Chemotherapy		No		2	7	24		Curative	Disease progression
-DASH-CA	DASH-6	dashtr6-1	dashpd-6	Chemotherapy		Yes		3	12	23		Concurrent	Disease progression
-DASH-CA	DASH-6	dashtr6-2	dashpd-6	Hormonal therapy		No		75	30	12		Palliative	Disease progression
-DASH-CA	DASH-7	dashtr7-1	dashpd-7	Chemotherapy|Radiation therapy|surgery		Yes		3	25	2		Neoadjuvant	Disease progression
-DASH-CA	DASH-7	dashtr7-2	dashpd-7	Radiation therapy		No		41	3	4		Neoadjuvant	Disease progression
-DASH-CA	DASH-7	dashtr7-3	dashpd-7	Surgery		No		82	1	7		Palliative	Disease progression
-DASH-CA	DASH-8	dashtr8-1	dashpd-8	Surgery		Yes		45	1	3		Curative	Stable disease
-DASH-CA	DASH-10	dashtr10-1	dashpd-10	Endoscopic therapy		Yes		15	1	6		Curative	Stable disease
-DASH-CA	DASH-10	dashtr10-2	dashpd-10	Chemotherapy		No		100	14			Curative	Partial response
+program_id	submitter_donor_id	submitter_treatment_id	submitter_primary_diagnosis_id	treatment_type	age_at_consent_for_treatment	is_primary_treatment	line_of_treatment	treatment_start_interval	treatment_duration	days_per_cycle	number_of_cycles	treatment_intent	treatment_setting	response_to_treatment	outcome_of_treatment	toxicity_type	hemotological_toxicity	adverse_events	clinical_trials_database	clinical_trial_number
+DASH-CA	DASH-1	dashtr1-1	dashpd-1	Surgery		Yes	1	4	1	5	1	Curative	Adjuvant	Complete response	Treatment completed as prescribed					
+DASH-CA	DASH-2	dashtr2-1	dashpd-2	Radiation therapy		Yes	1	36	14	12	1	Curative	Adjuvant	Partial response					NCI Clinical Trials	NCT02201992
+DASH-CA	DASH-2	dashtr2-2	dashpd-2	Chemotherapy		No	2	82	20			Curative	Adjuvant	Partial response	Treatment stopped due to acute toxicity	Hemotological	Anemia - Grade 4	Bronchial infection		
+DASH-CA	DASH-2	dashtr2-3	dashpd-2	Radiation therapy		No	1	125	3			Curative	Advanced/Metastatic	Complete response						
+DASH-CA	DASH-2	dashtr2-5	dashpd-2	Surgery		No		662	3			Curative	Advanced/Metastatic	Complete response					NCI Clinical Trials	NCT02201992
+DASH-CA	DASH-2	dashtr2-4	dashpd-2	Radiation therapy		No		640	3			Curative	Advanced/Metastatic	Partial response					EU Clinical Trials Register	2016-002120-83
+DASH-CA	DASH-3	dashtr3-1	dashpd-3	Surgery		Yes		42	1	14	2	Curative	Adjuvant	Complete response					EU Clinical Trials Register	2016-002120-83
+DASH-CA	DASH-3	dashtr3-2	dashpd-3	Hormonal therapy		No		42	90			Curative	Adjuvant	Partial response						
+DASH-CA	DASH-3	dashtr3-3	dashpd-3	Endoscopic therapy		No		120	1			Curative	Advanced/Metastatic	Complete response						
+DASH-CA	DASH-4	dashtr4-1	dashpd-4	Chemotherapy		Yes		20	41			Curative	Advanced/Metastatic	Complete response						
+DASH-CA	DASH-5	dashtr5-1	dashpd-5	Chemotherapy		No		2	7	24		Curative	NeoAdjuvant	Disease progression						
+DASH-CA	DASH-6	dashtr6-1	dashpd-6	Chemotherapy		Yes		3	12	23		Curative	NeoAdjuvant	Disease progression						
+DASH-CA	DASH-6	dashtr6-2	dashpd-6	Hormonal therapy		No		75	30	12		Palliative	NeoAdjuvant	Disease progression						
+DASH-CA	DASH-7	dashtr7-1	dashpd-7	Chemotherapy|Radiation therapy|surgery		Yes		3	25	2		Curative	NeoAdjuvant	Disease progression						
+DASH-CA	DASH-7	dashtr7-2	dashpd-7	Radiation therapy		No		41	3	4		Curative	Not applicable	Disease progression						
+DASH-CA	DASH-7	dashtr7-3	dashpd-7	Surgery		No		82	1	7		Palliative	Not applicable	Disease progression						
+DASH-CA	DASH-8	dashtr8-1	dashpd-8	Surgery		Yes		45	1	3		Curative	Not applicable	Stable disease						
+DASH-CA	DASH-10	dashtr10-1	dashpd-10	Endoscopic therapy		Yes		15	1	6		Curative	Not applicable	Stable disease						
+DASH-CA	DASH-10	dashtr10-2	dashpd-10	Chemotherapy		No		100	14			Curative	Not applicable	Partial response						
