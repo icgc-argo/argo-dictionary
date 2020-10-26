@@ -324,7 +324,6 @@
       "description": "Indicate a value, in decimals, that represents the count of proliferating cells determined during pathologic review of the specimen.",
       "valueType": "number",
       "meta": {
-        "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
         "notes": "#/notes/if_tumour",
         "displayName": "Percent Proliferating Cells"
@@ -335,7 +334,6 @@
       "description": "Indicate a value, in decimals, that represents local response to cellular injury, marked by capillary dilatation, edema and leukocyte infiltration; clinically, inflammation is manifest by redness, heat, pain, swelling and loss of function, with the need to heal damaged tissue.",
       "valueType": "number",
       "meta": {
-        "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
         "notes": "#/notes/if_tumour",
         "displayName": "Percent Inflammatory Tissue"
@@ -346,7 +344,6 @@
       "description": "Indicate a value, in decimals, that represents the percentage of reactive cells that are present in a malignant tumour specimen but are not malignant such as fibroblasts, vascular structures, etc.",
       "valueType": "number",
       "meta": {
-        "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
         "notes": "#/notes/if_tumour",
         "displayName": "Percent Stromal Cells"
@@ -357,7 +354,6 @@
       "description": "Indicate a value, in decimals, that represents the percentage of cell death in a malignant tumour specimen.",
       "valueType": "number",
       "meta": {
-        "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
         "notes": "#/notes/if_tumour",
         "displayName": "Percent Necrosis"
