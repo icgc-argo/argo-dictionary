@@ -286,24 +286,24 @@
       },
       "restrictions": {
         "codeList": [
-           "Low grade",
-           "High grade",
-           "GX",
-           "G1",
-           "G2",
-           "G3",
-           "G4",
-           "Low",
-           "High",
-           "Grade I",
-           "Grade II",
-           "Grade III",
-           "Grade IV",
-           "Grade Group 1",
-           "Grade Group 2",
-           "Grade Group 3",
-           "Grade Group 4",
-           "Grade Group 5"
+          "Low grade",
+          "High grade",
+          "GX",
+          "G1",
+          "G2",
+          "G3",
+          "G4",
+          "Low",
+          "High",
+          "Grade I",
+          "Grade II",
+          "Grade III",
+          "Grade IV",
+          "Grade Group 1",
+          "Grade Group 2",
+          "Grade Group 3",
+          "Grade Group 4",
+          "Grade Group 5"
         ],
         "script": "#/script/specimen/tumourGrade"
       }
@@ -325,7 +325,7 @@
       "valueType": "number",
       "meta": {
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "#/notes/if_tumour",
+        "notes": "",
         "displayName": "Percent Proliferating Cells"
       }
     },
@@ -335,7 +335,7 @@
       "valueType": "number",
       "meta": {
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "#/notes/if_tumour",
+        "notes": "",
         "displayName": "Percent Inflammatory Tissue"
       }
     },
@@ -345,7 +345,7 @@
       "valueType": "number",
       "meta": {
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "#/notes/if_tumour",
+        "notes": "",
         "displayName": "Percent Stromal Cells"
       }
     },
@@ -355,7 +355,7 @@
       "valueType": "number",
       "meta": {
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "#/notes/if_tumour",
+        "notes": "",
         "displayName": "Percent Necrosis"
       }
     }
