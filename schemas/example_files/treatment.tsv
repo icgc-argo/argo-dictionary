@@ -18,4 +18,3 @@ DASH-CA	DASH-7	dashtr7-3	dashpd-7	Surgery		No		82	1	7		Palliative	Not applicable
 DASH-CA	DASH-8	dashtr8-1	dashpd-8	Surgery		Yes		45	1	3		Curative	Not applicable	Stable disease						
 DASH-CA	DASH-10	dashtr10-1	dashpd-10	Endoscopic therapy		Yes		15	1	6		Curative	Not applicable	Stable disease						
 DASH-CA	DASH-10	dashtr10-2	dashpd-10	Chemotherapy		No		100	14			Curative	Not applicable	Partial response						
-DASH-CA	Donor12	treatment12-1	pd-12-mutotest	Surgery		Yes	1	4	1	5	1	Curative	Adjuvant	Complete response	Treatment completed as prescribed					
