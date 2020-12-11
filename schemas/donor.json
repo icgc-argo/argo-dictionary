@@ -27,8 +27,7 @@
         "validationDependency": true,
         "primaryId": true,
         "foreignKey": "sample_registration.submitter_donor_id",
-        "displayName": "Submitter Donor ID",
-        "notes": "#/notes/submitter_id"
+        "displayName": "Submitter Donor ID"
       },
       "restrictions": {
         "required": true,

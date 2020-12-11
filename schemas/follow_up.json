@@ -27,8 +27,7 @@
         "validationDependency": true,
         "primaryId": true,
         "foreignKey": "sample_registration.submitter_donor_id",
-        "displayName": "Submitter Donor ID",
-        "notes": "#/notes/submitter_id"
+        "displayName": "Submitter Donor ID"
       },
       "restrictions": {
         "required": true,
@@ -42,8 +41,7 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "displayName": "Submitter Follow-Up ID",
-        "notes": "#/notes/submitter_id"
+        "displayName": "Submitter Follow-Up ID"
       },
       "restrictions": {
         "required": true,
@@ -92,8 +90,7 @@
       "description": "Indicate if the follow-up is related to a specific primary diagnosis event in the clinical timeline.",
       "meta": {
         "displayName": "Submitter Primary Diagnosis ID",
-        "primaryId": true,
-        "notes": "#/notes/submitter_id"
+        "primaryId": true
       },
       "restrictions": {
         "regex": "#/regex/submitter_id"
@@ -105,8 +102,7 @@
       "description": "Indicate if the follow-up is related to a specific treatment event in the clinical timeline.",
       "meta": {
         "primaryId": true,
-        "displayName": "Submitter Treatment ID",
-        "notes": "#/notes/submitter_id"
+        "displayName": "Submitter Treatment ID"
       },
       "restrictions": {
         "regex": "#/regex/submitter_id"
