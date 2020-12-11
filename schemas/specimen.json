@@ -27,8 +27,7 @@
         "validationDependency": true,
         "primaryId": true,
         "foreignKey": "sample_registration.submitter_donor_id",
-        "displayName": "Submitter Donor ID",
-        "notes": "#/notes/submitter_id"
+        "displayName": "Submitter Donor ID"
       },
       "restrictions": {
         "required": true,
@@ -43,8 +42,7 @@
         "validationDependency": true,
         "primaryId": true,
         "foreignKey": "sample_registration.submitter_specimen_id",
-        "displayName": "Submitter Specimen ID",
-        "notes": "#/notes/submitter_id"
+        "displayName": "Submitter Specimen ID"
       },
       "restrictions": {
         "required": true,
@@ -57,8 +55,7 @@
       "description": "Indicate the primary diagnosis event in the clinical timeline that this specimen acquisition was related to.",
       "meta": {
         "primaryId": true,
-        "displayName": "Submitter Primary Diagnosis ID",
-        "notes": "#/notes/submitter_id"
+        "displayName": "Submitter Primary Diagnosis ID"
       },
       "restrictions": {
         "required": true,

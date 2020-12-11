@@ -25,8 +25,7 @@
         "validationDependency": true,
         "primaryId": true,
         "examples": "90234,BLD_donor_89,AML-90",
-        "displayName": "Submitter Donor ID",
-        "notes": "#/notes/submitter_id"
+        "displayName": "Submitter Donor ID"
       },
       "restrictions": {
         "required": true,
@@ -55,8 +54,7 @@
         "validationDependency": true,
         "primaryId": true,
         "examples": "LAML_PO,00445,THY_099-tumour",
-        "displayName": "Submitter Specimen ID",
-        "notes": "#/notes/submitter_id"
+        "displayName": "Submitter Specimen ID"
       },
       "restrictions": {
         "required": true,
@@ -157,8 +155,7 @@
         "validationDependency": true,
         "primaryId": true,
         "examples": "hnc_12,CCG_34_94583,BRCA47832-3239",
-        "displayName": "Submitter Sample ID",
-        "notes": "#/notes/submitter_id"
+        "displayName": "Submitter Sample ID"
       },
       "restrictions": {
         "required": true,

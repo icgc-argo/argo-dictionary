@@ -27,8 +27,7 @@
         "validationDependency": true,
         "primaryId": true,
         "foreignKey": "sample_registration.submitter_donor_id",
-        "displayName": "Submitter Donor ID",
-        "notes": "#/notes/submitter_id"
+        "displayName": "Submitter Donor ID"
       },
       "restrictions": {
         "required": true,
@@ -41,8 +40,7 @@
       "description": "Unique identifier of the primary diagnosis event, assigned by the data provider.",
       "meta": {
         "primaryId": true,
-        "displayName": "Submitter Primary Diagnosis ID",
-        "notes": "#/notes/submitter_id"
+        "displayName": "Submitter Primary Diagnosis ID"
       },
       "restrictions": {
         "required": true,
