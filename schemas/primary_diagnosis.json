@@ -105,7 +105,7 @@
     },
     {
       "name": "number_lymph_nodes_positive",
-      "description": "The number of regional lymph nodes reported as being positive for tumour metastases. (Reference: NCI CDE ID: 6113694)",
+      "description": "The number of regional lymph nodes reported as being positive for tumour metastases. (Reference: caDSR CDE ID 6113694)",
       "valueType": "integer",
       "restrictions": {
         "required": true
@@ -117,7 +117,7 @@
     },
     {
       "name": "number_lymph_nodes_examined",
-      "description": "The total number of lymph nodes tested for the presence of cancer. (Reference: NCI CDE ID: 3)",
+      "description": "The total number of lymph nodes tested for the presence of cancer. (Reference: caDSR CDE ID 3)",
       "valueType": "integer",
       "meta": { "displayName": "Number Of Lymph Nodes Examined" }
     },
@@ -127,7 +127,6 @@
       "description": "Indicate the tumour staging system used to stage the cancer at the time of primary diagnosis (prior to treatment).",
       "restrictions": {
         "script": "#/script/common/ajccValidation",
-        "required": true,
         "codeList": [
           "AJCC 8th edition",
           "AJCC 7th edition",
@@ -151,7 +150,6 @@
       "description": "Stage group of the tumour, as assigned by the reporting clinical_tumour_staging_system, that indicates the overall prognostic tumour stage (ie. Stage I, Stage II, Stage III etc.).",
       "valueType": "string",
       "restrictions": {
-        "required": true,
         "codeList": "#/list/stage_groups",
         "script": "#/script/primary_diagnosis/stageGroup"
       },
@@ -247,7 +245,7 @@
     },
     {
       "name": "performance_status",
-      "description": "Indicate the donor's performance status grade at the time of primary diagnosis. (Reference source: ECOG performance score grades from https://ecog-acrin.org/resources/ecog-performance-status).",
+      "description": "Indicate the donor's performance status grade at the time of primary diagnosis. (Reference: ECOG performance score grades from https://ecog-acrin.org/resources/ecog-performance-status).",
       "valueType": "string",
       "restrictions": {
         "codeList": ["Grade 0", "Grade 1", "Grade 2", "Grade 3", "Grade 4"]

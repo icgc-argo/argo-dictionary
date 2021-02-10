@@ -153,7 +153,7 @@
       }
     },
     {
-      "description": "Indicate the method(s) used to confirm the donor's progression or relapse or recurrence disease status. (Codelist reference: NCI CDE ID: 6161031)",
+      "description": "Indicate the method(s) used to confirm the donor's progression or relapse or recurrence disease status. (Reference: caDSR CDE ID 6161031)",
       "name": "method_of_progression_status",
       "valueType": "string",
       "isArray": true,
