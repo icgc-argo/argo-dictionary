@@ -196,7 +196,7 @@
       }
     },
     {
-      "description": "If donor has history of prior malignancy, indicate laterality of previous diagnosis. (Codelist reference: NCI CDE: 4122391)",
+      "description": "If donor has history of prior malignancy, indicate laterality of previous diagnosis. (Reference: caDSR CDE ID 4122391)",
       "name": "laterality_of_prior_malignancy",
       "valueType": "string",
       "restrictions": {
@@ -225,7 +225,7 @@
       "meta": { "displayName": "BMI" }
     },
     {
-      "description": "Indicate the donor's menopause status at the time of primary diagnosis. (Codelist reference: NCI CDE ID: 2434914)",
+      "description": "Indicate the donor's menopause status at the time of primary diagnosis. (Reference: caDSR CDE ID 2434914)",
       "name": "menopause_status",
       "restrictions": {
         "codeList": [
