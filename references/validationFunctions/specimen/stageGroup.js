@@ -28,7 +28,12 @@ const validation = () =>
   (function validate(inputs) {
     const {$row, $name, $field} = inputs;
     let result = { valid: true, message: 'Ok' };
-    if ($row.pathological_tumour_staging_system && $field) {
+    if (!($row.pathological_tumour_staging_system) && $field) {
+       result.valid = false;
+       const msg = "'pathological_tumour_staging_system' must be submitted if 'pathological_stage_group' is submitted";
+       result.message = msg;
+    }
+    else if ($row.pathological_tumour_staging_system && $field) {
       let codeList = [];
       switch ($row.pathological_tumour_staging_system && $row.pathological_tumour_staging_system.trim().toLowerCase()) {
         case 'revised international staging system (riss)':

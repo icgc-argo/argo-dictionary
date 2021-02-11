@@ -146,21 +146,6 @@
       }
     },
     {
-      "name": "clinical_stage_group",
-      "description": "Stage group of the tumour, as assigned by the reporting clinical_tumour_staging_system, that indicates the overall prognostic tumour stage (ie. Stage I, Stage II, Stage III etc.).",
-      "valueType": "string",
-      "restrictions": {
-        "codeList": "#/list/stage_groups",
-        "script": "#/script/primary_diagnosis/stageGroup"
-      },
-      "meta": {
-        "core": true,
-        "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
-        "notes": "This field is dependent on the selected clinical_tumour_staging_system.\nPlease refer to the documentation for Tumour Staging Classifications: http://docs.icgc-argo.org/docs/submission/dictionary-overview#tumour-staging-classifications",
-        "displayName": "Clinical Stage Group"
-      }
-    },
-    {
       "name": "clinical_t_category",
       "description": "The code to represent the extent of the primary tumour (T) based on evidence obtained from clinical assessment parameters determined at time of primary diagnosis and prior to treatment, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
@@ -200,6 +185,21 @@
       },
       "restrictions": {
         "codeList": "#/list/m_categories"
+      }
+    },
+    {
+      "name": "clinical_stage_group",
+      "description": "Stage group of the tumour, as assigned by the reporting clinical_tumour_staging_system, that indicates the overall prognostic tumour stage (ie. Stage I, Stage II, Stage III etc.).",
+      "valueType": "string",
+      "restrictions": {
+        "codeList": "#/list/stage_groups",
+        "script": "#/script/primary_diagnosis/stageGroup"
+      },
+      "meta": {
+        "core": true,
+        "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
+        "notes": "This field is dependent on the selected clinical_tumour_staging_system.\nPlease refer to the documentation for Tumour Staging Classifications: http://docs.icgc-argo.org/docs/submission/dictionary-overview#tumour-staging-classifications",
+        "displayName": "Clinical Stage Group"
       }
     },
     {

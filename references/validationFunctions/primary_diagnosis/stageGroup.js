@@ -28,7 +28,12 @@ const validation = () =>
   (function validate(inputs) {
     const {$row, $name, $field} = inputs;
     let result = { valid: true, message: 'Ok' };
-    if ($row.clinical_tumour_staging_system && $field) {
+    if (!($row.clinical_tumour_staging_system) && $field) {
+       result.valid = false;
+       const msg = "'clinical_tumour_staging_system' must be submitted if 'clinical_stage_group' is submitted";
+       result.message = msg;
+    }
+    else if ($row.clinical_tumour_staging_system && $field) {
       let codeList = [];
       switch ($row.clinical_tumour_staging_system && $row.clinical_tumour_staging_system.trim().toLowerCase()) {
         case 'revised international staging system (riss)':
@@ -159,6 +164,7 @@ const validation = () =>
         result.message = msg;
       }
     }
+    
     return result;
   });
 

@@ -166,16 +166,16 @@ const unitTests = [
     }),
   ],
   [
-    'Staging system set to an unexpected value, stage group is any text"',
-    true,
+    'Staging system set to empty, stage group is Stage I"',
+    false,
     loadObjects(primary_diagnosis, {
-      clinical_tumour_staging_system: 'my staging system',
-      clinical_stage_group: 'any text here',
+      clinical_tumour_staging_system: '',
+      clinical_stage_group: 'Stage I',
     }),
   ],
   [
     'Staging system undefined',
-    true,
+    false,
     loadObjects(primary_diagnosis, {
       clinical_stage_group: 'any text here',
     }),
