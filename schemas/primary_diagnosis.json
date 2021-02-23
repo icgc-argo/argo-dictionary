@@ -141,6 +141,7 @@
         ]
       },
       "meta": {
+        "validationDependency": true,
         "core": true,
         "displayName": "Clinical Tumour Staging System"
       }
