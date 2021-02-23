@@ -31,23 +31,21 @@ const validation = () =>
     let result = { valid: true, message: 'Ok' };
     const arrayFormatter = arr => `\n${arr.map(entry => `- "${entry}"`).join('\n')}`;
     const listFormatter = arr => `${arr.map(entry => `- "${entry}"`).join(', ')}`;
-      
+   
+   
    /* Contingent on the naming system for tumour staging systems to remain consistent */
     const stagingName = $name
       .trim()
       .toLowerCase()
       .split('_tumour_staging_system')[0];
-    
     const requiredFields = [
       `${stagingName}_m_category`,
       `${stagingName}_n_category`,
       `${stagingName}_t_category`,
     ];
-    
     const convertedRow = Object.fromEntries(
       Object.entries($row).map(([fieldName, fieldVal]) => [fieldName.toLowerCase(), fieldVal]),
     );
-    
     /* Check for contigous spaces wrapped with quotes (empty strings) */
     const checkforEmpty = entry => {
       return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'));
@@ -60,11 +58,12 @@ const validation = () =>
 
     /* The staging system should be set to an AJCC option if the TNM fields are submitted */
     if (!($field) && emptyFields.length != requiredFields.length) {
+       const errorFields = requiredFields.filter(fieldName => !emptyFields.includes(fieldName));
        result = {
          valid: false,
-         message: `The ${name} field must be set to an AJCC option if the ${listFormatter(
-            emptyFields,
-          )} are submitted`
+         message:`The ${name} field must be set to an AJCC option when the following fields are submitted: ${listFormatter(
+            errorFields,
+          )}`,
        };
     }
     /* This is not a required field, so first ensure that it exists */
