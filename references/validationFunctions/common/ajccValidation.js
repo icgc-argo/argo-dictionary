@@ -30,8 +30,8 @@ const validation = () =>
     const {$row, $name, $field} = inputs;
     let result = { valid: true, message: 'Ok' };
     const arrayFormatter = arr => `\n${arr.map(entry => `- "${entry}"`).join('\n')}`;
-    const listFormatter = arr => `${arr.map(entry => `- "${entry}"`).join(', ')}`;
-   
+    const listFormatter = arr => `${arr.map(entry => `"${entry}"`).join(', ')}`;
+
    
    /* Contingent on the naming system for tumour staging systems to remain consistent */
     const stagingName = $name
@@ -61,7 +61,7 @@ const validation = () =>
        const errorFields = requiredFields.filter(fieldName => !emptyFields.includes(fieldName));
        result = {
          valid: false,
-         message:`The ${name} field must be set to an AJCC option when the following fields are submitted: ${listFormatter(
+         message:`The ${stagingName}_tumour_staging_system field must be set to an AJCC option when the following fields are submitted: ${listFormatter(
             errorFields,
           )}`,
        };

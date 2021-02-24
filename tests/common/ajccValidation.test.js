@@ -95,7 +95,6 @@ const unitTests = {
       false,
       {
         row: loadObjects(specimen, {
-          pathological_tumour_staging_system: '',
           pathological_t_category: 'T2',
           pathological_m_category: 'M1a',
           pathological_n_category: 'N3a',
