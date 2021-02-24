@@ -289,7 +289,7 @@
       },
       "restrictions": {
         "codeList": "#/list/stage_groups",
-        "script": "#/script/follow_up/recurrence_stageGroup"
+        "script": "#/script/common/stageGroup"
       }
     },
     {
@@ -363,7 +363,7 @@
       },
       "restrictions": {
         "codeList": "#/list/stage_groups",
-        "script": "#/script/follow_up/posttherapy_stageGroup"
+        "script": "#/script/common/stageGroup"
       }
     }
   ]

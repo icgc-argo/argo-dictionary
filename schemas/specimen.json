@@ -142,7 +142,7 @@
       },
       "restrictions": {
         "codeList": "#/list/stage_groups",
-        "script": "#/script/specimen/stageGroup"
+        "script": "#/script/common/stageGroup"
       }
     },
     {

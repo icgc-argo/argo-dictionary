@@ -19,18 +19,31 @@
  */
 
 /**
- * Validates that posttherapy_stage_group is a permissable value based on posttherapy_tumour_staging_system
+ * Validates that clinical_stage_group is a permissable value based on clinical_tumour_staging_system
  *
  * @param {Object} $row The object representing the row for a donor. Object keys represent the fields.
  * @param {String} $field The value for the field.
  */
 const validation = () => 
   (function validate(inputs) {
-    const {$row, $field} = inputs;
+    const {$row, $name, $field} = inputs;
     let result = { valid: true, message: 'Ok' };
-    if ($row.posttherapy_tumour_staging_system && $field) {
+
+    const stagingName = $name
+      .trim()
+      .toLowerCase()
+      .split('_stage_group')[0];
+
+    const stagingSystem = stagingName + `_tumour_staging_system`;
+    
+    if (!($row[stagingSystem]) && $field) {
+       result.valid = false;
+       const msg = `The field ${stagingSystem} must be submitted if ${stagingName}_stage_group is submitted.`;
+       result.message = msg;
+    }
+    else if ($row[stagingSystem] && $field) {
       let codeList = [];
-      switch ($row.posttherapy_tumour_staging_system && $row.posttherapy_tumour_staging_system.trim().toLowerCase()) {
+      switch ($row[stagingSystem] && $row[stagingSystem].trim().toLowerCase()) {
         case 'revised international staging system (riss)':
           codeList = [
             'stage i',
@@ -149,9 +162,9 @@ const validation = () =>
       }
 
       if (!codeList.includes($field.trim().toLowerCase()) && codeList.length) {
-        const msg = `'${$field}' is not a permissible value. When 'posttherapy_tumour_staging_system' is set to '${
-          $row.posttherapy_tumour_staging_system
-        }', 'posttherapy_stage_group' must be one of the following: \n${codeList
+        const msg = `'${$field}' is not a permissible value. When '${stagingSystem}' is set to '${
+          $row[stagingSystem]
+        }', '${name}' must be one of the following: \n${codeList
           .map(code => `- "${code}"`)
           .join('\n')}`;
 
@@ -159,6 +172,7 @@ const validation = () =>
         result.message = msg;
       }
     }
+    
     return result;
   });
 
