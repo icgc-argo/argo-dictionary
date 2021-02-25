@@ -28,7 +28,6 @@ const validation = () =>
   (function validate(inputs) {
     const {$row, $name, $field} = inputs;
     let result = { valid: true, message: 'Ok' };
-
     const stagingName = $name
       .trim()
       .toLowerCase()
@@ -162,6 +161,7 @@ const validation = () =>
       }
 
       if (!codeList.includes($field.trim().toLowerCase()) && codeList.length) {
+        console.log(`'${$field}' is not a permissible value. When '${stagingSystem}' is set to '${$row[stagingSystem]}', '${stagingName}_stage_group' must be one of the following: \n${codeList.map(code => `- "${code}"`).join('\n')}`);
         const msg = `'${$field}' is not a permissible value. When '${stagingSystem}' is set to '${
           $row[stagingSystem]
         }', '${name}' must be one of the following: \n${codeList

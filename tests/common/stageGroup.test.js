@@ -44,12 +44,12 @@ const unitTests = {
     },
   ],
   [
-    'Staging system set to "lugano staging system", stage group is: "stage iva"',
-    true,
+    'Staging system set to "lugano staging system", stage group does not belong to this staging system"',
+    false,
     {
       row: loadObjects(specimen, {
         pathological_tumour_staging_system: 'lugano staging system',
-        pathological_stage_group: 'stage iva',
+        pathological_stage_group: 'stage a',
       }),
       name: 'pathological_stage_group',
     }, 
