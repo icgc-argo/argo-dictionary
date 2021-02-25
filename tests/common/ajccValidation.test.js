@@ -90,6 +90,31 @@ const unitTests = {
         name: 'pathological_tumour_staging_system',
       },
     ],
+    [
+      'All categories set but missing AJCC staging system.',
+      false,
+      {
+        row: loadObjects(specimen, {
+          pathological_t_category: 'T2',
+          pathological_m_category: 'M1a',
+          pathological_n_category: 'N3a',
+        }),
+        name: 'pathological_tumour_staging_system',
+      },
+    ],
+    [
+      'T and N categories set but missing M category field and AJCC staging system.',
+      false,
+      {
+        row: loadObjects(specimen, {
+          pathological_tumour_staging_system: '',
+          pathological_t_category: 'T2',
+          pathological_m_category: '',
+          pathological_n_category: 'N3a',
+        }),
+        name: 'pathological_tumour_staging_system',
+      },
+    ],
   ],
   FollowUp: [
     [
