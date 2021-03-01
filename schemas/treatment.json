@@ -92,12 +92,6 @@
       }
     },
     {
-      "name": "age_at_consent_for_treatment",
-      "description": "Indicate the age of donor when consent was given for treatment.",
-      "valueType": "integer",
-      "meta": { "displayName": "Age At Consent For Treatment" }
-    },
-    {
       "name": "is_primary_treatment",
       "description": "Indicate if the treatment was the primary treatment following the initial diagnosis.",
       "valueType": "string",
