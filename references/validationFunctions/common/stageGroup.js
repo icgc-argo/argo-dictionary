@@ -35,7 +35,15 @@ const validation = () =>
 
     const stagingSystem = stagingName + `_tumour_staging_system`;
     
-    if (!($row[stagingSystem]) && $field) {
+    // checks for a string just consisting of whitespace
+    const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
+ 
+    if ($row[stagingSystem] && (!$field || checkforEmpty($field))) {
+      result.valid = false;
+      const msg = `The ${stagingName}_stage_group must be submitted if the field ${stagingSystem} is submitted.`;
+      result.message = msg;
+    }
+    else if (!($row[stagingSystem]) && $field) {
        result.valid = false;
        const msg = `The field ${stagingSystem} must be submitted if ${stagingName}_stage_group is submitted.`;
        result.message = msg;

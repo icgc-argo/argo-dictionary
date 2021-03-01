@@ -240,6 +240,16 @@ const unitTests = {
     },
   ],
   [
+    'staging system submitted but stage group undefined',
+    false,
+    {
+      row: loadObjects(specimen, {
+        pathological_tumour_staging_system: 'Lugano staging system',
+      }),
+      name: 'pathological_stage_group',
+    },
+  ],
+  [
     'staging system and stage group undefined',
     true,
     {
