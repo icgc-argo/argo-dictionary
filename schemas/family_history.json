@@ -99,19 +99,12 @@
     {
       "description": "The age (in years) when the patient's relative was first diagnosed. (Reference: caDSR CDE ID 5300571)",
       "name": "age_of_relative_at_diagnosis",
-      "restrictions": {
-        "codeList": [
-          "Female",
-          "Male",
-          "Other",
-          "Unknown"
-        ]
-      },
+      "restrictions": {},
       "valueType": "integer",
       "displayName": "Age Of Relative At Diagnosis"
     },
     {
-      "name": "disease_icd10_of_relative",
+      "name": "cancer_type_code_of_relative",
       "valueType": "string",
       "description": "The code to describe the malignant diagnosis of the patient's relative with a history of cancer using the WHO ICD-10 code (https://icd.who.int/browse10/2019/en) classification.",
       "restrictions": {
@@ -120,17 +113,20 @@
       "meta": {
         "core": true,
         "examples": "C41.1,C16.9,C00.5,D46.9",
-        "displayName": "ICD-10 Diagnosis of Relative"
+        "displayName": "Cancer Type Code (ICD-10) of Relative"
       }
     },
     {
-      "description": "Indicate if the patient's relative died from the cancer they were diagnosed with.",
-      "name": "relative_death_status",
+      "description": "Indicate the cause of the death of the relative.",
+      "name": "cause_of_death_of_relative",
       "restrictions": {
-        "codeList": "#/list/yes_no"
+        "codeList": ["Died of cancer", "Died of other reasons", "Unknown"],
       },
       "valueType": "string",
-      "displayName": "Death Status Of Relative"
+      "meta": {
+        "core": true,
+        "displayName": "Cause of Death of Relative "
+      }
     },
     {
       "description": "Indicate how long, in years, the relative survived from the time of diagnosis if the patient's relative died from the cancer they were diagnosed with.",
