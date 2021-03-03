@@ -1,0 +1,144 @@
+{
+  "name": "family_history",
+  "description": "The collection of data elements related to a specific donor in an ARGO program.",
+  "meta": {
+    "parent": "specimen"
+  },
+  "fields": [
+    {
+      "name": "program_id",
+      "valueType": "string",
+      "description": "Unique identifier of the ARGO program.",
+      "meta": {
+        "validationDependency": true,
+        "primaryId": true,
+        "foreignKey": "sample_registration.program_id",
+        "displayName": "Program ID"
+      },
+      "restrictions": {
+        "required": true
+      }
+    },
+    {
+      "description": "Unique identifier of the donor, assigned by the data provider.",
+      "name": "submitter_donor_id",
+      "valueType": "string",
+      "meta": {
+        "validationDependency": true,
+        "primaryId": true,
+        "foreignKey": "sample_registration.submitter_donor_id",
+        "displayName": "Submitter Donor ID"
+      },
+      "restrictions": {
+        "required": true,
+        "regex": "#/regex/submitter_id"
+      }
+    },
+    {
+      "description": "Indicate if patient has any genetic relatives with a history of cancer. (Reference: NCIt C159104, caDSR CDE ID 6161023)",
+      "name": "relative_with_cancer_history",
+      "restrictions": {
+        "codeList": "#/list/yes_no"
+      },
+      "valueType": "string",
+      "meta": {
+        "displayName": "Relative with Cancer History"
+      }
+    },
+    {
+      "description": "Indicate genetic relationship of the relative to patient. (Reference: caDSR CDE ID 2179937)",
+      "name": "relationship_type",
+      "restrictions": {
+        "codeList": [
+          "Aunt",
+          "Brother",
+          "Cousin",
+          "Daughter",
+          "Father",
+          "Grandchild",
+          "Grandfather",
+          "Grandmother",
+          "Maternal Aunt",
+          "Maternal Cousin",
+          "Maternal Grandfather",
+          "Maternal Grandmother",
+          "Maternal Half-brother",
+          "Maternal Half-sister",
+          "Mother",
+          "Nephew",
+          "Niece",
+          "Other",
+          "Paternal Aunt",
+          "Paternal Cousin",
+          "Paternal Grandfather",
+          "Paternal Grandmother",
+          "Paternal Half-brother",
+          "Paternal Half-sister",
+          "Sister",
+          "Son",
+          "Unknown"
+        ]
+      },
+      "valueType": "string",
+      "displayName": "Relationship Type"
+    },
+    {
+      "description": "The self-reported gender of related individual.",
+      "name": "gender_of_relative",
+      "restrictions": {
+        "codeList": [
+          "Female",
+          "Male",
+          "Other",
+          "Unknown"
+        ]
+      },
+      "valueType": "string",
+      "displayName": "Gender of Relatives"
+    },
+    {
+      "description": "The age (in years) when the patient's relative was first diagnosed. (Reference: caDSR CDE ID 5300571)",
+      "name": "age_of_relative_at_diagnosis",
+      "restrictions": {
+        "codeList": [
+          "Female",
+          "Male",
+          "Other",
+          "Unknown"
+        ]
+      },
+      "valueType": "integer",
+      "displayName": "Age Of Relative At Diagnosis"
+    },
+    {
+      "name": "disease_icd10_of_relative",
+      "valueType": "string",
+      "description": "The code to describe the malignant diagnosis of the patient's relative with a history of cancer using the WHO ICD-10 code (https://icd.who.int/browse10/2019/en) classification.",
+      "restrictions": {
+        "regex": "^[C|D][0-9]{2}(.[0-9]{1,3}[A-Z]{0,1})?$"
+      },
+      "meta": {
+        "core": true,
+        "examples": "C41.1,C16.9,C00.5,D46.9",
+        "displayName": "ICD-10 Diagnosis of Relative"
+      }
+    },
+    {
+      "description": "Indicate if the patient's relative died from the cancer they were diagnosed with.",
+      "name": "relative_death_status",
+      "restrictions": {
+        "codeList": "#/list/yes_no"
+      },
+      "valueType": "string",
+      "displayName": "Death Status Of Relative"
+    },
+    {
+      "description": "Indicate how long, in years, the relative survived from the time of diagnosis if the patient's relative died from the cancer they were diagnosed with.",
+      "name": "relative_survival_time",
+      "restrictions": {
+      },
+      "valueType": "integer",
+      "displayName": "Survival Time Of Relative"
+    }
+  ]
+}
