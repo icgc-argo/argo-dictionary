@@ -1,8 +1,8 @@
 {
   "name": "family_history",
-  "description": "The collection of data elements related to a specific donor in an ARGO program.",
+  "description": "The collection of data elements describing a donors familial relationships and familial cancer history.",
   "meta": {
-    "parent": "specimen"
+    "parent": "donor"
   },
   "fields": [
     {
@@ -28,6 +28,20 @@
         "primaryId": true,
         "foreignKey": "sample_registration.submitter_donor_id",
         "displayName": "Submitter Donor ID"
+      },
+      "restrictions": {
+        "required": true,
+        "regex": "#/regex/submitter_id"
+      }
+    },
+    {
+      "description": "Unique identifier of the relative, assigned by the data provider.",
+      "name": "family_relative_id",
+      "valueType": "string",
+      "meta": {
+        "displayName": "Family Relative ID",
+        "notes": "This field is required to ensure that family members are identified in unique records.  Ids can be as simple as an incremented numeral to ensure uniqueness.",
+
       },
       "restrictions": {
         "required": true,
