@@ -40,7 +40,7 @@
       "valueType": "string",
       "meta": {
         "displayName": "Family Relative ID",
-        "notes": "This field is required to ensure that family members are identified in unique records.  Ids can be as simple as an incremented numeral to ensure uniqueness.",
+        "notes": "This field is required to ensure that family members are identified in unique records.  Ids can be as simple as an incremented numeral to ensure uniqueness."
 
       },
       "restrictions": {
@@ -134,7 +134,7 @@
       "description": "Indicate the cause of the death of the relative.",
       "name": "cause_of_death_of_relative",
       "restrictions": {
-        "codeList": ["Died of cancer", "Died of other reasons", "Unknown"],
+        "codeList": ["Died of cancer", "Died of other reasons", "Unknown"]
       },
       "valueType": "string",
       "meta": {
