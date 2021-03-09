@@ -108,7 +108,7 @@
         ]
       },
       "valueType": "string",
-      "displayName": "Gender of Relatives"
+      "displayName": "Gender of Relative"
     },
     {
       "description": "The age (in years) when the patient's relative was first diagnosed. (Reference: caDSR CDE ID 5300571)",
@@ -139,7 +139,7 @@
       "valueType": "string",
       "meta": {
         "core": true,
-        "displayName": "Cause of Death of Relative "
+        "displayName": "Cause of Death of Relative"
       }
     },
     {
