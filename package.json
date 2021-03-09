@@ -20,7 +20,7 @@
   "dependencies": {},
   "devDependencies": {
     "auto-load": "^3.0.4",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "chalk": "^3.0.0",
     "inquirer": "^7.0.1",
     "json-beautify": "^1.1.1",
