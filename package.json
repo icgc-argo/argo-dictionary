@@ -20,14 +20,13 @@
   "dependencies": {},
   "devDependencies": {
     "auto-load": "^3.0.4",
-    "axios": "^0.19.0",
     "chalk": "^3.0.0",
     "inquirer": "^7.0.1",
-    "json-beautify": "^1.1.1",
-    "querystring": "^0.2.0",
-    "yargs": "^15.0.2",
     "jest": "^25.2.3",
-    "prettier": "^1.19.1"
+    "json-beautify": "^1.1.1",
+    "prettier": "^1.19.1",
+    "querystring": "^0.2.0",
+    "yargs": "^15.0.2"
   },
   "prettier": {
     "printWidth": 100,
