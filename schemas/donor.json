@@ -167,19 +167,19 @@
     {
       "description": "Indicate the donor's height, in centimeters (cm).",
       "name": "height",
-      "valueType": "number",
+      "valueType": "integer",
       "meta": { "displayName": "Height" }
     },
     {
       "description": "Indicate the donor's weight, in kilograms (kg).",
       "name": "weight",
-      "valueType": "number",
+      "valueType": "integer",
       "meta": { "displayName": "Weight" }
     },
     {
       "description": "Indicate the donor's Body Mass Index (BMI) in kg/m².",
       "name": "bmi",
-      "valueType": "number",
+      "valueType": "integer",
       "meta": { "displayName": "BMI" }
     },
     {
