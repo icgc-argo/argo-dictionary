@@ -97,11 +97,13 @@
       "valueType": "string",
       "restrictions": {
         "required": true,
+        "script": "#/script/treatment/noTrtmentAndIntervalCheck",
         "codeList": "#/list/yes_no"
       },
       "meta": {
         "core": true,
-        "displayName": "Is Primary Treatment"
+        "displayName": "Is Primary Treatment",
+        "dependsOn": "treatment.treatment_type"
       }
     },
     {
@@ -118,13 +120,15 @@
       "description": "The interval between the primary diagnosis and initiation of treatment, in days.",
       "valueType": "integer",
       "restrictions": {
-        "required": true
+        "required": true,
+        "script": "#/script/treatment/noTreatmentValidation"
       },
       "meta": {
         "core": true,
         "units": "days",
         "notes": "The associated primary diagnosis is used as the reference point for this interval. To calculate this, find the number of days since the date of primary diagnosis.",
-        "displayName": "Treatment Start Interval"
+        "displayName": "Treatment Start Interval",
+        "dependsOn": "treatment.treatment_type"
       }
     },
     {
@@ -132,12 +136,14 @@
       "description": "The duration of treatment regimen, in days.",
       "valueType": "integer",
       "restrictions": {
-        "required": true
+        "required": true,
+        "script": "#/script/treatment/noTreatmentValidation"
       },
       "meta": {
         "core": true,
         "units": "days",
-        "displayName": "Treatment Duration"
+        "displayName": "Treatment Duration",
+        "dependsOn": "treatment.treatment_type"
       }
     },
     {
@@ -158,6 +164,7 @@
       "valueType": "string",
       "restrictions": {
         "required": true,
+        "script": "#/script/treatment/noTreatmentValidation",
         "codeList": [
           "Curative",
           "Palliative",
@@ -166,7 +173,8 @@
       },
       "meta": {
         "core": true,
-        "displayName": "Treatment Intent"
+        "displayName": "Treatment Intent",
+        "dependsOn": "treatment.treatment_type"
       }
     },
     {
@@ -175,6 +183,7 @@
       "valueType": "string",
       "restrictions": {
         "required": true,
+        "script": "#/script/treatment/noTreatmentValidation",
         "codeList": [
           "Adjuvant",
           "Advanced/Metastatic",
@@ -184,7 +193,8 @@
       },
       "meta": {
         "core": true,
-        "displayName": "Treatment Setting"
+        "displayName": "Treatment Setting",
+        "dependsOn": "treatment.treatment_type"
       }
     },
     {
@@ -193,6 +203,7 @@
       "valueType": "string",
       "restrictions": {
         "required": true,
+        "script": "#/script/treatment/noTreatmentValidation",
         "codeList": [
           "Complete response",
           "Disease progression",
@@ -203,7 +214,8 @@
       },
       "meta": {
         "core": true,
-        "displayName": "Response To Treatment"
+        "displayName": "Response To Treatment",
+        "dependsOn": "treatment.treatment_type"
       }
     },
     {
