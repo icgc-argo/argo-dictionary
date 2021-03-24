@@ -127,7 +127,8 @@ const myUnitTests = {
             'is_primary_treatment is not submitted when no treatment is given',
             true,
             loadObjects(treatment,
-                {   
+                {  
+                    "is_primary_treatment": "", 
                     "treatment_type": "No treatment"
                 }
             )
