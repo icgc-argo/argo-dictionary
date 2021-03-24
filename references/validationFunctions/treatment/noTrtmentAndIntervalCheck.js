@@ -49,7 +49,7 @@ const validation = () =>
             }
          }
       }
-      else if (treatmentType.includes("No treatment") && ((checkforEmpty($field)) || $field !== null)) {
+      else if (treatmentType.includes("No treatment") && ($field)) {
          result = {
             valid: false,
             message: `The '${$name}' field should not be submitted if 'treatment_type' is set to '${treatmentType}'`,
