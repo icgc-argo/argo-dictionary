@@ -27,27 +27,34 @@ const validation = () =>
   (function validate(inputs) {
       const {$row, $name, $field} = inputs;
       let result = {valid: true, message: "Ok"};
-      const treatmentType = $row.treatment_type.trim().toLowerCase();
+      const treatmentType = $row.treatment_type;
       
       // checks for a string just consisting of whitespace
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
       
-      if (treatmentType === "no treatment" && ($field || !(checkforEmpty($field)))) {
+      if (!(treatmentType.includes("No treatment"))) { 
+         if (!$field || checkforEmpty($field)) {
+            result = {
+               valid: false,
+               message: `The '${$name}' field must be submitted when 'treatment_type' is '${treatmentType}'`,
+            };
+         }
+         else if ((!(checkforEmpty($field))) && (typeof($field) === 'number')) {
+            daysValue = parseInt($field);
+            if (daysValue <= 0 ) {
+               result = {
+                  valid: false,
+                  message: `The '${$name}' field must be greater than 0 days if 'treatment_type' is set to '${treatmentType}'`,
+               };
+            }
+         }
+      }
+      else if (treatmentType.includes("No treatment") && ((checkforEmpty($field)) || $field !== null)) {
          result = {
             valid: false,
-            message: `The '${$name}' field should not be submitted if 'treatment_type' is set to 'No treatment'`,
+            message: `The '${$name}' field should not be submitted if 'treatment_type' is set to '${treatmentType}'`,
          };
       }
-      // ensure interval value is greater than 0
-      else if (typeof($field) === 'number') {
-        daysValue = parseInt($field);
-        if (daysValue <= 0 ) {
-           result = {
-              valid: false,
-              message: `The '${$name}' field must be greater than 0 days if 'treatment_type' is set to 'a treatment'`,
-           };
-        }
-      } 
       return result;
   });
 

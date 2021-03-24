@@ -96,7 +96,6 @@
       "description": "Indicate if the treatment was the primary treatment following the initial diagnosis.",
       "valueType": "string",
       "restrictions": {
-        "required": true,
         "script": "#/script/treatment/noTrtmentAndIntervalCheck",
         "codeList": "#/list/yes_no"
       },
@@ -120,7 +119,6 @@
       "description": "The interval between the primary diagnosis and initiation of treatment, in days.",
       "valueType": "integer",
       "restrictions": {
-        "required": true,
         "script": "#/script/treatment/noTrtmentAndIntervalCheck"
       },
       "meta": {
@@ -136,7 +134,6 @@
       "description": "The duration of treatment regimen, in days.",
       "valueType": "integer",
       "restrictions": {
-        "required": true,
         "script": "#/script/treatment/noTrtmentAndIntervalCheck"
       },
       "meta": {
@@ -163,7 +160,6 @@
       "description": "Indicate the intended disease outcome for which the treatment is given. (Reference: NCIt C124307)",
       "valueType": "string",
       "restrictions": {
-        "required": true,
         "script": "#/script/treatment/noTrtmentAndIntervalCheck",
         "codeList": [
           "Curative",
@@ -182,7 +178,6 @@
       "description": "Indicate the treatment setting, which describes the treatment's purpose in relation to the primary treatment. (Reference: NCIt C124308)",
       "valueType": "string",
       "restrictions": {
-        "required": true,
         "script": "#/script/treatment/noTrtmentAndIntervalCheck",
         "codeList": [
           "Adjuvant",
@@ -202,7 +197,6 @@
       "description": "The donor's response to the applied treatment regimen. (Source: RECIST)",
       "valueType": "string",
       "restrictions": {
-        "required": true,
         "script": "#/script/treatment/noTrtmentAndIntervalCheck",
         "codeList": [
           "Complete response",

@@ -45,7 +45,7 @@ const myUnitTests = {
             true,
             loadObjects(treatment,
                 {   
-                    "treatment_start_interval": 40,
+                    "treatment_start_interval": 409,
                     "treatment_type": "Chemotherapy"
                 }
             )
@@ -57,6 +57,15 @@ const myUnitTests = {
                 {   
                     "treatment_start_interval": -9999,
                     "treatment_type": "Chemotherapy"
+                }
+            )
+        ],
+        [
+            'treatment_start_interval is not submitted  when no treatment is given',
+            true,
+            loadObjects(treatment,
+                {
+                    "treatment_type": "No treatment"
                 }
             )
         ]
@@ -85,6 +94,16 @@ const myUnitTests = {
     ],
     'is_primary_treatment': [
         [
+            'is_primary_treatment is missing when treatment was given',
+            false,
+            loadObjects(treatment,
+                {   
+                    "is_primary_treatment": "",
+                    "treatment_type": "Chemotherapy"
+                }
+            )
+        ],
+        [
             'is_primary_treatment is submitted when no treatment was given',
             false,
             loadObjects(treatment,
@@ -101,6 +120,15 @@ const myUnitTests = {
                 {   
                     "is_primary_treatment": "No",
                     "treatment_type": "Chemotherapy"
+                }
+            )
+        ],
+        [
+            'is_primary_treatment is not submitted when no treatment is given',
+            true,
+            loadObjects(treatment,
+                {   
+                    "treatment_type": "No treatment"
                 }
             )
         ]
