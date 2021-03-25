@@ -28,23 +28,26 @@ const validation = () =>
       const {$row, $name, $field} = inputs;
       let result = {valid: true, message: "Ok"};
       const treatmentType = $row.treatment_type;
-      
+      const coreFields = ['is_primary_treatment', 'treatment_start_interval', 'treatment_duration', 'treatment_intent', 'treatment_setting', 'response_to_treatment'];
+ 
       // checks for a string just consisting of whitespace
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
-      
-      if (!(treatmentType.includes("No treatment"))) { 
-         if (!$field || checkforEmpty($field)) {
-            result = {
-               valid: false,
-               message: `The '${$name}' field must be submitted when 'treatment_type' is '${treatmentType}'`,
-            };
-         }
-         else if ((!(checkforEmpty($field))) && (typeof($field) === 'number')) {
-            daysValue = parseInt($field);
-            if (daysValue <= 0 ) {
+
+      if (!(treatmentType.includes("No treatment"))) {
+         if (coreFields.includes($name)) {
+            if (!$field || checkforEmpty($field)) {
                result = {
                   valid: false,
-                  message: `The '${$name}' field must be greater than 0 days if 'treatment_type' is set to '${treatmentType}'`,
+                  message: `The '${$name}' field must be submitted when 'treatment_type' is '${treatmentType}'`,
+               };
+            }
+         }
+         if ((!(checkforEmpty($field))) && (typeof($field) === 'number')) {
+            daysValue = parseInt($field);
+            if (daysValue <= 0 ) {
+                result = {
+                  valid: false,
+                  message: `The '${$name}' field must be a value greater than 0 if 'treatment_type' is set to '${treatmentType}'`,
                };
             }
          }

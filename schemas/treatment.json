@@ -96,7 +96,7 @@
       "description": "Indicate if the treatment was the primary treatment following the initial diagnosis.",
       "valueType": "string",
       "restrictions": {
-        "script": "#/script/treatment/noTrtmentAndIntervalCheck",
+        "script": "#/script/treatment/checkWhenNoTreatment",
         "codeList": "#/list/yes_no"
       },
       "meta": {
@@ -109,6 +109,9 @@
       "name": "line_of_treatment",
       "description": "Indicate the line of treatment if it is not the primary treatment.",
       "valueType": "integer",
+      "restrictions": {
+        "script": "#/script/treatment/checkWhenNoTreatment"
+      },
       "meta": {
         "displayName": "Line Of treatment",
         "examples": "2,3,4"
@@ -119,7 +122,7 @@
       "description": "The interval between the primary diagnosis and initiation of treatment, in days.",
       "valueType": "integer",
       "restrictions": {
-        "script": "#/script/treatment/noTrtmentAndIntervalCheck"
+        "script": "#/script/treatment/checkWhenNoTreatment"
       },
       "meta": {
         "core": true,
@@ -134,7 +137,7 @@
       "description": "The duration of treatment regimen, in days.",
       "valueType": "integer",
       "restrictions": {
-        "script": "#/script/treatment/noTrtmentAndIntervalCheck"
+        "script": "#/script/treatment/checkWhenNoTreatment"
       },
       "meta": {
         "core": true,
@@ -147,12 +150,18 @@
       "name": "days_per_cycle",
       "description": "Indicate the number of days in a treatment cycle.",
       "valueType": "integer",
+      "restrictions": {
+        "script": "#/script/treatment/checkWhenNoTreatment"
+      },
       "meta": { "displayName": "Days Per Cycle" }
     },
     {
       "name": "number_of_cycles",
       "description": "Indicate the number of treatment cycles.",
       "valueType": "integer",
+      "restrictions": {
+        "script": "#/script/treatment/checkWhenNoTreatment"
+      },
       "meta": { "displayName": "Number Of Cycles" }
     },
     {
@@ -160,7 +169,7 @@
       "description": "Indicate the intended disease outcome for which the treatment is given. (Reference: NCIt C124307)",
       "valueType": "string",
       "restrictions": {
-        "script": "#/script/treatment/noTrtmentAndIntervalCheck",
+        "script": "#/script/treatment/checkWhenNoTreatment",
         "codeList": [
           "Curative",
           "Palliative",
@@ -178,7 +187,7 @@
       "description": "Indicate the treatment setting, which describes the treatment's purpose in relation to the primary treatment. (Reference: NCIt C124308)",
       "valueType": "string",
       "restrictions": {
-        "script": "#/script/treatment/noTrtmentAndIntervalCheck",
+        "script": "#/script/treatment/checkWhenNoTreatment",
         "codeList": [
           "Adjuvant",
           "Advanced/Metastatic",
@@ -197,7 +206,7 @@
       "description": "The donor's response to the applied treatment regimen. (Source: RECIST)",
       "valueType": "string",
       "restrictions": {
-        "script": "#/script/treatment/noTrtmentAndIntervalCheck",
+        "script": "#/script/treatment/checkWhenNoTreatment",
         "codeList": [
           "Complete response",
           "Disease progression",
@@ -239,7 +248,8 @@
       "description": "If the treatment was terminated early due to acute toxicity, indicate whether it was due to hemotological toxicity or non-hemotological toxicity.",
       "valueType": "string",
       "restrictions": {
-        "codeList": ["Hemotological", "Non-hemotological"]
+        "codeList": ["Hemotological", "Non-hemotological"],
+        "script": "#/script/treatment/checkWhenNoTreatment"
       },
       "meta": {
         "displayName": "Toxicity Type"
@@ -261,7 +271,8 @@
           "Thrombocytopenia - Grade 3",
           "Thrombocytopenia - Grade 4",
           "Thrombocytopenia - Grade 5"
-        ]
+        ],
+        "script": "#/script/treatment/checkWhenNoTreatment"
       },
       "meta": {
         "displayName": "Hemotological Toxicity",
@@ -274,7 +285,8 @@
       "valueType": "string",
       "isArray": true,
       "restrictions": {
-        "codeList": "#/list/adverse_events"
+        "codeList": "#/list/adverse_events",
+        "script": "#/script/treatment/checkWhenNoTreatment"
       },
       "meta": {
         "displayName": "Adverse Events",

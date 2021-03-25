@@ -18,7 +18,7 @@
  *
  */
 
-const validation = require('../../references/validationFunctions/treatment/noTrtmentAndIntervalCheck.js');
+const validation = require('../../references/validationFunctions/treatment/checkWhenNoTreatment.js');
 
 const universalTest = require('../universal');
 const loadObjects = require('../loadObjects');
@@ -88,6 +88,15 @@ const myUnitTests = {
                 {   
                     "treatment_duration": 40,
                     "treatment_type": "Chemotherapy"
+                }
+            )
+        ],
+        [
+            'treatment_duration is missing when treatment is given',
+            false,
+            loadObjects(treatment,
+                {   
+                    "treatment_type": "Surgery"
                 }
             )
         ]
@@ -176,6 +185,59 @@ const myUnitTests = {
                     "treatment_type": "Chemotherapy"
                 }
             )
+        ]
+    ], 
+    'line_of_treatment': [
+        [
+           'line of treatment submitted even though no treatment was given',
+           false,
+           loadObjects(treatment,
+               {
+                    "line_of_treatment": 1,
+                    "treatment_type": "No treatment"
+               }
+           )
+        ],
+        [
+           'line of treatment not submitted when no treatment was given',
+           true,
+           loadObjects(treatment,
+               {
+                    "treatment_type": "No treatment"
+               }
+           )
+        ],
+        [
+           'line of treatment not submitted when Hormonal therapy given. Should not fail since this field is optional',
+           true,
+           loadObjects(treatment,
+               {
+                    "line_of_treatment": "",
+                    "treatment_type": "Hormonal therapy"
+               }
+           )
+        ],
+    ],
+    'days_per_cycle': [
+        [
+           'days per cycle is a negative number when no treatment was given',
+           false,
+           loadObjects(treatment,
+               {
+                    "days_per_cycle": -777,
+                    "treatment_type": "No treatment"
+               }
+           )
+        ],
+        [
+           'days per cycle is a negative number when Chemotherapy was given',
+           false,
+           loadObjects(treatment,
+               {
+                    "days_per_cycle": -777,
+                    "treatment_type": "Chemotherapy"
+               }
+           )
         ]
     ]
 }
