@@ -104,22 +104,48 @@
       }
     },
     {
-      "name": "number_lymph_nodes_positive",
-      "description": "The number of regional lymph nodes reported as being positive for tumour metastases. (Reference: caDSR CDE ID 6113694)",
-      "valueType": "integer",
+      "name": "lymph_nodes_examined_status",
+      "description": "Indicate if lymph nodes were examined for metastases.",
+      "valueType": "string",
       "restrictions": {
-        "required": true
+        "required": true,
+        "codeList": [
+          "Cannot be determined",
+          "No",
+          "No lymph nodes found in resected specimen",
+          "Not applicable",
+          "Yes"
+        ]
       },
       "meta": {
         "core": true,
-        "displayName": "Number Of Lymph Nodes Positive"
+        "displayName": "Lymph Nodes Examined Status"
       }
     },
     {
       "name": "number_lymph_nodes_examined",
       "description": "The total number of lymph nodes tested for the presence of cancer. (Reference: caDSR CDE ID 3)",
       "valueType": "integer",
-      "meta": { "displayName": "Number Of Lymph Nodes Examined" }
+      "restrictions": { "script": "#/script/primary_diagnosis/lymphNodesExamined" },
+      "meta": {
+        "displayName": "Number Of Lymph Nodes Examined",
+        "dependsOn": "primary_diagnosis.lymph_nodes_examined_status"
+       }
+    },
+    {
+      "name": "number_lymph_nodes_positive",
+      "description": "The number of regional lymph nodes reported as being positive for tumour metastases. (Reference: caDSR CDE ID 6113694)",
+      "valueType": "integer",
+      "restrictions": {
+        "required": true,
+        "script": "#/script/primary_diagnosis/lymphNodesExamined"
+      },
+      "meta": {
+        "core": true,
+        "displayName": "Number Of Lymph Nodes Positive",
+        "dependsOn": "primary_diagnosis.lymph_nodes_examined_status",
+        "notes": "This field is only required if 'lymph_nodes_examined_status' is 'Yes'."
+      }
     },
     {
       "name": "clinical_tumour_staging_system",
