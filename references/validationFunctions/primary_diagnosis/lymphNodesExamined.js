@@ -72,11 +72,12 @@ const validation = () =>
             else if ((!(checkforEmpty(numberLymphNodesExamined)) && ((parseInt($field) > parseInt(numberLymphNodesExamined))))) {
                result = {
                   valid: false,
-                  message: `The '${$name}' field must be a value greater than or equal to 'number_lymph_nodes_examined' if 'lymph_nodes_examined_status' is '${lymphNodesExaminedStatus}'`
+                  message: `The '${$name}' field must be a value less than or equal to 'number_lymph_nodes_examined' if 'lymph_nodes_examined_status' is '${lymphNodesExaminedStatus}'`
                };
             }
          }
-         else if (!(checkforEmpty($field))) {
+         //else if (!(checkforEmpty($field))) {
+         else if ($field) {
             result = {
                valid: false,
                message: `The '${$name}' field should not be submitted if 'lymph_nodes_examined_status' is '${lymphNodesExaminedStatus}'`
