@@ -137,7 +137,6 @@
       "description": "The number of regional lymph nodes reported as being positive for tumour metastases. (Reference: caDSR CDE ID 6113694)",
       "valueType": "integer",
       "restrictions": {
-        "required": true,
         "script": "#/script/primary_diagnosis/lymphNodesExamined"
       },
       "meta": {
