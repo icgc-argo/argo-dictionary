@@ -76,8 +76,7 @@ const validation = () =>
                };
             }
          }
-         //else if (!(checkforEmpty($field))) {
-         else if ($field) {
+         else if ($field || !(checkforEmpty($field))) {
             result = {
                valid: false,
                message: `The '${$name}' field should not be submitted if 'lymph_nodes_examined_status' is '${lymphNodesExaminedStatus}'`
