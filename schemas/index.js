@@ -38,6 +38,6 @@ module.exports = [
   chemotherapy,
   hormone_therapy,
   radiation,
+  immunotherapy,
   follow_up,
-  immunotherapy
 ];
