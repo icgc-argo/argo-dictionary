@@ -215,8 +215,17 @@ const myUnitTests = {
                     "number_lymph_nodes_positive": 0
                 }
             )
+        ],
+        [
+            'lymph nodes were examined was not applicable and number_lymph_nodes_positive is left empty',
+            true,
+            loadObjects(primary_diagnosis,
+                {   
+                    "lymph_nodes_examined_status": "Not applicable",
+                    "number_lymph_nodes_examined": 0,
+                }
+            )
         ]
-
     ]
 }
 

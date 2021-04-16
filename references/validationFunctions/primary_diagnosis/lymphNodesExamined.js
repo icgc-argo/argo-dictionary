@@ -29,14 +29,14 @@ const validation = () =>
       const {$row, $name, $field} = inputs;
       let result = {valid: true, message: "Ok"};
 
-      // checks for a string just consisting of whitespace
+      /* checks for a string just consisting of whitespacei */
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
       
       const lymphNodesExaminedStatus = $row.lymph_nodes_examined_status.trim().toLowerCase();
       const numberLymphNodesExamined = $row.number_lymph_nodes_examined;
       const numberLymphNodesPositive = $row.number_lymph_nodes_positive;
            
-      // if lymph nodes were examined and number_lymph_nodes_examined is submitted, it must be a value greater than 0. Otherwise, this field should be 0 or left blank.
+      /* if lymph nodes were examined and number_lymph_nodes_examined is submitted, it must be a value greater than 0. Otherwise, this field should be 0 or left blank. */
       if (($name === "number_lymph_nodes_examined") && (!(checkforEmpty($field)))) {
          if (lymphNodesExaminedStatus === "yes") { 
             if (parseInt($field) <= 0) {
@@ -54,7 +54,7 @@ const validation = () =>
         }
      }
       
-      // If lymph nodes were examined, number_lymph_nodes_positive must be submitted and it must be a value less than or equal to number_lymph_nodes_examined (if it is submitted). Otherwise, this field should not be submitted.
+      /* If lymph nodes were examined, number_lymph_nodes_positive must be submitted and it must be a value less than or equal to number_lymph_nodes_examined (if it is submitted). Otherwise, this field should not be submitted.*/
       else if ($name === "number_lymph_nodes_positive") {
          if (lymphNodesExaminedStatus === "yes") {
             if (checkforEmpty($field) || $field == null) {
@@ -76,7 +76,7 @@ const validation = () =>
                };
             }
          }
-         else if ($field || !(checkforEmpty($field))) {
+         else if ($field || $field != null) {
             result = {
                valid: false,
                message: `The '${$name}' field should not be submitted if 'lymph_nodes_examined_status' is '${lymphNodesExaminedStatus}'`
