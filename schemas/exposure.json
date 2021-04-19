@@ -42,6 +42,7 @@
         "displayName": "Tobacco Type",
         "notes": "To include multiple values, separate values with a pipe delimiter '|' within your file."
       },
+      "isArray": true,
       "restrictions": {
         "codeList":[
           "Chewing Tobacco",
@@ -124,6 +125,7 @@
         "displayName": "Alcohol Type",
         "notes": "To include multiple values, separate values with a pipe delimiter '|' within your file."
       },
+      "isArray": true,
       "restrictions": {
         "codeList": [
           "Beer",
