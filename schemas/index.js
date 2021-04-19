@@ -27,6 +27,7 @@ const chemotherapy = require('./chemotherapy.json');
 const hormone_therapy = require('./hormone_therapy.json');
 const radiation = require('./radiation.json');
 const follow_up = require('./follow_up.json');
+const exposure = require('./exposure.json');
 
 module.exports = [
   sample_registration,
@@ -38,4 +39,5 @@ module.exports = [
   hormone_therapy,
   radiation,
   follow_up,
+  exposure,
 ];

@@ -1,5 +1,15 @@
 {
   "yes_no": ["Yes", "No", "Unknown"],
+  "exposure_usage": ["Never","Unknown","Yes, currently","Yes, only in the past"],
+  "exposure_frequency": [
+    "Never",
+    "Less than once a month",
+    "1-3 times a month",
+    "Once or twice a week",
+    "Most days but not every day",
+    "Every day",
+    "Unknown"
+    ],
   "anatomic_locations": [
     "Abdomen",
     "Abdominal wall",

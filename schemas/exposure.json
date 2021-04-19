@@ -1,153 +1,219 @@
 {
   "name": "exposure",
-  "description": "The collection of data elements related to a donor's clinically relevant patient information not immediately resulting from genetic predispositions.",
+  "description": "The collection of data elements related to a donor's clinically relevant information not immediately resulting from genetic predispositions.",
+  "meta": {
+    "parent": "donor"
+  },
   "fields": [
     {
       "name": "program_id",
       "valueType": "string",
       "description": "Unique identifier of the ARGO program.",
+      "meta": {
+        "validationDependency": true,
+        "primaryId": true,
+        "foreignKey": "sample_registration.program_id",
+        "displayName": "Program ID"
+      },
       "restrictions": {
         "required": true
-      },
-      "meta": {
-        "displayName": "Program ID"
       }
     },
     {
+      "description": "Unique identifier of the donor, assigned by the data provider.",
       "name": "submitter_donor_id",
       "valueType": "string",
-      "description": "Unique identifier of the donor, assigned by the data provider.",
+      "meta": {
+        "validationDependency": true,
+        "primaryId": true,
+        "foreignKey": "sample_registration.submitter_donor_id",
+        "displayName": "Submitter Donor ID"
+      },
       "restrictions": {
         "required": true,
         "regex": "#/regex/submitter_id"
-      },
-      "meta": {
-        "displayName": "Submitter Donor ID"
       }
     },
     {
-      "name": "tobacco_smoking_history",
-      "description": "Description of the donors smoking history.",
+      "description": "Indicate the type(s) of tobacco used by donor. (Reference: NCIT)",
+      "name": "tobacco_type",
       "valueType": "string",
+      "meta": {
+        "displayName": "Tobacco Type",
+        "notes": "To include multiple values, separate values with a pipe delimiter '|' within your file."
+      },
       "restrictions": {
-        "codeList": [
-          "Lifelong non-smoker (<100 cigarettes smoked in lifetime)",
-          "Current smoker (includes daily smokers non-daily/occasional smokers)",
-          "Current reformed smoker for > 15 years",
+        "codeList":[
+          "Chewing Tobacco",
+          "Cigar",
+          "Cigarettes",
+          "Electronic cigarettes",
+          "Roll-ups",
+          "Snuff",
+          "Unknown",
+          "Waterpipe"
+          ]
+      }
+    },
+    {
+      "description": "Indicate donor's self-reported smoking status and history. (Reference: caDSR CDE ID 2181650)",
+      "name": "tobacco_smoking_status",
+      "valueType": "string",
+      "meta": {
+        "displayName": "Tobacco Smoking Status",
+        "notes": "Current smoker: Has smoked 100 cigarettes in their lifetime and who currently smokes. Includes daily smokers and non-daily smokers (also known as occassional smokers). Current reformed smoker for >15 years: A person who currently does not smoke and has been a non-smoker for more than 15 years, but has smoked at least 100 cigarettes in their life. Current reformed smoker for <= 15 years: A person who currently does not smoke and has been a non-smoker for less than 15 years, but has smoked at least 100 cigarettes in their life. Current reformed smoker, duration not specified: A person who currently does not smoke and has been a non-smoker for unspecified time, but has smoked at least 100 cigarettes in their lifetime. Smoking history not documented: Smoking history has not be recorded or is unknown."
+      },
+      "restrictions": {
+        "codeList":[
           "Current reformed smoker for <= 15 years",
+          "Current reformed smoker for > 15 years",
           "Current reformed smoker, duration not specified",
-          "Smoking history not documented"
-        ]
-      },
-      "meta": {
-        "displayName": "Tobacco Smoking History"
+          "Current smoker",
+          "Lifelong non-smoker (<100 cigarettes smoked in lifetime)",
+          "Smoking history not documented"          
+          ]
       }
     },
     {
-      "name": "tobacco_smoking_use",
-      "description": "Indicate the average number of cigarettes smoked per day by donor.",
-      "valueType": "integer",
+      "description": "This field applies to cigarettes. Indicate the smoking intensity in Pack Years, where the number of pack years is defined as the number of cigarettes smoked per day times (x) the number of years smoked divided (/) by 20. (Reference: caDSR CDE ID 2955385)",
+      "name": "pack_years_smoked",
+      "valueType": "number",
+      "meta": {
+        "displayName": "Pack Years Smoked",
+        "notes": "Current smoker: Has smoked 100 cigarettes in their lifetime and who currently smokes. Includes daily smokers and non-daily smokers (also known as occassional smokers). Current reformed smoker for >15 years: A person who currently does not smoke and has been a non-smoker for more than 15 years, but has smoked at least 100 cigarettes in their life. Current reformed smoker for <= 15 years: A person who currently does not smoke and has been a non-smoker for less than 15 years, but has smoked at least 100 cigarettes in their life. Current reformed smoker, duration not specified: A person who currently does not smoke and has been a non-smoker for unspecified time, but has smoked at least 100 cigarettes in their lifetime. Smoking history not documented: Smoking history has not be recorded or is unknown."
+      },
       "restrictions": {
-        "script": [
-          "function validate() {\r\n  var result = { valid: true, message: \"required if current OR reformed smoker enums\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
-        ]
-      },
-      "meta": {
-        "displayName": "Tobacco Smoking Use"
+        "min": 0
       }
     },
     {
-      "name": "tobacco_smoking_duration",
-      "description": "Indicate the duration of time, in years, that the donor was a smoker.",
-      "valueType": "integer",
-      "restrictions": {
-        "script": [
-          "function validate() {\r\n  var result = { valid: true, message: \"required if current OR reformed smoker enums\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
-        ]
-      },
-      "meta": {
-        "displayName": "Tobacco Smoking Duration"
-      }
-    },
-    {
-      "name": "alternative_tobacco_use",
-      "description": "Indicate if the donor has a history of using alternative tobacco products. Smokeless tobacco includes chewing tobacco, snuff, and dissolvable tobacco.",
-      "valueType": "string",
-      "restrictions": {
-        "codeList": ["E-cigarettes/vaping", "Smokeless tobacco", "Waterpipe"]
-      },
-      "meta": {
-        "displayName": "Alternative Tobacco Use"
-      }
-    },
-    {
-      "name": "alternative_tobacco_duration",
-      "description": "Indicate the duration of time, in years, that the donor was a user of a form of tobacco usage other than cigarettes.",
-      "valueType": "integer"
-    },
-    {
-      "name": "second_hand_smoke_exposure",
-      "description": "Indicate if the donor was exposed to second hand smoke.",
-      "valueType": "string",
-      "restrictions": {
-        "codeList": "#/list/yes_no"
-      },
-      "meta": {
-        "displayName": "Second Hand Smoke Exposure"
-      }
-    },
-    {
-      "name": "second_hand_smoke_duration",
-      "description": "If the donor was exposed to second hand smoke, indicate the duration of time, in years, that they were exposed.",
-      "valueType": "integer",
-      "restrictions": {
-        "script": [
-          "function validate() {\r\n  var result = { valid: true, message: \"required if second_hand_smoke_exposure = YES\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
-        ]
-      },
-      "meta": {
-        "displayName": "Second Hand Smoke Duration"
-      }
-    },
-    {
+      "description": "Indicate if the donor has consumed at least 12 drinks of any alcoholic beverage in their lifetime. (Reference: caDSR CDE ID 2201918)",
       "name": "alcohol_history",
-      "description": "Indicate the donors response to whether the patient has consumed at least 12 drinks of any alchoholic beverage in their lifetime.",
       "valueType": "string",
-      "restrictions": {
-        "codeList": "#/list/yes_no"
-      },
       "meta": {
         "displayName": "Alcohol History"
-      }
-    },
-    {
-      "name": "alcohol_consumption",
-      "description": "Describe the donor current level of alcohol use as self-reported by the donor.",
-      "valueType": "string",
-      "restrictions": {
-        "script": [
-          "function validate() {\r\n  var result = { valid: true, message: \"required if alcohol_history = YES\" };\r\n  return result;\r\n}\r\n\r\nvalidate();"
-        ],
-        "codeList": [
-          "None",
-          "Social drinker (> once a month, < once a week)",
-          "Weekly drinker (>=1x a week)",
-          "Daily drinker",
-          "Occassional drinker (< once a month)",
-          "Not documented"
-        ]
       },
-      "meta": {
-        "displayName": "Alcohol Consumption"
+      "restrictions": {
+        "codeList": "#/list/yes_no"
       }
     },
     {
-      "name": "alcohol_consumption_duration",
-      "description": "Indicate the duration of time, in years, that the donor has consumed alcohol.",
-      "valueType": "integer",
+      "description": "Describe the donor's current level of alcohol use as self-reported by the donor. (Reference: caDSR CDE ID 3457767)",
+      "name": "alcohol_history_intensity",
+      "valueType": "string",
       "meta": {
-        "displayName": "Alcolohol Consumption Duration"
+        "displayName": "Alcohol History",
+        "notes": ""
+      },
+      "restrictions": {
+        "codeList": [
+          "Daily Drinker",
+          "None",
+          "Not Documented",
+          "Occasional Drinker (< once a month)",
+          "Social Drinker (> once a month, < once a week)",
+          "Weekly Drinker (>=1x a week)"
+        ]
       }
-    }
+    },
+    {
+      "description": "Indicate the type(s) of alcohol the donor consumed. (Reference: NCIt CDE C173647)",
+      "name": "alcohol_type",
+      "valueType": "string",
+      "meta": {
+        "displayName": "Alcohol Type",
+        "notes": "To include multiple values, separate values with a pipe delimiter '|' within your file."
+      },
+      "restrictions": {
+        "codeList": [
+          "Beer",
+          "Liquor",
+          "Other",
+          "Unknown",
+          "Wine"
+        ]
+      }
+    },
+    {
+      "description": "Indicate if the donor has ever used opium or other opiates like opium juice, heroin, or Sukhteh regularly (at least weekly over a 6-month period).",
+      "name": "opiate_use",
+      "valueType": "string",
+      "meta": {
+        "displayName": "Opiate Use"
+      },
+      "restrictions": {
+        "codeList": "#/list/exposure_usage"
+      }
+    },
+    {
+      "description": "Indicate if the donor regularly drinks tea, coffee, or other hot drinks.",
+      "name": "hot_drinks",
+      "valueType": "string",
+      "meta": {
+        "displayName": "Hot Drink Consumption"
+      },
+      "restrictions": {
+        "codeList": "#/list/exposure_usage"
+      }
+    },
+    {
+      "description": "Indicate how frequently the donor eats red meat. Examples of red meat include beef, veal, pork, lamb, mutton, horse, or goat meat.",
+      "name": "red_meat",
+      "valueType": "string",
+      "meta": {
+        "displayName": "Red Meat Consumption Frequency"
+      },
+      "restrictions": {
+        "codeList": "#/list/exposure_frequency"
+      }
+    },
+    {
+      "description": "Indicate how frequently the patient eats processed meat. Examples of processed meat include hams, salamis, or sausages.",
+      "name": "processed_meat",
+      "valueType": "string",
+      "meta": {
+        "displayName": "Processed Meat Consumption Frequency"
+      },
+      "restrictions": {
+        "codeList": "#/list/exposure_frequency"
+      }
+    },
+    {
+      "description": "Indicate the frequency of soft drink consumption by the donor.",
+      "name": "soft_drinks",
+      "valueType": "string",
+      "meta": {
+        "displayName": "Soft Drink Consumption Frequency"
+      },
+      "restrictions": {
+        "codeList": "#/list/exposure_frequency"
+      }
+    },
+    {
+      "description": "Indicate how many times per week the donor exercises for at least 30 minutes. (Reference: NCIt CDE C25367)",
+      "name": "exercise_frequency",
+      "valueType": "string",
+      "meta": {
+        "displayName": "Exercise Frequency"
+      },
+      "restrictions": {
+        "codeList": "#/list/exposure_frequency"
+      }
+    },
+    {
+      "description": "Indicate the intensity of exercise. (Reference: NCIt CDE C25539)",
+      "name": "exercise_intensity",
+      "valueType": "string",
+      "meta": {
+        "displayName": "Exercise Intensity"
+      },
+      "restrictions": {
+        "codeList": [
+          "Low: No increase in the heart beat, and no perspiration",
+          "Moderate: Increase in the heart beat slightly with some light perspiration",
+          "Vigorous: Increase in the heart beat substantially with heavy perspiration"
+        ]
+      }
+    },
   ]
 }
