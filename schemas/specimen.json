@@ -158,7 +158,10 @@
         "displayName": "Specimen Acquisition Interval"
       },
       "restrictions": {
-        "required": true
+        "required": true,
+        "range": {
+           "min": 0
+        }
       }
     },
     {
@@ -315,6 +318,12 @@
         "dependsOn": "sample_registration.tumour_normal_designation",
         "notes": "#/notes/if_tumour",
         "displayName": "Percent Tumour Cells"
+      },
+      "restrictions": {
+         "range": {
+            "min": 0,
+            "max": 0.1
+          }
       }
     },
     {
@@ -325,6 +334,12 @@
         "dependsOn": "sample_registration.tumour_normal_designation",
         "notes": "",
         "displayName": "Percent Proliferating Cells"
+      },
+      "restrictions": {
+         "range": {
+            "min": 0,
+            "max": 0.1
+          }
       }
     },
     {
@@ -335,6 +350,12 @@
         "dependsOn": "sample_registration.tumour_normal_designation",
         "notes": "",
         "displayName": "Percent Inflammatory Tissue"
+      },
+      "restrictions": {
+         "range": {
+            "min": 0,
+            "max": 0.1
+          }
       }
     },
     {
@@ -345,6 +366,12 @@
         "dependsOn": "sample_registration.tumour_normal_designation",
         "notes": "",
         "displayName": "Percent Stromal Cells"
+      },
+      "restrictions": {
+         "range": {
+            "min": 0,
+            "max": 0.1
+          }
       }
     },
     {
@@ -355,6 +382,12 @@
         "dependsOn": "sample_registration.tumour_normal_designation",
         "notes": "",
         "displayName": "Percent Necrosis"
+      },
+      "restrictions": {
+         "range": {
+            "min": 0,
+            "max": 0.1
+          }
       }
     }
   ]

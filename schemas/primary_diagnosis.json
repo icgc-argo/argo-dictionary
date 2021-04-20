@@ -52,7 +52,11 @@
       "valueType": "integer",
       "description": "Age that the donor was first diagnosed with cancer, in years. This should be based on the earliest diagnosis of cancer.",
       "restrictions": {
-        "required": true
+        "required": true,
+        "range": {
+           "exclusiveMax": 0,
+           "max": 90
+        }
       },
       "meta": {
         "units": "years",
@@ -126,7 +130,12 @@
       "name": "number_lymph_nodes_examined",
       "description": "The total number of lymph nodes tested for the presence of cancer. (Reference: caDSR CDE ID 3)",
       "valueType": "integer",
-      "restrictions": { "script": "#/script/primary_diagnosis/lymphNodesExamined" },
+      "restrictions": { 
+         "script": "#/script/primary_diagnosis/lymphNodesExamined",
+         "range": {
+            "min": 0
+         }
+      },
       "meta": {
         "displayName": "Number Of Lymph Nodes Examined",
         "dependsOn": "primary_diagnosis.lymph_nodes_examined_status"
@@ -137,7 +146,10 @@
       "description": "The number of regional lymph nodes reported as being positive for tumour metastases. (Reference: caDSR CDE ID 6113694)",
       "valueType": "integer",
       "restrictions": {
-        "script": "#/script/primary_diagnosis/lymphNodesExamined"
+        "script": "#/script/primary_diagnosis/lymphNodesExamined",
+         "range": {
+            "min": 0
+         }
       },
       "meta": {
         "core": true,

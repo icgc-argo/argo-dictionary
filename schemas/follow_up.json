@@ -53,7 +53,10 @@
       "name": "interval_of_followup",
       "valueType": "integer",
       "restrictions": {
-        "required": true
+        "required": true,
+        "range": {
+           "exclusiveMin": 0
+        }
       },
       "meta": {
         "core": true,
@@ -112,7 +115,11 @@
       "description": "Indicate the donor's weight, in kilograms (kg), at the time of follow-up.",
       "name": "weight_at_followup",
       "valueType": "integer",
-      "restrictions": {},
+      "restrictions": {
+         "range": {
+            "exclusiveMin": 0
+         }
+      },
       "meta": {
         "displayName": "Weight at Follow-Up"
       }
@@ -142,7 +149,10 @@
       "name": "relapse_interval",
       "valueType": "integer",
       "restrictions": {
-        "script": "#/script/follow_up/relapse_interval"
+        "script": "#/script/follow_up/relapse_interval",
+        "range": {
+           "exclusiveMin": 0
+        }
       },
       "meta": {
         "core": true,
