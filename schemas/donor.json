@@ -187,11 +187,11 @@
       "name": "menopause_status",
       "restrictions": {
         "codeList": [
-          "Indeterminate or unknown",
           "Not applicable",
           "Perimenopausal",
           "Postmenopausal",
-          "Premenopausal"
+          "Premenopausal",
+          "Unknown"
         ]
       },
       "valueType": "string",
