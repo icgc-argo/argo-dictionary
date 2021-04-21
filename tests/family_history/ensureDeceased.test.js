@@ -58,6 +58,15 @@ const myUnitTests = {
             )
         ],
         [
+            'Relative cause of death is submitted but relative_vital_status is not submitted.',
+            false,
+            loadObjects(family_history,
+                {
+                    "cause_of_death_of_relative": "died of cancer"
+                }
+            )
+        ],
+        [
             'Relative vital status is deceased and cause of death is not submitted.',
             true,
             loadObjects(family_history,
