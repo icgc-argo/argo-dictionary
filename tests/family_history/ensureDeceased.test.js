@@ -65,8 +65,14 @@ const myUnitTests = {
                     "relative_vital_status": "deceased"
                 }
             )
-        ]
-
+        ],
+        [
+            'Both relative_vital_status and cause_of_death_of_relative are undefined.',
+            true,
+            loadObjects(family_history, {
+               })
+        ],
+        ['both undefined', true, family_history]
     ]
 };
 

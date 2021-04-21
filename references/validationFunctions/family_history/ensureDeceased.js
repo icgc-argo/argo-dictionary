@@ -25,11 +25,13 @@ const validation = () =>
     (function validate(inputs) {
         const {$row, $name, $field} = inputs;
         let result = {valid: true, message: "Ok"};
-        const vitalStatus = $row.relative_vital_status.trim().toLowerCase();
         const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
-    
-        if (!(checkforEmpty($field)) && vitalStatus != "deceased"){
-            result = {valid: false, message: `${$name} cannot be provided if the relative's vital_status is not deceased.`}
+   
+        if ($row.relative_vital_status) {
+           const vitalStatus = $row.relative_vital_status.trim().toLowerCase();
+           if (!(checkforEmpty($field)) && vitalStatus != "deceased") {
+              result = {valid: false, message: `${$name} cannot be provided if the relative's vital_status is not deceased.`}
+           }
         }
         return result;
     });
