@@ -54,7 +54,7 @@
       "restrictions": {
         "required": true,
         "range": {
-           "exclusiveMax": 0,
+           "exclusiveMin": 0,
            "max": 90
         }
       },
