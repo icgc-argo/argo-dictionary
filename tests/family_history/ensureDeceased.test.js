@@ -56,7 +56,17 @@ const myUnitTests = {
                     "cause_of_death_of_relative" : "Died of Other Reasons"
                 }
             )
+        ],
+        [
+            'Relative vital status is deceased and cause of death is not submitted.',
+            true,
+            loadObjects(family_history,
+                {
+                    "relative_vital_status": "deceased"
+                }
+            )
         ]
+
     ]
 };
 
