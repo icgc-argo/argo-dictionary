@@ -29,7 +29,7 @@ const validation = () =>
         
         if ($row.relative_vital_status && $row.relative_vital_status != null) {
            const vitalStatus = $row.relative_vital_status.trim().toLowerCase();
-           if (!(checkforEmpty($field)) && (vitalStatus === "alive" || vitalStatus === "unknown")) {
+           if (($field || $field != null) && (vitalStatus === "alive" || vitalStatus === "unknown")) {
               result = {valid: false, message: `${$name} cannot be provided if the relative's vital_status is '${vitalStatus}'.`}
            }
         }
