@@ -34,7 +34,7 @@ const validation = () =>
            }
         }
         else {
-           if ($field) {
+           if ($field || $field != null) {
               result = {valid: false, message: `'relative_vital_status' must be submitted as 'deceased' if '${$name}' is '${$field}'.` } 
            }
         }
