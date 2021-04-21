@@ -30,11 +30,9 @@ const validation = () =>
 
       const currField = typeof($field) === 'string' ? $field.trim().toLowerCase() : $field;
  
-      // checks for a string just consisting of whitespace
-      const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
       if ($row.relative_with_cancer_history) {
          const relativeWithCancerHistory = $row.relative_with_cancer_history.trim().toLowerCase();
-         if ((relativeWithCancerHistory === "no") || (relativeWithCancerHistory === "unknown") && $field) {
+         if (((relativeWithCancerHistory === "no") || (relativeWithCancerHistory === "unknown")) && currField != null) {
             result = {
                valid: false,
                message: `The '${$name}' field should not be submitted if 'relative_with_cancer_history' is '${relativeWithCancerHistory}'`,

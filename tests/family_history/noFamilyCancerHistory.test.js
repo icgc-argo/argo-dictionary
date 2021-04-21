@@ -93,7 +93,17 @@ const myUnitTests = {
                     "relative_survival_time": 300
                 }
             )
+        ],
+        [
+            'relative_survival_time is not submitted when relative_with_cancer_history is no',
+            true,
+            loadObjects(family_history,
+                {   
+                    "relative_with_cancer_history": "no",
+                }
+            )
         ]
+
     ]
 }
 
