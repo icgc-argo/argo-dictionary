@@ -71,6 +71,15 @@ const myUnitTests = {
                     "cancer_type_code_of_relative": "C50"
                 }
             )
+        ],
+        [
+            'cancer_type_code_of_relative is submitted when relative_with_cancer_history is not submitted',
+            false,
+            loadObjects(family_history,
+                {   
+                    "cancer_type_code_of_relative": "C50"
+                }
+            )
         ]
     ],
     'relative_survival_time': [
