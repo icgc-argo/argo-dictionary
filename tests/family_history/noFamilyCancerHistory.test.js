@@ -91,6 +91,56 @@ const myUnitTests = {
                 }
             )
         ]
+    ],
+    'relative_survival_time': [
+        [
+            'relative_survival_time is submitted when relative_with_cancer_history is yes',
+            true,
+            loadObjects(family_history,
+                {   
+                    "relative_with_cancer_history": "yes",
+                    "relative_survival_time": 738
+                }
+            )
+        ],
+        [
+            'relative_survival_time is submitted when relative_with_cancer_history is no',
+            false,
+            loadObjects(family_history,
+                {   
+                    "relative_with_cancer_history": "no",
+                    "relative_survival_time": 738
+                }
+            )
+        ],
+        [
+            'relative_survival_time is submitted when relative_with_cancer_history is unknown',
+            false,
+            loadObjects(family_history,
+                {   
+                    "relative_with_cancer_history": "unknown",
+                    "relative_survival_time": 388
+                }
+            )
+        ],
+        [
+            'relative_survival_time is submitted when relative_with_cancer_history is left empty',
+            false,
+            loadObjects(family_history,
+                {   
+                    "relative_survival_time": 90
+                }
+            )
+        ],
+        [
+            'relative_survival_time is not submitted when relative_with_cancer_history is yes',
+            true,
+            loadObjects(family_history,
+                {   
+                    "relative_with_cancer_history": "yes",
+                }
+            )
+        ]
     ]
 }
 

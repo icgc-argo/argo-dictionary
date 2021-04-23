@@ -145,7 +145,6 @@
       },
       "valueType": "string",
       "meta": {
-        "dependsOn": "family_history.relative_with_cancer_history",
         "displayName": "Vital Status of Relative"
       }
     },
@@ -170,6 +169,7 @@
       "description": "Indicate how long, in days, the relative survived from the time they were diagnosed with cancer.",
       "name": "relative_survival_time",
       "restrictions": {
+        "script": "#/script/family_history/noFamilyCancerHistory"
       },
       "valueType": "integer",
       "meta": {
