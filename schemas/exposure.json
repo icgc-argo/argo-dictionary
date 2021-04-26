@@ -100,10 +100,10 @@
     },
     {
       "description": "Describe the donor's current level of alcohol use as self-reported by the donor. (Reference: caDSR CDE ID 3457767)",
-      "name": "alcohol_history_intensity",
+      "name": "alcohol_consumption_category",
       "valueType": "string",
       "meta": {
-        "displayName": "Alcohol History",
+        "displayName": "Alcohol Consumption Category",
         "notes": ""
       },
       "restrictions": {
@@ -216,6 +216,6 @@
           "Vigorous: Increase in the heart beat substantially with heavy perspiration"
         ]
       }
-    },
+    }
   ]
 }
