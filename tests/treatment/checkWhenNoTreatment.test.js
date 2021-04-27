@@ -51,16 +51,6 @@ const myUnitTests = {
             )
         ],
         [
-            'treatment_start_interval is a negative value when treatment is given',
-            false,
-            loadObjects(treatment,
-                {   
-                    "treatment_start_interval": -9999,
-                    "treatment_type": "Chemotherapy"
-                }
-            )
-        ],
-        [
             'treatment_start_interval is not submitted  when no treatment is given',
             true,
             loadObjects(treatment,
@@ -68,7 +58,16 @@ const myUnitTests = {
                     "treatment_type": "No treatment"
                 }
             )
-        ]
+        ],
+        [
+            'treatment_start_interval is submitted but treatment_type is not submitted',
+            true,
+            loadObjects(treatment,
+                {   
+                    "treatment_start_interval": 30,
+                }
+            )
+        ],
     ],
     'treatment_duration': [
         [
@@ -220,21 +219,11 @@ const myUnitTests = {
     ],
     'days_per_cycle': [
         [
-           'days per cycle is a negative number when no treatment was given',
-           false,
+           'days per cycle is submitted when Chemotherapy was given',
+           true,
            loadObjects(treatment,
                {
-                    "days_per_cycle": -777,
-                    "treatment_type": "No treatment"
-               }
-           )
-        ],
-        [
-           'days per cycle is a negative number when Chemotherapy was given',
-           false,
-           loadObjects(treatment,
-               {
-                    "days_per_cycle": -777,
+                    "days_per_cycle": 12,
                     "treatment_type": "Chemotherapy"
                }
            )
