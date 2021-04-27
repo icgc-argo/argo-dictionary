@@ -32,56 +32,58 @@ const validation = () =>
       /* checks for a string just consisting of whitespacei */
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
       
-      const lymphNodesExaminedStatus = $row.lymph_nodes_examined_status.trim().toLowerCase();
       const numberLymphNodesExamined = $row.number_lymph_nodes_examined;
       const numberLymphNodesPositive = $row.number_lymph_nodes_positive;
-           
-      /* if lymph nodes were examined and number_lymph_nodes_examined is submitted, it must be a value greater than 0. Otherwise, this field should be 0 or left blank. */
-      if (($name === "number_lymph_nodes_examined") && (!(checkforEmpty($field)))) {
-         if (lymphNodesExaminedStatus === "yes") { 
-            if (parseInt($field) <= 0) {
+      
+      if ($row.lymph_nodes_examined_status != null) {
+         const lymphNodesExaminedStatus = $row.lymph_nodes_examined_status.trim().toLowerCase();
+         /* if lymph nodes were examined and number_lymph_nodes_examined is submitted, it must be a value greater than 0. Otherwise, this field should be 0 or left blank. */
+         if (($name === "number_lymph_nodes_examined") && (!(checkforEmpty($field)))) {
+            if (lymphNodesExaminedStatus === "yes") { 
+               if (parseInt($field) <= 0) {
+                  result = {
+                    valid: false,
+                    message: `The '${$name}' field must be a value greater than 0 if 'lymph_nodes_examined_status' is '${lymphNodesExaminedStatus}'`
+                  };
+               }
+            }
+            else if (parseInt($field) > 0) {
                result = {
                  valid: false,
-                 message: `The '${$name}' field must be a value greater than 0 if 'lymph_nodes_examined_status' is '${lymphNodesExaminedStatus}'`
+                 message: `The '${$name}' field must be submitted as 0 or left blank if 'lymph_nodes_examined_status' is '${lymphNodesExaminedStatus}'`
                };
             }
          }
-         else if (parseInt($field) > 0) {
-            result = {
-              valid: false,
-              message: `The '${$name}' field must be submitted as 0 or left blank if 'lymph_nodes_examined_status' is '${lymphNodesExaminedStatus}'`
-           };
-        }
-     }
       
-      /* If lymph nodes were examined, number_lymph_nodes_positive must be submitted and it must be a value less than or equal to number_lymph_nodes_examined (if it is submitted). Otherwise, this field should not be submitted.*/
-      else if ($name === "number_lymph_nodes_positive") {
-         if (lymphNodesExaminedStatus === "yes") {
-            if (checkforEmpty($field) || $field == null) {
+         /* If lymph nodes were examined, number_lymph_nodes_positive must be submitted and it must be a value less than or equal to number_lymph_nodes_examined (if it is submitted). Otherwise, this field should not be submitted.*/
+         else if ($name === "number_lymph_nodes_positive") {
+            if (lymphNodesExaminedStatus === "yes") {
+               if (checkforEmpty($field) || $field == null) {
+                  result = {
+                     valid: false,
+                     message: `The '${$name}' field must be submitted if 'lymph_nodes_examined_status' is '${lymphNodesExaminedStatus}'`
+                  };
+               }
+               else if (parseInt($field) < 0) {
+                  result = {
+                    valid: false,
+                    message: `The '${$name}' field must be a value greater than or equal to 0 if 'lymph_nodes_examined_status' is '${lymphNodesExaminedStatus}'`
+                  };
+               }
+               else if ((!(checkforEmpty(numberLymphNodesExamined)) && ((parseInt($field) > parseInt(numberLymphNodesExamined))))) {
+                  result = {
+                    valid: false,
+                    message: `The '${$name}' field must be a value less than or equal to 'number_lymph_nodes_examined' if 'lymph_nodes_examined_status' is '${lymphNodesExaminedStatus}'`
+                  };
+               }
+            }
+            else if ($field || $field != null) {
                result = {
-                  valid: false,
-                  message: `The '${$name}' field must be submitted if 'lymph_nodes_examined_status' is '${lymphNodesExaminedStatus}'`
+                 valid: false,
+                 message: `The '${$name}' field should not be submitted if 'lymph_nodes_examined_status' is '${lymphNodesExaminedStatus}'`
                };
             }
-            else if (parseInt($field) < 0) {
-               result = {
-                  valid: false,
-                  message: `The '${$name}' field must be a value greater than or equal to 0 if 'lymph_nodes_examined_status' is '${lymphNodesExaminedStatus}'`
-               };
-            }
-            else if ((!(checkforEmpty(numberLymphNodesExamined)) && ((parseInt($field) > parseInt(numberLymphNodesExamined))))) {
-               result = {
-                  valid: false,
-                  message: `The '${$name}' field must be a value less than or equal to 'number_lymph_nodes_examined' if 'lymph_nodes_examined_status' is '${lymphNodesExaminedStatus}'`
-               };
-            }
-         }
-         else if ($field || $field != null) {
-            result = {
-               valid: false,
-               message: `The '${$name}' field should not be submitted if 'lymph_nodes_examined_status' is '${lymphNodesExaminedStatus}'`
-            };
-         }
+        }
      }
      return result;
 });
