@@ -120,13 +120,22 @@ const myUnitTests = {
             )
         ],
         [
-            'Clinical trials database is no correct, but has EudraCT number',
+            'Clinical trials database is not correct, but has EudraCT number',
             false,
             loadObjects(treatment,
                 {   
                     "clinical_trials_database": "  My own clinical trials database ",
                     "clinical_trial_number":  "2010-123456-11"
 
+                }
+            )
+        ],
+        [
+            'Clinical trials database is missing, but has trial number submitted',
+            false,
+            loadObjects(treatment,
+                {   
+                    "clinical_trial_number":  "2010-123456-11"
                 }
             )
         ],

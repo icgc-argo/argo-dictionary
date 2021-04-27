@@ -251,6 +251,7 @@
       "description": "Specify the tumour staging system used to assess the description of a tumour based on how abnormal the tumour cells and the tumour tissue look under a microscope. Tumour grade is an indicator of how quickly a tumour is likely to grow.",
       "valueType": "string",
       "meta": {
+        "validationDependency": true,
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
         "notes": "#/notes/if_tumour",

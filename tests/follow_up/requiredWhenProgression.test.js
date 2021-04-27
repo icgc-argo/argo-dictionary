@@ -88,7 +88,17 @@ const myUnitTests = {
                     "method_of_progression_status": "imaging"
                 }
             )
+        ],
+        [
+            'method of progression is submitted but disease status is missing',
+            true,
+            loadObjects(followUp,
+                {   
+                    "method_of_progression_status": "imaging"
+                }
+            )
         ]
+
     ],
     'anatomic_site_progression_or_recurrences': [
         [
@@ -126,6 +136,15 @@ const myUnitTests = {
                 {   
                     "disease_status_at_followup": "stable",
                     "anatomic_site_progression_or_recurrences": "C50.1"
+                }
+            )
+        ],
+        [
+            'Disease status is missing, with provided ASPOR',
+            true,
+            loadObjects(followUp,
+                {   
+                    "anatomic_site_progression_or_recurrences": "C50"
                 }
             )
         ]

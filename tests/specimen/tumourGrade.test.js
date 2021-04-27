@@ -188,13 +188,13 @@ const unitTests = [
       tumour_grade: 'any text here',
     }),
   ],
- // [
- //   'grade is g2 but grading system is undefined',
- //   false,
- //   loadObjects(specimen, {
- //     tumour_grade: 'g2',
- //   }),
- // ],
+  [
+    'grade is g2 but grading system is undefined',
+     true,
+     loadObjects(specimen, {
+       tumour_grade: 'g2',
+     }),
+  ],
   [
     'grade system is not one of the valid grading systems',
     false,
