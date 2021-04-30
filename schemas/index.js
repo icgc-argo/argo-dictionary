@@ -29,6 +29,7 @@ const radiation = require('./radiation.json');
 const follow_up = require('./follow_up.json');
 const family_history = require('./family_history.json');
 const immunotherapy = require('./immunotherapy.json');
+const comorbidity = require('./comorbidity.json');
 
 module.exports = [
   sample_registration,
@@ -42,4 +43,5 @@ module.exports = [
   immunotherapy,
   follow_up,
   family_history,
+  comorbidity
 ];
