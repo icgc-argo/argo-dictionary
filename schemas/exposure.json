@@ -40,6 +40,7 @@
       "valueType": "string",
       "meta": {
         "displayName": "Tobacco Type",
+        "dependsOn": "tobacco_smoking_status",
         "notes": "To include multiple values, separate values with a pipe delimiter '|' within your file."
       },
       "isArray": true,
@@ -53,7 +54,8 @@
           "Snuff",
           "Unknown",
           "Waterpipe"
-          ]
+          ],
+        "script": "#/script/exposure/checkTobaccoFields"
       }
     },
     {
