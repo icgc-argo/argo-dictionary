@@ -170,7 +170,7 @@
     {
       "description": "Indicate the donor's height, in centimeters (cm).",
       "name": "height",
-      "valueType": "integer",
+      "valueType": "number",
       "restrictions": {
          "range": {
             "exclusiveMin": 0
@@ -181,7 +181,7 @@
     {
       "description": "Indicate the donor's weight, in kilograms (kg).",
       "name": "weight",
-      "valueType": "integer",
+      "valueType": "number",
       "restrictions": {
          "range": {
             "exclusiveMin": 0
