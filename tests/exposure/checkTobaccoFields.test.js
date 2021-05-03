@@ -78,7 +78,40 @@ const myUnitTests = {
                 }
             )
         ]
-    ]
+    ],
+    'pack_years_smoked': [
+        [
+            'pack_years_smoked is submitted when donor is a current smoker',
+            true,
+            loadObjects(exposure,
+                {   
+                    "tobacco_smoking_status": "current smoker",
+                    "pack_years_smoked": 5
+                }
+            )
+        ],
+        [
+            'pack_years_smoked is submitted when donor is a lifelong non-smoker',
+            false,
+            loadObjects(exposure,
+                {   
+                    "tobacco_smoking_status": "lifelong non-smoker (<100 cigarettes smoked in lifetime)",
+                    "pack_years_smoked": 18
+                }
+            )
+        ],
+        [
+            'pack_years_smoked is not submitted when donor is a smoker',
+            true,
+            loadObjects(exposure,
+                {   
+                    "tobacco_smoking_status": "current smoker"
+                }
+            )
+        ]
+
+   ]
+
 }
 
 describe("Common Tests",()=>{

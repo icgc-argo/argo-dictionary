@@ -31,24 +31,31 @@ const validation = () =>
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
 
       // check tobacco related fields
-      if ($row.tobacco_type != null) {
-         const tobaccoType = typeof($field) === 'string' ? $field.trim().toLowerCase() : $field;
-         if (checkforEmpty($row.tobacco_smoking_status) || $row.tobacco_smoking_status === null) {
-            result = { valid: false, message: `If '${$name}' is submitted, then 'tobacco_smoking_status is required.`}
+      if ($name === 'tobacco_type') {
+         if ($row.tobacco_type != null) {
+            const tobaccoType = typeof($field) === 'string' ? $field.trim().toLowerCase() : $field;
+            if (checkforEmpty($row.tobacco_smoking_status) || $row.tobacco_smoking_status === null) {
+               result = { valid: false, message: `If '${$name}' is submitted, then 'tobacco_smoking_status is required.`}
+            }
+            else if ($row.tobacco_smoking_status === 'smoking history not documented') {
+               result = { valid: false, message: `The 'tobacco_smoking_status' field (smoking status not documented) is inconsistent if donor smoked '${$row.tobacco_type}'.`};
+            }
+            else if ($row.tobacco_smoking_status === 'lifelong non-smoker (<100 cigarettes smoked in lifetime)') {
+               result = { valid: false, message: `The '${$name}' should not be submitted if donor is a lifelong non-smoker.`}
+            }
          }
-         else if ($row.tobacco_smoking_status === 'smoking history not documented') {
-            result = { valid: false, message: `The 'tobacco_smoking_status' field (smoking status not documented) is inconsistent if donor smoked '${$row.tobacco_type}'.`};
-         }
-         else if ($row.tobacco_smoking_status === 'lifelong non-smoker (<100 cigarettes smoked in lifetime)') {
-            result = { valid: false, message: `The '${$name}' should not be submitted if donor is a lifelong non-smoker.`}
+         else {
+            if (($row.tobacco_smoking_status != null || !(checkforEmpty($row.tobacco_smoking_status))) && (smokerCategories.includes($row.tobacco_smoking_status))) {
+               result = { valid: false, message: `The '${$name}' field is required if donor is or was a smoker.`}
+            }
          }
       }
-      else {
-         if (($row.tobacco_smoking_status != null || !(checkforEmpty($row.tobacco_smoking_status))) && (smokerCategories.includes($row.tobacco_smoking_status))) {
-            result = { valid: false, message: `The '${$name}' field is required if donor is or was a smoker.`}
-         }
-      }
-      return result;
+     else if ($name === 'pack_years_smoked') {
+        if (!smokerCategories.includes($row.tobacco_smoking_status) && ($row.pack_years_smoked != null || !(checkforEmpty($row.pack_years_smoked)))) {
+           result = {valid: false, message: `The '${$name}' field should not be submitted if donor does not have a history of smoking.`}
+        }
+     }
+     return result;
   });
 
 module.exports = validation;
