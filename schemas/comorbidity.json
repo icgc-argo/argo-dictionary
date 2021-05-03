@@ -1,6 +1,6 @@
 {
   "name": "comorbidity",
-  "description": "The collection of data elements related to a donor's comorbidities. Comorbidities are any distinct entity that has existed or may occur during the clinical course of a patient who has the index disease under study. The primary diagnosis is the first diagnosed case of cancer in a donor. To submit multiple comorbidities for a single donor, submit multiple rows in the comorbidity file for this donor.",
+  "description": "The collection of data elements related to a donor's comorbidities. Comorbidities are any distinct entity that has existed or may occur during the clinical course of a patient who has the index disease under study. To submit multiple comorbidities for a single donor, submit multiple rows in the comorbidity file for this donor",
   "meta": {
      "parent": "donor"
   },
@@ -51,7 +51,7 @@
       "valueType": "string",
       "restrictions": {
         "codeList": ["Bilateral", "Left", "Midline", "Not applicable", "Right", "Unilateral, Side not specified", "Unknown"],
-        "script": "#/script/comorbidity/comorbidityCheck"
+        "script": "#/scripts/malignancyLateralityCheck"
       },
       "meta": {
         "dependsOn": "comorbidity.prior_malignancy",
@@ -63,14 +63,13 @@
       "valueType": "integer",
       "description": "Indicate the age of comorbidity diagnosis, in years.",
       "restrictions": {
-         "script": "#/script/comorbidity/comorbidityCheck",
+         "script": "#/scripts/comorbidityOptionalFieldsCheck",
          "range": {
            "exclusiveMin": 0
          }
       },
       "meta": {
         "units": "years",
-        "dependsOn": "comorbidity.prior_malignancy",
         "dependsOn": "comorbidity.comorbidity_type_code",
         "displayName": "Age at Comorbidity Diagnosis"
       }
@@ -80,10 +79,13 @@
       "valueType": "string",
       "description": "Indicate the code for the comorbidity using the WHO ICD-10 code classification (https://icd.who.int/browse10/2019/en).",
       "restrictions": {
+        "required": true,
+        "script": "#/scripts/comorbidityCodeCheck",
         "regex": "^[A-Z][0-9]{2}(.[0-9]{1,3}[A-Z]{0,1})?$"
       },
       "meta": {
         "primaryId": true,
+        "dependsOn": "comorbidity.prior_malignancy",
         "examples": "E10, C50.1, I11, M06",
         "displayName": "Comorbidity Type Code"
       }
@@ -94,10 +96,9 @@
       "description": "Indicate if the patient is being treated for the comorbidity (this includes prior malignancies).",
       "restrictions": {
         "codeList": "#/list/yes_no",
-         "script": "#/script/comorbidity/comorbidityCheck"
+         "script": "#/scripts/comorbidityOptionalFieldsCheck"
       },
       "meta": {
-        "dependsOn": "comorbidity.prior_malignancy",
         "dependsOn": "comorbidity.comorbidity_type_code",
         "displayName": "Comorbidity Treatment"
       }
@@ -107,7 +108,7 @@
       "valueType": "string",
       "description": "Indicate treatment details for the comorbidity (this includes prior malignancies).",
       "restrictions": {
-         "script": "#/script/comorbidity/comorbidityCheck"
+         "script": "#/scripts/comorbidityOptionalFieldsCheck"
       },
       "meta": {
         "dependsOn": "comorbidity.comorbidity_treatment_status",

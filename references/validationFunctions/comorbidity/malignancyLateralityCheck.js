@@ -18,10 +18,7 @@
  *
  */
 
-/* laterality_of_prior_malignancy should not be submitted if prior_malignancy is not submitted or is no/unknown.
- * age_at_comorbidity_diagnosis, comorbidity_treatment_status and comorbidity_treatment should not be submitted if prior_malignancy is not submitted or is no/unknown AND comorbidity_type_code is also empty
- * comorbidity_treatment_status should be submitted as Yes if comorbidity_treatment is submitted. If comorbidity_treatment_status is no/unknown, then comorbidity_treatment should not be submitted.
- */
+/* laterality_of_prior_malignancy should not be submitted if prior_malignancy is not submitted or is no/unknown. */
 
 const validation = () => 
   (function validate(inputs) {
@@ -38,24 +35,11 @@ const validation = () =>
          if (($row.prior_malignancy === null || invalidTypes.includes($row.prior_malignancy.trim().toLowerCase())) && (currField || (!(checkforEmpty(currField))!= null))) {
             result = {
                valid: false,
-               message: `The '${$name}' field should not be submitted if the 'prior_malignancy' field is left empty or is submitted as 'No' or 'Unknown'.`
+               message: `The 'prior_malignancy' field should be submitted as 'Yes' if the '${$name}' field is submitted.`
             };
          }
       }
-      else if (($name === "age_at_comorbidity_diagnosis" || $name === "comorbidity_treatment_status" || $name === "comorbidity_treatment") && (currField || (!(checkforEmpty(currField))))) {
-         if (($row.prior_malignancy === null || invalidTypes.includes($row.prior_malignancy.trim().toLowerCase())) && ($row.comorbidity_type_code === null || checkforEmpty($row.comorbidity_type_code))) {
-            result = { valid: false, message: `The '${$name}' field should not be submitted if 'prior_malignancy' is not 'Yes' and/or 'comorbidity_type_code' is not submitted.`};
-         }
-      }
-      if ($row.comorbidity_treatment_status && ($name === "comorbidity_treatment") && (currField || (!(checkforEmpty(currField))))) {
-         if (invalidTypes.includes($row.comorbidity_treatment_status.trim().toLowerCase())) {
-            result = { valid: false, message: `The '${$name}' field should not be submitted if the 'comorbidity_treatment_status' field is not 'Yes'.`};
-         }
-         else if ($row.comorbidity_treatment_status.trim().toLowerCase() === null) {
-            result = { valid: false, message: `The 'comorbidity_treatment_status' field should be submitted as 'Yes' if '${$name}' field is submitted.`};
-        }
-     }
-     return result;
+      return result;
   });
 
 module.exports = validation;
