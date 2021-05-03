@@ -49,6 +49,15 @@ const myUnitTests = {
                     "age_of_relative_at_diagnosis": 69
                 }
             )
+        ],
+        [
+            'age_of_relative_at_diagnosis is submitted without relative_with_cancer_history',
+            false,
+            loadObjects(family_history,
+                {   
+                    "age_of_relative_at_diagnosis": 69
+                }
+            )
         ]
     ],
     'cancer_type_code_of_relative': [
@@ -71,39 +80,66 @@ const myUnitTests = {
                     "cancer_type_code_of_relative": "C50"
                 }
             )
-        ]
-    ],
-    'relative_survival_time': [
+        ],
         [
-            'relative_survival_time is submitted when relative_with_cancer_history is unknown',
+            'cancer_type_code_of_relative is submitted when relative_with_cancer_history is not submitted',
             false,
             loadObjects(family_history,
                 {   
-                    "relative_with_cancer_history": "unknown",
-                    "relative_survival_time": 200
+                    "cancer_type_code_of_relative": "C50"
                 }
             )
-        ],
+        ]
+    ],
+    'relative_survival_time': [
         [
             'relative_survival_time is submitted when relative_with_cancer_history is yes',
             true,
             loadObjects(family_history,
                 {   
                     "relative_with_cancer_history": "yes",
-                    "relative_survival_time": 300
+                    "relative_survival_time": 738
                 }
             )
         ],
         [
-            'relative_survival_time is not submitted when relative_with_cancer_history is no',
-            true,
+            'relative_survival_time is submitted when relative_with_cancer_history is no',
+            false,
             loadObjects(family_history,
                 {   
                     "relative_with_cancer_history": "no",
+                    "relative_survival_time": 738
+                }
+            )
+        ],
+        [
+            'relative_survival_time is submitted when relative_with_cancer_history is unknown',
+            false,
+            loadObjects(family_history,
+                {   
+                    "relative_with_cancer_history": "unknown",
+                    "relative_survival_time": 388
+                }
+            )
+        ],
+        [
+            'relative_survival_time is submitted when relative_with_cancer_history is left empty',
+            false,
+            loadObjects(family_history,
+                {   
+                    "relative_survival_time": 90
+                }
+            )
+        ],
+        [
+            'relative_survival_time is not submitted when relative_with_cancer_history is yes',
+            true,
+            loadObjects(family_history,
+                {   
+                    "relative_with_cancer_history": "yes",
                 }
             )
         ]
-
     ]
 }
 

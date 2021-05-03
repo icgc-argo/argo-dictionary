@@ -141,12 +141,10 @@
       "description": "Relative's last known state of living or deceased.",
       "name": "relative_vital_status",
       "restrictions": {
-        "codeList": ["Alive", "Deceased", "Unknown"],
-        "script": "#/script/family_history/noFamilyCancerHistory"
+        "codeList": ["Alive", "Deceased", "Unknown"]
       },
       "valueType": "string",
       "meta": {
-        "dependsOn": "family_history.relative_with_cancer_history",
         "displayName": "Vital Status of Relative"
       }
     },
@@ -168,14 +166,15 @@
       }
     },
     {
-      "description": "Indicate how long, in years, the relative survived from the time they were diagnosed with cancer.",
+      "description": "Indicate how long, in days, the relative survived from the time they were diagnosed with cancer.",
       "name": "relative_survival_time",
       "restrictions": {
-         "script": "#/script/family_history/noFamilyCancerHistory"
+        "script": "#/script/family_history/noFamilyCancerHistory"
       },
       "valueType": "integer",
       "meta": {
         "dependsOn": "family_history.relative_with_cancer_history",
+        "units": "days",
         "displayName": "Survival Time Of Relative"
       }
     }

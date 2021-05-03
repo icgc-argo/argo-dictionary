@@ -116,7 +116,22 @@ const unitTests = [
             "tumour_normal_designation": "tumour",
             "specimen_type": "Cell line - derived from normal"
         })
+    ],
+    [
+        'Missing Designation with cell line derived normal',
+        true,
+        loadObjects(sampleReg, {
+            "specimen_type": "Cell line - derived from normal"
+        })
+    ],
+    [
+        'Missing specimen type but designation submitted',
+        true,
+        loadObjects(sampleReg, {
+            "tumour_normal_designation": "tumour",
+        })
     ]
+
 ];
 
 

@@ -88,6 +88,23 @@ const myUnitTests = {
                     "number_lymph_nodes_examined": 0
                 }
             )
+        ],
+        [
+            'lymph_nodes_examined_staus and number_lymph_nodes_examined are both missing',
+            true,
+            loadObjects(primary_diagnosis,
+                { 
+                }
+            )
+        ],
+        [
+            'lymph_nodes_examined_status not submitted but number_lymph_nodes_examined is 0',
+            true,
+            loadObjects(primary_diagnosis,
+                { 
+                    "number_lymph_nodes_examined": 0
+                }
+            )
         ]
    ],
    'number_lymph_nodes_positive': [

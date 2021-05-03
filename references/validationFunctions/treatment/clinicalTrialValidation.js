@@ -42,13 +42,13 @@ const validation = () =>
           const trialNumber = $field.trim();
           const clinicalTrialsDB = $row.clinical_trials_database.trim().toLowerCase();
           if ((clinicalTrialsDB === "nci clinical trials") && (!NCTCheck(trialNumber))) {
-            result = {valid: false, message: 'The submitted NCI clinical trial number is in incorrect format.'};
+            result = {valid: false, message: `The submitted NCI clinical trial number is in incorrect format.`};
           }
           else if ((clinicalTrialsDB === "eu clinical trials register") && (!EudraCTCheck(trialNumber))) {
-            result = {valid: false, message: "The submitted EudraCT clinical trial number is in incorrect format."};
+            result = {valid: false, message: `The submitted EudraCT clinical trial number is in incorrect format.`};
           }
           else if (!clinical_dbs.includes(clinicalTrialsDB)) {
-            result = {valid: false, message: "The submitted clinical trials database '${$row.clinical_trials_database}' is not included in the list of clinical trial database."};
+            result = {valid: false, message: `The submitted clinical trials database '${$row.clinical_trials_database}' is not included in the list of clinical trial database.`};
           }
       }
       else if ((!$row.clinical_trials_database || checkforEmpty($row.clnical_trials_database)) && (!$field || checkforEmpty($field))) {
@@ -56,8 +56,11 @@ const validation = () =>
       }
       else if ($row.clinical_trials_database && !$field) {
           if (clinical_dbs.includes($row.clinical_trials_database.trim().toLowerCase())) {
-            result = {valid: false, message: "'${$name}' must be provided if 'clinical_trial_database' is set to '${$row.clinical_trials_database}'."};
+            result = {valid: false, message: `'${$name}' must be provided if 'clinical_trial_database' is set to '${$row.clinical_trials_database}'.`};
           } 
+      }
+      else if ((!$row.clinical_trials_database || checkforEmpty($row.clnical_trials_database)) && $field) {
+         result = { valid: false, message: `The 'clinical_trial_database' field must be submitted if '${$name}' is submitted.`};
       }
       return result;
     });

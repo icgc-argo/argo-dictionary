@@ -112,7 +112,7 @@
       "restrictions": {
         "script": "#/script/treatment/checkWhenNoTreatment",
         "range": {
-           "exclusiveMin": 1
+           "exclusiveMin": 0
         }
       },
       "meta": {

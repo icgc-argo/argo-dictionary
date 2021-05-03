@@ -19,8 +19,9 @@
  */
 
 /*
- * If 'relative_has_cancer_history` is No, then the following fields should not be submitted: age_of_relative_at_diagnosis, 
- *  cancer_type_code_of_relative, relative_survival_time, cause_of_death_of_relative
+ * If 'relative_with_cancer_history` is 'No', then the following fields should not be submitted: age_of_relative_at_diagnosis, 
+ *  cancer_type_code_of_relative, relative_survival_time, cause_of_death_of_relative. If these fields are submitted, then 
+   'relative_with_cancer_history' should not be left empty (should be submitted as 'Yes')
  */
 
 const validation = () => 
@@ -29,14 +30,18 @@ const validation = () =>
       let result = {valid: true, message: "Ok"};
 
       const currField = typeof($field) === 'string' ? $field.trim().toLowerCase() : $field;
- 
-      if ($row.relative_with_cancer_history) {
+      if ($row.relative_with_cancer_history != null) {
          const relativeWithCancerHistory = $row.relative_with_cancer_history.trim().toLowerCase();
          if (((relativeWithCancerHistory === "no") || (relativeWithCancerHistory === "unknown")) && currField != null) {
             result = {
                valid: false,
-               message: `The '${$name}' field should not be submitted if 'relative_with_cancer_history' is '${relativeWithCancerHistory}'`,
+               message: `The '${$name}' field should not be submitted if the 'relative_with_cancer_history' field is '${relativeWithCancerHistory}'`,
             };
+         }
+      }
+      else {
+         if (currField || currField != null) {
+            result = { valid: false, message: `The 'relative_with_cancer_history' field must be submitted as 'Yes' if the '${$name}' field is submitted.`};
          }
       }
       return result;

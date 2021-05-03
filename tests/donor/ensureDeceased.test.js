@@ -126,6 +126,20 @@ const myUnitTests = {
                     "survival_time": "88"
                 }
             )
+        ],
+        [
+            'survival_time is submitted but vital_status is missing',
+            false,
+            loadObjects(donor,
+                { 
+                    "survival_time": "88"
+                }
+            )
+        ],
+        [
+            'Both survival_time and  vital_status are missing',
+            true,
+            loadObjects(donor, {})
         ]
     ]
 };
