@@ -19,31 +19,26 @@
  */
 
 /**
- * Checks that tumour desigation can only be normal iFF the specimen types are consered normal
+ * The relative's cause of death should only be provided if the relative is deceased.
  */
 const validation = () => 
-  (function validate(inputs) {
-      const {$row, $name, $field} = inputs;
-      let result = {valid: true, message: "Ok"};
-     
-      if ($row.tumour_normal_designation != null && $row.specimen_type != null) { 
-         const designation = $row.tumour_normal_designation.trim().toLowerCase();
-         const specimen_type = $field.trim().toLowerCase();
-      
-         if (designation === "normal") {
-            const validTypes = ["normal", "normal - tissue adjacent to primary tumour", "cell line - derived from normal"];
-            if (!validTypes.includes(specimen_type)) {
-               result = {valid: false, message: "Invalid specimen_type. Specimen_type can only be set to a normal type value (Normal, Normal - tissue adjacent to primary tumour, or Cell line - derived from normal) when the 'tumour_normal_designation' field is set to Normal."};
-            }
-         }
-         else if (designation === "tumour") {
-            const invalidTypes = ["normal", "cell line - derived from normal"];
-            if (invalidTypes.includes(specimen_type)) {
-               result = {valid: false, message: "Invalid specimen_type. Specimen_type cannot be set to normal type value (Normal or Cell line - derived from normal) when 'tumour_normal_designation' field is set to Tumour."};
-            }
-         }
-      }
-      return result;
-   });
+    (function validate(inputs) {
+        const {$row, $name, $field} = inputs;
+        let result = {valid: true, message: "Ok"};
+        
+        if ($row.relative_vital_status && $row.relative_vital_status != null) {
+           const vitalStatus = $row.relative_vital_status.trim().toLowerCase();
+           if (($field || $field != null) && (vitalStatus === "alive" || vitalStatus === "unknown")) {
+              result = {valid: false, message: `The '${$name}' field cannot be submitted if the relative's vital_status is '${vitalStatus}'.`}
+           }
+        }
+        else {
+           if ($field || $field != null) {
+              result = {valid: false, message: `The 'relative_vital_status' field must be submitted as 'deceased' if the '${$name}' field is submitted.` }
+           }
+        }
+        return result;
+    });
+
 
 module.exports = validation;

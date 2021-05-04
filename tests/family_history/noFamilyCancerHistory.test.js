@@ -18,137 +18,131 @@
  *
  */
 
-const validation = require('../../references/validationFunctions/treatment/clinicalTrialValidation');
+const validation = require('../../references/validationFunctions/family_history/noFamilyCancerHistory.js');
 
 const universalTest = require('../universal');
 const loadObjects = require('../loadObjects');
 
 // load in all fields with entries prepopulated to null
-const treatment = require('../constructDummyData').getSchemaDummy('treatment');
+const family_history = require('../constructDummyData').getSchemaDummy('family_history');
 
 
 // key -> name of field, value -> unit tests
 const myUnitTests = {
-    'clinical_trial_number': [
+    'age_of_relative_at_diagnosis': [
         [
-            'Clinical trials database is NCI Clinical Trials, with provided NCI number',
+            'age_of_relative_at_diagnosis is submitted when relative_with_cancer_history is yes',
             true,
-            loadObjects(treatment,
+            loadObjects(family_history,
                 {   
-                    "clinical_trials_database": "NCI Clinical Trials",
-                    "clinical_trial_number": "NCT02750826"
+                    "relative_with_cancer_history": "yes",
+                    "age_of_relative_at_diagnosis": 67
                 }
             )
         ],
         [
-            'Clinical trials database is NCI Clinical Trials and NCI clinical number with whitespace',
-            true,
-            loadObjects(treatment,
-                {   
-                    "clinical_trials_database": " nci clinical trials ",
-                    "clinical_trial_number": "  NCT02750826  "
-                }
-            )
-        ],
-        [
-            'Clinical trials database is NCI Clinical Trials, with incorrect NCI number',
+            'age_of_relative_at_diagnosis is submitted when relative_with_cancer_history is no',
             false,
-            loadObjects(treatment,
+            loadObjects(family_history,
                 {   
-                    "clinical_trials_database": "nci clinical trials",
-                    "clinical_trial_number": "CT0275082"
+                    "relative_with_cancer_history": "NO",
+                    "age_of_relative_at_diagnosis": 69
                 }
             )
         ],
         [
-            'Clinical trials database is NCI Clinical Trials, but with a EudraCT number',
+            'age_of_relative_at_diagnosis is submitted without relative_with_cancer_history',
             false,
-            loadObjects(treatment,
+            loadObjects(family_history,
                 {   
-                    "clinical_trials_database": "nci clinical trials",
-                    "clinical_trial_number": "2010-023457-11"
+                    "age_of_relative_at_diagnosis": 69
                 }
             )
-        ],
-        [
-            'Clinical trials database is NCI Clinical Trials, with missing NCI number',
-            false,
-            loadObjects(treatment,
-                {   
-                    "clinical_trials_database": "NCI Clinical Trials"
-                }
-            )
-        ],
-        [
+        ]
 
-            'Clinical trials database is EU Clinical Trials Register, with provided EudraCT number',
+    ],
+    'cancer_type_code_of_relative': [
+        [
+            'cancer_type_code_of_relative is submitted when relative_with_cancer_history is unknown',
+            false,
+            loadObjects(family_history,
+                {   
+                    "relative_with_cancer_history": "unknown",
+                    "cancer_type_code_of_relative": "C50"
+                }
+            )
+        ],
+        [
+            'cancer_type_code_of_relative is submitted when relative_with_cancer_history is yes',
             true,
-            loadObjects(treatment,
+            loadObjects(family_history,
                 {   
-                    "clinical_trials_database": "EU Clinical Trials Register",
-                    "clinical_trial_number":  "2010-023457-11"
+                    "relative_with_cancer_history": "yes",
+                    "cancer_type_code_of_relative": "C50"
                 }
             )
         ],
         [
-            'Clinical trials database is EU Clinical Trials Register, with incorrect EudraCT number',
+            'cancer_type_code_of_relative is submitted when relative_with_cancer_history is not submitted',
             false,
-            loadObjects(treatment,
+            loadObjects(family_history,
                 {   
-                    "clinical_trials_database": "EU Clinical Trials Register",
-                    "clinical_trial_number":  "2010/023d4-11"
+                    "cancer_type_code_of_relative": "C50"
                 }
             )
-        ],
+        ]
+    ],
+    'relative_survival_time': [
         [
-            'Clinical trials database is EU Clinical Trials Register, but with a NCI clinical number',
-            false,
-            loadObjects(treatment,
-                {   
-                    "clinical_trials_database": "EU Clinical Trials Register",
-                    "clinical_trial_number":  "NCT0275082"
-                }
-            )
-        ],
-        [
-            'Clinical trials database is EU Clinical Trials Register, but with missing EudraCT number',
-            false,
-            loadObjects(treatment,
-                {   
-                    "clinical_trials_database": "EU Clinical Trials Register"
-                }
-            )
-        ],
-        [
-            'Clinical trials database is not correct, but has EudraCT number',
-            false,
-            loadObjects(treatment,
-                {   
-                    "clinical_trials_database": "  My own clinical trials database ",
-                    "clinical_trial_number":  "2010-123456-11"
-
-                }
-            )
-        ],
-        [
-            'Clinical trials database is missing, but has trial number submitted',
-            false,
-            loadObjects(treatment,
-                {   
-                    "clinical_trial_number":  "2010-123456-11"
-                }
-            )
-        ],
-        [
-            'Both clinical trials database and clinical trial number are undefined',
+            'relative_survival_time is submitted when relative_with_cancer_history is yes',
             true,
-            loadObjects(treatment, {   
-                })
+            loadObjects(family_history,
+                {   
+                    "relative_with_cancer_history": "yes",
+                    "relative_survival_time": 738
+                }
+            )
         ],
-        ['both undefined', true, treatment]
+        [
+            'relative_survival_time is submitted when relative_with_cancer_history is no',
+            false,
+            loadObjects(family_history,
+                {   
+                    "relative_with_cancer_history": "no",
+                    "relative_survival_time": 738
+                }
+            )
+        ],
+        [
+            'relative_survival_time is submitted when relative_with_cancer_history is unknown',
+            false,
+            loadObjects(family_history,
+                {   
+                    "relative_with_cancer_history": "unknown",
+                    "relative_survival_time": 388
+                }
+            )
+        ],
+        [
+            'relative_survival_time is submitted when relative_with_cancer_history is left empty',
+            false,
+            loadObjects(family_history,
+                {   
+                    "relative_survival_time": 90
+                }
+            )
+        ],
+        [
+            'relative_survival_time is not submitted when relative_with_cancer_history is yes',
+            true,
+            loadObjects(family_history,
+                {   
+                    "relative_with_cancer_history": "yes",
+                }
+            )
+        ]
     ]
 }
-
 
 describe("Common Tests",()=>{
     Object.entries(myUnitTests).forEach(field =>{
@@ -163,7 +157,7 @@ describe("Common Tests",()=>{
     
 })
 
-describe("Unit Tests for Clinical Trials Db in Treatment",()=>{
+describe("Unit Tests for family history fields",()=>{
     Object.entries(myUnitTests).forEach(field => {
         const name = field[0];
         const unitTests = field[1];
@@ -177,3 +171,4 @@ describe("Unit Tests for Clinical Trials Db in Treatment",()=>{
     })
     
 })
+

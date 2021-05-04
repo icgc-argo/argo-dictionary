@@ -7,7 +7,7 @@ File Schemas are found in `/schemas`
 Variables, such as recurring scripts, regex, or code lists are found in `/references`. These values can be used in the `restrictions` section of a schema by refering to them with this pattern: `#/path/to/value`.
 
 
-Scripts for validating field values fall under `/references/validationFunctions/{schema name}/`. If a validation script is common in many schemas, it can be added under `/references/validationFunctions/common/`. The filename of the script should not contain dashes/dots (ideally be in camelCase). 
+Scripts for validating field values fall under `/references/validationFunctions/{schema name}/`. If a validation script is common in many schemas, it can be added under `/references/validationFunctions/common/`. The filename of the script should not contain dashes/dots (ideally be in camelCase).
 
 
 Example variable usage:
@@ -55,11 +55,11 @@ To run all unit tests, you can use : `npm run test`.
 [More information about unit tests.](/tests/README.md)
 
 ### Compile Whole Dictionary
-1.  Install dependencies via npm. 
+1.  Install dependencies via npm.
 
 `npm ci`
 
-2. Then run the dictionary building script: 
+2. Then run the dictionary building script:
 
 `npm run compile`
 
@@ -74,3 +74,9 @@ If all tests do not pass, the dictionary will not be compiled.
 ### Testing your dictionary locally
 
 `node populateReferences.js` will create `populated_dictionary.json`. The output of the script is **not** intended to be uploaded to Lectern. Instead, it is to aid in testing with the [clinical repo](https://github.com/icgc-argo/argo-clinical). It can be used to add/overwrite the contents of the [sample-schema](https://github.com/icgc-argo/argo-clinical/blob/master/sampleFiles/sample-schema.json), when the Lectern URL in the .env file is set to said file's path.
+
+### Adding new schemas
+When a new schema is added to the dictionary, you must:
+- Add the new schema into `/schemas` directory.
+- Update `/schemas/index.js` to include the new json schema. The sequence in `module.exports` determines the schema sequence in the dictionary.
+- Run `node populateReferences.js` to create `populated_dictionary.json`.

@@ -19,31 +19,39 @@
  */
 
 /**
- * Checks that tumour desigation can only be normal iFF the specimen types are consered normal
+ * If treatment_type is 'No treatment', the other core treatment fields should not be submitted. 
+ * Ensure interval/duration fields are greater than 0 days
  */
+
 const validation = () => 
   (function validate(inputs) {
       const {$row, $name, $field} = inputs;
       let result = {valid: true, message: "Ok"};
-     
-      if ($row.tumour_normal_designation != null && $row.specimen_type != null) { 
-         const designation = $row.tumour_normal_designation.trim().toLowerCase();
-         const specimen_type = $field.trim().toLowerCase();
-      
-         if (designation === "normal") {
-            const validTypes = ["normal", "normal - tissue adjacent to primary tumour", "cell line - derived from normal"];
-            if (!validTypes.includes(specimen_type)) {
-               result = {valid: false, message: "Invalid specimen_type. Specimen_type can only be set to a normal type value (Normal, Normal - tissue adjacent to primary tumour, or Cell line - derived from normal) when the 'tumour_normal_designation' field is set to Normal."};
+      const coreFields = ['is_primary_treatment', 'treatment_start_interval', 'treatment_duration', 'treatment_intent', 'treatment_setting', 'response_to_treatment'];
+ 
+      // checks for a string just consisting of whitespace
+      const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
+
+      if ($row.treatment_type != null) {
+         const treatmentType = $row.treatment_type;
+         if (!(treatmentType.includes("No treatment"))) {
+            if (coreFields.includes($name)) {
+               if (!$field || checkforEmpty($field)) {
+                  result = {
+                     valid: false,
+                     message: `The '${$name}' field must be submitted when 'treatment_type' is '${treatmentType}'`,
+                  };
+               }
             }
          }
-         else if (designation === "tumour") {
-            const invalidTypes = ["normal", "cell line - derived from normal"];
-            if (invalidTypes.includes(specimen_type)) {
-               result = {valid: false, message: "Invalid specimen_type. Specimen_type cannot be set to normal type value (Normal or Cell line - derived from normal) when 'tumour_normal_designation' field is set to Tumour."};
-            }
+         else if (treatmentType.includes("No treatment") && ($field)) {
+            result = {
+               valid: false,
+               message: `The '${$name}' field should not be submitted if 'treatment_type' is set to '${treatmentType}'`,
+            };
          }
       }
       return result;
-   });
+  });
 
 module.exports = validation;
