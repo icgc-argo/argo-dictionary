@@ -35,12 +35,31 @@
       }
     },
     {
-      "description": "Indicate the type(s) of tobacco used by donor. (Reference: NCIT)",
+      "description": "Indicate donor's self-reported smoking status and history. (Reference: caDSR CDE ID 2181650)",
+      "name": "tobacco_smoking_status",
+      "valueType": "string",
+      "meta": {
+        "displayName": "Tobacco Smoking Status",
+        "notes": "Current smoker: Has smoked 100 cigarettes in their lifetime and who currently smokes. Includes daily smokers and non-daily smokers (also known as occassional smokers). Current reformed smoker for >15 years: A person who currently does not smoke and has been a non-smoker for more than 15 years, but has smoked at least 100 cigarettes in their life. Current reformed smoker for <= 15 years: A person who currently does not smoke and has been a non-smoker for less than 15 years, but has smoked at least 100 cigarettes in their life. Current reformed smoker, duration not specified: A person who currently does not smoke and has been a non-smoker for unspecified time, but has smoked at least 100 cigarettes in their lifetime. Smoking history not documented: Smoking history has not be recorded or is unknown."
+      },
+      "restrictions": {
+        "codeList":[
+          "Current reformed smoker for <= 15 years",
+          "Current reformed smoker for > 15 years",
+          "Current reformed smoker, duration not specified",
+          "Current smoker",
+          "Lifelong non-smoker (<100 cigarettes smoked in lifetime)",
+          "Smoking history not documented" 
+          ]
+      }
+    },
+    {
+      "description": "Indicate the type(s) of tobacco used by donor. (Reference: NCIt CDE C177629)",
       "name": "tobacco_type",
       "valueType": "string",
       "meta": {
         "displayName": "Tobacco Type",
-        "dependsOn": "tobacco_smoking_status",
+        "dependsOn": "exposure.tobacco_smoking_status",
         "notes": "To include multiple values, separate values with a pipe delimiter '|' within your file."
       },
       "isArray": true,
@@ -56,25 +75,6 @@
           "Waterpipe"
           ],
         "script": "#/script/exposure/checkTobaccoFields"
-      }
-    },
-    {
-      "description": "Indicate donor's self-reported smoking status and history. (Reference: caDSR CDE ID 2181650)",
-      "name": "tobacco_smoking_status",
-      "valueType": "string",
-      "meta": {
-        "displayName": "Tobacco Smoking Status",
-        "notes": "Current smoker: Has smoked 100 cigarettes in their lifetime and who currently smokes. Includes daily smokers and non-daily smokers (also known as occassional smokers). Current reformed smoker for >15 years: A person who currently does not smoke and has been a non-smoker for more than 15 years, but has smoked at least 100 cigarettes in their life. Current reformed smoker for <= 15 years: A person who currently does not smoke and has been a non-smoker for less than 15 years, but has smoked at least 100 cigarettes in their life. Current reformed smoker, duration not specified: A person who currently does not smoke and has been a non-smoker for unspecified time, but has smoked at least 100 cigarettes in their lifetime. Smoking history not documented: Smoking history has not be recorded or is unknown."
-      },
-      "restrictions": {
-        "codeList":[
-          "Current reformed smoker for <= 15 years",
-          "Current reformed smoker for > 15 years",
-          "Current reformed smoker, duration not specified",
-          "Current smoker",
-          "Lifelong non-smoker (<100 cigarettes smoked in lifetime)",
-          "Smoking history not documented"          
-          ]
       }
     },
     {
@@ -112,19 +112,20 @@
         "codeList": [
           "Daily Drinker",
           "None",
-          "Not Documented",
           "Occasional Drinker (< once a month)",
           "Social Drinker (> once a month, < once a week)",
+          "Unknown",
           "Weekly Drinker (>=1x a week)"
         ]
       }
     },
     {
-      "description": "Indicate the type(s) of alcohol the donor consumed. (Reference: NCIt CDE C173647)",
+      "description": "Indicate the type(s) of alcohol the donor consumes. (Reference: NCIt CDE C173647)",
       "name": "alcohol_type",
       "valueType": "string",
       "meta": {
         "displayName": "Alcohol Type",
+        "dependsOn": "exposure.alcohol_consumption_category",
         "notes": "To include multiple values, separate values with a pipe delimiter '|' within your file."
       },
       "isArray": true,
@@ -135,7 +136,8 @@
           "Other",
           "Unknown",
           "Wine"
-        ]
+        ],
+        "script": "#/exposure/checkAlcoholType"
       }
     },
     {
@@ -209,14 +211,16 @@
       "name": "exercise_intensity",
       "valueType": "string",
       "meta": {
-        "displayName": "Exercise Intensity"
+        "displayName": "Exercise Intensity",
+        "dependsOn": "exposure.exercise_frequency"
       },
       "restrictions": {
         "codeList": [
           "Low: No increase in the heart beat, and no perspiration",
           "Moderate: Increase in the heart beat slightly with some light perspiration",
           "Vigorous: Increase in the heart beat substantially with heavy perspiration"
-        ]
+        ],
+        "script": "#/script/checkExerciseIntensity"
       }
     }
   ]
