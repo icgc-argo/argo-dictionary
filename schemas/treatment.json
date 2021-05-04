@@ -287,10 +287,26 @@
           "Thrombocytopenia - Grade 4",
           "Thrombocytopenia - Grade 5"
         ],
-        "script": "#/script/treatment/checkWhenNoTreatment"
+        "script": "#/script/treatment/checkToxicityType"
       },
       "meta": {
         "displayName": "Hemotological Toxicity",
+        "dependsOn": "toxicity_type",
+        "notes": "#/notes/multiple_values"
+      }
+    },
+    {
+      "name": "non-hemotological_toxicity",
+      "description": "Indicate the non-hemotological toxicities which caused early termination of the treatment. (Codelist reference: NCI-CTCAE (v5.0))",
+      "valueType": "string",
+      "isArray": true,
+      "restrictions": {
+        "codeList": "#/list/non-hemotological_toxicities",
+        "script": "#/script/treatment/checkToxicityType"
+      },
+      "meta": {
+        "displayName": "Non-hemotological Toxicity",
+        "dependsOn": "toxicity_type",
         "notes": "#/notes/multiple_values"
       }
     },
