@@ -18,37 +18,31 @@
  *
  */
 
-/**
- * If treatment_type is 'No treatment', the other core treatment fields should not be submitted. 
- * Ensure interval/duration fields are greater than 0 days
+/*
+ * If 'relative_with_cancer_history` is 'No', then the following fields should not be submitted: age_of_relative_at_diagnosis, 
+ *  cancer_type_code_of_relative, relative_survival_time, cause_of_death_of_relative. If these fields are submitted, then 
+   'relative_with_cancer_history' should not be left empty (should be submitted as 'Yes')
  */
 
 const validation = () => 
   (function validate(inputs) {
       const {$row, $name, $field} = inputs;
       let result = {valid: true, message: "Ok"};
-      const coreFields = ['is_primary_treatment', 'treatment_start_interval', 'treatment_duration', 'treatment_intent', 'treatment_setting', 'response_to_treatment'];
- 
-      // checks for a string just consisting of whitespace
-      const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
 
-      if ($row.treatment_type != null) {
-         const treatmentType = $row.treatment_type;
-         if (!(treatmentType.includes("No treatment"))) {
-            if (coreFields.includes($name)) {
-               if (!$field || checkforEmpty($field)) {
-                  result = {
-                     valid: false,
-                     message: `The '${$name}' field must be submitted when 'treatment_type' is '${treatmentType}'`,
-                  };
-               }
-            }
-         }
-         else if (treatmentType.includes("No treatment") && ($field)) {
+      const currField = typeof($field) === 'string' ? $field.trim().toLowerCase() : $field;
+
+      if ($row.relative_with_cancer_history != null) {
+         const relativeWithCancerHistory = $row.relative_with_cancer_history.trim().toLowerCase();
+         if (((relativeWithCancerHistory === "no") || (relativeWithCancerHistory === "unknown")) && currField != null) {
             result = {
                valid: false,
-               message: `The '${$name}' field should not be submitted if 'treatment_type' is set to '${treatmentType}'`,
+               message: `The '${$name}' field should not be submitted if the 'relative_with_cancer_history' field is '${relativeWithCancerHistory}'`,
             };
+         }
+      }
+      else {
+         if (currField || currField != null) {
+            result = { valid: false, message: `The 'relative_with_cancer_history' field must be submitted as 'Yes' if the '${$name}' field is submitted.`};
          }
       }
       return result;

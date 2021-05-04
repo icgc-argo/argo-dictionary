@@ -19,39 +19,26 @@
  */
 
 /**
- * If treatment_type is 'No treatment', the other core treatment fields should not be submitted. 
- * Ensure interval/duration fields are greater than 0 days
+ * The relative's cause of death should only be provided if the relative is deceased.
  */
-
 const validation = () => 
-  (function validate(inputs) {
-      const {$row, $name, $field} = inputs;
-      let result = {valid: true, message: "Ok"};
-      const coreFields = ['is_primary_treatment', 'treatment_start_interval', 'treatment_duration', 'treatment_intent', 'treatment_setting', 'response_to_treatment'];
- 
-      // checks for a string just consisting of whitespace
-      const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
+    (function validate(inputs) {
+        const {$row, $name, $field} = inputs;
+        let result = {valid: true, message: "Ok"};
+        
+        if ($row.relative_vital_status && $row.relative_vital_status != null) {
+           const vitalStatus = $row.relative_vital_status.trim().toLowerCase();
+           if (($field || $field != null) && (vitalStatus === "alive" || vitalStatus === "unknown")) {
+              result = {valid: false, message: `The '${$name}' field cannot be submitted if the relative's vital_status is '${vitalStatus}'.`}
+           }
+        }
+        else {
+           if ($field || $field != null) {
+              result = {valid: false, message: `The 'relative_vital_status' field must be submitted as 'deceased' if the '${$name}' field is submitted.` }
+           }
+        }
+        return result;
+    });
 
-      if ($row.treatment_type != null) {
-         const treatmentType = $row.treatment_type;
-         if (!(treatmentType.includes("No treatment"))) {
-            if (coreFields.includes($name)) {
-               if (!$field || checkforEmpty($field)) {
-                  result = {
-                     valid: false,
-                     message: `The '${$name}' field must be submitted when 'treatment_type' is '${treatmentType}'`,
-                  };
-               }
-            }
-         }
-         else if (treatmentType.includes("No treatment") && ($field)) {
-            result = {
-               valid: false,
-               message: `The '${$name}' field should not be submitted if 'treatment_type' is set to '${treatmentType}'`,
-            };
-         }
-      }
-      return result;
-  });
 
 module.exports = validation;

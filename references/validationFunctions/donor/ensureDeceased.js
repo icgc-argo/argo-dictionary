@@ -26,13 +26,19 @@ const validation = () =>
         const {$row, $name, $field} = inputs;
         let result = {valid: true, message: "Ok"};
         const currField = typeof($field) === 'string' ? $field.trim().toLowerCase() : $field;
-        const vitalStatus = $row.vital_status.trim().toLowerCase();
-    
-        if (!currField && vitalStatus === "deceased"){
-            result = {valid: false, message: `${$name} must be provided when the donor's vital_status is deceased.`}
+        
+        if ($row.vital_status != null) {
+           const vitalStatus = $row.vital_status.trim().toLowerCase();
+
+           if (!currField && vitalStatus === "deceased") {
+              result = {valid: false, message: `${$name} must be provided when the donor's vital_status is deceased.`}
+           }
+           else if (currField && vitalStatus != "deceased"){
+              result = {valid: false, message: `${$name} cannot be provided if the donor's vital_status is not deceased.`}
+           }
         }
-        else if (currField && vitalStatus != "deceased"){
-            result = {valid: false, message: `${$name} cannot be provided if the donor's vital_status is not deceased.`}
+        else if (($row.vital_status === null) && (currField)) {
+           result = {valid: false, message: `'${$name}' requires the 'vital_status' field.` }
         }
         return result;
     });

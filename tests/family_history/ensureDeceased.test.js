@@ -18,129 +18,70 @@
  *
  */
 
-const validation = require('./../../references/validationFunctions/donor/ensureDeceased.js');
+const validation = require('./../../references/validationFunctions/family_history/ensureDeceased.js');
 const universalTest = require('../universal');
 const loadObjects = require('../loadObjects');
 
 // load in all fields with entries prepopulated to null
-const donor = require('../constructDummyData').getSchemaDummy('donor');
+const family_history = require('../constructDummyData').getSchemaDummy('family_history');
 
 const myUnitTests = {
-    "cause_of_death": [
+    "cause_of_death_of_relative": [
         [
-            'Deceased Donor without cause of death.',
-            false,
-            loadObjects(donor,
-                {   
-                    "vital_status": "deceased"
-                }
-            )
-        ],
-        [
-            'Deceased Donor with cause of death.',
+            'Deceased relative with cause of death.',
             true,
-            loadObjects(donor,
+            loadObjects(family_history,
                 {   
-                    "vital_status": "deceased",
-                    "cause_of_death" : "Died of Cancer"
+                    "relative_vital_status": "deceased",
+                    "cause_of_death_of_relative": "Died of cancer"
                 }
             )
-            
         ],
         [
-            'Living Donor with cause of death.',
+            'Living relative with cause of death.',
             false,
-            loadObjects(donor,
+            loadObjects(family_history,
+                {   
+                    "relative_vital_status": "alive",
+                    "cause_of_death_of_relative" : "Died of Cancer"
+                }
+            )
+        ],
+        [
+            'Relative vital status is unknown but cause of death is submitted.',
+            false,
+            loadObjects(family_history,
                 {
-                    "vital_status": "Alive",
-                    "cause_of_death" : "Died of Other Reasons"
+                    "relative_vital_status": "unknown",
+                    "cause_of_death_of_relative" : "Died of Other Reasons"
                 }
             )
         ],
         [
-            'Living Donor without a cause of death.',
-            true,
-            loadObjects(donor,
+            'Relative cause of death is submitted but relative_vital_status is not submitted.',
+            false,
+            loadObjects(family_history,
                 {
-                    "vital_status": "Alive"
+                    "cause_of_death_of_relative": "died of cancer"
                 }
             )
         ],
         [
-            'Unknown Donor with a cause of death.',
-            false,
-            loadObjects(donor,
-                {   
-                    "vital_status": "unknown",
-                    "cause_of_death": "died of cancer"
-                }
-            )
-        ]
-    ],
-    "survival_time": [
-        [
-            'Deceased Donor without survival time',
-            false,
-            loadObjects(donor,
-                {   
-                    "vital_status": "deceased"
-                }
-            )
-        ],
-        [
-            'Deceased Donor with survival time',
+            'Relative vital status is deceased and cause of death is not submitted.',
             true,
-            loadObjects(donor,
-                {   
-                    "vital_status": "deceased",
-                    "survival_time" : "55"
-                }
-            )
-            
-        ],
-        [
-            'Living Donor with survival_time.',
-            false,
-            loadObjects(donor,
+            loadObjects(family_history,
                 {
-                    "vital_status": "Alive",
-                    "survival_time" : "65"
+                    "relative_vital_status": "deceased"
                 }
             )
         ],
         [
-            'Living Donor without a survival_time',
+            'Both relative_vital_status and cause_of_death_of_relative are undefined.',
             true,
-            loadObjects(donor,
-                {
-                    "vital_status": "Alive"
-                }
-            )
+            loadObjects(family_history, {
+               })
         ],
-        [
-            'Unknown Donor with a survival_time.',
-            false,
-            loadObjects(donor,
-                {   
-                    "vital_status": "unknown",
-                    "survival_time": "88"
-                }
-            )
-        ],
-        [
-            'survival_time is submitted but vital_status is missing',
-            false,
-            loadObjects(donor,
-                { 
-                    "survival_time": "88"
-                }
-            )
-        ],
-        [
-            'Both survival_time and  vital_status are missing',
-            true,
-            loadObjects(donor, {})
-        ]
+        ['both undefined', true, family_history]
     ]
 };
 
