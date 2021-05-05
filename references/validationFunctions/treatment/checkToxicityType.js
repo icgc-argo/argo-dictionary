@@ -41,7 +41,7 @@ const validation = () =>
                result = { valid: false, message: `The '${$name}' field should not be submitted if 'toxicity_type' is '${toxicityType}'.`};
             }
             else if (toxicityType === 'hemotological' && $name === 'non-hemotological_toxicity') {
-               result = { valid: false, message: `The '${name}' field should not be submitted if 'toxicity_type' is '${toxicityType}'.`};
+               result = { valid: false, message: `The '${$name}' field should not be submitted if 'toxicity_type' is '${toxicityType}'.`};
             }
          }
          else {
