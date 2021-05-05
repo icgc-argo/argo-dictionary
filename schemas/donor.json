@@ -167,13 +167,13 @@
     {
       "description": "Indicate the donor's height, in centimeters (cm).",
       "name": "height",
-      "valueType": "integer",
+      "valueType": "number",
       "meta": { "displayName": "Height" }
     },
     {
       "description": "Indicate the donor's weight, in kilograms (kg).",
       "name": "weight",
-      "valueType": "integer",
+      "valueType": "number",
       "meta": { "displayName": "Weight" }
     },
     {
@@ -181,6 +181,29 @@
       "name": "bmi",
       "valueType": "integer",
       "meta": { "displayName": "BMI" }
+    },
+    {
+      "description": "Indicate presence of any hereditary genetic disorders. (Reference: ORPHA)",
+      "name": "genetic_disorders",
+      "restrictions": {
+         "codeList": [
+           "Birt-Hogg-Dub syndrome",
+           "Familial Adenomatous Polyposis Syndrome (FAP)",
+           "Familial Atypical Multiple Mole Melanoma Syndrome (FAMM)",
+           "Hereditary Breast and Ovarian Cancer Syndrome",
+           "Juvenile Polyposis Syndrome",
+           "Lynch Syndrome",
+           "Muir-Torre Syndrome",
+           "Multiple Endocrine Neoplasia Type 1 (MEN1)",
+           "MUTYH Polyposis Syndrome",
+           "Peutz–Jeghers Syndrome",
+           "Serrated Polyposis Syndrome",
+           "Sjogren Syndrome",
+           "von Hippel-Lindau Syndrome"
+         ]
+      },
+      "valueType": "string",
+      "meta": { "displayName": "Genetic Disorders" }
     },
     {
       "description": "Indicate the donor's menopause status at the time of primary diagnosis. (Reference: caDSR CDE ID 2434914)",
