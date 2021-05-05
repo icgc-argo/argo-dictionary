@@ -19,7 +19,7 @@
  */
 
 /**
- * Validates line_of_treatment field 
+ * Validates line_of_treatment and makes sure it's consistent with 'is_primary_treatment' field 
  * @param {object} $row 
  * @param {string} $field 
  * @param {string} $name 
@@ -28,23 +28,23 @@ const validation = () =>
   (function validate(inputs) {
       const {$row, $name, $field} = inputs;
       let result = {valid: true, message: "Ok"};
-      
-      const isPrimaryTreatment = $row.is_primary_treatment.trim().toLowerCase();
 
-      // checks for a string just consisting of whitespace
+      /* checks for a string just consisting of whitespace */
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
      
-      // if treatment is the primary treatment, then line_of_treatment should not be submitted. 
-      if (isPrimaryTreatment === 'yes' && (!(checkforEmpty($field)))) {
-         result = { valid: false, message: `The '${name}' field should not be submitted if this treatment is the primary treatment.`};
-      }
-      // if is_primary_treatment is no or unknown, line_of_treatment cannot be '1' and must be a value greater than 0
-      else if (isPrimaryTreatment === 'no' || isPrimaryTreatment === 'unknown' && (!(checkforEmpty($field)))) {
-         if ($field == 1) {
-            result = { valid: false, message: `The ${name}' field cannot be submitted as '1' if this treatment is not the primary treatment.`};
+      if ($field != null && (!(checkforEmpty($field)))) {
+         const isPrimaryTreatment = $row.is_primary_treatment.trim().toLowerCase();
+         /* if treatment is the primary treatment, then line_of_treatment should not be submitted. */
+         if (isPrimaryTreatment === 'yes') {
+            result = { valid: false, message: `The '${$name}' field should not be submitted if this treatment is the primary treatment.`};
          }
-         else if (parseInt($field) <= 0) {
-            result = { valid: false, message: `The '${name}' field must be a value greater than 0`};
+         /* if treatment is not primary treatment, then line_of_treatment must be greater than 1 */
+         else if (isPrimaryTreatment === 'no' && parseInt($field) <= 1) {
+            result = { valid: false, message: `The '${$name}' field must be a value greater than 1`};
+         }
+         /* if it is unknown whether treatment was primary treatment, then line_of_treatment should not be submitted. If it is, then primary_treatment should be 'no' */
+         else if (isPrimaryTreatment === 'unknown') {
+            result = { valid: false, message: `The '${$name}' field should not be submitted if 'is_primary_treatment' is 'unknown'.`};
          }
       }
       return result;
