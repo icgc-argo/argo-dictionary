@@ -18,32 +18,34 @@
  *
  */
 
-/**
- * Checks that tumour desigation can only be normal iFF the specimen types are consered normal
+/*
+ * If 'relative_with_cancer_history` is 'No', then the following fields should not be submitted: age_of_relative_at_diagnosis, 
+ *  cancer_type_code_of_relative, relative_survival_time, cause_of_death_of_relative. If these fields are submitted, then 
+   'relative_with_cancer_history' should not be left empty (should be submitted as 'Yes')
  */
+
 const validation = () => 
   (function validate(inputs) {
       const {$row, $name, $field} = inputs;
       let result = {valid: true, message: "Ok"};
-     
-      if ($row.tumour_normal_designation != null && $row.specimen_type != null) { 
-         const designation = $row.tumour_normal_designation.trim().toLowerCase();
-         const specimen_type = $field.trim().toLowerCase();
-      
-         if (designation === "normal") {
-            const validTypes = ["normal", "normal - tissue adjacent to primary tumour", "cell line - derived from normal"];
-            if (!validTypes.includes(specimen_type)) {
-               result = {valid: false, message: "Invalid specimen_type. Specimen_type can only be set to a normal type value (Normal, Normal - tissue adjacent to primary tumour, or Cell line - derived from normal) when the 'tumour_normal_designation' field is set to Normal."};
-            }
+
+      const currField = typeof($field) === 'string' ? $field.trim().toLowerCase() : $field;
+
+      if ($row.relative_with_cancer_history != null) {
+         const relativeWithCancerHistory = $row.relative_with_cancer_history.trim().toLowerCase();
+         if (((relativeWithCancerHistory === "no") || (relativeWithCancerHistory === "unknown")) && currField != null) {
+            result = {
+               valid: false,
+               message: `The '${$name}' field should not be submitted if the 'relative_with_cancer_history' field is '${relativeWithCancerHistory}'`,
+            };
          }
-         else if (designation === "tumour") {
-            const invalidTypes = ["normal", "cell line - derived from normal"];
-            if (invalidTypes.includes(specimen_type)) {
-               result = {valid: false, message: "Invalid specimen_type. Specimen_type cannot be set to normal type value (Normal or Cell line - derived from normal) when 'tumour_normal_designation' field is set to Tumour."};
-            }
+      }
+      else {
+         if (currField || currField != null) {
+            result = { valid: false, message: `The 'relative_with_cancer_history' field must be submitted as 'Yes' if the '${$name}' field is submitted.`};
          }
       }
       return result;
-   });
+  });
 
 module.exports = validation;

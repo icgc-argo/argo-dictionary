@@ -108,7 +108,7 @@ const validation = () =>
       }
       else if (!gradingSystems.includes($row.tumour_grading_system.trim().toLowerCase())) {
          result.valid = false;
-         const msg = "'${$row.tumour_grading_system}' is not a permissible value for 'tumour_grading_system'. If the tumour grading system you use is missing, please contact the DCC.";
+         const msg = `'${$row.tumour_grading_system}' is not a permissible value for 'tumour_grading_system'. If the tumour grading system you use is missing, please contact the DCC.`;
          result.message = msg;
       }
     }

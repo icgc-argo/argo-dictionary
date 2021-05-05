@@ -35,7 +35,7 @@ const validation = () =>
 
     const stagingSystem = stagingName + `_tumour_staging_system`;
     
-    // checks for a string just consisting of whitespace
+    /* checks for a string just consisting of whitespace */
     const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
  
     if ($row[stagingSystem] && (!$field || checkforEmpty($field))) {
@@ -67,6 +67,7 @@ const validation = () =>
              'stage iea',
              'stage ieb',
              'stage ii',
+             'stage ii bulky',
              'stage iia',
              'stage iib',
              'stage iie',
@@ -92,24 +93,52 @@ const validation = () =>
           codeList = [
             'stage i',
             'stage ia',
-            'stage ib',
             'stage ie',
             'stage is',
+            'stage ies',
+            'stage iae',
+            'stage ias',
+            'stage iaes',
+            'stage ib',
+            'stage ibe',
+            'stage ibs',
+            'stage ibes',
             'stage ii',
             'stage iia',
-            'stage iib',
             'stage iie',
             'stage iis',
+            'stage iies',
+            'stage iiae',
+            'stage iias',
+            'stage iiaes',
+            'stage iib',
+            'stage iibe',
+            'stage iibs',
+            'stage iibes',
             'stage iii',
             'stage iiia',
-            'stage iiib',
             'stage iiie',
             'stage iiis',
+            'stage iiies',
+            'stage iiiae',
+            'stage iiias',
+            'stage iiiaes',
+            'stage iiib',
+            'stage iiibe',
+            'stage iiibs',
+            'stage iiibes',
             'stage iv',
             'stage iva',
-            'stage ivb',
             'stage ive',
-            'stage ivs'
+            'stage ivs',
+            'stage ives',
+            'stage ivae',
+            'stage ivas',
+            'stage ivaes',
+            'stage ivb',
+            'stage ivbe',
+            'stage ivbs',
+            'stage ivbes'
           ];
           break;
         case 'rai staging system':
