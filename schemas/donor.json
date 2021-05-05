@@ -183,7 +183,7 @@
       "meta": { "displayName": "BMI" }
     },
     {
-      "description": "Indicate presence of any hereditary genetic disorders. (Reference: ORPHA)",
+      "description": "Indicate presence of any hereditary genetic disorders. (Reference: Genetic disorder names were standardized using Orphanet)",
       "name": "genetic_disorders",
       "restrictions": {
          "codeList": [
@@ -203,7 +203,10 @@
          ]
       },
       "valueType": "string",
-      "meta": { "displayName": "Genetic Disorders" }
+      "meta": { 
+         "displayName": "Genetic Disorders",
+         "notes": "If the genetic disorder term you use is not included in the controlled terminology, please contact us at https://platform.icgc-argo.org/contact to request it be added."
+       }
     },
     {
       "description": "Indicate the donor's menopause status at the time of primary diagnosis. (Reference: caDSR CDE ID 2434914)",
