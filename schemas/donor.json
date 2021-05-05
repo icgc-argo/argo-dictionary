@@ -82,10 +82,13 @@
     {
       "name": "primary_site",
       "valueType": "string",
+      "isArray": true,
       "description": "The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general categories.",
       "meta": {
         "displayName": "Primary Site",
-        "core": true
+        "core": true,
+        "notes": "To include multiple values, separate values with a pipe delimiter '|' within your file.",
+        "examples": "Breast|Ovary"
       },
       "restrictions": {
         "required": true,
@@ -120,7 +123,6 @@
           "Meninges",
           "Nasal cavity and middle ear",
           "Nasopharynx",
-          "Not Reported",
           "Oropharynx",
           "Other and ill-defined digestive organs",
           "Other and ill-defined sites",
@@ -159,8 +161,7 @@
           "Ureter",
           "Uterus, NOS",
           "Vagina",
-          "Vulva",
-          "Unknown"
+          "Vulva"
         ]
       }
     },
