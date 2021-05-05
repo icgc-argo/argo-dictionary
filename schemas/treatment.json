@@ -117,6 +117,7 @@
       },
       "meta": {
         "displayName": "Line Of treatment",
+        "dependsOn": "treatment.treatment_type",
         "examples": "2,3,4"
       }
     },
@@ -165,7 +166,10 @@
            "exclusiveMin": 0
         }
       },
-      "meta": { "displayName": "Days Per Cycle" }
+      "meta": { 
+        "displayName": "Days Per Cycle",
+        "dependsOn": "treatment.treatment_type"
+      }
     },
     {
       "name": "number_of_cycles",
@@ -177,7 +181,10 @@
            "exclusiveMin": 0
         }
       },
-      "meta": { "displayName": "Number Of Cycles" }
+      "meta": { 
+        "displayName": "Number Of Cycles",
+        "dependsOn": "treatment.treatment_type"
+      }
     },
     {
       "name": "treatment_intent",
@@ -252,10 +259,12 @@
           "Other",
           "Not applicable",
           "Unknown"
-        ]
+        ],
+        "script": "#/script/treatment/checkWhenNoTreatment"
       },
       "meta": {
-        "displayName": "Outcome Of Treatment"
+        "displayName": "Outcome Of Treatment",
+        "dependsOn": "treatment.treatment_type"
       }
     },
     {
@@ -264,10 +273,11 @@
       "valueType": "string",
       "restrictions": {
         "codeList": ["Hemotological", "Non-hemotological"],
-        "script": "#/script/treatment/checkWhenNoTreatment"
+        "script": "#/script/treatment/checkOutcomeOfTrtmt"
       },
       "meta": {
-        "displayName": "Toxicity Type"
+        "displayName": "Toxicity Type",
+        "dependsOn": "treatment.outcome_of_treatment"
       }
     },
     {
@@ -291,7 +301,7 @@
       },
       "meta": {
         "displayName": "Hemotological Toxicity",
-        "dependsOn": "toxicity_type",
+        "dependsOn": "treatment.toxicity_type",
         "notes": "#/notes/multiple_values"
       }
     },
@@ -306,7 +316,7 @@
       },
       "meta": {
         "displayName": "Non-hemotological Toxicity",
-        "dependsOn": "toxicity_type",
+        "dependsOn": "treatment.toxicity_type",
         "notes": "#/notes/multiple_values"
       }
     },
@@ -321,6 +331,7 @@
       },
       "meta": {
         "displayName": "Adverse Events",
+        "dependsOn": "treatment.treatment_type",
         "notes": "#/notes/multiple_values"
       }
     },
