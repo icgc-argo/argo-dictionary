@@ -82,10 +82,13 @@
     {
       "name": "primary_site",
       "valueType": "string",
+      "isArray": true,
       "description": "The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general categories.",
       "meta": {
         "displayName": "Primary Site",
-        "core": true
+        "core": true,
+        "notes": "To include multiple values, separate values with a pipe delimiter '|' within your file.",
+        "examples": "Breast|Ovary"
       },
       "restrictions": {
         "required": true,
@@ -120,7 +123,6 @@
           "Meninges",
           "Nasal cavity and middle ear",
           "Nasopharynx",
-          "Not Reported",
           "Oropharynx",
           "Other and ill-defined digestive organs",
           "Other and ill-defined sites",
@@ -159,21 +161,20 @@
           "Ureter",
           "Uterus, NOS",
           "Vagina",
-          "Vulva",
-          "Unknown"
+          "Vulva"
         ]
       }
     },
     {
       "description": "Indicate the donor's height, in centimeters (cm).",
       "name": "height",
-      "valueType": "integer",
+      "valueType": "number",
       "meta": { "displayName": "Height" }
     },
     {
       "description": "Indicate the donor's weight, in kilograms (kg).",
       "name": "weight",
-      "valueType": "integer",
+      "valueType": "number",
       "meta": { "displayName": "Weight" }
     },
     {
@@ -181,6 +182,32 @@
       "name": "bmi",
       "valueType": "integer",
       "meta": { "displayName": "BMI" }
+    },
+    {
+      "description": "Indicate presence of any hereditary genetic disorders. (Reference: Genetic disorder names were standardized using Orphanet)",
+      "name": "genetic_disorders",
+      "restrictions": {
+         "codeList": [
+           "Birt-Hogg-Dub syndrome",
+           "Familial Adenomatous Polyposis Syndrome (FAP)",
+           "Familial Atypical Multiple Mole Melanoma Syndrome (FAMM)",
+           "Hereditary Breast and Ovarian Cancer Syndrome",
+           "Juvenile Polyposis Syndrome",
+           "Lynch Syndrome",
+           "Muir-Torre Syndrome",
+           "Multiple Endocrine Neoplasia Type 1 (MEN1)",
+           "MUTYH Polyposis Syndrome",
+           "Peutz–Jeghers Syndrome",
+           "Serrated Polyposis Syndrome",
+           "Sjogren Syndrome",
+           "von Hippel-Lindau Syndrome"
+         ]
+      },
+      "valueType": "string",
+      "meta": { 
+         "displayName": "Genetic Disorders",
+         "notes": "If the genetic disorder term you use is not included in the controlled terminology, please contact us at https://platform.icgc-argo.org/contact to request it be added."
+       }
     },
     {
       "description": "Indicate the donor's menopause status at the time of primary diagnosis. (Reference: caDSR CDE ID 2434914)",
@@ -214,6 +241,72 @@
       "name": "number_of_children",
       "valueType": "integer",
       "meta": { "displayName": "Number of Children" }
+    },
+    {
+      "description": "Indicate the type of hormone replacement therapy (HRT) the patient has taken or is currently taking.",
+      "name": "hrt_type",
+      "restrictions": {
+        "codeList": [
+          "Combination HRT",
+          "Estrogen-only HRT",
+          "Injectable",
+          "Never taken HRT",
+          "Other",
+          "Patch",
+          "Pill",
+          "Unknown"
+        ]
+      },
+      "valueType": "string",
+      "meta": { "displayName": "Hormone Replacement Therapy Type" }
+    },
+    {
+      "description": "If patient has taken hormone replacement therapy (HRT), indicate how long patient has been taking HRT, in months. (Reference: caDSR CDE ID 5365433)",
+      "name": "hrt_duration",
+      "valueType": "integer",
+      "restrictions": {
+        "script": "#/script/donor/hrtOrContraceptionDuration"
+       },
+      "meta": { 
+        "displayName": "Hormone Replacement Therapy Duration",
+        "units": "months",
+        "dependsOn": "donor.hrt_type"
+      }
+    },
+    {
+      "description": "Indicate the type of hormonal contraception the patient has taken or is currently taking. (Reference: caDSR CDE ID 3264234)",
+      "name": "contraception_type",
+      "restrictions": {
+        "codeList": [
+          "Combination pill",
+          "Contraceptive implant",
+          "Contraceptive patch",
+          "Injectable",
+          "Intrauterine device",
+          "Never used hormonal contraception",
+          "Other",
+          "Progestin-only pill",
+          "Unknown",
+          "Vaginal ring"
+        ]
+      },
+      "valueType": "string",
+      "meta": {
+         "displayName": "Contraception Type"
+      }
+    },
+    {
+      "description": "If patient has taken hormonal contraception, indicate duration of use, in months. (Reference: caDSR CDE ID 5206887)",
+      "name": "contraception_duration",
+      "valueType": "integer",
+      "restrictions": {
+        "script": "#/script/donor/hrtOrContraceptionDuration"
+       },
+      "meta": { 
+         "displayName": "Hormonal Contraception Duration",
+         "units": "months",
+         "dependsOn": "donor.contraception_type" 
+      }
     }
   ]
 }
