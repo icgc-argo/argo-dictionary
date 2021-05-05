@@ -29,63 +29,63 @@ const treatment = require('../constructDummyData').getSchemaDummy('treatment');
 
 // key -> name of field, value -> unit tests
 const myUnitTests = {
-    'hemotological_toxicity': [
+    'hematological_toxicity': [
         [
-            'toxicity_type is hemotological and hemotological_toxicity is submitted',
+            'toxicity_type is hematological and hematological_toxicity is submitted',
             true,
             loadObjects(treatment,
                 {   
-                    "toxicity_type": "Hemotological",
-                    "hemotological_toxicity": "Anemia - Grade 3|Neutropenia - Grade 4"
+                    "toxicity_type": "Hematological",
+                    "hematological_toxicity": "Anemia - Grade 3|Neutropenia - Grade 4"
                 }
             )
         ],
         [
-            'toxicity_type is non-hemotological and hemotological_toxicity is submitted',
+            'toxicity_type is non-hematological and hematological_toxicity is submitted',
             false,
             loadObjects(treatment,
                 {   
-                    "toxicity_type": "non-hemotological",
-                    "hemotological_toxicity": "Anemia - Grade 3|Neutropenia - Grade 4"
+                    "toxicity_type": "non-hematological",
+                    "hematological_toxicity": "Anemia - Grade 3|Neutropenia - Grade 4"
                 }
             )
         ],
         [
-            'toxicity_type is not submtted and hemotological_toxicity is submitted',
+            'toxicity_type is not submtted and hematological_toxicity is submitted',
             false,
             loadObjects(treatment,
                 {   
-                    "hemotological_toxicity": "Anemia - Grade 3|Neutropenia - Grade 4"
+                    "hematological_toxicity": "Anemia - Grade 3|Neutropenia - Grade 4"
                 }
             )
         ],
         [
-            'toxicity_type is submitted and hemotological_toxicity is not submitted',
+            'toxicity_type is submitted and hematological_toxicity is not submitted',
             true,
             loadObjects(treatment,
                 {   
-                    "toxicity_type": "hemotological"
+                    "toxicity_type": "hematological"
                 }
             )
         ]
     ],
-    'non-hemotological_toxicity': [
+    'non-hematological_toxicity': [
         [
-            'toxicity_type is submitted as hemotological and non-hemotological_toxicity is submitted',
+            'toxicity_type is submitted as hematological and non-hematological_toxicity is submitted',
             false,
             loadObjects(treatment,
                 {   
-                    "toxicity_type": "hemotological",
-                    "non-hemotological_toxicity": "Vomiting - Grade 1"
+                    "toxicity_type": "hematological",
+                    "non-hematological_toxicity": "Vomiting - Grade 1"
                 }
             )
         ],
         [
-            'toxicity_type is missing and non-hemotological_toxicity is submitted',
+            'toxicity_type is missing and non-hematological_toxicity is submitted',
             false,
             loadObjects(treatment,
                 {   
-                    "non-hemotological_toxicity": "Vomiting - Grade 3"
+                    "non-hematological_toxicity": "Vomiting - Grade 3"
                 }
             )
         ],

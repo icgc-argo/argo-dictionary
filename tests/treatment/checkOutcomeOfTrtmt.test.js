@@ -35,7 +35,7 @@ const myUnitTests = {
             true,
             loadObjects(treatment,
                 {   
-                    "toxicity_type": "Hemotological",
+                    "toxicity_type": "Hematological",
                     "outcome_of_treatment": "Treatment stopped due to acute toxicity"
                 }
             )
@@ -45,7 +45,7 @@ const myUnitTests = {
             false,
             loadObjects(treatment,
                 {   
-                    "toxicity_type": "Non-hemotological",
+                    "toxicity_type": "Non-hematological",
                     "outcome_of_treatment": "Treatment completed as prescribed"
                 }
             )
@@ -55,7 +55,7 @@ const myUnitTests = {
             false,
             loadObjects(treatment,
                 {   
-                    "toxicity_type": "Non-hemotological",
+                    "toxicity_type": "Non-hematological",
                 }
             )
         ],

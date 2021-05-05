@@ -269,10 +269,10 @@
     },
     {
       "name": "toxicity_type",
-      "description": "If the treatment was terminated early due to acute toxicity, indicate whether it was due to hemotological toxicity or non-hemotological toxicity.",
+      "description": "If the treatment was terminated early due to acute toxicity, indicate whether it was due to hematological toxicity or non-hematological toxicity.",
       "valueType": "string",
       "restrictions": {
-        "codeList": ["Hemotological", "Non-hemotological"],
+        "codeList": ["Hematological", "Non-hematological"],
         "script": "#/script/treatment/checkOutcomeOfTrtmt"
       },
       "meta": {
@@ -281,8 +281,8 @@
       }
     },
     {
-      "name": "hemotological_toxicity",
-      "description": "Indicate the hemotological toxicities which caused early termination of the treatment. (Codelist reference: NCI-CTCAE (v5.0))",
+      "name": "hematological_toxicity",
+      "description": "Indicate the hematological toxicities which caused early termination of the treatment. (Codelist reference: NCI-CTCAE (v5.0))",
       "valueType": "string",
       "isArray": true,
       "restrictions": {
@@ -306,16 +306,16 @@
       }
     },
     {
-      "name": "non-hemotological_toxicity",
-      "description": "Indicate the non-hemotological toxicities which caused early termination of the treatment. (Codelist reference: NCI-CTCAE (v5.0))",
+      "name": "non-hematological_toxicity",
+      "description": "Indicate the non-hematological toxicities which caused early termination of the treatment. (Codelist reference: NCI-CTCAE (v5.0))",
       "valueType": "string",
       "isArray": true,
       "restrictions": {
-        "codeList": "#/list/non-hemotological_toxicities",
+        "codeList": "#/list/non-hematological_toxicities",
         "script": "#/script/treatment/checkToxicityType"
       },
       "meta": {
-        "displayName": "Non-hemotological Toxicity",
+        "displayName": "Non-hematological Toxicity",
         "dependsOn": "treatment.toxicity_type",
         "notes": "#/notes/multiple_values"
       }

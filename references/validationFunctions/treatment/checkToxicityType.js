@@ -19,7 +19,7 @@
  */
 
 /**
- * Validates hemotological_toxicity and non-hemotological_toxicity fields against toxicity_type (makes sure it's consistent) 
+ * Validates hematological_toxicity and non-hematological_toxicity fields against toxicity_type (makes sure it's consistent) 
  * @param {object} $row 
  * @param {string} $field 
  * @param {string} $name 
@@ -36,11 +36,11 @@ const validation = () =>
          if (($row.toxicity_type != null && !(checkforEmpty($row.toxicity_type)))) { 
             const toxicityType = $row.toxicity_type.trim().toLowerCase();
      
-            /* if toxicity_type is non-hemotological, then hemotological_toxicity should not be submitted. If toxicity_type is hemotological, then 'non-hemotological_toxicity' should not be submitted */
-            if (toxicityType === 'non-hemotological' && $name === 'hemotological_toxicity') {
+            /* if toxicity_type is non-hematological, then hematological_toxicity should not be submitted. If toxicity_type is hematological, then 'non-hematological_toxicity' should not be submitted */
+            if (toxicityType === 'non-hematological' && $name === 'hematological_toxicity') {
                result = { valid: false, message: `The '${$name}' field should not be submitted if 'toxicity_type' is '${toxicityType}'.`};
             }
-            else if (toxicityType === 'hemotological' && $name === 'non-hemotological_toxicity') {
+            else if (toxicityType === 'hematological' && $name === 'non-hematological_toxicity') {
                result = { valid: false, message: `The '${$name}' field should not be submitted if 'toxicity_type' is '${toxicityType}'.`};
             }
          }
