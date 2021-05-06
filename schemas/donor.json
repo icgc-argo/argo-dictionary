@@ -210,7 +210,7 @@
       "meta": { "displayName": "Number of Pregnancies" }
     },
     {
-      "description": "Indicate the number of children the donor has birthed. (Reference: caDSR 2486644)",
+      "description": "Indicate the number of children the donor has birthed. (Reference: caDSR CDE ID 2486644)",
       "name": "number_of_children",
       "valueType": "integer",
       "meta": { "displayName": "Number of Children" }
