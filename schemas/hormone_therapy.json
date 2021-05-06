@@ -64,7 +64,7 @@
     },
     {
       "name": "drug_name",
-      "description": "Name of agent or drug administered to patient as part of the treatment regimen.",
+      "description": "Name of agent or drug administered to donor as part of the treatment regimen.",
       "valueType": "string",
       "meta": {
         "core": true,
