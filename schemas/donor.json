@@ -198,19 +198,19 @@
       "meta": { "displayName": "Menopause Status" }
     },
     {
-      "description": "Indicate the donor's age of menarche, the first occurrence of menstruation.",
+      "description": "Indicate the donor's age at which the first menstruation event occurred. (Reference: NCIt C19666)",
       "name": "age_at_menarche",
       "valueType": "integer",
       "meta": { "displayName": "Age at Menarche" }
     },
     {
-      "description": "Indicate the number of pregnancies a donor has had.",
+      "description": "Indicate the total number of pregnancy events experienced by the donor. (Reference: NCIt C106551)",
       "name": "number_of_pregnancies",
       "valueType": "integer",
       "meta": { "displayName": "Number of Pregnancies" }
     },
     {
-      "description": "Indicate the number of children the donor has birthed.",
+      "description": "Indicate the number of children the donor has birthed. (Reference: caDSR 2486644)",
       "name": "number_of_children",
       "valueType": "integer",
       "meta": { "displayName": "Number of Children" }
