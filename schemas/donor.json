@@ -267,6 +267,9 @@
       "restrictions": {
         "script": "#/script/donor/hrtOrContraceptionDuration"
        },
+       "range": {
+          "exclusiveMin": 0
+       },
       "meta": { 
         "displayName": "Hormone Replacement Therapy Duration",
         "units": "months",
@@ -301,6 +304,9 @@
       "valueType": "integer",
       "restrictions": {
         "script": "#/script/donor/hrtOrContraceptionDuration"
+       },
+       "range": {
+          "exclusiveMin": 0
        },
       "meta": { 
          "displayName": "Hormonal Contraception Duration",

@@ -87,7 +87,7 @@ const myUnitTests = {
             )
         ],
         [
-            "contraception_duration is submitted when donor has never taken contraception",
+            "contraception_duration is submitted when donor has never used hormonal contraception",
             false,
             loadObjects(donor,
                 {   

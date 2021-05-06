@@ -36,9 +36,14 @@ const validation = () =>
       const hormoneType = type + `_type`;
    
       if ($field != null && !(checkforEmpty($field))) {
-        if ($row[hormoneType] === null || checkforEmpty($row[hormoneType]) || $row[hormoneType].toLowerCase() === "never taken hrt" || $row[hormoneType].toLowerCase() === "never used hormonal contraception") {
+        if ($row[hormoneType] === null || checkforEmpty($row[hormoneType])) {
            result = { valid: false, message: `Indicate type of ${type} taken in the '${hormoneType}' field if '${$name}' field is submitted.`};
         }
+        else if ($row[hormoneType].toLowerCase() === "never taken hrt" || $row[hormoneType].toLowerCase() === "never used hormonal contraception") {
+           const submittedValue = $row[hormoneType].toLowerCase()
+           result = {valid: false, message: `If '${$name}' is submitted, then '${hormoneType}' field cannot be '${submittedValue}'.`};
+       }
+
       }
       return result;
   });
