@@ -212,7 +212,7 @@
     },
     {
       "name": "specimen_storage",
-      "description": "Indicate the method of specimen storage for specimens that were not extracted freshly or immediately cultured.",
+      "description": "Indicate the method of specimen storage for specimen that were not extracted freshly or immediately cultured.",
       "valueType": "string",
       "meta": {
         "notes": "For specimens that were freshly extracted or immediately cultured, select Not Applicable.",
@@ -309,7 +309,7 @@
     },
     {
       "name": "percent_tumour_cells",
-      "description": "Indicate a value, in decimals, that represents the percentage of infiltration by tumour cells in a specimen.",
+      "description": "Indicate a value, in decimals, that represents the percent of tumour cells compared to the number of total cells in a specimen. (Reference: NCIt: C159484)",
       "valueType": "number",
       "meta": {
         "core": true,
@@ -330,7 +330,7 @@
     },
     {
       "name": "percent_inflammatory_tissue",
-      "description": "Indicate a value, in decimals, that represents local response to cellular injury, marked by capillary dilatation, edema and leukocyte infiltration; clinically, inflammation is manifest by redness, heat, pain, swelling and loss of function, with the need to heal damaged tissue.",
+      "description": "Indicate a value, in decimals, that represents the percent of a specimen that is positive for inflammatory markers, including the presence of capillary dilatation, edema and increased leukocytes. (Reference NCIt C159479)",
       "valueType": "number",
       "meta": {
         "dependsOn": "sample_registration.tumour_normal_designation",
@@ -340,7 +340,7 @@
     },
     {
       "name": "percent_stromal_cells",
-      "description": "Indicate a value, in decimals, that represents the percentage of reactive cells that are present in a malignant tumour specimen but are not malignant such as fibroblasts, vascular structures, etc.",
+      "description": "Indicate a value, in decimals, that represents the percentage of reactive cells that are present in a tumour specimen but are not malignant such as fibroblasts, vascular structures, etc. (Reference caDSR CDE ID 2841241)",
       "valueType": "number",
       "meta": {
         "dependsOn": "sample_registration.tumour_normal_designation",
@@ -350,7 +350,7 @@
     },
     {
       "name": "percent_necrosis",
-      "description": "Indicate a value, in decimals, that represents the percentage of cell death in a malignant tumour specimen.",
+      "description": "Indicate a value, in decimals, that represents the percent of cells undergoing necrosis compared to the number of total cells present in a tumour specimen. (Reference NCIt C159481)",
       "valueType": "number",
       "meta": {
         "dependsOn": "sample_registration.tumour_normal_designation",
