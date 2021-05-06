@@ -185,6 +185,8 @@
     {
       "description": "Indicate presence of any hereditary genetic disorders. (Reference: Genetic disorder names were standardized using Orphanet)",
       "name": "genetic_disorders",
+      "valueType": "string",
+      "isArray": true,
       "restrictions": {
          "codeList": [
            "Birt-Hogg-Dub syndrome",
@@ -202,10 +204,10 @@
            "von Hippel-Lindau Syndrome"
          ]
       },
-      "valueType": "string",
       "meta": { 
          "displayName": "Genetic Disorders",
-         "notes": "If the genetic disorder term you use is not included in the controlled terminology, please contact us at https://platform.icgc-argo.org/contact to request it be added."
+         "notes": "If the genetic disorder term you use is not included in the controlled terminology, please contact us at https://platform.icgc-argo.org/contact to request it be added. To include multiple values, separate values with a pipe delimiter '|' within your file.",
+        "examples": "Familial Adenomatous Polyposis Syndrome (FAP)|Lynch Syndrome"
        }
     },
     {
