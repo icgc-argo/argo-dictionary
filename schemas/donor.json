@@ -183,26 +183,12 @@
       "meta": { "displayName": "BMI" }
     },
     {
-      "description": "Indicate presence of any hereditary genetic disorders. (Reference: Genetic disorder names were standardized using Orphanet)",
+      "description": "Indicate presence of any hereditary genetic disorders. (Reference: Genetic disorder names were standardized using Orphanet (https://www.orpha.net/) and NCI Thesaurus)",
       "name": "genetic_disorders",
       "valueType": "string",
       "isArray": true,
       "restrictions": {
-         "codeList": [
-           "Birt-Hogg-Dub syndrome",
-           "Familial Adenomatous Polyposis Syndrome (FAP)",
-           "Familial Atypical Multiple Mole Melanoma Syndrome (FAMM)",
-           "Hereditary Breast and Ovarian Cancer Syndrome",
-           "Juvenile Polyposis Syndrome",
-           "Lynch Syndrome",
-           "Muir-Torre Syndrome",
-           "Multiple Endocrine Neoplasia Type 1 (MEN1)",
-           "MUTYH Polyposis Syndrome",
-           "Peutz–Jeghers Syndrome",
-           "Serrated Polyposis Syndrome",
-           "Sjogren Syndrome",
-           "von Hippel-Lindau Syndrome"
-         ]
+         "codeList": "#/list/genetic_disorders"
       },
       "meta": { 
          "displayName": "Genetic Disorders",
