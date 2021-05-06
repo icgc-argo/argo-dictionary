@@ -319,13 +319,13 @@
       }
     },
     {
-      "name": "percent_proliferating_cells",
-      "description": "Indicate a value, in decimals, that represents the count of proliferating cells determined during pathologic review of the specimen.",
+      "name": "number_proliferating_cells",
+      "description": "Indicate a value, in decimals, that represents the count of proliferating cells determined during pathologic review of the specimen. (Reference: caDSR CDE ID 5432636)",
       "valueType": "number",
       "meta": {
         "dependsOn": "sample_registration.tumour_normal_designation",
         "notes": "",
-        "displayName": "Percent Proliferating Cells"
+        "displayName": "Number Proliferating Cells"
       }
     },
     {
