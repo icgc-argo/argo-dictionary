@@ -201,7 +201,7 @@
     },
     {
       "description": "Indicate the ICD-O-3 topography code for the anatomic site where disease progression, relapse or recurrence occurred, according to the International Classification of Diseases for Oncology, 3rd Edition (WHO ICD-O-3). Refer to the ICD-O-3 manual for guidelines at https://apps.who.int/iris/handle/10665/42344.",
-      "name": "anatomic_site_progression_or_recurrences",
+      "name": "anatomic_site_progression_or_recurrence",
       "valueType": "string",
       "restrictions": {
         "script": "#/script/follow_up/anatomic_site_progression_or_recurrences",
