@@ -215,7 +215,7 @@
     },
     {
       "name": "clinical_stage_group",
-      "description": "Stage group of the tumour, as assigned by the reporting clinical_tumour_staging_system, that indicates the overall prognostic tumour stage (ie. Stage I, Stage II, Stage III etc.).",
+      "description": "Stage group of the tumour, as assigned by the reporting clinical_tumour_staging_system, that indicates the overall prognostic tumour stage.",
       "valueType": "string",
       "restrictions": {
         "codeList": "#/list/stage_groups",
@@ -225,7 +225,8 @@
         "core": true,
         "dependsOn": "primary_diagnosis.clinical_tumour_staging_system",
         "notes": "This field is dependent on the selected clinical_tumour_staging_system.\nPlease refer to the documentation for Tumour Staging Classifications: http://docs.icgc-argo.org/docs/submission/dictionary-overview#tumour-staging-classifications",
-        "displayName": "Clinical Stage Group"
+        "displayName": "Clinical Stage Group",
+        "examples": "Stage I, Stage IIB"
       }
     },
     {
