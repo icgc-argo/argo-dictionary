@@ -30,7 +30,6 @@ const validation = () =>
       let result = {valid: true, message: "Ok"};
 
       const currField = typeof($field) === 'string' ? $field.trim().toLowerCase() : $field;
-
       if ($row.relative_with_cancer_history != null) {
          const relativeWithCancerHistory = $row.relative_with_cancer_history.trim().toLowerCase();
          if (((relativeWithCancerHistory === "no") || (relativeWithCancerHistory === "unknown")) && currField != null) {

@@ -59,7 +59,6 @@ const myUnitTests = {
                 }
             )
         ]
-
     ],
     'cancer_type_code_of_relative': [
         [
