@@ -76,16 +76,22 @@
         "displayName": "Survival Time"
       },
       "restrictions": {
-        "script": "#/script/donor/ensureDeceased"
+        "script": "#/script/donor/ensureDeceased",
+        "range": {
+           "exclusiveMin": 0
+        }
       }
     },
     {
       "name": "primary_site",
       "valueType": "string",
+      "isArray": true,
       "description": "The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general categories.",
       "meta": {
         "displayName": "Primary Site",
-        "core": true
+        "core": true,
+        "notes": "To include multiple values, separate values with a pipe delimiter '|' within your file.",
+        "examples": "Breast|Ovary"
       },
       "restrictions": {
         "required": true,
@@ -120,7 +126,6 @@
           "Meninges",
           "Nasal cavity and middle ear",
           "Nasopharynx",
-          "Not Reported",
           "Oropharynx",
           "Other and ill-defined digestive organs",
           "Other and ill-defined sites",
@@ -159,8 +164,7 @@
           "Ureter",
           "Uterus, NOS",
           "Vagina",
-          "Vulva",
-          "Unknown"
+          "Vulva"
         ]
       }
     },
@@ -168,18 +172,33 @@
       "description": "Indicate the donor's height, in centimeters (cm).",
       "name": "height",
       "valueType": "number",
+      "restrictions": {
+         "range": {
+            "exclusiveMin": 0
+         }
+      },
       "meta": { "displayName": "Height" }
     },
     {
       "description": "Indicate the donor's weight, in kilograms (kg).",
       "name": "weight",
       "valueType": "number",
+      "restrictions": {
+         "range": {
+            "exclusiveMin": 0
+         }
+      },
       "meta": { "displayName": "Weight" }
     },
     {
       "description": "Indicate the donor's Body Mass Index (BMI) in kg/m².",
       "name": "bmi",
       "valueType": "integer",
+      "restrictions": {
+         "range": {
+            "exclusiveMin": 0
+         }
+      },
       "meta": { "displayName": "BMI" }
     },
     {
@@ -212,21 +231,36 @@
       "meta": { "displayName": "Menopause Status" }
     },
     {
-      "description": "Indicate the donor's age of menarche, the first occurrence of menstruation.",
+      "description": "Indicate the donor's age at which the first menstruation event occurred. (Reference: NCIt C19666)",
       "name": "age_at_menarche",
       "valueType": "integer",
+      "restrictions": {
+         "range": {
+            "exclusiveMin": 0
+         }
+      },
       "meta": { "displayName": "Age at Menarche" }
     },
     {
-      "description": "Indicate the number of pregnancies a donor has had.",
+      "description": "Indicate the total number of pregnancy events experienced by the donor. (Reference: NCIt C106551)",
       "name": "number_of_pregnancies",
       "valueType": "integer",
+      "restrictions": {
+         "range": {
+            "min": 0
+         }
+      },
       "meta": { "displayName": "Number of Pregnancies" }
     },
     {
-      "description": "Indicate the number of children the donor has birthed.",
+      "description": "Indicate the number of children the donor has birthed. (Reference: caDSR CDE ID 2486644)",
       "name": "number_of_children",
       "valueType": "integer",
+      "restrictions": {
+         "range": {
+            "min": 0
+         }
+      },
       "meta": { "displayName": "Number of Children" }
     }
   ]

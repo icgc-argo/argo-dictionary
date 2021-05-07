@@ -116,6 +116,11 @@
       "name": "weight_at_followup",
       "valueType": "number",
       "restrictions": {},
+      "restrictions": {
+         "range": {
+            "exclusiveMin": 0
+         }
+      },
       "meta": {
         "displayName": "Weight at Follow-Up"
       }

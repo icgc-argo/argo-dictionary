@@ -82,7 +82,10 @@
       "description": "Indicate the total number of fractions delivered as part of treatment.",
       "valueType": "integer",
       "restrictions": {
-        "required": true
+        "required": true,
+        "range": {
+           "exclusiveMin": 0
+        }
       },
       "meta": {
         "core": true,
@@ -94,7 +97,10 @@
       "description": "Indicate the total dose given in units of Gray (Gy).",
       "valueType": "integer",
       "restrictions": {
-        "required": true
+        "required": true,
+        "range": {
+           "exclusiveMin": 0
+        }
       },
       "meta": {
         "core": true,
