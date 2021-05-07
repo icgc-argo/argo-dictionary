@@ -286,11 +286,11 @@
       "name": "hrt_duration",
       "valueType": "integer",
       "restrictions": {
-        "script": "#/script/donor/hrtOrContraceptionDuration"
-       },
-       "range": {
+        "script": "#/script/donor/hrtOrContraceptionDuration",
+        "range": {
           "exclusiveMin": 0
-       },
+        }
+      },
       "meta": { 
         "displayName": "Hormone Replacement Therapy Duration",
         "units": "months",
@@ -324,11 +324,11 @@
       "name": "contraception_duration",
       "valueType": "integer",
       "restrictions": {
-        "script": "#/script/donor/hrtOrContraceptionDuration"
-       },
-       "range": {
+        "script": "#/script/donor/hrtOrContraceptionDuration",
+        "range": {
           "exclusiveMin": 0
-       },
+        }
+      },
       "meta": { 
          "displayName": "Hormonal Contraception Duration",
          "units": "months",
