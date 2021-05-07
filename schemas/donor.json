@@ -76,7 +76,10 @@
         "displayName": "Survival Time"
       },
       "restrictions": {
-        "script": "#/script/donor/ensureDeceased"
+        "script": "#/script/donor/ensureDeceased",
+        "range": {
+           "exclusiveMin": 0
+        }
       }
     },
     {
@@ -167,19 +170,34 @@
     {
       "description": "Indicate the donor's height, in centimeters (cm).",
       "name": "height",
-      "valueType": "integer",
+      "valueType": "number",
+      "restrictions": {
+         "range": {
+            "exclusiveMin": 0
+         }
+      },
       "meta": { "displayName": "Height" }
     },
     {
       "description": "Indicate the donor's weight, in kilograms (kg).",
       "name": "weight",
-      "valueType": "integer",
+      "valueType": "number",
+      "restrictions": {
+         "range": {
+            "exclusiveMin": 0
+         }
+      },
       "meta": { "displayName": "Weight" }
     },
     {
       "description": "Indicate the donor's Body Mass Index (BMI) in kg/m².",
       "name": "bmi",
       "valueType": "integer",
+      "restrictions": {
+         "range": {
+            "exclusiveMin": 0
+         }
+      },
       "meta": { "displayName": "BMI" }
     },
     {
@@ -201,18 +219,33 @@
       "description": "Indicate the donor's age of menarche, the first occurrence of menstruation.",
       "name": "age_at_menarche",
       "valueType": "integer",
+      "restrictions": {
+         "range": {
+            "exclusiveMin": 0
+         }
+      },
       "meta": { "displayName": "Age at Menarche" }
     },
     {
       "description": "Indicate the number of pregnancies a donor has had.",
       "name": "number_of_pregnancies",
       "valueType": "integer",
+      "restrictions": {
+         "range": {
+            "min": 0
+         }
+      },
       "meta": { "displayName": "Number of Pregnancies" }
     },
     {
       "description": "Indicate the number of children the donor has birthed.",
       "name": "number_of_children",
       "valueType": "integer",
+      "restrictions": {
+         "range": {
+            "min": 0
+         }
+      },
       "meta": { "displayName": "Number of Children" }
     }
   ]

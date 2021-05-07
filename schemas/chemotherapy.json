@@ -95,7 +95,10 @@
       "description": "Indicate the total actual drug dose in the same units specified in chemotherapy_dosage_units.",
       "valueType": "number",
       "restrictions": {
-        "required": true
+        "required": true,
+        "range": {
+           "exclusiveMin": 0
+        }
       },
       "meta": {
         "core": true,

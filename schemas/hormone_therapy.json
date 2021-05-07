@@ -93,7 +93,10 @@
       "description": "Indicate total drug dose in units specified in hormone_drug_dosage_units.",
       "valueType": "number",
       "restrictions": {
-        "required": true
+        "required": true,
+        "range": {
+           "exclusiveMin": 0
+        }
       },
       "meta": {
         "core": true,
