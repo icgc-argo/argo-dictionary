@@ -76,7 +76,10 @@
         "displayName": "Survival Time"
       },
       "restrictions": {
-        "script": "#/script/donor/ensureDeceased"
+        "script": "#/script/donor/ensureDeceased",
+        "range": {
+           "exclusiveMin": 0
+        }
       }
     },
     {
@@ -169,44 +172,47 @@
       "description": "Indicate the donor's height, in centimeters (cm).",
       "name": "height",
       "valueType": "number",
+      "restrictions": {
+         "range": {
+            "exclusiveMin": 0
+         }
+      },
       "meta": { "displayName": "Height" }
     },
     {
       "description": "Indicate the donor's weight, in kilograms (kg).",
       "name": "weight",
       "valueType": "number",
+      "restrictions": {
+         "range": {
+            "exclusiveMin": 0
+         }
+      },
       "meta": { "displayName": "Weight" }
     },
     {
       "description": "Indicate the donor's Body Mass Index (BMI) in kg/m².",
       "name": "bmi",
       "valueType": "integer",
+      "restrictions": {
+         "range": {
+            "exclusiveMin": 0
+         }
+      },
       "meta": { "displayName": "BMI" }
     },
     {
-      "description": "Indicate presence of any hereditary genetic disorders. (Reference: Genetic disorder names were standardized using Orphanet)",
+      "description": "Indicate presence of any hereditary genetic disorders. (Reference: Genetic disorder names were standardized using Orphanet (https://www.orpha.net/) and NCI Thesaurus)",
       "name": "genetic_disorders",
-      "restrictions": {
-         "codeList": [
-           "Birt-Hogg-Dub syndrome",
-           "Familial Adenomatous Polyposis Syndrome (FAP)",
-           "Familial Atypical Multiple Mole Melanoma Syndrome (FAMM)",
-           "Hereditary Breast and Ovarian Cancer Syndrome",
-           "Juvenile Polyposis Syndrome",
-           "Lynch Syndrome",
-           "Muir-Torre Syndrome",
-           "Multiple Endocrine Neoplasia Type 1 (MEN1)",
-           "MUTYH Polyposis Syndrome",
-           "Peutz–Jeghers Syndrome",
-           "Serrated Polyposis Syndrome",
-           "Sjogren Syndrome",
-           "von Hippel-Lindau Syndrome"
-         ]
-      },
       "valueType": "string",
-      "meta": { 
+      "isArray": true,
+      "restrictions": {
+         "codeList": "#/list/genetic_disorders"
+      },
+      "meta": {
          "displayName": "Genetic Disorders",
-         "notes": "If the genetic disorder term you use is not included in the controlled terminology, please contact us at https://platform.icgc-argo.org/contact to request it be added."
+         "notes": "If the genetic disorder term you use is not included in the controlled terminology, please contact us at https://platform.icgc-argo.org/contact to request it be added. To include multiple values, separate values with a pipe delimiter '|' within your file.",
+        "examples": "Familial Adenomatous Polyposis Syndrome (FAP)|Lynch Syndrome"
        }
     },
     {
@@ -225,21 +231,36 @@
       "meta": { "displayName": "Menopause Status" }
     },
     {
-      "description": "Indicate the donor's age of menarche, the first occurrence of menstruation.",
+      "description": "Indicate the donor's age at which the first menstruation event occurred. (Reference: NCIt C19666)",
       "name": "age_at_menarche",
       "valueType": "integer",
+      "restrictions": {
+         "range": {
+            "exclusiveMin": 0
+         }
+      },
       "meta": { "displayName": "Age at Menarche" }
     },
     {
-      "description": "Indicate the number of pregnancies a donor has had.",
+      "description": "Indicate the total number of pregnancy events experienced by the donor. (Reference: NCIt C106551)",
       "name": "number_of_pregnancies",
       "valueType": "integer",
+      "restrictions": {
+         "range": {
+            "min": 0
+         }
+      },
       "meta": { "displayName": "Number of Pregnancies" }
     },
     {
-      "description": "Indicate the number of children the donor has birthed.",
+      "description": "Indicate the number of children the donor has birthed. (Reference: caDSR CDE ID 2486644)",
       "name": "number_of_children",
       "valueType": "integer",
+      "restrictions": {
+         "range": {
+            "min": 0
+         }
+      },
       "meta": { "displayName": "Number of Children" }
     },
     {
