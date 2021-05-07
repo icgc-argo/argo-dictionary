@@ -86,7 +86,9 @@
         "notes": "Current smoker: Has smoked 100 cigarettes in their lifetime and who currently smokes. Includes daily smokers and non-daily smokers (also known as occassional smokers). Current reformed smoker for >15 years: A person who currently does not smoke and has been a non-smoker for more than 15 years, but has smoked at least 100 cigarettes in their life. Current reformed smoker for <= 15 years: A person who currently does not smoke and has been a non-smoker for less than 15 years, but has smoked at least 100 cigarettes in their life. Current reformed smoker, duration not specified: A person who currently does not smoke and has been a non-smoker for unspecified time, but has smoked at least 100 cigarettes in their lifetime. Smoking history not documented: Smoking history has not be recorded or is unknown."
       },
       "restrictions": {
-        "min": 0
+        "range": {
+          "min": 0
+        }
       }
     },
     {
