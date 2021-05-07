@@ -209,7 +209,7 @@
       "restrictions": {
          "codeList": "#/list/genetic_disorders"
       },
-      "meta": { 
+      "meta": {
          "displayName": "Genetic Disorders",
          "notes": "If the genetic disorder term you use is not included in the controlled terminology, please contact us at https://platform.icgc-argo.org/contact to request it be added. To include multiple values, separate values with a pipe delimiter '|' within your file.",
         "examples": "Familial Adenomatous Polyposis Syndrome (FAP)|Lynch Syndrome"
@@ -262,6 +262,78 @@
          }
       },
       "meta": { "displayName": "Number of Children" }
+    },
+    {
+      "description": "Indicate the type of hormone replacement therapy (HRT) the patient has taken or is currently taking.",
+      "name": "hrt_type",
+      "restrictions": {
+        "codeList": [
+          "Combination HRT",
+          "Estrogen-only HRT",
+          "Injectable",
+          "Never taken HRT",
+          "Other",
+          "Patch",
+          "Pill",
+          "Unknown"
+        ]
+      },
+      "valueType": "string",
+      "meta": { "displayName": "Hormone Replacement Therapy Type" }
+    },
+    {
+      "description": "If patient has taken hormone replacement therapy (HRT), indicate how long patient has been taking HRT, in months. (Reference: caDSR CDE ID 5365433)",
+      "name": "hrt_duration",
+      "valueType": "integer",
+      "restrictions": {
+        "script": "#/script/donor/hrtOrContraceptionDuration"
+       },
+       "range": {
+          "exclusiveMin": 0
+       },
+      "meta": { 
+        "displayName": "Hormone Replacement Therapy Duration",
+        "units": "months",
+        "dependsOn": "donor.hrt_type"
+      }
+    },
+    {
+      "description": "Indicate the type of hormonal contraception the patient has taken or is currently taking. (Reference: caDSR CDE ID 3264234)",
+      "name": "contraception_type",
+      "restrictions": {
+        "codeList": [
+          "Combination pill",
+          "Contraceptive implant",
+          "Contraceptive patch",
+          "Injectable",
+          "Intrauterine device",
+          "Never used hormonal contraception",
+          "Other",
+          "Progestin-only pill",
+          "Unknown",
+          "Vaginal ring"
+        ]
+      },
+      "valueType": "string",
+      "meta": {
+         "displayName": "Contraception Type"
+      }
+    },
+    {
+      "description": "If patient has taken hormonal contraception, indicate duration of use, in months. (Reference: caDSR CDE ID 5206887)",
+      "name": "contraception_duration",
+      "valueType": "integer",
+      "restrictions": {
+        "script": "#/script/donor/hrtOrContraceptionDuration"
+       },
+       "range": {
+          "exclusiveMin": 0
+       },
+      "meta": { 
+         "displayName": "Hormonal Contraception Duration",
+         "units": "months",
+         "dependsOn": "donor.contraception_type" 
+      }
     }
   ]
 }
