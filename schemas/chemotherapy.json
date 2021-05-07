@@ -65,7 +65,7 @@
     },
     {
       "name": "drug_name",
-      "description": "Name of agent or drug administered to patient as part of the treatment regimen.",
+      "description": "Name of agent or drug administered to donor as part of the treatment regimen.",
       "valueType": "string",
       "meta": {
         "validationDependency": true,
@@ -95,7 +95,10 @@
       "description": "Indicate the total actual drug dose in the same units specified in chemotherapy_dosage_units.",
       "valueType": "number",
       "restrictions": {
-        "required": true
+        "required": true,
+        "range": {
+           "exclusiveMin": 0
+        }
       },
       "meta": {
         "core": true,
