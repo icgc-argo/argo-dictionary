@@ -260,10 +260,10 @@
     },
     {
       "name": "toxicity_type",
-      "description": "If the treatment was terminated early due to acute toxicity, indicate whether it was due to hematological toxicity or non-hematological toxicity.",
+      "description": "If the treatment was terminated early due to acute toxicity, indicate whether it was due to hemotological toxicity or non-hemotological toxicity.",
       "valueType": "string",
       "restrictions": {
-        "codeList": ["Hematological", "Non-hematological"],
+        "codeList": ["Hemotological", "Non-hemotological"],
         "script": "#/script/treatment/checkWhenNoTreatment"
       },
       "meta": {
@@ -271,8 +271,8 @@
       }
     },
     {
-      "name": "hematological_toxicity",
-      "description": "Indicate the hematological toxicities which caused early termination of the treatment. (Codelist reference: NCI-CTCAE (v5.0))",
+      "name": "hemotological_toxicity",
+      "description": "Indicate the hemotological toxicities which caused early termination of the treatment. (Codelist reference: NCI-CTCAE (v5.0))",
       "valueType": "string",
       "isArray": true,
       "restrictions": {
@@ -290,7 +290,7 @@
         "script": "#/script/treatment/checkWhenNoTreatment"
       },
       "meta": {
-        "displayName": "Hematological Toxicity",
+        "displayName": "Hemotological Toxicity",
         "notes": "#/notes/multiple_values"
       }
     },
