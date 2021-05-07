@@ -193,7 +193,7 @@
     {
       "description": "Indicate the donor's Body Mass Index (BMI) in kg/m².",
       "name": "bmi",
-      "valueType": "integer",
+      "valueType": "number",
       "restrictions": {
          "range": {
             "exclusiveMin": 0
