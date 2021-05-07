@@ -52,7 +52,7 @@
     {
       "name": "immunotherapy_type",
       "valueType": "string",
-      "description": "Indicate the type of immunotherapy administered to patient.",
+      "description": "Indicate the type of immunotherapy administered to donor.",
       "meta": {
         "displayName": "Immunotherapy Type"
       },
@@ -81,7 +81,7 @@
     },
     {
       "name": "drug_name",
-      "description": "Name of agent or drug administered to patient as part of the treatment regimen.",
+      "description": "Name of agent or drug administered to donor as part of the treatment regimen.",
       "valueType": "string",
       "meta": {
         "validationDependency": true,
