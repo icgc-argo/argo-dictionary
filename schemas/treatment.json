@@ -110,13 +110,11 @@
       "description": "Indicate the line of treatment if it is not the primary treatment.",
       "valueType": "integer",
       "restrictions": {
-        "script": "#/script/treatment/checkWhenNoTreatment",
-        "range": {
-           "exclusiveMin": 0
-        }
+        "script": "#/script/treatment/lineOfTreatment"
       },
       "meta": {
         "displayName": "Line Of treatment",
+        "dependsOn": "treatment.is_primary_treatment",
         "examples": "2,3,4"
       }
     },
