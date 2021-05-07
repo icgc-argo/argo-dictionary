@@ -115,6 +115,7 @@
       "description": "Indicate the donor's weight, in kilograms (kg), at the time of follow-up.",
       "name": "weight_at_followup",
       "valueType": "number",
+      "restrictions": {},
       "restrictions": {
          "range": {
             "exclusiveMin": 0

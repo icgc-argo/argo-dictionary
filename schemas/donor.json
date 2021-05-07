@@ -202,6 +202,20 @@
       "meta": { "displayName": "BMI" }
     },
     {
+      "description": "Indicate presence of any hereditary genetic disorders. (Reference: Genetic disorder names were standardized using Orphanet (https://www.orpha.net/) and NCI Thesaurus)",
+      "name": "genetic_disorders",
+      "valueType": "string",
+      "isArray": true,
+      "restrictions": {
+         "codeList": "#/list/genetic_disorders"
+      },
+      "meta": { 
+         "displayName": "Genetic Disorders",
+         "notes": "If the genetic disorder term you use is not included in the controlled terminology, please contact us at https://platform.icgc-argo.org/contact to request it be added. To include multiple values, separate values with a pipe delimiter '|' within your file.",
+        "examples": "Familial Adenomatous Polyposis Syndrome (FAP)|Lynch Syndrome"
+       }
+    },
+    {
       "description": "Indicate the donor's menopause status at the time of primary diagnosis. (Reference: caDSR CDE ID 2434914)",
       "name": "menopause_status",
       "restrictions": {
