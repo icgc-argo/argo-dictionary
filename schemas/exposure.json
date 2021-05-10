@@ -49,7 +49,7 @@
           "Current reformed smoker, duration not specified",
           "Current smoker",
           "Lifelong non-smoker (<100 cigarettes smoked in lifetime)",
-          "Smoking history not documented" 
+          "Smoking history not documented"
           ]
       }
     },
@@ -139,7 +139,7 @@
           "Unknown",
           "Wine"
         ],
-        "script": "#/exposure/checkAlcoholType"
+        "script": "#/script/exposure/checkAlcoholType"
       }
     },
     {
@@ -222,7 +222,7 @@
           "Moderate: Increase in the heart beat slightly with some light perspiration",
           "Vigorous: Increase in the heart beat substantially with heavy perspiration"
         ],
-        "script": "#/script/checkExerciseIntensity"
+        "script": "#/script/exposure/checkExerciseIntensity"
       }
     }
   ]
