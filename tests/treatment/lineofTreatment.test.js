@@ -18,130 +18,111 @@
  *
  */
 
-const validation = require('../../references/validationFunctions/family_history/noFamilyCancerHistory.js');
+const validation = require('../../references/validationFunctions/treatment/lineOfTreatment');
 
 const universalTest = require('../universal');
 const loadObjects = require('../loadObjects');
 
 // load in all fields with entries prepopulated to null
-const family_history = require('../constructDummyData').getSchemaDummy('family_history');
+const treatment = require('../constructDummyData').getSchemaDummy('treatment');
 
 
 // key -> name of field, value -> unit tests
 const myUnitTests = {
-    'age_of_relative_at_diagnosis': [
+    'line_of_treatment': [
         [
-            'age_of_relative_at_diagnosis is submitted when relative_with_cancer_history is yes',
+            'is_primary_treatment is no, and line_of_treatment is submitted as 2',
             true,
-            loadObjects(family_history,
+            loadObjects(treatment,
                 {   
-                    "relative_with_cancer_history": "yes",
-                    "age_of_relative_at_diagnosis": 67
+                    "is_primary_treatment": "no",
+                    "line_of_treatment": 2
                 }
             )
         ],
         [
-            'age_of_relative_at_diagnosis is submitted when relative_with_cancer_history is no',
+            'is_primary_treatment is no, and line_of_treatment is submitted as 1',
             false,
-            loadObjects(family_history,
+            loadObjects(treatment,
                 {   
-                    "relative_with_cancer_history": "NO",
-                    "age_of_relative_at_diagnosis": 69
+                    "is_primary_treatment": "no",
+                    "line_of_treatment": 1
                 }
             )
         ],
         [
-            'age_of_relative_at_diagnosis is submitted without relative_with_cancer_history',
+            'is_primary_treatment is unknown, and line_of_treatment is submitted as 1',
             false,
-            loadObjects(family_history,
+            loadObjects(treatment,
                 {   
-                    "age_of_relative_at_diagnosis": 69
+                    "is_primary_treatment": "unknown",
+                    "line_of_treatment": 1
                 }
             )
-        ]
-    ],
-    'cancer_type_code_of_relative': [
+        ],
         [
-            'cancer_type_code_of_relative is submitted when relative_with_cancer_history is unknown',
+            'is_primary_treatment is unknown, and line_of_treatment is submitted as 3',
             false,
-            loadObjects(family_history,
+            loadObjects(treatment,
                 {   
-                    "relative_with_cancer_history": "unknown",
-                    "cancer_type_code_of_relative": "C50"
+                    "is_primary_treatment": "unknown",
+                    "line_of_treatment": 3
                 }
             )
         ],
         [
-            'cancer_type_code_of_relative is submitted when relative_with_cancer_history is yes',
-            true,
-            loadObjects(family_history,
-                {   
-                    "relative_with_cancer_history": "yes",
-                    "cancer_type_code_of_relative": "C50"
-                }
-            )
-        ],
-        [
-            'cancer_type_code_of_relative is submitted when relative_with_cancer_history is not submitted',
+            'is_primary_treatment is yes, and line_of_treatment is submitted as 2',
             false,
-            loadObjects(family_history,
+            loadObjects(treatment,
                 {   
-                    "cancer_type_code_of_relative": "C50"
-                }
-            )
-        ]
-    ],
-    'relative_survival_time': [
-        [
-            'relative_survival_time is submitted when relative_with_cancer_history is yes',
-            true,
-            loadObjects(family_history,
-                {   
-                    "relative_with_cancer_history": "yes",
-                    "relative_survival_time": 738
+                    "is_primary_treatment": "yes",
+                    "line_of_treatment": 2
                 }
             )
         ],
         [
-            'relative_survival_time is submitted when relative_with_cancer_history is no',
+            'is_primary_treatment is yes, and line_of_treatment is submitted as 1',
             false,
-            loadObjects(family_history,
+            loadObjects(treatment,
                 {   
-                    "relative_with_cancer_history": "no",
-                    "relative_survival_time": 738
+                    "is_primary_treatment": "yes",
+                    "line_of_treatment": 1
                 }
             )
         ],
         [
-            'relative_survival_time is submitted when relative_with_cancer_history is unknown',
+            'is_primary_treatment is yes, and line_of_treatment is submitted as -9',
             false,
-            loadObjects(family_history,
+            loadObjects(treatment,
                 {   
-                    "relative_with_cancer_history": "unknown",
-                    "relative_survival_time": 388
+                    "is_primary_treatment": "yes",
+                    "line_of_treatment": -9
                 }
             )
         ],
         [
-            'relative_survival_time is submitted when relative_with_cancer_history is left empty',
+            'is_primary_treatment is no, and line_of_treatment is submitted as -7',
             false,
-            loadObjects(family_history,
+            loadObjects(treatment,
                 {   
-                    "relative_survival_time": 90
+                    "is_primary_treatment": "no",
+                    "line_of_treatment": -7
                 }
             )
         ],
         [
-            'relative_survival_time is not submitted when relative_with_cancer_history is yes',
-            true,
-            loadObjects(family_history,
+            'is_primary_treatment is unknown, and line_of_treatment is submitted as 0',
+            false,
+            loadObjects(treatment,
                 {   
-                    "relative_with_cancer_history": "yes",
+                    "is_primary_treatment": "no",
+                    "line_of_treatment": 0
                 }
             )
-        ]
+        ],
     ]
 }
+
 
 describe("Common Tests",()=>{
     Object.entries(myUnitTests).forEach(field =>{
@@ -156,7 +137,7 @@ describe("Common Tests",()=>{
     
 })
 
-describe("Unit Tests for family history fields",()=>{
+describe("Unit Tests for Line of Treatment in Treatment",()=>{
     Object.entries(myUnitTests).forEach(field => {
         const name = field[0];
         const unitTests = field[1];
@@ -170,4 +151,3 @@ describe("Unit Tests for family history fields",()=>{
     })
     
 })
-

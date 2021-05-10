@@ -110,13 +110,11 @@
       "description": "Indicate the line of treatment if it is not the primary treatment.",
       "valueType": "integer",
       "restrictions": {
-        "script": "#/script/treatment/checkWhenNoTreatment",
-        "range": {
-           "exclusiveMin": 0
-        }
+        "script": "#/script/treatment/lineOfTreatment"
       },
       "meta": {
         "displayName": "Line Of treatment",
+        "dependsOn": "treatment.is_primary_treatment",
         "examples": "2,3,4"
       }
     },
@@ -165,7 +163,10 @@
            "exclusiveMin": 0
         }
       },
-      "meta": { "displayName": "Days Per Cycle" }
+      "meta": { 
+        "displayName": "Days Per Cycle",
+        "dependsOn": "treatment.treatment_type"
+      }
     },
     {
       "name": "number_of_cycles",
@@ -177,7 +178,10 @@
            "exclusiveMin": 0
         }
       },
-      "meta": { "displayName": "Number Of Cycles" }
+      "meta": { 
+        "displayName": "Number Of Cycles",
+        "dependsOn": "treatment.treatment_type"
+      }
     },
     {
       "name": "treatment_intent",
@@ -252,27 +256,30 @@
           "Other",
           "Not applicable",
           "Unknown"
-        ]
+        ],
+        "script": "#/script/treatment/checkWhenNoTreatment"
       },
       "meta": {
-        "displayName": "Outcome Of Treatment"
+        "displayName": "Outcome Of Treatment",
+        "dependsOn": "treatment.treatment_type"
       }
     },
     {
       "name": "toxicity_type",
-      "description": "If the treatment was terminated early due to acute toxicity, indicate whether it was due to hemotological toxicity or non-hemotological toxicity.",
+      "description": "If the treatment was terminated early due to acute toxicity, indicate whether it was due to hematological toxicity or non-hematological toxicity.",
       "valueType": "string",
       "restrictions": {
-        "codeList": ["Hemotological", "Non-hemotological"],
-        "script": "#/script/treatment/checkWhenNoTreatment"
+        "codeList": ["Hematological", "Non-hematological"],
+        "script": "#/script/treatment/checkOutcomeOfTrtmt"
       },
       "meta": {
-        "displayName": "Toxicity Type"
+        "displayName": "Toxicity Type",
+        "dependsOn": "treatment.outcome_of_treatment"
       }
     },
     {
-      "name": "hemotological_toxicity",
-      "description": "Indicate the hemotological toxicities which caused early termination of the treatment. (Codelist reference: NCI-CTCAE (v5.0))",
+      "name": "hematological_toxicity",
+      "description": "Indicate the hematological toxicities which caused early termination of the treatment. (Codelist reference: NCI-CTCAE (v5.0))",
       "valueType": "string",
       "isArray": true,
       "restrictions": {
@@ -287,10 +294,26 @@
           "Thrombocytopenia - Grade 4",
           "Thrombocytopenia - Grade 5"
         ],
-        "script": "#/script/treatment/checkWhenNoTreatment"
+        "script": "#/script/treatment/checkToxicityType"
       },
       "meta": {
         "displayName": "Hemotological Toxicity",
+        "dependsOn": "treatment.toxicity_type",
+        "notes": "#/notes/multiple_values"
+      }
+    },
+    {
+      "name": "non-hematological_toxicity",
+      "description": "Indicate the non-hematological toxicities which caused early termination of the treatment. (Codelist reference: NCI-CTCAE (v5.0))",
+      "valueType": "string",
+      "isArray": true,
+      "restrictions": {
+        "codeList": "#/list/non-hematological_toxicities",
+        "script": "#/script/treatment/checkToxicityType"
+      },
+      "meta": {
+        "displayName": "Non-hematological Toxicity",
+        "dependsOn": "treatment.toxicity_type",
         "notes": "#/notes/multiple_values"
       }
     },
@@ -305,6 +328,7 @@
       },
       "meta": {
         "displayName": "Adverse Events",
+        "dependsOn": "treatment.treatment_type",
         "notes": "#/notes/multiple_values"
       }
     },

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 The Ontario Institute for Cancer Research. All rights reserved
+ * Copyright (c) 2021 The Ontario Institute for Cancer Research. All rights reserved
  *
  * This program and the accompanying materials are made available under the terms of the GNU Affero General Public License v3.0.
  * You should have received a copy of the GNU Affero General Public License along with
@@ -18,30 +18,31 @@
  *
  */
 
-/*
- * If 'relative_with_cancer_history` is 'No', then the following fields should not be submitted: age_of_relative_at_diagnosis, 
- *  cancer_type_code_of_relative, relative_survival_time, cause_of_death_of_relative. If these fields are submitted, then 
-   'relative_with_cancer_history' should not be left empty (should be submitted as 'Yes')
+/**
+ * Validates toxicity_type field against outcome_of_treatment (makes sure it's consistent) 
+ * @param {object} $row 
+ * @param {string} $field 
+ * @param {string} $name 
  */
-
 const validation = () => 
   (function validate(inputs) {
       const {$row, $name, $field} = inputs;
       let result = {valid: true, message: "Ok"};
-
-      const currField = typeof($field) === 'string' ? $field.trim().toLowerCase() : $field;
-      if ($row.relative_with_cancer_history != null) {
-         const relativeWithCancerHistory = $row.relative_with_cancer_history.trim().toLowerCase();
-         if (((relativeWithCancerHistory === "no") || (relativeWithCancerHistory === "unknown")) && currField != null) {
-            result = {
-               valid: false,
-               message: `The '${$name}' field should not be submitted if the 'relative_with_cancer_history' field is '${relativeWithCancerHistory}'`,
-            };
+      
+      /* checks for a string just consisting of whitespace */
+      const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
+      
+      if ($field != null && !(checkforEmpty($field))) {
+         if (($row.outcome_of_treatment != null && !(checkforEmpty($row.outcome_of_treatment)))) { 
+            const outcomeOfTreatment = $row.outcome_of_treatment.trim().toLowerCase();
+     
+            /* toxicityType should only be submitted if treatment was terminated early due to acute toxicity ('outcome_of_treatment' is 'Treatment stopped due to acute toxicity'). */
+            if (outcomeOfTreatment != "treatment stopped due to acute toxicity") {
+               result = { valid: false, message: `The 'outcome_of_treatment' field should be 'Treatment stopped due to acute toxicity' if the '${$name}' field is submitted.`};
+            }
          }
-      }
-      else {
-         if (currField || currField != null) {
-            result = { valid: false, message: `The 'relative_with_cancer_history' field must be submitted as 'Yes' if the '${$name}' field is submitted.`};
+         else {
+            result = {valid: false, message: `If the 'toxicity_type' field is submitted, then the 'outcome_of_treatment' field must be submitted as well.`}
          }
       }
       return result;
