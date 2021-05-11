@@ -76,16 +76,22 @@
         "displayName": "Survival Time"
       },
       "restrictions": {
-        "script": "#/script/donor/ensureDeceased"
+        "script": "#/script/donor/ensureDeceased",
+        "range": {
+          "exclusiveMin": 0
+        }
       }
     },
     {
       "name": "primary_site",
       "valueType": "string",
+      "isArray": true,
       "description": "The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general categories.",
       "meta": {
         "displayName": "Primary Site",
-        "core": true
+        "core": true,
+        "notes": "To include multiple values, separate values with a pipe delimiter '|' within your file.",
+        "examples": "Breast|Ovary"
       },
       "restrictions": {
         "required": true,
@@ -120,7 +126,6 @@
           "Meninges",
           "Nasal cavity and middle ear",
           "Nasopharynx",
-          "Not Reported",
           "Oropharynx",
           "Other and ill-defined digestive organs",
           "Other and ill-defined sites",
@@ -159,8 +164,7 @@
           "Ureter",
           "Uterus, NOS",
           "Vagina",
-          "Vulva",
-          "Unknown"
+          "Vulva"
         ]
       }
     },
@@ -168,19 +172,48 @@
       "description": "Indicate the donor's height, in centimeters (cm).",
       "name": "height",
       "valueType": "number",
+      "restrictions": {
+        "range": {
+          "exclusiveMin": 0
+        }
+      },
       "meta": { "displayName": "Height" }
     },
     {
       "description": "Indicate the donor's weight, in kilograms (kg).",
       "name": "weight",
       "valueType": "number",
+      "restrictions": {
+        "range": {
+          "exclusiveMin": 0
+        }
+      },
       "meta": { "displayName": "Weight" }
     },
     {
       "description": "Indicate the donor's Body Mass Index (BMI) in kg/m².",
       "name": "bmi",
-      "valueType": "integer",
+      "valueType": "number",
+      "restrictions": {
+        "range": {
+          "exclusiveMin": 0
+        }
+      },
       "meta": { "displayName": "BMI" }
+    },
+    {
+      "description": "Indicate presence of any hereditary genetic disorders. (Reference: Genetic disorder names were standardized using Orphanet (https://www.orpha.net/) and NCI Thesaurus)",
+      "name": "genetic_disorders",
+      "valueType": "string",
+      "isArray": true,
+      "restrictions": {
+        "codeList": "#/list/genetic_disorders"
+      },
+      "meta": {
+        "displayName": "Genetic Disorders",
+        "notes": "If the genetic disorder term you use is not included in the controlled terminology, please contact us at https://platform.icgc-argo.org/contact to request it be added. To include multiple values, separate values with a pipe delimiter '|' within your file.",
+        "examples": "Familial Adenomatous Polyposis Syndrome (FAP)|Lynch Syndrome"
+      }
     },
     {
       "description": "Indicate the donor's menopause status at the time of primary diagnosis. (Reference: caDSR CDE ID 2434914)",
@@ -198,22 +231,109 @@
       "meta": { "displayName": "Menopause Status" }
     },
     {
-      "description": "Indicate the donor's age of menarche, the first occurrence of menstruation.",
+      "description": "Indicate the donor's age at which the first menstruation event occurred. (Reference: NCIt C19666)",
       "name": "age_at_menarche",
       "valueType": "integer",
+      "restrictions": {
+        "range": {
+          "exclusiveMin": 0
+        }
+      },
       "meta": { "displayName": "Age at Menarche" }
     },
     {
-      "description": "Indicate the number of pregnancies a donor has had.",
+      "description": "Indicate the total number of pregnancy events experienced by the donor. (Reference: NCIt C106551)",
       "name": "number_of_pregnancies",
       "valueType": "integer",
+      "restrictions": {
+        "range": {
+          "min": 0
+        }
+      },
       "meta": { "displayName": "Number of Pregnancies" }
     },
     {
-      "description": "Indicate the number of children the donor has birthed.",
+      "description": "Indicate the number of children the donor has birthed. (Reference: caDSR CDE ID 2486644)",
       "name": "number_of_children",
       "valueType": "integer",
+      "restrictions": {
+        "range": {
+          "min": 0
+        }
+      },
       "meta": { "displayName": "Number of Children" }
+    },
+    {
+      "description": "Indicate the type of hormone replacement therapy (HRT) the patient has taken or is currently taking.",
+      "name": "hrt_type",
+      "restrictions": {
+        "codeList": [
+          "Combination HRT",
+          "Estrogen-only HRT",
+          "Injectable",
+          "Never taken HRT",
+          "Other",
+          "Patch",
+          "Pill",
+          "Unknown"
+        ]
+      },
+      "valueType": "string",
+      "meta": { "displayName": "Hormone Replacement Therapy Type" }
+    },
+    {
+      "description": "If patient has taken hormone replacement therapy (HRT), indicate how long patient has been taking HRT, in months. (Reference: caDSR CDE ID 5365433)",
+      "name": "hrt_duration",
+      "valueType": "integer",
+      "restrictions": {
+        "script": "#/script/donor/hrtOrContraceptionDuration",
+        "range": {
+          "exclusiveMin": 0
+        }
+      },
+      "meta": {
+        "displayName": "Hormone Replacement Therapy Duration",
+        "units": "months",
+        "dependsOn": "donor.hrt_type"
+      }
+    },
+    {
+      "description": "Indicate the type of hormonal contraception the patient has taken or is currently taking. (Reference: caDSR CDE ID 3264234)",
+      "name": "contraception_type",
+      "restrictions": {
+        "codeList": [
+          "Combination pill",
+          "Contraceptive implant",
+          "Contraceptive patch",
+          "Injectable",
+          "Intrauterine device",
+          "Never used hormonal contraception",
+          "Other",
+          "Progestin-only pill",
+          "Unknown",
+          "Vaginal ring"
+        ]
+      },
+      "valueType": "string",
+      "meta": {
+        "displayName": "Contraception Type"
+      }
+    },
+    {
+      "description": "If patient has taken hormonal contraception, indicate duration of use, in months. (Reference: caDSR CDE ID 5206887)",
+      "name": "contraception_duration",
+      "valueType": "integer",
+      "restrictions": {
+        "script": "#/script/donor/hrtOrContraceptionDuration",
+        "range": {
+          "exclusiveMin": 0
+        }
+      },
+      "meta": {
+        "displayName": "Hormonal Contraception Duration",
+        "units": "months",
+        "dependsOn": "donor.contraception_type"
+      }
     }
   ]
 }

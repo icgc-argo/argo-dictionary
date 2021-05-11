@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 The Ontario Institute for Cancer Research. All rights reserved
+ * Copyright (c) 2021 The Ontario Institute for Cancer Research. All rights reserved
  *
  * This program and the accompanying materials are made available under the terms of the GNU Affero General Public License v3.0.
  * You should have received a copy of the GNU Affero General Public License along with
@@ -18,31 +18,32 @@
  *
  */
 
-/*
- * If 'relative_with_cancer_history` is 'No', then the following fields should not be submitted: age_of_relative_at_diagnosis, 
- *  cancer_type_code_of_relative, relative_survival_time, cause_of_death_of_relative. If these fields are submitted, then 
-   'relative_with_cancer_history' should not be left empty (should be submitted as 'Yes')
+/**
+ * Validates hrt_duration and/or contraception_duration fields to make sure they are consistent with hrt_type and/or contraception_type
+ * @param {object} $row 
+ * @param {string} $field 
+ * @param {string} $name 
  */
-
 const validation = () => 
   (function validate(inputs) {
       const {$row, $name, $field} = inputs;
       let result = {valid: true, message: "Ok"};
+      
+      /* checks for a string just consisting of whitespace */
+      const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
+     
+      const type = $name.trim().toLowerCase().split('_duration')[0];
+      const hormoneType = type + `_type`;
+   
+      if ($field != null && !(checkforEmpty($field))) {
+        if (!$row[hormoneType] || $row[hormoneType] === null || checkforEmpty($row[hormoneType])) {
+           result = { valid: false, message: `Indicate type of ${type} taken in the '${hormoneType}' field if '${$name}' field is submitted.`};
+        }
+        else if ($row[hormoneType].toLowerCase() === "never taken hrt" || $row[hormoneType].toLowerCase() === "never used hormonal contraception") {
+           const submittedValue = $row[hormoneType].toLowerCase()
+           result = {valid: false, message: `If '${$name}' is submitted, then '${hormoneType}' field cannot be '${submittedValue}'.`};
+       }
 
-      const currField = typeof($field) === 'string' ? $field.trim().toLowerCase() : $field;
-      if ($row.relative_with_cancer_history != null) {
-         const relativeWithCancerHistory = $row.relative_with_cancer_history.trim().toLowerCase();
-         if (((relativeWithCancerHistory === "no") || (relativeWithCancerHistory === "unknown")) && currField != null) {
-            result = {
-               valid: false,
-               message: `The '${$name}' field should not be submitted if the 'relative_with_cancer_history' field is '${relativeWithCancerHistory}'`,
-            };
-         }
-      }
-      else {
-         if (currField || currField != null) {
-            result = { valid: false, message: `The 'relative_with_cancer_history' field must be submitted as 'Yes' if the '${$name}' field is submitted.`};
-         }
       }
       return result;
   });

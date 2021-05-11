@@ -4,8 +4,9 @@
   "description": "Working space for the ARGO Data Dictionary collaboration",
   "main": "index.js",
   "scripts": {
-    "compile": "jest && node compile.js",
-    "test": "jest"
+    "compile": "jest && node compile.js && npm run references",
+    "test": "jest",
+    "references": "node populateReferences.js"
   },
   "repository": {
     "type": "git",

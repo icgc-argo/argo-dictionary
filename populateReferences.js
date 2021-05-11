@@ -37,10 +37,13 @@ const replacer = (match) => {
     const refs = stripped.split('\/')
     let replacement = dict.references;
     refs.forEach(element => {
+      if (!replacement[element]) {
+        throw new Error(`Could not find element '${element}' in refs '${match}'.`);
+      }
         replacement = replacement[element]
     });
     return JSON.stringify(replacement);
-  }
+}
 
 const newString = old.replace(regex, replacer);
 
