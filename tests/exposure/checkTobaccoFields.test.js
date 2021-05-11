@@ -77,6 +77,15 @@ const myUnitTests = {
                     "tobacco_type": "cigarettes, cigars"
                 }
             )
+        ],
+        [
+            'tobacco_type is submitted when tobacco_smoking_status is missing',
+            false,
+            loadObjects(exposure,
+                {   
+                    "tobacco_type": "cigarettes, cigars"
+                }
+            )
         ]
     ],
     'pack_years_smoked': [
@@ -108,8 +117,16 @@ const myUnitTests = {
                     "tobacco_smoking_status": "current smoker"
                 }
             )
+        ],
+        [
+            'pack_years_smoked is submitted when tobacco_smoking_status is left empty',
+            false,
+            loadObjects(exposure,
+                {   
+                    "pack_years_smoked": 2.3
+                }
+            )
         ]
-
    ]
 
 }

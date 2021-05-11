@@ -51,7 +51,7 @@ const validation = () =>
          }
       }
      else if ($name === 'pack_years_smoked') {
-        if (!smokerCategories.includes($row.tobacco_smoking_status) && ($row.pack_years_smoked != null || !(checkforEmpty($row.pack_years_smoked)))) {
+        if (($row.tobacco_smoking_status === null || (!smokerCategories.includes($row.tobacco_smoking_status))) && ($row.pack_years_smoked != null || !(checkforEmpty($row.pack_years_smoked)))) {
            result = {valid: false, message: `The '${$name}' field should not be submitted if donor does not have a history of smoking.`}
         }
      }
