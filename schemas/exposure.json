@@ -83,12 +83,13 @@
       "valueType": "number",
       "meta": {
         "displayName": "Pack Years Smoked",
-        "notes": "Current smoker: Has smoked 100 cigarettes in their lifetime and who currently smokes. Includes daily smokers and non-daily smokers (also known as occassional smokers). Current reformed smoker for >15 years: A person who currently does not smoke and has been a non-smoker for more than 15 years, but has smoked at least 100 cigarettes in their life. Current reformed smoker for <= 15 years: A person who currently does not smoke and has been a non-smoker for less than 15 years, but has smoked at least 100 cigarettes in their life. Current reformed smoker, duration not specified: A person who currently does not smoke and has been a non-smoker for unspecified time, but has smoked at least 100 cigarettes in their lifetime. Smoking history not documented: Smoking history has not be recorded or is unknown."
+        "dependsOn": "exposure.tobacco_smoking_status"
       },
       "restrictions": {
         "range": {
           "min": 0
-        }
+        },
+        "script": "#/script/exposure/checkTobaccoFields"
       }
     },
     {
@@ -155,7 +156,7 @@
     },
     {
       "description": "Indicate if the donor regularly drinks tea, coffee, or other hot drinks.",
-      "name": "hot_drinks",
+      "name": "hot_drinks_consumption",
       "valueType": "string",
       "meta": {
         "displayName": "Hot Drink Consumption"
@@ -166,7 +167,7 @@
     },
     {
       "description": "Indicate how frequently the donor eats red meat. Examples of red meat include beef, veal, pork, lamb, mutton, horse, or goat meat.",
-      "name": "red_meat",
+      "name": "red_meat_frequency",
       "valueType": "string",
       "meta": {
         "displayName": "Red Meat Consumption Frequency"
@@ -177,7 +178,7 @@
     },
     {
       "description": "Indicate how frequently the patient eats processed meat. Examples of processed meat include hams, salamis, or sausages.",
-      "name": "processed_meat",
+      "name": "processed_meat_frequency",
       "valueType": "string",
       "meta": {
         "displayName": "Processed Meat Consumption Frequency"
@@ -188,7 +189,7 @@
     },
     {
       "description": "Indicate the frequency of soft drink consumption by the donor.",
-      "name": "soft_drinks",
+      "name": "soft_drinks_frequency",
       "valueType": "string",
       "meta": {
         "displayName": "Soft Drink Consumption Frequency"
