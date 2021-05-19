@@ -27,23 +27,19 @@ const validation = () =>
       const {$row, $name, $field} = inputs;
       let result = {valid: true, message: "Ok"};
 
-      const currField = typeof($field) === 'string' ? $field.trim().toLowerCase() : $field;
       
       /* checks for a string just consisting of whitespace */
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
       const invalidTypes = ["no", "unknown"]
       optionalFields = ["age_at_comorbidity_diagnosis", "comorbidity_treatment_status", "comorbidity_treatment"];
    
-      if (optionalFields.includes($name) && (currField || (!(checkforEmpty(currField))))) {
+      if (optionalFields.includes($name) && ($field || (!(checkforEmpty($field))))) {
          if (($row.comorbidity_type_code === null || checkforEmpty($row.comorbidity_type_code))) {
-            result = { valid: false, message: `The '${$name}' field should not be submitted if the 'comorbidity_type_code' field is not submitted.`};
+            result = { valid: false, message: `The 'comorbidity_type_code' field is required if '${$name}' is submitted.`};
          }
-         if ($name === "comorbidity_treatment" && currField && !(checkforEmpty(currField))) {
-            if ($row.comorbidity_treatment_status === null || checkforEmpty($row.comorbidity_treatment_status)) {
+         if ($name === "comorbidity_treatment" && $field && !(checkforEmpty($field))) {
+            if (!$row.comorbidity_treatment_status || $row.comorbidity_treatment_status === null || checkforEmpty($row.comorbidity_treatment_status) || invalidTypes.includes($row.comorbidity_treatment_status.trim().toLowerCase())) {
                result = { valid: false, message: `The 'comorbidity_treatment_status' field should be submitted as 'Yes' if '${$name}' field is submitted.`};
-            }
-            else if (invalidTypes.includes($row.comorbidity_treatment_status.trim().toLowerCase())) {
-               result = { valid: false, message: `The '${$name}' field should not be submitted if the 'comorbidity_treatment_status' field is not 'Yes'.`};
             }
          }
      }
