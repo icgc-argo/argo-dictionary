@@ -45,7 +45,7 @@ const myUnitTests = {
             false,
             loadObjects(exposure,
                 {   
-                    "tobacco_smoking_status": "lifelong non-smoker (<100 cigarettes smoked in lifetime)",
+                    "tobacco_smoking_status": "Lifelong non-smoker (<100 Cigarettes Smoked in lifetime)",
                     "tobacco_type": "cigar, chewing tobacco"
                 }
             )
@@ -65,6 +65,15 @@ const myUnitTests = {
             loadObjects(exposure,
                 {   
                     "tobacco_smoking_status": "current smoker",
+                }
+            )
+        ],
+        [
+            'tobacco_type is submitted but tobacco_smoking_status is missing',
+            false,
+            loadObjects(exposure,
+                {   
+                    "tobacco_type": "cigarettes",
                 }
             )
         ],
