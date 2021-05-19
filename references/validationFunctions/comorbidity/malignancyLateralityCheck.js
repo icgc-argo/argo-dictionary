@@ -25,18 +25,14 @@ const validation = () =>
       const {$row, $name, $field} = inputs;
       let result = {valid: true, message: "Ok"};
 
-      const currField = typeof($field) === 'string' ? $field.trim().toLowerCase() : $field;
       
       /* checks for a string just consisting of whitespace */
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
       const invalidTypes = ["no", "unknown"]
    
-      if ($name === "laterality_of_prior_malignancy") {
-         if (($row.prior_malignancy === null || invalidTypes.includes($row.prior_malignancy.trim().toLowerCase())) && (currField || (!(checkforEmpty(currField))!= null))) {
-            result = {
-               valid: false,
-               message: `The 'prior_malignancy' field should be submitted as 'Yes' if the '${$name}' field is submitted.`
-            };
+      if ($name === "laterality_of_prior_malignancy" && $row.laterality_of_prior_malignancy && $row.laterality_of_prior_malignancy != null && !(checkforEmpty($row.laterality_of_prior_malignancy))) {
+         if (!$row.prior_malignancy || $row.prior_malignancy === null || checkforEmpty($row.prior_malignancy) || invalidTypes.includes($row.prior_malignancy.trim().toLowerCase())) {
+            result = {valid: false, message: `The 'prior_malignancy' field should be submitted as 'Yes' if the '${$name}' field is submitted.`};
          }
       }
       return result;
