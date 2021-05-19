@@ -31,12 +31,14 @@ const validation = () =>
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
       exclusionTerms = ["no", "unknown"]; 
      
-      if ($field != null || !(checkforEmpty($field))) {
-         if ((exclusionTerms.includes($row.alcohol_history) || $row.alcohol_history === null || checkforEmpty($row.alcohol_history)) && ($row.alcohol_consumption_category === "none")) {
-            result = {valid: false, message: `The '${$name}' field should not be submitted if donor has no alcohol history and does not currently consume alcohol.`};
+      if ($field != null && !(checkforEmpty($field))) {
+         if ($row.alcohol_consumption_category && $row.alcohol_consumption_category != null && !(checkforEmpty($row.alcohol_consumption_category)) && $row.alcohol_consumption_category.trim().toLowerCase() === "none") {
+            if (!$row.alcohol_history || $row.alcohol_history === null || checkforEmpty($row.alcohol_history) || exclusionTerms.includes($row.alcohol_history.trim().toLowerCase())) {
+                  result = {valid: false, message: `The '${$name}' field should not be submitted if donor has no alcohol history and does not currently consume alcohol.`};
+            }
          }
-         else if ($row.alcohol_consumption_category === null || checkforEmpty($row.alcohol_consumption_category) || $row.alcohol_consumption_category === "unknown") {
-            result = {valid: false, message: `If '${name}' is submitted, then 'alcohol_consumption_category' must be submitted as well.`};
+         else if (!$row.alcohol_consumption_category || $row.alcohol_consumption_category === null || checkforEmpty($row.alcohol_consumption_category) || $row.alcohol_consumption_category.trim().toLowerCase() === "unknown") {
+            result = {valid: false, message: `If the '${$name}' field is submitted, then the 'alcohol_consumption_category' field must be submitted as well.`};
          }
       }
       return result;

@@ -40,7 +40,7 @@ const validation = () =>
                result = { valid: false, message: `The 'tobacco_smoking_status' field (smoking status not documented) is inconsistent if donor smoked '${$row.tobacco_type}'.`};
             }
             else if ($row.tobacco_smoking_status.toLowerCase() === 'lifelong non-smoker (<100 cigarettes smoked in lifetime)') {
-               result = { valid: false, message: `The '${$name}' should not be submitted if donor is a lifelong non-smoker.`}
+               result = { valid: false, message: `The '${$name}' field should not be submitted if donor is a lifelong non-smoker.`}
             }
          }
          else {
