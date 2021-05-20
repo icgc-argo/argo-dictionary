@@ -88,7 +88,8 @@
       "restrictions": {
         "range": {
           "min": 0
-        }
+        },
+        "script": "#/script/exposure/checkTobaccoFields"
       }
     },
     {
