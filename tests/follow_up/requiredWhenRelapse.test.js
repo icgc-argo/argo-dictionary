@@ -110,14 +110,14 @@ const myUnitTests = {
             )
         ],
     ],
-    'anatomic_site_progression_or_recurrences': [
+    'anatomic_site_progression_or_recurrence': [
         [
             'Disease status is relapse, with provided ASPOR',
             true,
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "relapse or recurrence",
-                    "anatomic_site_progression_or_recurrences": "C50.1"
+                    "anatomic_site_progression_or_recurrence": "C50.1"
                 }
             )
         ],
@@ -145,7 +145,7 @@ const myUnitTests = {
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "stable",
-                    "anatomic_site_progression_or_recurrences": "C50"
+                    "anatomic_site_progression_or_recurrence": "C50"
                 }
             )
         ],
