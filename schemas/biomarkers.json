@@ -76,7 +76,7 @@
       }
     },
     {
-      "description": "If the biomarker test was done during a follow up event, then indicate the associated submitter_follow_up_id here.",
+      "description": "If the biomarker test was done during a follow-up event, then indicate the associated submitter_follow_up_id here.",
       "name": "submitter_follow_up_id",
       "valueType": "string",
       "meta": {
@@ -90,7 +90,7 @@
       }
     },
     {
-      "description": "If the biomarker test was not associated with a specific followup, primary diagnosis or treatment event, then indicate the interval of time since primary diagnosis that the biomarker test was performced at, in days.",
+      "description": "If the biomarker test was not associated with a specific follow-up, primary diagnosis or treatment event, then indicate the interval of time since primary diagnosis that the biomarker test was performced at, in days.",
       "name": "test_interval",
       "valueType": "integer",
       "restrictions": {
@@ -104,11 +104,11 @@
         "primaryId": true,
         "units": "days",
         "displayName": "Interval Of Test",
-        "notes": "This field is required if the biomarker test is not associated with a primary diagnosis, treatment or follow up event. The associated primary diagnosis is used as the reference point for this interval. To calculate this, find the number of days since the date of primary diagnosis."
+        "notes": "This field is required if the biomarker test is not associated with a primary diagnosis, treatment or follow-up event. The associated primary diagnosis is used as the reference point for this interval. To calculate this, find the number of days since the date of primary diagnosis."
       }
     },
     {
-      "description": "Indicate the level of carbohydrate antigen 19-9. Carbohydrate antigen 19-9 testing is useful to monitor the response to treatment in pancreatic cancer patients. (Reference: LOINC: 24108-3)",
+      "description": "Indicate the level of carbohydrate antigen 19-9 (CA19-9). Carbohydrate antigen 19-9 testing is useful to monitor the response to treatment in pancreatic cancer patients. (Reference: LOINC: 24108-3)",
       "name": "ca19-9_level",
       "valueType": "integer",
       "restrictions": {
@@ -121,7 +121,7 @@
       }
     },
     {
-      "description": "Indicate the quantitative measurement of the amount of CRP, an inflammatory marker, in the blood in mg/L. (Reference: NCIt C64548)",
+      "description": "Indicate the quantitative measurement of the amount of C-reactive protein (CRP), an inflammatory marker, in the blood in mg/L. (Reference: NCIt C64548)",
       "name": "crp_levels",
       "valueType": "integer",
       "restrictions": {
@@ -134,7 +134,7 @@
       }
     },
     {
-      "description": "Indicate the level of lactate dehydrogenase, in IU/L.",
+      "description": "Indicate the level of lactate dehydrogenase (LDH), in IU/L.",
       "name": "ldl_level",
       "valueType": "integer",
       "restrictions": {
@@ -147,7 +147,7 @@
       }
     },
     {
-      "description": "Indicate the value for a hemotology labratory test for the absolute number of neutrophil cells present in a sample of peripheral blood from a donor, in cells/uL. (Reference: caDSR CDE ID 2180198)",
+      "description": "Indicate the value for a hemotology laboratory test for the absolute number of neutrophil cells (ANC) present in a sample of peripheral blood from a donor, in cells/uL. (Reference: caDSR CDE ID 2180198)",
       "name": "anc",
       "valueType": "integer",
       "restrictions": {
@@ -160,7 +160,7 @@
       }
     },
     {
-      "description": "Indicate the number of lymphocytes found in a given volume of blood, as cells/uL. (Reference: NCIt: C113237)",
+      "description": "Indicate the absolute number of lymphocytes (ALC) found in a given volume of blood, as cells/uL. (Reference: NCIt: C113237)",
       "name": "alc",
       "valueType": "integer",
       "restrictions": {
@@ -195,20 +195,14 @@
       "name": "er_status",
       "valueType": "string",
       "restrictions": {
-        "codelist": [
-           "Cannot be determined",
-           "Negative",
-           "Not applicable",
-           "Positive",
-           "Unknown"
-        ]
+        "codelist": "#/list/expression_status"
       },
       "meta": {
         "displayName": "Estrogen Receptor Status"
       }
     },
     {
-      "description": "Indicate the Allred score. The Allred score is based on the percentage of cells that stain positive by IHC for estrogen receptor (ER) and the intensity of that staining. (Reference: NAACCR: 3828, caDSR CDE ID 2725288)",
+      "description": "Indicate the Allred score. The Allred score is based on the percentage of cells that stain positive by immunohistochemistry (IHC) for estrogen receptor (ER) and the intensity of that staining. (Reference: NAACCR: 3828, caDSR CDE ID 2725288)",
       "name": "er_allred_score",
       "valueType": "string",
       "restrictions": {
@@ -272,13 +266,7 @@
       "name": "pr_status",
       "valueType": "string",
       "restrictions": {
-        "codelist": [
-           "Cannot be determined",
-           "Negative",
-           "Not applicable",
-           "Positive",
-           "Unknown"
-     
+        "codelist": "#/list/expression_status"
       },
       "meta": {
         "displayName": "Progesterone Receptor Status"
@@ -308,17 +296,11 @@
       }
     },
     {
-      "description": "Indicate the immunohistochemical test result that refers to the overexpression or lack of expression of PD-L1 (programmed death ligand 1) in a tissue sample of a primary or metastatic malignant neoplasm. (Reference NCIt: C122807)",
+      "description": "Indicate the immunohistochemical test result that refers to the overexpression or lack of expression of programmed death ligand 1 (PD-L1) in a tissue sample of a primary or metastatic malignant neoplasm. (Reference NCIt: C122807)",
       "name": "pd-l1_status",
       "valueType": "string",
       "restrictions": {
-        "codelist": [
-           "Cannot be determined",
-           "Negative",
-           "Not applicable",
-           "Positive",
-           "Unknown"
-        ]
+        "codelist": "#/list/expression_status"
       },
       "meta": {
         "displayName": "PD-L1 Status"
@@ -329,13 +311,7 @@
       "name": "alk_ihc_status",
       "valueType": "string",
       "restrictions": {
-        "codelist": [
-           "Cannot be determined",
-           "Negative",
-           "Not applicable",
-           "Positive",
-           "Unknown"
-        ]
+        "codelist": "#/list/expression_status"
       },
       "meta": {
         "displayName": "ALK IHC Status"
@@ -363,13 +339,7 @@
       "name": "alk_fish_status",
       "valueType": "string",
       "restrictions": {
-        "codelist": [
-           "Cannot be determined",
-           "Negative",
-           "Not applicable",
-           "Positive",
-           "Unknown"
-        ]
+        "codelist": "#/list/expression_status"
       },
       "meta": {
         "displayName": "ALK FISH Status"
@@ -380,13 +350,7 @@
       "name": "ros1_ihc_status",
       "valueType": "string",
       "restrictions": {
-        "codelist": [
-           "Cannot be determined",
-           "Negative",
-           "Not applicable",
-           "Positive",
-           "Unknown"
-        ]
+        "codelist": "#/list/expression_status"
       },
       "meta": {
         "displayName": "ROS1 IHC Status"
@@ -397,30 +361,18 @@
       "name": "pan-trk_ihc_status",
       "valueType": "string",
       "restrictions": {
-        "codelist": [
-           "Cannot be determined",
-           "Positive",
-           "Negative",
-           "Not applicable",
-           "Unknown"
-        ]
+        "codelist": "#/list/expression_status"
       },
       "meta": {
         "displayName": "Pan-TRK IHC Status"
       }
     },
     {
-      "description": "Indicate the expression of gene arrangement involving the RET proto-oncogene as assessed by fluoresence in situ hybridization (FISH). RET gene rearrangements are associated with several different neoplastic conditions. (Reference: NCIt C46005)",
+      "description": "Indicate the expression of gene arrangement involving the RET proto-oncogene (RET1) as assessed by fluoresence in situ hybridization (FISH). RET gene rearrangements are associated with several different neoplastic conditions. (Reference: NCIt C46005)",
       "name": "ret_fish_status",
       "valueType": "string",
       "restrictions": {
-        "codelist": [
-           "Cannot be determined",
-           "Negative",
-           "Not applicable",
-           "Positive",
-           "Unknown"
-        ]
+        "codelist": "#/list/expression_status"
       },
       "meta": {
         "displayName": "RET1 FISH Status"
@@ -431,13 +383,7 @@
       "name": "trk_ihc_status",
       "valueType": "string",
       "restrictions": {
-        "codelist": [
-           "Cannot be determined",
-           "Positive",
-           "Negative",
-           "Not applicable",
-           "Unknown"
-        ]
+        "codelist": "#/list/expression_status"
       },
       "meta": {
         "displayName": "TRK IHC Status"
@@ -448,13 +394,7 @@
       "name": "hpv_ihc_status",
       "valueType": "string",
       "restrictions": {
-        "codelist": [
-           "Cannot be determined",
-           "Positive",
-           "Negative",
-           "Not applicable",
-           "Unknown"
-        ]
+        "codelist": "#/list/expression_status"
       },
       "meta": {
         "displayName": "HPV IHC Status"
@@ -465,13 +405,7 @@
       "name": "hpv_dna_status",
       "valueType": "string",
       "restrictions": {
-        "codelist": [
-           "Cannot be determined",
-           "Positive",
-           "Negative",
-           "Not applicable",
-           "Unknown"
-        ]
+        "codelist": "#/list/expression_status"
       },
       "meta": {
         "displayName": "HPV DNA Status"
