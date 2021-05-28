@@ -100,14 +100,14 @@ const myUnitTests = {
         ]
 
     ],
-    'anatomic_site_progression_or_recurrences': [
+    'anatomic_site_progression_or_recurrence': [
         [
             'Disease status is distant progression, with provided ASPOR',
             true,
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "Distant progression",
-                    "anatomic_site_progression_or_recurrences": "C50"
+                    "anatomic_site_progression_or_recurrence": "C50"
                 }
             )
         ],
@@ -135,7 +135,7 @@ const myUnitTests = {
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "stable",
-                    "anatomic_site_progression_or_recurrences": "C50.1"
+                    "anatomic_site_progression_or_recurrence": "C50.1"
                 }
             )
         ],
@@ -144,7 +144,7 @@ const myUnitTests = {
             true,
             loadObjects(followUp,
                 {   
-                    "anatomic_site_progression_or_recurrences": "C50"
+                    "anatomic_site_progression_or_recurrence": "C50"
                 }
             )
         ]
