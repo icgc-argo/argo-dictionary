@@ -18,24 +18,32 @@
  *
  */
 
-/**
- * exercise_frequency cannot be submitted as 'never' if excercise_intensity is submitted.
+/* age_at_comorbidity_diagnosis, comorbidity_treatment_status and comorbidity_treatment should not be submitted if prior_malignancy is not submitted or is no/unknown AND comorbidity_type_code is also empty
+ * comorbidity_treatment_status should be submitted as Yes if comorbidity_treatment is submitted. If comorbidity_treatment_status is no/unknown, then comorbidity_treatment should not be submitted.
  */
 
 const validation = () => 
   (function validate(inputs) {
       const {$row, $name, $field} = inputs;
       let result = {valid: true, message: "Ok"};
+
       
-      // checks for a string just consisting of whitespace
+      /* checks for a string just consisting of whitespace */
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
-     
-      if ($field != null || !(checkforEmpty($field))) {
-         if ($row.exercise_frequency && $row.exercise_frequency != null && !(checkforEmpty($row.exercise_frequency)) && $row.exercise_frequency.trim().toLowerCase() === "never") {
-            result = {valid: false, message: `The 'exercise_frequency' field cannot be 'never' if the '${$name}' field is submitted.`};
+      const invalidTypes = ["no", "unknown"]
+      optionalFields = ["age_at_comorbidity_diagnosis", "comorbidity_treatment_status", "comorbidity_treatment"];
+   
+      if (optionalFields.includes($name) && ($field || (!(checkforEmpty($field))))) {
+         if (($row.comorbidity_type_code === null || checkforEmpty($row.comorbidity_type_code))) {
+            result = { valid: false, message: `The 'comorbidity_type_code' field is required if '${$name}' is submitted.`};
          }
-      } 
-      return result;
+         if ($name === "comorbidity_treatment" && $field && !(checkforEmpty($field))) {
+            if (!$row.comorbidity_treatment_status || $row.comorbidity_treatment_status === null || checkforEmpty($row.comorbidity_treatment_status) || invalidTypes.includes($row.comorbidity_treatment_status.trim().toLowerCase())) {
+               result = { valid: false, message: `The 'comorbidity_treatment_status' field should be submitted as 'Yes' if '${$name}' field is submitted.`};
+            }
+         }
+     }
+     return result;
   });
 
 module.exports = validation;
