@@ -57,6 +57,7 @@
         "displayName": "Immunotherapy Type"
       },
       "restrictions": {
+        "required": true,
         "codeList": [
           "Cell-based",
           "Immune checkpoint inhibitors",
