@@ -264,7 +264,7 @@
       "meta": { "displayName": "Number of Children" }
     },
     {
-      "description": "Indicate the type of hormone replacement therapy (HRT) the patient has taken or is currently taking.",
+      "description": "Indicate the type of hormone replacement therapy (HRT) the donor has taken or is currently taking.",
       "name": "hrt_type",
       "restrictions": {
         "codeList": [
@@ -282,7 +282,7 @@
       "meta": { "displayName": "Hormone Replacement Therapy Type" }
     },
     {
-      "description": "If patient has taken hormone replacement therapy (HRT), indicate how long patient has been taking HRT, in months. (Reference: caDSR CDE ID 5365433)",
+      "description": "If donor has taken hormone replacement therapy (HRT), indicate how long donor has been taking HRT, in months. (Reference: caDSR CDE ID 5365433)",
       "name": "hrt_duration",
       "valueType": "integer",
       "restrictions": {
@@ -298,7 +298,7 @@
       }
     },
     {
-      "description": "Indicate the type of hormonal contraception the patient has taken or is currently taking. (Reference: caDSR CDE ID 3264234)",
+      "description": "Indicate the type of hormonal contraception the donor has taken or is currently taking. (Reference: caDSR CDE ID 3264234)",
       "name": "contraception_type",
       "restrictions": {
         "codeList": [
@@ -320,7 +320,7 @@
       }
     },
     {
-      "description": "If patient has taken hormonal contraception, indicate duration of use, in months. (Reference: caDSR CDE ID 5206887)",
+      "description": "If donor has taken hormonal contraception, indicate duration of use, in months. (Reference: caDSR CDE ID 5206887)",
       "name": "contraception_duration",
       "valueType": "integer",
       "restrictions": {

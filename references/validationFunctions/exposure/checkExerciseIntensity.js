@@ -31,7 +31,7 @@ const validation = () =>
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
      
       if ($field != null || !(checkforEmpty($field))) {
-         if ($row.exercise_frequency === "never") {
+         if ($row.exercise_frequency && $row.exercise_frequency != null && !(checkforEmpty($row.exercise_frequency)) && $row.exercise_frequency.trim().toLowerCase() === "never") {
             result = {valid: false, message: `The 'exercise_frequency' field cannot be 'never' if the '${$name}' field is submitted.`};
          }
       } 

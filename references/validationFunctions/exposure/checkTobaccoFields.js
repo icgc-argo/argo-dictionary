@@ -40,7 +40,7 @@ const validation = () =>
                result = { valid: false, message: `The 'tobacco_smoking_status' field (smoking status not documented) is inconsistent if donor smoked '${$row.tobacco_type}'.`};
             }
             else if ($row.tobacco_smoking_status.toLowerCase() === 'lifelong non-smoker (<100 cigarettes smoked in lifetime)') {
-               result = { valid: false, message: `The '${$name}' should not be submitted if donor is a lifelong non-smoker.`}
+               result = { valid: false, message: `The '${$name}' field should not be submitted if donor is a lifelong non-smoker.`}
             }
          }
          else {
@@ -51,8 +51,8 @@ const validation = () =>
             }
          }
       }
-      else if ($name === 'pack_years_smoked') {
-        if (($row.tobacco_smoking_status === null || (!smokerCategories.includes($row.tobacco_smoking_status))) && ($row.pack_years_smoked != null || !(checkforEmpty($row.pack_years_smoked)))) {
+      else if ($name === 'pack_years_smoked' && $row.pack_years_smoked != null && !(checkforEmpty($row.pack_years_smoked))) {
+        if ((!$row.tobacco_smoking_status || $row.tobacco_smoking_status === null || (!smokerCategories.includes($row.tobacco_smoking_status.trim().toLowerCase()))) && ($row.pack_years_smoked != null || !(checkforEmpty($row.pack_years_smoked)))) {
            result = {valid: false, message: `The '${$name}' field should not be submitted if donor does not have a history of smoking.`}
         }
      }
