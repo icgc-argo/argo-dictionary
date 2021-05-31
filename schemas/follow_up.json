@@ -115,7 +115,6 @@
       "description": "Indicate the donor's weight, in kilograms (kg), at the time of follow-up.",
       "name": "weight_at_followup",
       "valueType": "number",
-      "restrictions": {},
       "restrictions": {
          "range": {
             "exclusiveMin": 0
@@ -209,7 +208,7 @@
       "name": "anatomic_site_progression_or_recurrence",
       "valueType": "string",
       "restrictions": {
-        "script": "#/script/follow_up/anatomic_site_progression_or_recurrences",
+        "script": "#/script/follow_up/anatomic_site_progression_or_recurrence",
         "regex": "^[C][0-9]{2}(.[0-9]{1})?$"
       },
       "meta": {
