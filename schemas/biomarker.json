@@ -1,5 +1,5 @@
 {
-  "name": "biomarkers",
+  "name": "biomarker",
   "description": "The collection of data elements describing a donor's biomarker tests. A biomarker is a biological molecule found in blood, other body fluids, or tissues that is indicative of the presence of cancer in the body. Each row should include biomarker tests associated with a particular clinical event or time interval.",
   "meta": {
     "parent": "donor"
