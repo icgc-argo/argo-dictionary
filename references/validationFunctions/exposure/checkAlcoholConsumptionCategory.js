@@ -19,9 +19,7 @@
  */
 
 /**
- * alcohol_type should only be submitted if donor currently drinks alcohol.
- * alcohol_history should be submitted as 'yes' if donor is currently a daily drinker, social drinker or weekly drinker.
- * If alcohol_consumption_category is daily drinker, social drinker, occassional drinker or weekly drinker, then alcohol_type is required (and vice versa).
+ * If alcohol_consumption_category is daily drinker, social drinker, occasional drinker or weekly drinker, then alcohol_type and alcohol_history are required (and vice versa).
  */
 
 const validation = () => 
@@ -31,24 +29,19 @@ const validation = () =>
       
       // checks for a string just consisting of whitespace
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
-      exclusionTerms = ["no", "none", "unknown"]; 
-      requiresAlcoholType = ["daily drinker", "occasional drinker (< once a month)", "social drinker (> once a month, < once a week)", "weekly drinker (>=1x a week)"];
+      
+      alcoholHistoryCategories = ["daily drinker", "occasional drinker (< once a month)", "social drinker (> once a month, < once a week)", "weekly drinker (>=1x a week)"];
     
-      if ($row.alcohol_consumption_category && $row.alcohol_consumption_category != null && !(checkforEmpty($row.alcohol_consumption_category))) {
-         alcoholConsumptionCategory = $row.alcohol_consumption_category.trim().toLowerCase();
-         if ($field && $field != null && !(checkforEmpty($field))) {
-            if (exclusionTerms.includes(alcoholConsumptionCategory)) {
-               result = {valid: false, message: `If the 'alcohol_consumption_category' field is '${alcoholConsumptionCategory}', then the 'alcohol_type' field should not be submitted.`};
-            }
-         }
-         else {
-            if (requiresAlcoholType.includes(alcoholConsumptionCategory)) {
-               result = {valid: false, message: `If the 'alcohol_consumption_category' field is '${alcoholConsumptionCategory}', then the 'alcohol_type' field must be submitted.`};
-            }
+      if (!$field || $field === null || checkforEmpty($field)) {
+         if ($row.alcohol_history && $row.alcohol_history != null && !(checkforEmpty($row.alcohol_history)) && $row.alcohol_history.trim().toLowerCase() === 'yes') {
+            result = {valid:false, message: `The '${$name}' field must be submitted if donor has an alcohol history.`};
          }
       }
-      if ($field && $field != null && !(checkforEmpty($field)) && (!$row.alcohol_consumption_category || $row.alcohol_consumption_category === null || checkforEmpty($row.alcohol_consumption_category))) {
-         result = {valid: false, message: `The 'alcohol_consumption_category' field is required if the '${$name}' field is submitted.`};
+      else {
+         alcoholConsumptionCategory = $field.trim().toLowerCase();
+         if (alcoholHistoryCategories.includes(alcoholConsumptionCategory) && (!$row.alcohol_history || $row.alcohol_history === null || checkforEmpty($row.alcohol_history))) {
+            result = {valid:false, message: `The 'alcohol_history' field must be submitted if donor is a '${alcoholConsumptionCategory}'.`};
+         }
       }
       return result;
   });
