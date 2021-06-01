@@ -100,7 +100,8 @@
         "displayName": "Alcohol History"
       },
       "restrictions": {
-        "codeList": "#/list/yes_no"
+        "codeList": "#/list/yes_no",
+        "script": "#/script/exposure/checkAlcoholHistory"
       }
     },
     {
@@ -119,7 +120,8 @@
           "Social Drinker (> once a month, < once a week)",
           "Unknown",
           "Weekly Drinker (>=1x a week)"
-        ]
+        ],
+        "script": "#/script/exposure/checkAlcoholConsumptionCategory"
       }
     },
     {
