@@ -18,7 +18,7 @@
  *
  */
 
-const validation = require('../../references/validationFunctions/exposure/checkAlcoholType.js');
+const validation = require('../../references/validationFunctions/exposure/checkAlcoholHistory.js');
 
 const universalTest = require('../universal');
 const loadObjects = require('../loadObjects');
@@ -29,54 +29,55 @@ const exposure = require('../constructDummyData').getSchemaDummy('exposure');
 
 // key -> name of field, value -> unit tests
 const myUnitTests = {
-    'alcohol_type': [
+    'alcohol_history': [
         [
-            'alcohol_type is submitted when donor is a daily drinker',
+            'alcohol_history is submitted as yes when donor is a daily drinker',
             true,
             loadObjects(exposure,
                 {
                     "alcohol_history": "yes", 
                     "alcohol_consumption_category": "daily drinker",
-                    "alcohol_type": "beer, wine"
                 }
             )
         ],
         [
-            'alcohol_type is submitted when donor does not drink',
-            false,
+            'alcohol_history is submitted as yes when donor consumption category is unknown (may have been a former drinker)',
+            true,
             loadObjects(exposure,
-                {   
-                    "alcohol_consumption_category": "none",
-                    "alcohol_type": "beer"
-                }
-            )
-        ], 
-        [
-            'alcohol_type is submitted when alcohol_consumption_category is unknown',
-            false,
-            loadObjects(exposure,
-                {   
-                    "alcohol_consumption_category": "unknown",
-                    "alcohol_type": "liquor"
+                {
+                    "alcohol_history": "yes", 
+                    "alcohol_consumption_category": "unknown"
                 }
             )
         ],
         [
-            'alcohol_type is submitted when alcohol_consumption_category is missing',
-            false,
+            'alcohol_history is submitted as no when donor consumption category is occasional (donor may have recently started drinking alcohol but not 12 drinks yet)',
+            true,
             loadObjects(exposure,
-                {   
-                    "alcohol_type": "wine"
+                {
+                    "alcohol_history": "no", 
+                    "alcohol_consumption_category": "Occasional Drinker (< once a month)"
                 }
             )
         ],
         [
-           'alcohol_consumption_category is daily drinker but alcohol_type is missing',
+            'alcohol_history is submitted as no when donor consumption category is weekly',
+            false,
+            loadObjects(exposure,
+                {
+                    "alcohol_history": "No",
+                    "alcohol_consumption_category": "Weekly Drinker (>=1x a week)",
+                    "alcohol_type": "Beer|Liquor|Wine"
+                }
+            )
+        ],
+        [
+           'alcohol_consumption_category is daily drinker but alcohol_history is no',
            false,
            loadObjects(exposure, 
                {
-                   "alcohol_history": "yes",
                    "alcohol_consumption_category": "daily drinker",
+                   "alcohol_history": "no"
                }
            )
         ]
