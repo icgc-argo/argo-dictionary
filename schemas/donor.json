@@ -78,7 +78,7 @@
       "restrictions": {
         "script": "#/script/donor/ensureDeceased",
         "range": {
-           "exclusiveMin": 0
+          "exclusiveMin": 0
         }
       }
     },
@@ -173,9 +173,9 @@
       "name": "height",
       "valueType": "number",
       "restrictions": {
-         "range": {
-            "exclusiveMin": 0
-         }
+        "range": {
+          "exclusiveMin": 0
+        }
       },
       "meta": { "displayName": "Height" }
     },
@@ -184,9 +184,9 @@
       "name": "weight",
       "valueType": "number",
       "restrictions": {
-         "range": {
-            "exclusiveMin": 0
-         }
+        "range": {
+          "exclusiveMin": 0
+        }
       },
       "meta": { "displayName": "Weight" }
     },
@@ -195,9 +195,9 @@
       "name": "bmi",
       "valueType": "number",
       "restrictions": {
-         "range": {
-            "exclusiveMin": 0
-         }
+        "range": {
+          "exclusiveMin": 0
+        }
       },
       "meta": { "displayName": "BMI" }
     },
@@ -207,13 +207,13 @@
       "valueType": "string",
       "isArray": true,
       "restrictions": {
-         "codeList": "#/list/genetic_disorders"
+        "codeList": "#/list/genetic_disorders"
       },
       "meta": {
-         "displayName": "Genetic Disorders",
-         "notes": "If the genetic disorder term you use is not included in the controlled terminology, please contact us at https://platform.icgc-argo.org/contact to request it be added. To include multiple values, separate values with a pipe delimiter '|' within your file.",
+        "displayName": "Genetic Disorders",
+        "notes": "If the genetic disorder term you use is not included in the controlled terminology, please contact us at https://platform.icgc-argo.org/contact to request it be added. To include multiple values, separate values with a pipe delimiter '|' within your file.",
         "examples": "Familial Adenomatous Polyposis Syndrome (FAP)|Lynch Syndrome"
-       }
+      }
     },
     {
       "description": "Indicate the donor's menopause status at the time of primary diagnosis. (Reference: caDSR CDE ID 2434914)",
@@ -235,9 +235,9 @@
       "name": "age_at_menarche",
       "valueType": "integer",
       "restrictions": {
-         "range": {
-            "exclusiveMin": 0
-         }
+        "range": {
+          "exclusiveMin": 0
+        }
       },
       "meta": { "displayName": "Age at Menarche" }
     },
@@ -246,9 +246,9 @@
       "name": "number_of_pregnancies",
       "valueType": "integer",
       "restrictions": {
-         "range": {
-            "min": 0
-         }
+        "range": {
+          "min": 0
+        }
       },
       "meta": { "displayName": "Number of Pregnancies" }
     },
@@ -257,9 +257,9 @@
       "name": "number_of_children",
       "valueType": "integer",
       "restrictions": {
-         "range": {
-            "min": 0
-         }
+        "range": {
+          "min": 0
+        }
       },
       "meta": { "displayName": "Number of Children" }
     },
@@ -291,7 +291,7 @@
           "exclusiveMin": 0
         }
       },
-      "meta": { 
+      "meta": {
         "displayName": "Hormone Replacement Therapy Duration",
         "units": "months",
         "dependsOn": "donor.hrt_type"
@@ -316,7 +316,7 @@
       },
       "valueType": "string",
       "meta": {
-         "displayName": "Contraception Type"
+        "displayName": "Contraception Type"
       }
     },
     {
@@ -329,10 +329,10 @@
           "exclusiveMin": 0
         }
       },
-      "meta": { 
-         "displayName": "Hormonal Contraception Duration",
-         "units": "months",
-         "dependsOn": "donor.contraception_type" 
+      "meta": {
+        "displayName": "Hormonal Contraception Duration",
+        "units": "months",
+        "dependsOn": "donor.contraception_type"
       }
     }
   ]
