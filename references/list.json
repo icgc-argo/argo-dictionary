@@ -10,6 +10,13 @@
     "Every day",
     "Unknown"
     ],
+  "expression_status": [
+    "Cannot be determined",
+    "Negative",
+    "Not applicable",
+    "Positive",
+    "Unknown"
+    ],
   "anatomic_locations": [
     "Abdomen",
     "Abdominal wall",
