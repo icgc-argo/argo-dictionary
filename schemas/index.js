@@ -30,7 +30,8 @@ const follow_up = require('./follow_up.json');
 const exposure = require('./exposure.json');
 const family_history = require('./family_history.json');
 const immunotherapy = require('./immunotherapy.json');
-const biomarkers = require('./biomarkers.json');
+const biomarker = require('./biomarker.json');
+const comorbidity = require('./comorbidity.json');
 
 module.exports = [
   sample_registration,
@@ -45,5 +46,6 @@ module.exports = [
   follow_up,
   exposure,
   family_history,
-  biomarkers
+  biomarker,
+  comorbidity
 ];

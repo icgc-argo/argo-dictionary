@@ -1,5 +1,5 @@
 {
-  "name": "biomarkers",
+  "name": "biomarker",
   "description": "The collection of data elements describing a donor's biomarker tests. A biomarker is a biological molecule found in blood, other body fluids, or tissues that is indicative of the presence of cancer in the body. Each row should include biomarker tests associated with a particular clinical event or time interval.",
   "meta": {
     "parent": "donor"
@@ -45,8 +45,7 @@
         "displayName": "Submitter Specimen ID"
       },
       "restrictions": {
-        "regex": "#/regex/submitter_id",
-        "script": ""
+        "regex": "#/regex/submitter_id"
       }
     },
     {
@@ -58,8 +57,7 @@
         "primaryId": true
       },
       "restrictions": {
-        "regex": "#/regex/submitter_id",
-        "script": ""
+        "regex": "#/regex/submitter_id"
       }
     },
     {
@@ -71,8 +69,7 @@
         "displayName": "Submitter Treatment ID"
       },
       "restrictions": {
-        "regex": "#/regex/submitter_id",
-        "script": ""
+        "regex": "#/regex/submitter_id"
       }
     },
     {
@@ -85,8 +82,7 @@
         "displayName": "Submitter Follow-Up ID"
       },
       "restrictions": {
-        "regex": "#/regex/submitter_id",
-        "script": ""
+        "regex": "#/regex/submitter_id"
       }
     },
     {
@@ -95,8 +91,7 @@
       "valueType": "integer",
       "restrictions": {
         "range": {
-           "exclusiveMin": 0,
-           "script": ""
+           "exclusiveMin": 0
         }
       },
       "meta": {
@@ -177,7 +172,7 @@
       "name": "brca_carrier",
       "valueType": "string",
       "restrictions": {
-        "codelist": [
+        "codeList": [
            "BRCA1",
            "BRCA2",
            "Both BRCA1 and BRCA2",
@@ -195,7 +190,7 @@
       "name": "er_status",
       "valueType": "string",
       "restrictions": {
-        "codelist": "#/list/expression_status"
+        "codeList": "#/list/expression_status"
       },
       "meta": {
         "displayName": "Estrogen Receptor Status"
@@ -206,7 +201,7 @@
       "name": "er_allred_score",
       "valueType": "string",
       "restrictions": {
-        "codelist": [
+        "codeList": [
            "Total ER Allred score of 1",
            "Total ER Allred score of 2",
            "Total ER Allred score of 3",
@@ -217,8 +212,7 @@
            "Total ER Allred score of 8",
            "Not applicable",
            "Unknown"
-        ],
-        "script": ""
+        ]
       },
       "meta": {
         "displayName": "Estrogen Receptor Allred Score"
@@ -243,7 +237,7 @@
       "name": "her2_ihc_status",
       "valueType": "string",
       "restrictions": {
-        "codelist": [
+        "codeList": [
            "Cannot be determined",
            "Equivocal",
            "Negative",
@@ -262,7 +256,7 @@
       "name": "her2_ish_status",
       "valueType": "string",
       "restrictions": {
-        "codelist": [
+        "codeList": [
            "Cannot be determined",
            "Equivocal",
            "Positive",
@@ -280,7 +274,7 @@
       "name": "pr_status",
       "valueType": "string",
       "restrictions": {
-        "codelist": "#/list/expression_status"
+        "codeList": "#/list/expression_status"
       },
       "meta": {
         "displayName": "Progesterone Receptor Status"
@@ -291,7 +285,7 @@
       "name": "pr_allred_score",
       "valueType": "string",
       "restrictions": {
-        "codelist": [
+        "codeList": [
            "Total PR Allred score of 1",
            "Total PR Allred score of 2",
            "Total PR Allred score of 3",
@@ -302,8 +296,7 @@
            "Total PR Allred score of 8",
            "Not applicable",
            "Unknown"
-        ],
-        "script": ""
+        ]
       },
       "meta": {
         "displayName": "Progesterone Receptor Allred Score"
@@ -328,7 +321,7 @@
       "name": "pd-l1_status",
       "valueType": "string",
       "restrictions": {
-        "codelist": "#/list/expression_status"
+        "codeList": "#/list/expression_status"
       },
       "meta": {
         "displayName": "PD-L1 Status"
@@ -339,7 +332,7 @@
       "name": "alk_ihc_status",
       "valueType": "string",
       "restrictions": {
-        "codelist": "#/list/expression_status"
+        "codeList": "#/list/expression_status"
       },
       "meta": {
         "displayName": "ALK IHC Status"
@@ -350,13 +343,12 @@
       "name": "alk_ihc_intensity",
       "valueType": "string",
       "restrictions": {
-        "codelist": [
+        "codeList": [
            "0 (No stain)",
            "+1",
            "+2",
            "+3"
-        ],
-        "script": ""
+        ]
       },
       "meta": {
         "displayName": "ALK IHC Intensity"
@@ -367,7 +359,7 @@
       "name": "alk_fish_status",
       "valueType": "string",
       "restrictions": {
-        "codelist": "#/list/expression_status"
+        "codeList": "#/list/expression_status"
       },
       "meta": {
         "displayName": "ALK FISH Status"
@@ -378,7 +370,7 @@
       "name": "ros1_ihc_status",
       "valueType": "string",
       "restrictions": {
-        "codelist": "#/list/expression_status"
+        "codeList": "#/list/expression_status"
       },
       "meta": {
         "displayName": "ROS1 IHC Status"
@@ -389,7 +381,7 @@
       "name": "pan-trk_ihc_status",
       "valueType": "string",
       "restrictions": {
-        "codelist": "#/list/expression_status"
+        "codeList": "#/list/expression_status"
       },
       "meta": {
         "displayName": "Pan-TRK IHC Status"
@@ -400,7 +392,7 @@
       "name": "ret_fish_status",
       "valueType": "string",
       "restrictions": {
-        "codelist": "#/list/expression_status"
+        "codeList": "#/list/expression_status"
       },
       "meta": {
         "displayName": "RET1 FISH Status"
@@ -411,7 +403,7 @@
       "name": "trk_ihc_status",
       "valueType": "string",
       "restrictions": {
-        "codelist": "#/list/expression_status"
+        "codeList": "#/list/expression_status"
       },
       "meta": {
         "displayName": "TRK IHC Status"
@@ -422,7 +414,7 @@
       "name": "hpv_ihc_status",
       "valueType": "string",
       "restrictions": {
-        "codelist": "#/list/expression_status"
+        "codeList": "#/list/expression_status"
       },
       "meta": {
         "displayName": "HPV IHC Status"
@@ -433,7 +425,7 @@
       "name": "hpv_dna_status",
       "valueType": "string",
       "restrictions": {
-        "codelist": "#/list/expression_status"
+        "codeList": "#/list/expression_status"
       },
       "meta": {
         "displayName": "HPV DNA Status"

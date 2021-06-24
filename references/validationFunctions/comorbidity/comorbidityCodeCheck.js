@@ -18,8 +18,8 @@
  *
  */
 
-/**
- * exercise_frequency cannot be submitted as 'never' if excercise_intensity is submitted.
+/* comorbidity_type_code is a required field but can be left empty if prior_malignancy is 'No' or 'Unknown'.
+ * If there was a prior malignancy, then the ICD-10 code submitted in the comorbidity_type_code field should be for neoplasms (ie. starts with C or D). Otherwise, it should be non-cancer code.
  */
 
 const validation = () => 
@@ -27,14 +27,21 @@ const validation = () =>
       const {$row, $name, $field} = inputs;
       let result = {valid: true, message: "Ok"};
       
-      // checks for a string just consisting of whitespace
+      /* checks for a string just consisting of whitespace */
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
-     
-      if ($field != null || !(checkforEmpty($field))) {
-         if ($row.exercise_frequency && $row.exercise_frequency != null && !(checkforEmpty($row.exercise_frequency)) && $row.exercise_frequency.trim().toLowerCase() === "never") {
-            result = {valid: false, message: `The 'exercise_frequency' field cannot be 'never' if the '${$name}' field is submitted.`};
+      const invalidTypes = ["no", "unknown"]
+      /* check if ICD-10 code is for neoplasms */
+      const neoplasmCode = (entry) => {return /^[C|D][0-9]{2}(.[0-9]{1,3}[A-Z]{0,1})?$/.test(decodeURI(entry))};
+
+    
+      if (neoplasmCode($row.comorbidity_type_code)) { 
+         if (!$row.prior_malignancy || $row.prior_malignancy === null || checkforEmpty($row.prior_malignancy) || invalidTypes.includes($row.prior_malignancy.trim().toLowerCase())) {
+           result = {valid: false, message: `If an ICD-10 code for cancer is submitted in the '${$name}' field, then 'prior_malignancy' should be submitted as 'Yes'.`}
          }
-      } 
+      }
+      else if ($row.prior_malignancy && $row.prior_malignancy != null && !(checkforEmpty($row.prior_malignancy)) && $row.prior_malignancy.trim().toLowerCase() === "yes" && (!(neoplasmCode($row.comorbidity_type_code)))) {
+        result = {valid: false, message: `If the 'prior_malignancy' field is submitted as 'Yes', then an ICD-10 code for cancer is expected in the '${$name}' field.`}
+      }
       return result;
   });
 
