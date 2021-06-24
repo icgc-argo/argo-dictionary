@@ -225,6 +225,20 @@
       }
     },
     {
+      "name": "er_percent_positive",
+      "description": "Indicate a value, in decimals, that represents the percent of cells staining estrogen receptor positive by IHC.",
+      "valueType": "number",
+      "meta": {
+        "displayName": "Estrogen Receptor Percent Positive"
+      },
+      "restrictions": {
+         "range": {
+            "min": 0,
+            "max": 1
+          }
+      }
+    },
+    {
       "description": "Indicate the expression of human epidermal growth factor receptor-2 (HER2) assessed by immunohistochemistry (IHC). (Reference: AJCC 8th Edition, Chapter 48)",
       "name": "her2_ihc_status",
       "valueType": "string",
@@ -293,6 +307,20 @@
       },
       "meta": {
         "displayName": "Progesterone Receptor Allred Score"
+      }
+    },
+    {
+      "name": "pr_percent_positive",
+      "description": "Indicate a value, in decimals, that represents the percent of cells staining progesterone receptor positive by IHC.",
+      "valueType": "number",
+      "meta": {
+        "displayName": "Progesterone Receptor Percent Positive"
+      },
+      "restrictions": {
+         "range": {
+            "min": 0,
+            "max": 1
+          }
       }
     },
     {
