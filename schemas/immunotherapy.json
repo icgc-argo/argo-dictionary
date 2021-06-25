@@ -54,7 +54,8 @@
       "valueType": "string",
       "description": "Indicate the type of immunotherapy administered to donor.",
       "meta": {
-        "displayName": "Immunotherapy Type"
+        "displayName": "Immunotherapy Type",
+        "core": true
       },
       "restrictions": {
         "required": true,
