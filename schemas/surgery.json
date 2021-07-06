@@ -49,21 +49,9 @@
       }
     },
     {
-      "name": "submitter_primary_diagnosis_id",
-      "valueType": "string",
-      "description": "Indicate the primary diagnosis event in the clinical timeline that this treatment was related to.",
-      "meta": {
-        "primaryId": true,
-        "displayName": "Submitter Primary Diagnosis ID"
-      },
-      "restrictions": {
-        "regex": "#/regex/submitter_id"
-      }
-    },
-    {
       "name": "procedure_type",
       "valueType": "string",
-      "description": "Indicate type of surgical procedure performed.",
+      "description": "Indicate they type of surgical procedure that was performed.",
       "meta": {
         "displayName": "Procedure Type "
       },
@@ -177,7 +165,7 @@
     {
       "name": "procedure_site_other",
       "valueType": "string",
-      "description": "Free text to indicate additional details about procedure site.",
+      "description": "Free text to indicate additional details about the procedure site.",
       "meta": {
         "displayName": "Procedure Site Details"
       },
@@ -212,7 +200,11 @@
       "meta": {
         "displayName": "Tumour Length"
       },
-      "restrictions": {}
+      "restrictions": {
+        "range": {
+          "exclusiveMin": 0
+        }
+      }
     },
     {
       "name": "tumour_width",
@@ -221,7 +213,11 @@
       "meta": {
         "displayName": "Tumour Width"
       },
-      "restrictions": {}
+      "restrictions": {
+		"range": {
+			"exclusiveMin": 0
+		  }
+	  }
     },
     {
       "name": "total_tumour_size",
@@ -230,7 +226,11 @@
       "meta": {
         "displayName": "Total Tumour Size"
       },
-      "restrictions": {}
+      "restrictions": {
+		"range": {
+			"exclusiveMin": 0
+		  }
+	  }
     },
     {
       "name": "tumour_focality",
@@ -248,7 +248,7 @@
       "valueType": "string",
       "description": "Indicate if intraoperative margins were involved.",
       "meta": {
-        "displayName": "Tumour Margin Status"
+        "displayName": "Margin Status"
       },
       "restrictions": {
         "codeList": ["Negative", "Other", "Positive", "Suspicious for cancer", "Unknown"]
@@ -259,7 +259,7 @@
       "valueType": "string",
       "description": "Indicate if proximal margin is involved.",
       "meta": {
-        "displayName": "Tumour Proximal Margin"
+        "displayName": "Proximal Margin"
       },
       "restrictions": {
         "codeList": "#/list/tumour_assessmemt"
@@ -270,7 +270,7 @@
       "valueType": "string",
       "description": "Indicate if distal margin is involved.",
       "meta": {
-        "displayName": "Tumour Distal Margin"
+        "displayName": "Distal Margin"
       },
       "restrictions": {
         "codeList": "#/list/tumour_assessmemt"
@@ -281,7 +281,7 @@
       "valueType": "string",
       "description": "Indicate if circumferential margin is involved.",
       "meta": {
-        "displayName": "Tumour Circumferental Resection Margin"
+        "displayName": "Circumferential Resection Margin"
       },
       "restrictions": {
         "codeList": ["Yes", "No", "Not Reported"]
