@@ -321,130 +321,125 @@
         ]
       }
     },
-	{
-		"name": "microvenous_invasion",
-		"valueType": "string",
-		"description": "Indicate whether microvenous invasion has occurred.",
-		"meta": {
-		  "displayName": "Microvenous Invasion"
-		},
-		"restrictions": {
-		  "codeList": [
-			"Indeterminate",
-			"No",
-			"Yes",
-			"Unknown"
-		  ]
-		}
-	  },
-	  {
-		"name": "intraoperative_findings",
-		"valueType": "string",
-		"description": "Indicate other additional intraoperative findings.",
-		"meta": {
-		  "displayName": "Intraoperative Findings"
-		},
-		"restrictions": {
-		  "codeList": [
-			"Ascites",
-			"Borderline resectable",
-			"Coeliac axis involvement",
-			"Metastasis to distant lymph nodes",
-			"Metastasis to other sites",
-			"None",
-			"Peritoneal dissemination",
-			"Resectable",
-			"Unknown"
-		  ]
-		}
-	  },
-	  {
-		"name": "common_bile_duct_margin",
-		"valueType": "string",
-		"description": "Indicate if common bile duct margin is involved.",
-		"meta": {
-		  "displayName": "Common Bile Duct Margin"
-		},
-		"restrictions": {
-		  "codeList": "#/list/tumour_assessmemt"
-		}
-	  },
-	  {
-		"name": "unicinate_margin",
-		"valueType": "string",
-		"description": "Indicate if unicinate margin (retroperitoneal/superior mesenteric artery) is involved.",
-		"meta": {
-		  "displayName": "Unicinate Margin"
-		},
-		"restrictions": {
-		  "codeList": "#/list/tumour_assessmemt"
-		}
-	  },
-	  {
-		"name": "periuncinate_margin",
-		"valueType": "string",
-		"description": "Indicate if periuncinate margin is involved.",
-		"meta": {
-		  "displayName": "Periuncinate Margin"
-		},
-		"restrictions": {
-		  "codeList": "#/list/tumour_assessmemt"
-		}
-	  },
-	  {
-		"name": "pancreatic_carcinoma_groove_margin",
-		"valueType": "string",
-		"description": "Indicate if pancreatic carcinoma groove margin is involved.",
-		"meta": {
-		  "displayName": "Pancreatic Carcinoma Groove Margin"
-		},
-		"restrictions": {
-		  "codeList": "#/list/tumour_assessmemt"
-		}
-	  },
-	  {
-		"name": "state_of_pv_smv",
-		"valueType": "string",
-		"description": "Indicate the state of portal vein and/or superior mesenteric vein.",
-		"meta": {
-		  "displayName": "State of Portal/Superior Mesenteric Vein"
-		},
-		"restrictions": {
-		  "codeList": "#/list/state"
-		}
-	  },
-	  {
-		"name": "state_of_pma",
-		"valueType": "string",
-		"description": "Indicate the state of superior mesenteric artery.",
-		"meta": {
-		  "displayName": "State of Superior Mesenteric Artery"
-		},
-		"restrictions": {
-		  "codeList": "#/list/state"
-		}
-	  },
-	  {
-		"name": "state_of_duodenal",
-		"valueType": "string",
-		"description": "Indicate the state of duodenal involvement.",
-		"meta": {
-		  "displayName": "State of Duodenal Involvement"
-		},
-		"restrictions": {
-		  "codeList": "#/list/state"
-		}
-	  },
-	  {
-		"name": "state_of_common_bile_duct",
-		"valueType": "string",
-		"description": "Indicate the state of common bile duct involvement",
-		"meta": {
-		  "displayName": "State of Common Bile Duct Involvement"
-		},
-		"restrictions": {
-		  "codeList": "#/list/state"
-		}
-	  }
+    {
+      "name": "microvenous_invasion",
+      "valueType": "string",
+      "description": "Indicate whether microvenous invasion has occurred.",
+      "meta": {
+        "displayName": "Microvenous Invasion"
+      },
+      "restrictions": {
+        "codeList": ["Indeterminate", "No", "Yes", "Unknown"]
+      }
+    },
+    {
+      "name": "intraoperative_findings",
+      "valueType": "string",
+      "description": "Indicate other additional intraoperative findings.",
+      "meta": {
+        "displayName": "Intraoperative Findings"
+      },
+      "restrictions": {
+        "codeList": [
+          "Ascites",
+          "Borderline resectable",
+          "Coeliac axis involvement",
+          "Metastasis to distant lymph nodes",
+          "Metastasis to other sites",
+          "None",
+          "Peritoneal dissemination",
+          "Resectable",
+          "Unknown"
+        ]
+      }
+    },
+    {
+      "name": "common_bile_duct_margin",
+      "valueType": "string",
+      "description": "Indicate if common bile duct margin is involved.",
+      "meta": {
+        "displayName": "Common Bile Duct Margin"
+      },
+      "restrictions": {
+        "codeList": "#/list/tumour_assessmemt"
+      }
+    },
+    {
+      "name": "unicinate_margin",
+      "valueType": "string",
+      "description": "Indicate if unicinate margin (retroperitoneal/superior mesenteric artery) is involved.",
+      "meta": {
+        "displayName": "Unicinate Margin"
+      },
+      "restrictions": {
+        "codeList": "#/list/tumour_assessmemt"
+      }
+    },
+    {
+      "name": "periuncinate_margin",
+      "valueType": "string",
+      "description": "Indicate if periuncinate margin is involved.",
+      "meta": {
+        "displayName": "Periuncinate Margin"
+      },
+      "restrictions": {
+        "codeList": "#/list/tumour_assessmemt"
+      }
+    },
+    {
+      "name": "pancreatic_carcinoma_groove_margin",
+      "valueType": "string",
+      "description": "Indicate if pancreatic carcinoma groove margin is involved.",
+      "meta": {
+        "displayName": "Pancreatic Carcinoma Groove Margin"
+      },
+      "restrictions": {
+        "codeList": "#/list/tumour_assessmemt"
+      }
+    },
+    {
+      "name": "state_of_pv_smv",
+      "valueType": "string",
+      "description": "Indicate the state of portal vein and/or superior mesenteric vein.",
+      "meta": {
+        "displayName": "State of Portal/Superior Mesenteric Vein"
+      },
+      "restrictions": {
+        "codeList": "#/list/state"
+      }
+    },
+    {
+      "name": "state_of_pma",
+      "valueType": "string",
+      "description": "Indicate the state of superior mesenteric artery.",
+      "meta": {
+        "displayName": "State of Superior Mesenteric Artery"
+      },
+      "restrictions": {
+        "codeList": "#/list/state"
+      }
+    },
+    {
+      "name": "state_of_duodenal",
+      "valueType": "string",
+      "description": "Indicate the state of duodenal involvement.",
+      "meta": {
+        "displayName": "State of Duodenal Involvement"
+      },
+      "restrictions": {
+        "codeList": "#/list/state"
+      }
+    },
+    {
+      "name": "state_of_common_bile_duct",
+      "valueType": "string",
+      "description": "Indicate the state of common bile duct involvement",
+      "meta": {
+        "displayName": "State of Common Bile Duct Involvement"
+      },
+      "restrictions": {
+        "codeList": "#/list/state"
+      }
+    }
   ]
 }
