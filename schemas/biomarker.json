@@ -45,7 +45,8 @@
         "displayName": "Submitter Specimen ID"
       },
       "restrictions": {
-        "regex": "#/regex/submitter_id"
+        "regex": "#/regex/submitter_id",
+        "script": "#/script/biomarker/intervalOrId"
       }
     },
     {
@@ -57,7 +58,8 @@
         "primaryId": true
       },
       "restrictions": {
-        "regex": "#/regex/submitter_id"
+        "regex": "#/regex/submitter_id",
+         "script": "#/script/biomarker/intervalOrId"
       }
     },
     {
@@ -69,7 +71,8 @@
         "displayName": "Submitter Treatment ID"
       },
       "restrictions": {
-        "regex": "#/regex/submitter_id"
+        "regex": "#/regex/submitter_id",
+        "script": "#/script/biomarker/intervalOrId"
       }
     },
     {
@@ -82,24 +85,26 @@
         "displayName": "Submitter Follow-Up ID"
       },
       "restrictions": {
-        "regex": "#/regex/submitter_id"
+        "regex": "#/regex/submitter_id",
+        "script": "#/script/biomarker/intervalOrId"
       }
     },
     {
-      "description": "If the biomarker test was not associated with a specific follow-up, primary diagnosis or treatment event, then indicate the interval of time since primary diagnosis that the biomarker test was performced at, in days.",
+      "description": "If the biomarker test was not associated with a specific specimen or follow-up, primary diagnosis or treatment event, then indicate the interval of time since primary diagnosis that the biomarker test was performced at, in days.",
       "name": "test_interval",
       "valueType": "integer",
       "restrictions": {
         "range": {
            "exclusiveMin": 0
-        }
+        },
+        "script": "#/script/biomarker/intervalOrId"
       },
       "meta": {
         "validationDependency": true,
         "primaryId": true,
         "units": "days",
         "displayName": "Interval Of Test",
-        "notes": "This field is required if the biomarker test is not associated with a primary diagnosis, treatment or follow-up event. The associated primary diagnosis is used as the reference point for this interval. To calculate this, find the number of days since the date of primary diagnosis."
+        "notes": "This field is required if the biomarker test is not associated with a specimen or primary diagnosis, treatment or follow-up event. The associated primary diagnosis is used as the reference point for this interval. To calculate this, find the number of days since the date of primary diagnosis."
       }
     },
     {
