@@ -1,6 +1,6 @@
 {
   "name": "comorbidity",
-  "description": "The collection of data elements related to a donor's comorbidities. Comorbidities are any distinct entity that has existed or may occur during the clinical course of a patient who has the index disease under study. To submit multiple comorbidities for a single donor, submit multiple rows in the comorbidity file for this donor",
+  "description": "The collection of data elements related to a donor's comorbidities. A donor's comorbidities are any medical conditions (e.g diabetes, prior cancer malignancies) that have existed or may occur during the clinical course of the donor who has the index disease under study. To submit multiple comorbidities for a single donor, submit multiple rows in the comorbidity file for this donor.",
   "meta": {
      "parent": "donor"
   },
