@@ -77,6 +77,7 @@
           "Maternal Grandmother",
           "Maternal Half-brother",
           "Maternal Half-sister",
+          "Maternal Uncle",
           "Mother",
           "Nephew",
           "Niece",
@@ -87,8 +88,10 @@
           "Paternal Grandmother",
           "Paternal Half-brother",
           "Paternal Half-sister",
+          "Paternal Uncle",
           "Sister",
           "Son",
+          "Uncle",
           "Unknown"
         ]
       },
