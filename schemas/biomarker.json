@@ -135,7 +135,7 @@
     },
     {
       "description": "Indicate the level of lactate dehydrogenase (LDH), in IU/L. An increased amount of LDH in the blood may be a sign of tissue damage and some types of cancer. (Reference: NCI)",
-      "name": "ldl_level",
+      "name": "ldh_level",
       "valueType": "integer",
       "restrictions": {
         "range": {
