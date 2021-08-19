@@ -458,6 +458,34 @@ const unitTests = {
     },
   ],
   [
+    'Stage group cannot be assessed when clinical_t_category is not TX or clinical_n_category is not NX"',
+    false,
+    {
+      row: loadObjects(primary_diagnosis, {
+        clinical_tumour_staging_system: 'AJCC 8th Ed.',
+        clinical_stage_group: 'Cannot be assessed',
+        clinical_t_category: 'T2',
+        clinical_n_category: 'N2',
+        clinical_m_category: 'M1'
+      }),
+      name: 'clinical_stage_group'
+    },
+  ],
+  [
+    'Stage group cannot be assessed when clinical_t_category is TX"',
+    true,
+    {
+      row: loadObjects(primary_diagnosis, {
+        clinical_tumour_staging_system: 'AJCC 8th Ed.',
+        clinical_stage_group: 'Cannot be assessed',
+        clinical_t_category: 'TX',
+        clinical_n_category: 'N1',
+        clinical_m_category: 'M1'
+      }),
+      name: 'clinical_stage_group'
+    },
+  ],
+  [
     'Staging system undefined',
     false,
     {
