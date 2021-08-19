@@ -34,6 +34,9 @@ const validation = () =>
       .split('_stage_group')[0];
 
     const stagingSystem = stagingName + `_tumour_staging_system`;
+    const tCategory = `${stagingName}_t_category`;
+    const nCategory = `${stagingName}_n_category`;
+    const mCategory = `${stagingName}_m_category`;
     
     /* checks for a string just consisting of whitespace */
     const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
@@ -187,11 +190,10 @@ const validation = () =>
          ];
           break;
         case 'ajcc 8th edition':
-          codeList = ['stage 0','stage 0a','stage 0is','stage i','stage ia','stage ia1','stage ia2','stage ia3','stage ib','stage ib1','stage ib2','stage ic','stage ie','stage is','stage ii','stage iia','stage iia1','stage iia2','stage iib','stage iic','stage iie','stage iii','stage iiia','stage iiia1','stage iiia2','stage iiib','stage iiic','stage iiic1','stage iiic2','stage iiid','stage iv','stage iva','stage iva1','stage iva2','stage ivb','stage ivc','occult carcinoma','stage 1'];
+          codeList = ['stage 0','stage 0a','stage 0is','stage i','stage ia','stage ia1','stage ia2','stage ia3','stage ib','stage ib1','stage ib2','stage ic','stage ie','stage is','stage ii','stage iia','stage iia1','stage iia2','stage iib','stage iic','stage iie','stage iii','stage iiia','stage iiia1','stage iiia2','stage iiib','stage iiic','stage iiic1','stage iiic2','stage iiid','stage iv','stage iva','stage iva1','stage iva2','stage ivb','stage ivc','occult carcinoma','stage 1', 'cannot be assessed'];
           break;
         case 'ajcc 7th edition':
-          codeList = ['stage 0','stage 0a','stage 0is','stage i','stage ia','stage ia1','stage ia2','stage ib','stage ib1','stage ib2','stage ic','stage is','stage ii','stage iia','stage iia1','stage iia2','stage iib','stage iic','stage iii','stage iiia','stage iiib','stage iiic','stage iiic1','stage iiic2','stage iv','stage iva','stage iva1','stage iva2','stage ivb','stage ivc','occult carcinoma','stage 1'
-];
+          codeList = ['stage 0','stage 0a','stage 0is','stage i','stage ia','stage ia1','stage ia2','stage ib','stage ib1','stage ib2','stage ic','stage is','stage ii','stage iia','stage iia1','stage iia2','stage iib','stage iic','stage iii','stage iiia','stage iiib','stage iiic','stage iiic1','stage iiic2','stage iv','stage iva','stage iva1','stage iva2','stage ivb','stage ivc','occult carcinoma','stage 1', 'cannot be assessed'];
           break;
         default:
           codelist = [];
@@ -207,8 +209,15 @@ const validation = () =>
         result.valid = false;
         result.message = msg;
       }
+      if ($field.trim().toLowerCase() === 'cannot be assessed') {
+         if ($row[tCategory].trim().toLowerCase() != 'tx' && $row[nCategory].trim().toLowerCase() != 'nx') {
+           result = {
+              valid: false,
+              message: `The submitted term '${$field}' is not permissible for '${stagingName}_stage_group' when TNM is '${$row[tCategory]}${$row[nCategory]}${$row[mCategory]}'`
+           };
+         }
+      }
     }
-    
     return result;
   });
 
