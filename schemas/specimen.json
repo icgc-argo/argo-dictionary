@@ -128,6 +128,7 @@
         "displayName": "Pathological M Category"
       },
       "restrictions": {
+        "script": "#/script/common/mxCategoryValidation",
         "codeList": "#/list/m_categories"
       }
     },
