@@ -208,7 +208,7 @@
         "displayName": "Clinical N Category"
       },
       "restrictions": {
-        "script": "#/script/common/nCategoryValidation",
+        "script": "#/script/primary_diagnosis/clinicalNCategoryValidation",
         "codeList": "#/list/n_categories"
       }
     },
