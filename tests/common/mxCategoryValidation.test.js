@@ -107,8 +107,6 @@ describe('Unit Tests for Stage Group script', () => {
       test.each(schema[testsIndex])(
         '\n Test %# : %s \nExpecting result.valid to be: %s',
         (description, target, inputs) => {
-          console.log(inputs.name);
-          console.log(inputs.row[inputs.name]);
           const scriptOutput = validation()({ $row: inputs.row, $name: inputs.name, $field: inputs.row[inputs.name]});
           expect(scriptOutput.valid).toBe(target);
         },
