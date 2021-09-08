@@ -208,6 +208,7 @@
         "displayName": "Clinical N Category"
       },
       "restrictions": {
+        "script": "#/script/common/nCategoryValidation",
         "codeList": "#/list/n_categories"
       }
     },
@@ -222,6 +223,7 @@
         "displayName": "Clinical M Category"
       },
       "restrictions": {
+        "script": "#/script/common/mxCategoryValidation",
         "codeList": "#/list/m_categories"
       }
     },
