@@ -284,6 +284,7 @@
         "displayName": "Recurrence M Category"
       },
       "restrictions": {
+         "script": "#/script/common/mxCategoryValidation",
          "codeList": "#/list/m_categories"
       }
     },
@@ -359,6 +360,7 @@
         "displayName": "Post-therapy M Category"
       },
       "restrictions": {
+         "script": "#/script/common/mxCategoryValidation",
          "codeList": "#/list/m_categories"
       }
     },
