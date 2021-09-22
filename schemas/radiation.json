@@ -95,7 +95,7 @@
     {
       "name": "radiation_therapy_dosage",
       "description": "Indicate the total dose given in units of Gray (Gy).",
-      "valueType": "integer",
+      "valueType": "number",
       "restrictions": {
         "required": true,
         "range": {
