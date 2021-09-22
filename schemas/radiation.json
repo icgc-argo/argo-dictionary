@@ -116,13 +116,17 @@
         "codeList": [
           "Abdomen",
           "Body",
+          "Brain",
           "Chest",
           "Head",
+          "Liver",
           "Lower Limb",
+          "Lung",
           "Neck",
           "Pelvis",
           "Skin",
           "Spine",
+          "Thorax",
           "Upper Limb"
         ]
       },
