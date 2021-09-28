@@ -42,7 +42,8 @@
         "validationDependency": true,
         "primaryId": true,
         "foreignKey": "sample_registration.submitter_specimen_id",
-        "displayName": "Submitter Specimen ID"
+        "displayName": "Submitter Specimen ID",
+        "notes": "Only one of ['submitter_specimen_id', 'submitter_primary_diagnosis_id', 'submitter_treatment_id', 'submitter_follow_up_id'] is required. If the biomarker test is not associated with a specimen or primary diagnosis, treatment or follow up event, then the 'test_interval' field will be required."
       },
       "restrictions": {
         "regex": "#/regex/submitter_id",
@@ -55,7 +56,8 @@
       "description": "If the biomarker test was done at the time of primary diagnosis, then indicate the associated submitter_primary_diagnosis_id here.",
       "meta": {
         "displayName": "Submitter Primary Diagnosis ID",
-        "primaryId": true
+        "primaryId": true,
+        "notes": "Only one of ['submitter_specimen_id', 'submitter_primary_diagnosis_id', 'submitter_treatment_id', 'submitter_follow_up_id'] is required. If the biomarker test is not associated with a specimen or primary diagnosis, treatment or follow up event, then the 'test_interval' field will be required."
       },
       "restrictions": {
         "regex": "#/regex/submitter_id",
@@ -68,7 +70,8 @@
       "description": "If the biomarker test was done at the initiation of a specific treatment regimen, indicate the associated submitter_treatment_id here.",
       "meta": {
         "primaryId": true,
-        "displayName": "Submitter Treatment ID"
+        "displayName": "Submitter Treatment ID",
+        "notes": "Only one of ['submitter_specimen_id', 'submitter_primary_diagnosis_id', 'submitter_treatment_id', 'submitter_follow_up_id'] is required. If the biomarker test is not associated with a specimen or primary diagnosis, treatment or follow up event, then the 'test_interval' field will be required."
       },
       "restrictions": {
         "regex": "#/regex/submitter_id",
@@ -82,7 +85,8 @@
       "meta": {
         "validationDependency": true,
         "primaryId": true,
-        "displayName": "Submitter Follow-Up ID"
+        "displayName": "Submitter Follow-Up ID",
+        "notes": "Only one of ['submitter_specimen_id', 'submitter_primary_diagnosis_id', 'submitter_treatment_id', 'submitter_follow_up_id'] is required. If the biomarker test is not associated with a specimen or primary diagnosis, treatment or follow up event, then the 'test_interval' field will be required."
       },
       "restrictions": {
         "regex": "#/regex/submitter_id",
