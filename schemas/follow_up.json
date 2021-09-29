@@ -115,7 +115,6 @@
       "description": "Indicate the donor's weight, in kilograms (kg), at the time of follow-up.",
       "name": "weight_at_followup",
       "valueType": "number",
-      "restrictions": {},
       "restrictions": {
          "range": {
             "exclusiveMin": 0
@@ -225,18 +224,7 @@
       "name": "recurrence_tumour_staging_system",
       "valueType": "string",
       "restrictions": {
-        "codeList": [
-          "AJCC 8th edition",
-          "AJCC 7th edition",
-          "Ann Arbor staging system",
-          "Binet staging system",
-          "Durie-Salmon staging system",
-          "FIGO staging system",
-          "Lugano staging system",
-          "Rai staging system",
-          "Revised International staging system (RISS)",
-          "St Jude staging system"
-        ],
+        "codeList": "#/list/staging_systems",
         "script": "#/script/follow_up/recurrence_tumour_staging_system"
       },
       "meta": {
@@ -285,6 +273,7 @@
         "displayName": "Recurrence M Category"
       },
       "restrictions": {
+         "script": "#/script/common/mxCategoryValidation",
          "codeList": "#/list/m_categories"
       }
     },
@@ -309,18 +298,7 @@
       "valueType": "string",
       "restrictions": {
         "script": "#/script/follow_up/posttherapy_tumour_staging_system",
-        "codeList": [
-          "AJCC 8th edition",
-          "AJCC 7th edition",
-          "Ann Arbor staging system",
-          "Binet staging system",
-          "Durie-Salmon staging system",
-          "FIGO staging system",
-          "Lugano staging system",
-          "Rai staging system",
-          "Revised International staging system (RISS)",
-          "St Jude staging system"
-        ]
+        "codeList": "#/list/staging_systems"
       },
       "meta": { "displayName": "Post-therapy Tumour Staging System" }
     },
@@ -360,6 +338,7 @@
         "displayName": "Post-therapy M Category"
       },
       "restrictions": {
+         "script": "#/script/common/mxCategoryValidation",
          "codeList": "#/list/m_categories"
       }
     },

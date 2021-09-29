@@ -38,7 +38,7 @@
       "description": "Donor's last known state of living or deceased.",
       "name": "vital_status",
       "restrictions": {
-        "codeList": ["Alive", "Deceased", "Unknown"],
+        "codeList": ["Alive", "Deceased"],
         "required": true
       },
       "valueType": "string",

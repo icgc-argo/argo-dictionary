@@ -1,6 +1,6 @@
 {
   "name": "comorbidity",
-  "description": "The collection of data elements related to a donor's comorbidities. Comorbidities are any distinct entity that has existed or may occur during the clinical course of a patient who has the index disease under study. To submit multiple comorbidities for a single donor, submit multiple rows in the comorbidity file for this donor",
+  "description": "The collection of data elements related to a donor's comorbidities. A donor's comorbidities are any medical conditions (e.g diabetes, prior cancer malignancies) that have existed or may occur during the clinical course of the donor who has the index disease under study. To submit multiple comorbidities for a single donor, submit multiple rows in the comorbidity file for this donor.",
   "meta": {
      "parent": "donor"
   },
@@ -87,7 +87,8 @@
         "primaryId": true,
         "dependsOn": "comorbidity.prior_malignancy",
         "examples": "E10, C50.1, I11, M06",
-        "displayName": "Comorbidity Type Code"
+        "displayName": "Comorbidity Type Code",
+        "notes": "This field is required because it should have a cancer or non-cancer ICD-10 code. This field is marked 'Conditional' because it depends on the value of the `prior_malignancy` field. Both these fields will need to be consistent. If `prior_malignancy` is `Yes`, then an ICD-10 code related to cancer is expected in this field. If `prior_malignancy` is `No`, then an ICD-10 code related to a non-cancer condition is expected in this field."
       }
     },
     {

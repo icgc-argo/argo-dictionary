@@ -164,18 +164,7 @@
       "description": "Indicate the tumour staging system used to stage the cancer at the time of primary diagnosis (prior to treatment).",
       "restrictions": {
         "script": "#/script/common/ajccValidation",
-        "codeList": [
-          "AJCC 8th edition",
-          "AJCC 7th edition",
-          "Ann Arbor staging system",
-          "Binet staging system",
-          "Durie-Salmon staging system",
-          "FIGO staging system",
-          "Lugano staging system",
-          "Rai staging system",
-          "Revised International staging system (RISS)",
-          "St Jude staging system"
-        ]
+        "codeList": "#/list/staging_systems"
       },
       "meta": {
         "validationDependency": true,
@@ -208,6 +197,7 @@
         "displayName": "Clinical N Category"
       },
       "restrictions": {
+        "script": "#/script/primary_diagnosis/clinicalNCategoryValidation",
         "codeList": "#/list/n_categories"
       }
     },
@@ -222,6 +212,7 @@
         "displayName": "Clinical M Category"
       },
       "restrictions": {
+        "script": "#/script/common/mxCategoryValidation",
         "codeList": "#/list/m_categories"
       }
     },
