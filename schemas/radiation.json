@@ -111,6 +111,7 @@
       "name": "anatomical_site_irradiated",
       "description": "Indicate body region where radiation therapy was administered. (Reference: Cancer Care Ontario)",
       "valueType": "string",
+      "isArray": true,
       "restrictions": {
         "required": true,
         "codeList": [
