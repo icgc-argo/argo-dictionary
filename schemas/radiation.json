@@ -111,18 +111,23 @@
       "name": "anatomical_site_irradiated",
       "description": "Indicate body region where radiation therapy was administered. (Reference: Cancer Care Ontario)",
       "valueType": "string",
+      "isArray": true,
       "restrictions": {
         "required": true,
         "codeList": [
           "Abdomen",
           "Body",
+          "Brain",
           "Chest",
           "Head",
+          "Liver",
           "Lower Limb",
+          "Lung",
           "Neck",
           "Pelvis",
           "Skin",
           "Spine",
+          "Thorax",
           "Upper Limb"
         ]
       },
