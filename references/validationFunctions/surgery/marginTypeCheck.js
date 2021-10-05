@@ -37,7 +37,7 @@ const validation = () =>
         const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
         
         if ($field && !(checkforEmpty($field)) && $field != null) {
-          if ($row.submitter_specimen_id === null && !(surgeryTypeExceptions($field.trim().toLowerCase()))) {
+          if ((!$row.submitter_specimen_id || $row.submitter_specimen_id === null) && !(surgeryTypeExceptions($row.surgery_type.trim().toLowerCase()))) {
             result = {valid: false, message: `The 'submitter_specimen_id' of the resected specimen must be submitted if '${$name}' is submitted.`};
           }
         }
