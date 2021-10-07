@@ -108,6 +108,25 @@
       }
     },
     {
+      "name": "laterality",
+      "description": "For cancer in a paired organ, indicate the side of the body on which the primary tumour or cancer first developed at the time of primary diagnosis. (Reference caDSR 827)",
+      "valueType": "string",
+      "restrictions": {
+        "codeList": [
+          "Bilateral",
+          "Left",
+          "Midline",
+          "Not a paired site",
+          "Right",
+          "Unilateral, side not specified",
+          "Unknown"
+        ]
+      },
+      "meta": {
+        "displayName": "Laterality"
+      }
+    },
+    {
       "name": "lymph_nodes_examined_status",
       "description": "Indicate if lymph nodes were examined for metastases.",
       "valueType": "string",
