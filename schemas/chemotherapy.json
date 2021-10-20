@@ -104,6 +104,50 @@
         "core": true,
         "displayName": "Cumulative Drug Dosage"
       }
+    },
+    {
+      "name": "dose_intensity_reduction",
+      "description": "Indicate if there was a significant reduction in dose intensity.",
+      "valueType": "string",
+      "restrictions": {
+        "codeList": "#/list/yes_no"
+      },
+      "meta": {
+        "displayName": "Dose Intensity Reduction"
+      }
+    },
+    {
+      "name": "form_dose_intensity_reduction",
+      "description": "If there was a signficiant reduction in dose intensity, indicate what form.",
+      "valueType": "string",
+      "restrictions": {
+        "codeList": [
+          "Dose reduction",
+          "Dose delay or dose omission",
+          "Both"
+        ],
+        "script": "#/script/chemotherapy/doseReduction"
+      },
+      "meta": {
+        "displayName": "Form of Dose Intensity Reduction"
+      }
+    },
+    {
+      "name": "percentage_dose_intensity_reduction",
+      "description": "If there was a significant reduction in dose intensity, indicate how much the dose was reduced.",
+      "valueType": "string",
+      "restrictions": {
+        "codeList": [
+          "<20%",
+          "20-49%",
+          ">=50%",
+          "Unknown"
+        ],
+        "script": "#/script/chemotherapy/doseReduction"
+      },
+      "meta": {
+        "displayName": "Percentage Dose Intensity Reduction"
+      }
     }
   ]
 }
