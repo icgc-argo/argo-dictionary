@@ -29,19 +29,19 @@ const chemotherapy = require('../constructDummyData').getSchemaDummy('chemothera
 
 // key -> name of field, value -> unit tests
 const myUnitTests = {
-    'dose_intensity_reducing_event': [
+    'dose_intensity_reduction_event': [
         [
-            'dose_intensity_reducing_event is submitted when dose_intensity_reduction is "Yes"',
+            'dose_intensity_reduction_event is submitted when dose_intensity_reduction is "Yes"',
             true,
             loadObjects(chemotherapy,
                 {   
                     "dose_intensity_reduction": "Yes",
-                    "dose_intensity_reducing_event": "Dose reduction"
+                    "dose_intensity_reduction_event": "Dose reduction"
                 }
             )
         ],
         [
-            'dose_intensity_reducing_event is missing when dose_intensity_reduction is "Yes"',
+            'dose_intensity_reduction_event is missing when dose_intensity_reduction is "Yes"',
             false,
             loadObjects(chemotherapy,
                 {   
@@ -50,43 +50,43 @@ const myUnitTests = {
             )
         ],
         [
-            'dose_intensity_reducing_event is submitted when dose_intensity_reduction is "No"',
+            'dose_intensity_reduction_event is submitted when dose_intensity_reduction is "No"',
             false,
             loadObjects(chemotherapy,
                 {   
                     "dose_intensity_reduction": "No",
-                    "dose_intensity_reducing_event": "Dose reduction"
+                    "dose_intensity_reduction_event": "Dose reduction"
                 }
             )
         ],
         [
-            'dose_intensity_reducing_event is submitted when dose_intensity_reduction is missing',
+            'dose_intensity_reduction_event is submitted when dose_intensity_reduction is missing',
             false,
             loadObjects(chemotherapy,
                 {   
-                    "dose_intensity_reducing_event": "Dose reduction"
+                    "dose_intensity_reduction_event": "Dose reduction"
                 }
             )
         ]
     ],
-    'amount_dose_intensity_reduction': [
+    'dose_intensity_reduction_amount': [
         [
-            'amount_dose_intensity_reduction is submitted when dose_intensity_reduction is "No"',
+            'dose_intensity_reduction_amount is submitted when dose_intensity_reduction is "No"',
             false,
             loadObjects(chemotherapy,
                 {   
                     "dose_intensity_reduction": "No",
-                    "amount_dose_intensity_reduction": "20-49%"
+                    "dose_intensity_reduction_amount": "20-49%"
                 }
             )
         ],
         [
-            'amount_dose_intensity_reduction is submitted when dose_intensity_reduction is "Yes"',
+            'dose_intensity_reduction_amount is submitted when dose_intensity_reduction is "Yes"',
             true,
             loadObjects(chemotherapy,
                 {   
                     "dose_intensity_reduction": "Yes",
-                    "amount_dose_intensity_reduction": ">=50%"
+                    "dose_intensity_reduction_amount": ">=50%"
                 }
             )
         ]

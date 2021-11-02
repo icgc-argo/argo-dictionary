@@ -19,7 +19,7 @@
  */
 
 /**
- * If 'dose_intensity_reduction' is 'Yes', then 'form_dose_intensity_reduction' and 'percentage_dose_intensity_reduction' must be submitted.
+ * If 'dose_intensity_reduction' is 'Yes', then 'dose_intensity_reduction_event' and 'dose_intensity_reduction_amount' must be submitted.
  */
 
 const validation = () => 

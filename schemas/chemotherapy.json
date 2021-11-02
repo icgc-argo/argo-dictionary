@@ -117,7 +117,7 @@
       }
     },
     {
-      "name": "dose_intensity_reducing_event",
+      "name": "dose_intensity_reduction_event",
       "description": "If there was a signficiant reduction in dose intensity, indicate which event caused it.",
       "valueType": "string",
       "restrictions": {
@@ -129,11 +129,11 @@
         "script": "#/script/chemotherapy/doseReduction"
       },
       "meta": {
-        "displayName": "Dose Intensity Reducing Event"
+        "displayName": "Dose Intensity Reduction Event"
       }
     },
     {
-      "name": "amount_dose_intensity_reduction",
+      "name": "dose_intensity_reduction_amount",
       "description": "If there was a significant reduction in dose intensity, indicate the amount.",
       "valueType": "string",
       "restrictions": {
