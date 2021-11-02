@@ -185,6 +185,21 @@
       }
     },
     {
+      "name": "specimen_laterality",
+      "description": "For cancer in a paired organ, indicate the side on which the specimen was obtained. (Reference caDSR 2007875)",
+      "valueType": "string",
+      "restrictions": {
+        "codeList": [
+          "Left",
+          "Right",
+          "Unknown"
+        ]
+      },
+      "meta": {
+        "displayName": "Specimen Laterality"
+      }
+    },
+    {
       "name": "specimen_processing",
       "description": "Indicate the technique used to process specimen.",
       "valueType": "string",
