@@ -129,7 +129,8 @@
         "script": "#/script/chemotherapy/doseReduction"
       },
       "meta": {
-        "displayName": "Dose Intensity Reduction Event"
+        "displayName": "Dose Intensity Reduction Event",
+        "notes": "This field should only be submitted if 'dose_intensity_reduction' is 'Yes'"
       }
     },
     {
@@ -146,7 +147,8 @@
         "script": "#/script/chemotherapy/doseReduction"
       },
       "meta": {
-        "displayName": "Amount of Dose Intensity Reduction"
+        "displayName": "Amount of Dose Intensity Reduction",
+        "notes": "This field should only be submitted if 'dose_intensity_reduction' is 'Yes'"
       }
     }
   ]
