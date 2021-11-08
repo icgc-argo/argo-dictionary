@@ -231,7 +231,7 @@
       "meta": { "displayName": "Menopause Status" }
     },
     {
-      "description": "Indicate the donor's age at which the first menstruation event occurred. (Reference: NCIt C19666)",
+      "description": "Indicate the donor's age, in years, at which the first menstruation event occurred. (Reference: NCIt C19666)",
       "name": "age_at_menarche",
       "valueType": "integer",
       "restrictions": {
