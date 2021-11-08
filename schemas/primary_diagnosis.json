@@ -157,7 +157,8 @@
       },
       "meta": {
         "displayName": "Number Of Lymph Nodes Examined",
-        "dependsOn": "primary_diagnosis.lymph_nodes_examined_status"
+        "dependsOn": "primary_diagnosis.lymph_nodes_examined_status",
+        "notes": "This field should only be submitted if 'lymph_nodes_examined_status' is 'Yes'."
        }
     },
     {
