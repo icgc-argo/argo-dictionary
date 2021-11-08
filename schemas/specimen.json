@@ -338,7 +338,7 @@
       "valueType": "number",
       "meta": {
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "",
+        "notes": "This field should only be submitted if the specimen is tumour.",
         "displayName": "Percent Proliferating Cells"
       },
       "restrictions": {
@@ -354,7 +354,7 @@
       "valueType": "number",
       "meta": {
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "",
+        "notes": "This field should only be submitted if the specimen is tumour.",
         "displayName": "Percent Inflammatory Tissue"
       },
       "restrictions": {
@@ -370,7 +370,7 @@
       "valueType": "number",
       "meta": {
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "",
+        "notes": "This field should only be submitted if the specimen is tumour.",
         "displayName": "Percent Stromal Cells"
       },
       "restrictions": {
@@ -386,7 +386,7 @@
       "valueType": "number",
       "meta": {
         "dependsOn": "sample_registration.tumour_normal_designation",
-        "notes": "",
+        "notes": "This field should only be submitted if the specimen is tumour.",
         "displayName": "Percent Necrosis"
       },
       "restrictions": {
