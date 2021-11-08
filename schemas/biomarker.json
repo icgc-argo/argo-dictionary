@@ -1,6 +1,6 @@
 {
   "name": "biomarker",
-  "description": "The collection of data elements describing a donor's biomarker tests. A biomarker is a biological molecule found in blood, other body fluids, or tissues that is indicative of the presence of cancer in the body. Each row should include biomarker tests associated with a particular clinical event (submitter_specimen_id, submitter_primary_diagnosis_id, submitter_treatment_id or submitter_follow_up_id field) or time interval (test_interval field).",
+  "description": "The collection of data elements describing a donor's biomarker tests. A biomarker is a biological molecule found in blood, other body fluids, or tissues that is indicative of the presence of cancer in the body. Each row should include one or more biomarker test(s) associated with a particular clinical event (submitter_specimen_id, submitter_primary_diagnosis_id, submitter_treatment_id or submitter_follow_up_id field). If the biomarker test is not associated with a particular clinical event, then indicate the time interval at which the biomarker test was performed (test_interval field).",
   "meta": {
     "parent": "donor"
   },
