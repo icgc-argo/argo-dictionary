@@ -39,11 +39,10 @@ const validation = () =>
         if (!$row[hormoneType] || $row[hormoneType] === null || checkforEmpty($row[hormoneType])) {
            result = { valid: false, message: `Indicate type of ${type} taken in the '${hormoneType}' field if '${$name}' field is submitted.`};
         }
-        else if ($row[hormoneType].toLowerCase() === "never taken hrt" || $row[hormoneType].toLowerCase() === "never used hormonal contraception") {
+        else if ($row[hormoneType].toLowerCase() === "never taken hrt" || $row[hormoneType].toLowerCase() === "never used hormonal contraception" || $row[hormoneType].toLowerCase() === 'not applicable' || $row[hormoneType].toLowerCase() === 'unknown') {
            const submittedValue = $row[hormoneType].toLowerCase()
            result = {valid: false, message: `If '${$name}' is submitted, then '${hormoneType}' field cannot be '${submittedValue}'.`};
-       }
-
+        }
       }
       return result;
   });

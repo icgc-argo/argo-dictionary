@@ -38,10 +38,13 @@ const validation = () =>
      
             /* if toxicity_type is non-hematological, then hematological_toxicity should not be submitted. If toxicity_type is hematological, then 'non-hematological_toxicity' should not be submitted */
             if (toxicityType === 'non-hematological' && $name === 'hematological_toxicity') {
-               result = { valid: false, message: `The '${$name}' field should not be submitted if 'toxicity_type' is '${toxicityType}'.`};
+               result = { valid: false, message: `The '${$name}' field should not be submitted if 'toxicity_type' is '${toxicityType}'. Confirm 'toxicity_type' field and submit appropriate toxicity type.`};
             }
             else if (toxicityType === 'hematological' && $name === 'non-hematological_toxicity') {
-               result = { valid: false, message: `The '${$name}' field should not be submitted if 'toxicity_type' is '${toxicityType}'.`};
+               result = { valid: false, message: `The '${$name}' field should not be submitted if 'toxicity_type' is '${toxicityType}'. Confirm 'toxicity_type' field and submit appropriate toxicity type.`};
+            }
+            else if ((toxicityType === 'unknown' || toxicityType === 'not applicable') && (!$field || $field != 'unknown')) {
+               result = {valid: false, message: `The '${$name}' field (submitted as '${$field}') is inconsistent with the 'toxicity_type' field which is '${toxicityType}'. Confirm the 'toxicity_type' field. If 'toxicity_type' field is unknown, then the '${$name}' field should not be submitted.`};
             }
          }
          else {

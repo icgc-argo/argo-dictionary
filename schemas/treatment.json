@@ -269,7 +269,7 @@
       "description": "If the treatment was terminated early due to acute toxicity, indicate whether it was due to hematological toxicity or non-hematological toxicity.",
       "valueType": "string",
       "restrictions": {
-        "codeList": ["Hematological", "Non-hematological"],
+        "codeList": ["Hematological", "Non-hematological", "Not applicable", "Unknown"],
         "script": "#/script/treatment/checkOutcomeOfTrtmt"
       },
       "meta": {
@@ -292,7 +292,8 @@
           "Neutropenia - Grade 5",
           "Thrombocytopenia - Grade 3",
           "Thrombocytopenia - Grade 4",
-          "Thrombocytopenia - Grade 5"
+          "Thrombocytopenia - Grade 5",
+          "Unknown"
         ],
         "script": "#/script/treatment/checkToxicityType"
       },
@@ -338,7 +339,7 @@
       "valueType": "string",
       "meta": { "display name": "Clinical Trials Database" },
       "restrictions": {
-        "codeList": ["NCI Clinical Trials", "EU Clinical Trials Register"]
+        "codeList": ["NCI Clinical Trials", "EU Clinical Trials Register", "Not applicable", "Unknown"]
       }
     },
     {

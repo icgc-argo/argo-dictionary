@@ -28,17 +28,26 @@ const validation = () =>
   (function validate(inputs) {
       const {$row, $name, $field} = inputs;
       let result = {valid: true, message: "Ok"};
-      
+
       // checks for a string just consisting of whitespace
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
-      exclusionTerms = ["no", "none", "unknown"]; 
-      requiresAlcoholType = ["daily drinker", "occasional drinker (< once a month)", "social drinker (> once a month, < once a week)", "weekly drinker (>=1x a week)"];
+      const requiresAlcoholType = ["daily drinker", "occasional drinker (< once a month)", "social drinker (> once a month, < once a week)", "weekly drinker (>=1x a week)"];
     
       if ($row.alcohol_consumption_category && $row.alcohol_consumption_category != null && !(checkforEmpty($row.alcohol_consumption_category))) {
          alcoholConsumptionCategory = $row.alcohol_consumption_category.trim().toLowerCase();
          if ($field && $field != null && !(checkforEmpty($field))) {
-            if (exclusionTerms.includes(alcoholConsumptionCategory)) {
-               result = {valid: false, message: `If the 'alcohol_consumption_category' field is '${alcoholConsumptionCategory}', then the 'alcohol_type' field should not be submitted.`};
+            const alcoholType = ($field).map(value => value.toLowerCase());
+            if (alcoholConsumptionCategory === 'none' && !(alcoholType.includes('unknown')) && !(alcoholType.includes('not applicable'))) {
+               result = {valid:false, message: `The 'alcohol_consumption_category' field is submitted as 'None' and is inconsistent with the '${$name}' field which indicates the donor consumed '${alcoholType}'. If donor did not consume alcohol, then the '${$name}' field should be submitted as 'Not applicable'. Otherwise, please confirm the 'alcohol_consumption_category' field.`};
+            }
+            else if (alcoholConsumptionCategory === 'not applicable' && !(alcoholType.includes('not applicable'))) {
+               result = {valid:false, message: `If the 'alcohol_consumption_category' is submitted as 'Not applicable', then the '${$name}' field must be submitted as 'Not applicable'.`};
+            }
+            else if (alcoholConsumptionCategory === 'unknown' && !(alcoholType.includes('unknown'))) {
+               result = {valid:false, message: `If the 'alcohol_consumption_category' is submitted as 'Unknown', then the '${$name}' field must be submitted as 'Unknown'.`};
+            }
+            else if (requiresAlcoholType.includes(alcoholConsumptionCategory) && (alcoholType.includes('not applicable'))) {
+               result = {valid:false, message: `If the donor consumes alcohol ('${alcoholConsumptionCategory}'), then the '${$name}' field cannot be 'Not applicable'. Indicate type(s) of alcohol consumed or submit 'Unknown'.`};
             }
          }
          else {

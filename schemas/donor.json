@@ -202,7 +202,7 @@
       "meta": { "displayName": "BMI" }
     },
     {
-      "description": "Indicate presence of any hereditary genetic disorders. (Reference: Genetic disorder names were standardized using Orphanet (https://www.orpha.net/) and NCI Thesaurus)",
+      "description": "Indicate presence of any hereditary genetic disorders. Genetic diseases are diseases in which inherited genes predispose to increased risk. The genetic disorders associated with cancer often result from an alteration or mutation in a single gene. The diseases range from rare dominant cancer family syndrome to familial tendencies in which low-penetrance genes may interact with other genes or environmental factors to induce cancer. (References: NCIt C3101. Genetic disorder names were standardized using Orphanet (https://www.orpha.net/) and NCI Thesaurus)",
       "name": "genetic_disorders",
       "valueType": "string",
       "isArray": true,
@@ -272,6 +272,7 @@
           "Estrogen-only HRT",
           "Injectable",
           "Never taken HRT",
+          "Not applicable",
           "Other",
           "Patch",
           "Pill",
@@ -308,6 +309,7 @@
           "Injectable",
           "Intrauterine device",
           "Never used hormonal contraception",
+          "Not applicable",
           "Other",
           "Progestin-only pill",
           "Unknown",

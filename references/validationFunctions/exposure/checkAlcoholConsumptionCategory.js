@@ -30,7 +30,7 @@ const validation = () =>
       // checks for a string just consisting of whitespace
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
       
-      alcoholHistoryCategories = ["daily drinker", "occasional drinker (< once a month)", "social drinker (> once a month, < once a week)", "weekly drinker (>=1x a week)"];
+      const alcoholHistoryCategories = ["daily drinker", "occasional drinker (< once a month)", "social drinker (> once a month, < once a week)", "weekly drinker (>=1x a week)"];
     
       if (!$field || $field === null || checkforEmpty($field)) {
          if ($row.alcohol_history && $row.alcohol_history != null && !(checkforEmpty($row.alcohol_history)) && $row.alcohol_history.trim().toLowerCase() === 'yes') {
@@ -38,7 +38,7 @@ const validation = () =>
          }
       }
       else {
-         alcoholConsumptionCategory = $field.trim().toLowerCase();
+         const alcoholConsumptionCategory = $field.trim().toLowerCase();
          if (alcoholHistoryCategories.includes(alcoholConsumptionCategory) && (!$row.alcohol_history || $row.alcohol_history === null || checkforEmpty($row.alcohol_history))) {
             result = {valid:false, message: `The 'alcohol_history' field must be submitted if donor is a '${alcoholConsumptionCategory}'.`};
          }

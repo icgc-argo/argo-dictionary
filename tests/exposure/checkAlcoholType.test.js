@@ -37,7 +37,7 @@ const myUnitTests = {
                 {
                     "alcohol_history": "yes", 
                     "alcohol_consumption_category": "daily drinker",
-                    "alcohol_type": "beer, wine"
+                    "alcohol_type": ["beer", "wine"]
                 }
             )
         ],
@@ -47,7 +47,7 @@ const myUnitTests = {
             loadObjects(exposure,
                 {   
                     "alcohol_consumption_category": "none",
-                    "alcohol_type": "beer"
+                    "alcohol_type": ["beer"]
                 }
             )
         ], 
@@ -57,7 +57,7 @@ const myUnitTests = {
             loadObjects(exposure,
                 {   
                     "alcohol_consumption_category": "unknown",
-                    "alcohol_type": "liquor"
+                    "alcohol_type": ["liquor"]
                 }
             )
         ],
@@ -66,7 +66,7 @@ const myUnitTests = {
             false,
             loadObjects(exposure,
                 {   
-                    "alcohol_type": "wine"
+                    "alcohol_type": ["wine"]
                 }
             )
         ],
@@ -79,7 +79,40 @@ const myUnitTests = {
                    "alcohol_consumption_category": "daily drinker",
                }
            )
+        ],
+        [
+            'alcohol_type is submitted as unknown when donor is a daily drinker',
+            true,
+            loadObjects(exposure,
+                {
+                    "alcohol_history": "yes", 
+                    "alcohol_consumption_category": "daily drinker",
+                    "alcohol_type": ["unknown"]
+                }
+            )
+        ],
+        [
+            'alcohol_type is submitted as not applicable when donor is a daily drinker',
+            false,
+            loadObjects(exposure,
+                {
+                    "alcohol_history": "yes", 
+                    "alcohol_consumption_category": "daily drinker",
+                    "alcohol_type": ["Not applicable"]
+                }
+            )
+        ],
+        [
+            'alcohol_history is submitted as not applicable when donor is a daily drinker',
+            false,
+            loadObjects(exposure,
+                {
+                    "alcohol_history": "not applicable", 
+                    "alcohol_consumption_category": "daily drinker"
+                }
+            )
         ]
+
      ]
 }
 

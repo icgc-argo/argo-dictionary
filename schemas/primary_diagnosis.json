@@ -298,7 +298,7 @@
       "description": "Indicate the donor's performance status grade at the time of primary diagnosis. (Reference: ECOG performance score grades from https://ecog-acrin.org/resources/ecog-performance-status).",
       "valueType": "string",
       "restrictions": {
-        "codeList": ["Grade 0", "Grade 1", "Grade 2", "Grade 3", "Grade 4"]
+        "codeList": ["Grade 0", "Grade 1", "Grade 2", "Grade 3", "Grade 4", "Unknown"]
       },
       "meta": {
         "notes": "Grade 0: Fully active, able to carry on all pre-disease performance without restriction.\nGrade 1: Restricted in physically strenuous activity but ambulatory and able to carry out work of a light or sedentary nature (ie. Light house work, office work).\nGrade 2: Ambulatory and capable of all selfcare but unable to carry out any work activities; up and about more than 50% of waking hours.\nGrade 3: Capable of only limited selfcare; confined to bed or chair more than 50% of waking hours.\nGrade 4: Completely disabled; cannot carry on any selfcare; totally confined to bed or chair",
