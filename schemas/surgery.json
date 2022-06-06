@@ -148,7 +148,7 @@
         "displayName": "Tumour Focality"
       },
       "restrictions": {
-        "codeList": ["Cannot be assessed", "Multifocal", "Not applicable", "Unifocal"]
+        "codeList": ["Cannot be assessed", "Multifocal", "Not applicable", "Unifocal", "Unknown"]
       }
     },
     {
@@ -160,7 +160,7 @@
         "notes": "RX (Presence of residual tumour cannot be assessed), R0 (no residual tumour), R1 (microscopic residual tumour), R2 (macroscopic residual tumour)"
       },
       "restrictions": {
-        "codeList": ["RX","R0", "R1", "R2"]
+        "codeList": ["Not applicable", "RX","R0", "R1", "R2", "Unknown"]
       }
     },
     {
@@ -214,10 +214,11 @@
       "restrictions": {
         "codeList": [
           "Absent",
-          "Present",
-          "Lymphatic and small vessel invasion only",
-          "Venous (large vessel) invasion only",
           "Both lymphatic and small vessel and venous (large vessel) invasion",
+          "Lymphatic and small vessel invasion only",
+          "Not applicable",
+          "Present",
+          "Venous (large vessel) invasion only",
           "Unknown"
         ]
       }

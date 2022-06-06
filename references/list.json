@@ -952,6 +952,7 @@
   "involvement_options": [
           "Absent",
           "Cannot be assessed",
+          "Not applicable",
           "Present",
           "Unknown"
    ],
@@ -959,7 +960,9 @@
     "Circumferential resection margin",
     "Common bile duct margin",
     "Distal margin",
-    "Proximal margin"
+    "Not applicable",
+    "Proximal margin",
+    "Unknown"
   ],
   "surgery_types": [
     "Axillary Clearance",
