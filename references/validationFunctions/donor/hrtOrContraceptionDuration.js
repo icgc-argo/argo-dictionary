@@ -41,7 +41,7 @@ const validation = () =>
         }
         else if ($row[hormoneType].toLowerCase() === "never taken hrt" || $row[hormoneType].toLowerCase() === "never used hormonal contraception" || $row[hormoneType].toLowerCase() === 'not applicable' || $row[hormoneType].toLowerCase() === 'unknown') {
            const submittedValue = $row[hormoneType].toLowerCase()
-           result = {valid: false, message: `If '${$name}' is submitted, then '${hormoneType}' field cannot be '${submittedValue}'.`};
+           result = {valid: false, message: `If '${$name}' is submitted, then '${hormoneType}' field cannot be '${submittedValue}'. Please review your data submission.`};
         }
       }
       return result;

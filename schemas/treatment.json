@@ -337,7 +337,10 @@
       "name": "clinical_trials_database",
       "description": "If the donor is a participant in a clinical trial, indicate the clinical trial database where the clinical trial is registered.",
       "valueType": "string",
-      "meta": { "display name": "Clinical Trials Database" },
+      "meta": { 
+        "display name": "Clinical Trials Database",
+        "notes": "If the clinical trials database you use is not included in the controlled terminology, please contact us at https://platform.icgc-argo.org/contact to request it be added."
+       },
       "restrictions": {
         "codeList": ["NCI Clinical Trials", "EU Clinical Trials Register", "Not applicable", "Unknown"]
       }

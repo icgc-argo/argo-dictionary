@@ -191,6 +191,7 @@
       "restrictions": {
         "codeList": [
           "Left",
+          "Not applicable",
           "Right",
           "Unknown"
         ]
