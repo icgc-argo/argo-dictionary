@@ -1,6 +1,6 @@
 {
   "name": "surgery",
-  "description": "The collection of data elements related to a donor's surgical treatment at a specific point in the clinical record. To submit multiple surgeries for a single donor, please submit multiple rows in the treatment file for this donor. If multiple specimens were resected during a single surgical procedure, this can be indicated by submitting multiple rows for each 'submitter_specimen_id' with the same 'submitter_treatment_id.",
+  "description": "The collection of data elements related to a donor's surgical treatment at a specific point in the clinical record. To submit multiple surgeries, submit multiple rows in the Surgery file. If a specimen was resected during surgery, indicate the unique identifier of the specimen in the 'submitter_specimen_id' field. If multiple specimens were resected during a single surgical procedure, submit each 'submitter_specimen_id' as a new row with the same 'submitter_treatment_id' and 'surgery_type' values.",
   "meta": {
     "parent": "donor"
   },
@@ -36,7 +36,7 @@
     },
     {
       "name": "submitter_specimen_id",
-      "description": "If a specimen was resected during surgery, indicate the unique identifier of the specimen here. This submitter_specimen_id should exist in the Specimen table.",
+      "description": "If a specimen was resected during surgery, indicate the unique identifier of the specimen here. This submitter_specimen_id should exist in the Specimen file.",
       "valueType": "string",
       "meta": {
         "validationDependency": true,
@@ -66,7 +66,7 @@
     {
       "name": "surgery_type",
       "valueType": "string",
-      "description": "Indicate they type of surgical procedure that was performed. (References: SNOMED, NCIt, UMLS)",
+      "description": "Indicate the type of surgical procedure that was performed. (References: SNOMED, NCIt, UMLS)",
       "meta": {
         "displayName": "Surgery Type "
       },
@@ -81,6 +81,7 @@
       "description": "Indicate the ICD-O-3 topography code for the anatomic site where the surgical procedure was performed, according to the International Classification of Diseases for Oncology, 3rd Edition (WHO ICD-O-3).",
       "meta": {
         "displayName": "Surgery Site",
+        "dependsOn": "surgery.submitter_specimen_id",
         "notes": "Refer to the ICD-O-3 manual for guidelines at https://apps.who.int/iris/handle/10665/42344. This field is not required if a specimen was resected during surgery (ie. if `submitter_specimen_id` is submitted) since anatomic site is collected in the Specimen table."
       },
       "restrictions": {
@@ -94,6 +95,7 @@
       "description": "Indicate whether the surgical procedure was done at the primary, local recurrence or metastatic location.",
       "meta": {
         "displayName": "Surgery Location",
+        "dependsOn": "surgery.submitter_specimen_id",
         "notes": "This field is not required if a specimen was resected during surgery (ie. if `submitter_specimen_id` is submitted) since type of specimen is collected in the Specimen table."
       },
       "restrictions": {
@@ -104,7 +106,7 @@
     {
       "name": "tumour_length",
       "valueType": "number",
-      "description": "Indicate the length of the tumour, in mm.",
+      "description": "Indicate the length of the tumour, in millimetres (mm).",
       "meta": {
         "displayName": "Tumour Length"
       },
@@ -117,7 +119,7 @@
     {
       "name": "tumour_width",
       "valueType": "number",
-      "description": "Indicate the width of the tumour, in mm.",
+      "description": "Indicate the width of the tumour, in millimetres (mm).",
       "meta": {
         "displayName": "Tumour Width"
       },
@@ -130,7 +132,7 @@
     {
       "name": "greatest_dimension_tumour",
       "valueType": "number",
-      "description": "Indicate the greatest dimension or diameter of the tumour, in mm. (Reference: NCIt C157135)",
+      "description": "Indicate the greatest dimension or diameter of the tumour, in millimetres (mm). (Reference: NCIt C157135)",
       "meta": {
         "displayName": "Greatest Dimension Tumour"
       },
