@@ -51,9 +51,9 @@ const validation = () =>
                result = {valid:false, message: `If the 'alcohol_history' field is 'No', then the 'alcohol_consumption_category' must be submitted as 'Not applicable' or 'None'.`};
             }
         }
-      }
-      else if (alcoholHistoryYes.includes(alcoholConsumptionCategory)) {
-               result = {valid:false, message: `If the donor is a '${alcoholConsumptionCategory}', then the 'alcohol_history' field must be submitted as 'Yes'.`};
+        else if (alcoholHistoryYes.includes(alcoholConsumptionCategory)) {
+          result = {valid:false, message: `If the donor is a '${alcoholConsumptionCategory}', then the 'alcohol_history' field must be submitted as 'Yes'.`};
+        }
       }
       return result;
   });

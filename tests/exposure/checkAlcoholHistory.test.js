@@ -110,8 +110,12 @@ const myUnitTests = {
                     "alcohol_consumption_category": "unknown"
                 }
             )
+        ],
+        [
+            'Neither alcohol_history or alcohol_consumption are submitted',
+            true,
+            loadObjects(exposure, {})
         ]
-
      ]
 }
 
