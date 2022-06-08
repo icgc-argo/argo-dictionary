@@ -40,6 +40,7 @@
       "valueType": "string",
       "meta": {
         "displayName": "Family Relative ID",
+        "primaryId": true,
         "notes": "This field is required to ensure that family members are identified in unique records.  Ids can be as simple as an incremented numeral to ensure uniqueness."
       },
       "restrictions": {
