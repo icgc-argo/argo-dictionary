@@ -111,8 +111,16 @@ const myUnitTests = {
                     "alcohol_consumption_category": "daily drinker"
                 }
             )
+        ],
+        [
+            'alcohol_type is submitted as not applicable when alcohol_consumption_history is not submitted',
+            true,
+            loadObjects(exposure,
+                {
+                    "alcohol_type": ["not applicable"]
+                }
+            )
         ]
-
      ]
 }
 

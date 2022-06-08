@@ -56,8 +56,10 @@ const validation = () =>
             }
          }
       }
-      if ($field && $field != null && !(checkforEmpty($field)) && (!$row.alcohol_consumption_category || $row.alcohol_consumption_category === null || checkforEmpty($row.alcohol_consumption_category))) {
-         result = {valid: false, message: `The 'alcohol_consumption_category' field is required if the '${$name}' field is submitted.`};
+      else {
+         if ($field && $field != null && !(checkforEmpty($field)) && !(($field).map(value => value.toLowerCase())).includes('not applicable')) {
+               result = {valid: false, message: `The 'alcohol_consumption_category' field is required if the '${$name}' field is submitted.`};
+         }
       }
       return result;
   });

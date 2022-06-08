@@ -42,7 +42,7 @@ const validation = () =>
             result = {valid: false, message: `If the 'exercise_intensity' field is submitted as 'Unknown', then the 'exercise_frequency' field must be submitted as 'Unknown' as well. Please correct your data submission.`};
           }
           else if ((exerciseIntensity != 'unknown' || exerciseIntensity != 'not applicable') && (exerciseFreq === 'never')) {
-            result = {valid: false, message: `The 'exercise_intensity' field (submitted as '${$field}') is inconsistent with the 'exercise_frequency' field which indicates the donor never exercises. Please correct your data submission.`};
+            result = {valid: false, message: `The 'exercise_intensity' field (submitted as '${$field}') is inconsistent with the 'exercise_frequency': 'Never'. Please correct your data submission.`};
           }
         }
         else { 

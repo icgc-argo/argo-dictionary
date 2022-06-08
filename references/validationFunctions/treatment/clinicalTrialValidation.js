@@ -48,7 +48,7 @@ const validation = () =>
             result = {valid: false, message: `The submitted EudraCT clinical trial number is in incorrect format.`};
           }
           else if (!clinical_dbs.includes(clinicalTrialsDB)) {
-            result = {valid: false, message: `The submitted clinical trials database '${$row.clinical_trials_database}' is not included in the list of clinical trial database. To include a new clinical trials database in the controlled terminology for 'clinical_trials_database', please contact the DCC.`};
+            result = {valid: false, message: `The submitted clinical trials database '${$row.clinical_trials_database}' is not included in the list of clinical trial database. To include a new clinical trials database in the controlled terminology for 'clinical_trials_database', please contact us at https://platform.icgc-argo.org/contact.`};
           }
           else if ((clinicalTrialsDB === 'unknown' || clinicalTrialsDB === 'not applicable') && (NCTCheck(trialNumber) || EudraCTCheck(trialNumber))) {
             result = {valid: false, message: `If a trial number is submitted in the '${$name}' field, then you must indicate the clinical trial database in the 'clinical_trials_database' field.`};
