@@ -109,7 +109,7 @@
     },
     {
       "name": "laterality",
-      "description": "For cancer in a paired organ, indicate the side of the body on which the primary tumour or cancer first developed at the time of primary diagnosis. (Reference caDSR 827)",
+      "description": "For cancer in a paired organ, indicate the side of the body on which the primary tumour or cancer first developed at the time of primary diagnosis. (Reference caDSR CDE ID 827)",
       "valueType": "string",
       "restrictions": {
         "codeList": [
