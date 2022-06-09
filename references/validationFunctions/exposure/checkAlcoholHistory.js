@@ -31,19 +31,40 @@ const validation = () =>
       
       // checks for a string just consisting of whitespace
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
-      alcoholHistoryCategories = ["daily drinker", "occasional drinker (< once a month)", "social drinker (> once a month, < once a week)", "weekly drinker (>=1x a week)"];
-      noOrUnknownAllowedCategories = ["none", "occasional drinker (< once a month)", "unknown"];
-       
-      if ($row.alcohol_consumption_category && $row.alcohol_consumption_category != null && !(checkforEmpty($row.alcohol_consumption_category))) {
-         alcoholConsumptionCategory = $row.alcohol_consumption_category.trim().toLowerCase();
-         if ((!$field || $field == null || checkforEmpty($field)) && alcoholHistoryCategories.includes(alcoholConsumptionCategory)) {
-            result = {valid:false, message: `If the donor is a '${alcoholConsumptionCategory}', then the 'alcohol_history' field must be submitted as well.`};
-         }
-         if ((!$field || $field === null || checkforEmpty($field) || $field.trim().toLowerCase() === 'no') && (!(noOrUnknownAllowedCategories.includes(alcoholConsumptionCategory)))) {
-            result = {valid:false, message: `If the donor is a '${alcoholConsumptionCategory}', then the 'alcohol_history' field must be submitted as 'Yes'.`};
-         }
+      const alcoholHistoryYes = ["daily drinker", "social drinker (> once a month, < once a week)", "weekly drinker (>=1x a week)"];
+      const exclusionCategories = ["no", "not applicable", "unknown"];
+      
+      if ($field && $field != null && !(checkforEmpty($field))) {
+         const alcoholHistory = $field.trim().toLowerCase() 
+         if ($row.alcohol_consumption_category && $row.alcohol_consumption_category != null && !(checkforEmpty($row.alcohol_consumption_category))) {
+            const alcoholConsumptionCategory = $row.alcohol_consumption_category.trim().toLowerCase();
+            if (exclusionCategories.includes(alcoholHistory) && alcoholHistoryYes.includes(alcoholConsumptionCategory)) {
+               result = {valid:false, message: `The 'alcohol_history' field (submitted as '${alcoholHistory}') is inconsistent if the donor is a(n) '${alcoholConsumptionCategory}'. Confirm and correct the 'alcohol_history' and 'alcohol_consumption_category' fields.`};
+            }
+            else if (alcoholHistory === 'not applicable' && (alcoholConsumptionCategory === 'unknown' || alcoholConsumptionCategory === 'none' || alcoholConsumptionCategory === 'occasional drinker (< once a month)')) {
+               result = {valid:false, message: `If the 'alcohol_history' field is not applicable, then the 'alcohol_consumption_category' field must be submitted as 'Not applicable'.`};
+            }
+            else if (alcoholHistory === 'unknown' && (alcoholConsumptionCategory === 'not applicable' || alcoholConsumptionCategory === 'none' || alcoholConsumptionCategory === 'occasional drinker (< once a month)')) {
+               result = {valid:false, message: `If the 'alcohol_history' field is unknown, then the 'alcohol_consumption_category' field must be submitted as 'Unknown'.`};
+            }
+            else if (alcoholHistory === 'no' && alcoholConsumptionCategory === 'unknown') {
+               result = {valid:false, message: `If the 'alcohol_history' field is 'No', then the 'alcohol_consumption_category' field must be submitted as 'Not applicable' or 'None'.`};
+            }
+        }
+        else if (alcoholHistory === 'unknown' || alcoholHistory === 'not applicable') {
+           result = {valid: false, message: `If the 'alcohol_history' field is '${$field}', then the 'alcohol_consumption_category' field must be submitted as '${$field}'.`};
+        }
+        else if (alcoholHistory === 'yes') {
+           result = {valid: false, message: `If the 'alcohol_history' field is '${$field}', then the 'alcohol_consumption_category' field must be submitted as well.`};
+        }
       }
-      return result;
+      else if (alcoholHistoryYes.includes($row.alcohol_consumption_category)) {
+        result = {valid:false, message: `If the donor is a(n) '${$row.alcohol_consumption_category}', then the 'alcohol_history' field must be submitted as 'Yes'.`};
+      }
+      else if (exclusionCategories.includes($row.alcohol_consumption_category)) {
+        result = {valid:false, message: `If the 'alcohol_consumption_category' field is submitted as '${$row.alcohol_consumption_category}', then the 'alcohol_history' field must be submitted as '${$row.alcohol_consumption_category}'.`}
+      }
+   return result;
   });
 
 module.exports = validation;

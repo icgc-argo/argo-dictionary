@@ -131,6 +131,28 @@ const myUnitTests = {
             )
         ],
         [
+            'Clinical trials database is not applicable, but has EudraCT number',
+            false,
+            loadObjects(treatment,
+                {   
+                    "clinical_trials_database": "not applicable",
+                    "clinical_trial_number":  "2010-123456-11"
+
+                }
+            )
+        ],
+        [
+            'Clinical trials database is unknown, but has EudraCT number',
+            false,
+            loadObjects(treatment,
+                {   
+                    "clinical_trials_database": "unknown",
+                    "clinical_trial_number":  "2010-123456-11"
+
+                }
+            )
+        ],
+        [
             'Clinical trials database is missing, but has trial number submitted',
             false,
             loadObjects(treatment,

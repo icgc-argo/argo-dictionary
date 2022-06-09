@@ -191,6 +191,7 @@
       "restrictions": {
         "codeList": [
           "Left",
+          "Not applicable",
           "Right",
           "Unknown"
         ]
@@ -213,7 +214,8 @@
           "Formalin fixed - buffered",
           "Formalin fixed - unbuffered",
           "Fresh",
-          "Other"
+          "Other",
+          "Unknown"
         ]
       },
       "meta": { "displayName": "Specimen Processing" }
@@ -235,7 +237,8 @@
           "Not Applicable",
           "Other",
           "Paraffin block",
-          "RNA later frozen"
+          "RNA later frozen",
+          "Unknown"
         ]
       }
     },

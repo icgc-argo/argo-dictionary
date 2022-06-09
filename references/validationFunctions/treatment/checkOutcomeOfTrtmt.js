@@ -28,17 +28,26 @@ const validation = () =>
   (function validate(inputs) {
       const {$row, $name, $field} = inputs;
       let result = {valid: true, message: "Ok"};
-      
+      const NAapplicable = ['treatment completed as prescribed', 'treatment incomplete due to technical or organizational problem', ' treatment incomplete because patient died', 'patient choice (stopped or interrupted treatment)', 'physician decision (stopped or interrupted treatment)', 'treatment stopped due to lack of efficacy (disease progression)', 'other', 'not applicable'];
+ 
       /* checks for a string just consisting of whitespace */
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
       
       if ($field != null && !(checkforEmpty($field))) {
+         const toxicityType = $field.trim().toLowerCase();
          if (($row.outcome_of_treatment != null && !(checkforEmpty($row.outcome_of_treatment)))) { 
             const outcomeOfTreatment = $row.outcome_of_treatment.trim().toLowerCase();
-     
-            /* toxicityType should only be submitted if treatment was terminated early due to acute toxicity ('outcome_of_treatment' is 'Treatment stopped due to acute toxicity'). */
-            if (outcomeOfTreatment != "treatment stopped due to acute toxicity") {
-               result = { valid: false, message: `The 'outcome_of_treatment' field should be 'Treatment stopped due to acute toxicity' if the '${$name}' field is submitted.`};
+            if (outcomeOfTreatment === 'not applicable' && toxicityType != 'not applicable') {
+               result = {valid: false, message: `The '${$name}' field can only be submitted as 'Not applicable' if the 'outcome_of_treatment' field is 'Not applicable', or if treatment was terminated for any other reason other than 'Treatment stopped due to acute toxicity'. Confirm and correct the 'outcome_of_treatment' and 'toxicity_type' fields.`};
+            }
+            else if (outcomeOfTreatment === 'unknown' && toxicityType != 'unknown') {
+               result = {valid: false, message: `The '${$name}' field can only be submitted as 'Unknown' if the 'outcome_of_treatment' field is 'Unknown'. Confirm and correct the 'outcome_of_treatment' and 'toxicity_type' fields.`};
+            }
+            else if (NAapplicable.includes(outcomeOfTreatment) && toxicityType != 'not applicable') {
+               result = {valid: false, message: `The '${$name}' field must be submitted as 'Not applicable' if treatment was terminated for any other reason other than 'Treatment stopped due to acute toxicity'. Confirm and correct the 'outcome_of_treatment' and 'toxicity_type' fields.`};
+            }
+            else if (outcomeOfTreatment === 'treatment stopped due to acute toxicity' && toxicityType === 'not applicable') {
+               result = {valid: false, message: `If the 'outcome_of_treatment' field is 'Treatment stopped due to acute toxicity', then the '${$name}' field cannot be 'Not applicable'. Indicate toxicity type(s) or if toxicity_type is not known, then submit 'Unknown'. Confirm and correct the 'outcome_of_treatment' and 'toxicity_type' fields.`};
             }
          }
          else {

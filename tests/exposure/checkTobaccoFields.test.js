@@ -36,7 +36,7 @@ const myUnitTests = {
             loadObjects(exposure,
                 {   
                     "tobacco_smoking_status": "current smoker",
-                    "tobacco_type": "cigar, chewing tobacco"
+                    "tobacco_type": ["cigar, chewing tobacco"]
                 }
             )
         ],
@@ -46,7 +46,7 @@ const myUnitTests = {
             loadObjects(exposure,
                 {   
                     "tobacco_smoking_status": "Lifelong non-smoker (<100 Cigarettes Smoked in lifetime)",
-                    "tobacco_type": "cigar, chewing tobacco"
+                    "tobacco_type": ["cigar, chewing tobacco"]
                 }
             )
         ],
@@ -73,7 +73,7 @@ const myUnitTests = {
             false,
             loadObjects(exposure,
                 {   
-                    "tobacco_type": "cigarettes",
+                    "tobacco_type": ["cigarettes"],
                 }
             )
         ],
@@ -83,7 +83,7 @@ const myUnitTests = {
             loadObjects(exposure,
                 {   
                     "tobacco_smoking_status": "smoking history not documented",
-                    "tobacco_type": "cigarettes, cigars"
+                    "tobacco_type": ["cigarettes, cigars"]
                 }
             )
         ],
@@ -92,7 +92,106 @@ const myUnitTests = {
             false,
             loadObjects(exposure,
                 {   
-                    "tobacco_type": "cigarettes, cigars"
+                    "tobacco_type": ["cigarettes, cigars"]
+                }
+            )
+        ],
+        [
+            'tobacco_type is not applicable when donor has not smoking history documented.',
+            false,
+            loadObjects(exposure,
+                {   
+                    "tobacco_smoking_status": "smoking history not documented",
+                    "tobacco_type": ["not applicable"]
+                }
+            )
+        ],
+        [
+            'tobacco_type is unknown when donor has not smoking history documented.',
+            true,
+            loadObjects(exposure,
+                {   
+                    "tobacco_smoking_status": "smoking history not documented",
+                    "tobacco_type": ["Unknown"]
+                }
+            )
+        ],
+        [
+            'tobacco_type is not applicable when donor is a lifelong non-smoker.',
+            true,
+            loadObjects(exposure,
+                {   
+                    "tobacco_smoking_status": "lifelong non-smoker (<100 cigarettes smoked in lifetime)",
+                    "tobacco_type": ["not applicable"]
+                }
+            )
+        ],
+        [
+            'tobacco_type is not applicable when donor smoking history is not applicable.',
+            true,
+            loadObjects(exposure,
+                {   
+                    "tobacco_smoking_status": "not applicable",
+                    "tobacco_type": ["not applicable"]
+                }
+            )
+        ],
+        [
+            'tobacco_type is unknown when donor smoking history is not applicable.',
+            false,
+            loadObjects(exposure,
+                {   
+                    "tobacco_smoking_status": "not applicable",
+                    "tobacco_type": ["unknown"]
+                }
+            )
+        ],
+        [
+            'tobacco_type is cigar when donor smoking history is not applicable.',
+            false,
+            loadObjects(exposure,
+                {   
+                    "tobacco_smoking_status": "not applicable",
+                    "tobacco_type": ["cigar"]
+                }
+            )
+        ],
+        [
+            'tobacco_type is not submitted when donor smoking history is not applicable.',
+            true,
+            loadObjects(exposure,
+                {   
+                    "tobacco_smoking_status": "not applicable",
+                }
+            )
+        ],
+        [
+            'Donor has smoking history but tobacco_type is submitted as not applicable.',
+            false,
+            loadObjects(exposure,
+                {   
+                    "tobacco_smoking_status": "Current smoker",
+                    "tobacco_type": ["not applicable"]
+                }
+            )
+        ],
+        [
+            'Donor has smoking history and tobacco_type is submitted as unknown.',
+            true,
+            loadObjects(exposure,
+                {   
+                    "tobacco_smoking_status": "Current smoker",
+                    "tobacco_type": ["unknown"]
+                }
+            )
+        ],
+        [
+            'Donor is a life-long non-smoker and tobacco_type is submitted as unknown.',
+            false,
+            loadObjects(exposure,
+                {   
+                    "tobacco_smoking_status": "Lifelong non-smoker (<100 cigarettes smoked in lifetime)",
+                    "tobacco_type": ["unknown"]
                 }
             )
         ]

@@ -49,8 +49,9 @@
           "Current reformed smoker, duration not specified",
           "Current smoker",
           "Lifelong non-smoker (<100 cigarettes smoked in lifetime)",
+          "Not applicable",
           "Smoking history not documented"
-          ]
+         ]
       }
     },
     {
@@ -69,6 +70,7 @@
           "Cigar",
           "Cigarettes",
           "Electronic cigarettes",
+          "Not applicable",
           "Pipe",
           "Roll-ups",
           "Snuff",
@@ -101,7 +103,7 @@
         "displayName": "Alcohol History"
       },
       "restrictions": {
-        "codeList": "#/list/yes_no",
+        "codeList": "#/list/yes_no_na",
         "script": "#/script/exposure/checkAlcoholHistory"
       }
     },
@@ -117,6 +119,7 @@
         "codeList": [
           "Daily Drinker",
           "None",
+          "Not applicable",
           "Occasional Drinker (< once a month)",
           "Social Drinker (> once a month, < once a week)",
           "Unknown",
@@ -139,6 +142,7 @@
         "codeList": [
           "Beer",
           "Liquor",
+          "Not applicable",
           "Other",
           "Unknown",
           "Wine"
@@ -224,7 +228,9 @@
         "codeList": [
           "Low: No increase in the heart beat, and no perspiration",
           "Moderate: Increase in the heart beat slightly with some light perspiration",
-          "Vigorous: Increase in the heart beat substantially with heavy perspiration"
+          "Not applicable",
+          "Vigorous: Increase in the heart beat substantially with heavy perspiration",
+          "Unknown"
         ],
         "script": "#/script/exposure/checkExerciseIntensity"
       }

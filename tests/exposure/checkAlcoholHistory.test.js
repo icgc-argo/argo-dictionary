@@ -80,6 +80,86 @@ const myUnitTests = {
                    "alcohol_history": "no"
                }
            )
+        ],
+        [
+           'alcohol_consumption_category is daily drinker but alcohol_history is not applicable',
+           false,
+           loadObjects(exposure, 
+               {
+                   "alcohol_consumption_category": "daily drinker",
+                   "alcohol_history": "not applicable"
+               }
+           )
+        ],
+        [
+           'alcohol_consumption_category is unknown but alcohol_history is no',
+           false,
+           loadObjects(exposure, 
+               {
+                   "alcohol_consumption_category": "unknown",
+                   "alcohol_history": "no"
+               }
+           )
+        ],
+        [
+            'alcohol_type is submitted as not applicable and alcohol consumption is unknown',
+            false,
+            loadObjects(exposure,
+                {
+                    "alcohol_history": "not applicable", 
+                    "alcohol_consumption_category": "unknown"
+                }
+            )
+        ],
+        [
+            'alcohol_type is submitted as unknown but alcohol consumption is missing',
+            false,
+            loadObjects(exposure,
+                {
+                    "alcohol_history": "unknown" 
+                }
+            )
+        ],
+        [
+            'alcohol_type is submitted as yes but alcohol consumption is missing',
+            false,
+            loadObjects(exposure,
+                {
+                    "alcohol_history": "yes" 
+                }
+            )
+        ],
+        [
+            'alcohol_type is missing and alcohol consumption is daily drinker',
+            false,
+            loadObjects(exposure,
+                {
+                    "alcohol_consumption_category": "daily drinker" 
+                }
+            )
+        ],
+        [
+            'alcohol_type is missing and alcohol consumption is unknown',
+            false,
+            loadObjects(exposure,
+                {
+                    "alcohol_consumption_category": "unknown" 
+                }
+            )
+        ],
+        [
+            'alcohol_type is missing and alcohol consumption is not applicable',
+            false,
+            loadObjects(exposure,
+                {
+                    "alcohol_consumption_category": "not applicable" 
+                }
+            )
+        ],
+        [
+            'Neither alcohol_history or alcohol_consumption are submitted',
+            true,
+            loadObjects(exposure, {})
         ]
      ]
 }

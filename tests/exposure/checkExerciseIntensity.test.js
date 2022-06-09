@@ -51,13 +51,67 @@ const myUnitTests = {
             )
         ],
         [
-            'exercise_intensity is submitted when excerise_frequency is missing',
+            'exercise_intensity is submitted as not applicable when donor exercises once or twice a week',
+            false,
+            loadObjects(exposure,
+                {   
+                    "exercise_frequency": "once or twice a week",
+                    "exercise_intensity": "not applicable"
+                }
+            )
+        ],
+        [
+            'exercise_intensity is submitted as unknown when donor exercises once or twice a week',
             true,
+            loadObjects(exposure,
+                {   
+                    "exercise_frequency": "once or twice a week",
+                    "exercise_intensity": "unknown"
+                }
+            )
+        ],
+        [
+            'exercise_intensity is submitted as unknown when exercise_frequency is not applicable',
+            false,
+            loadObjects(exposure,
+                {   
+                    "exercise_frequency": "not applicable",
+                    "exercise_intensity": "unknown"
+                }
+            )
+        ],
+        [
+            'exercise_intensity is submitted as not applicable when exercise_frequency is unknown',
+            false,
+            loadObjects(exposure,
+                {   
+                    "exercise_frequency": "unknown",
+                    "exercise_intensity": "not applicable"
+                }
+            )
+        ],
+        [
+            'exercise_intensity is submitted and exercise_frequency is missing',
+            false,
             loadObjects(exposure,
                 {   
                     "exercise_intensity": "Low: No increase in the heart beat, and no perspiration"
                 }
             )
+        ],
+        [
+            'exercise_intensity is missing and exercise_frequency is submitted',
+            false,
+            loadObjects(exposure,
+                {   
+                    "exercise_frequency": "less than once a month"
+                }
+            )
+        ],
+        [
+            'neither exercise_intensity or exercise_frequency are submitted',
+            true,
+            loadObjects(exposure, {})
         ]
     ]
 }

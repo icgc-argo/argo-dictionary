@@ -67,6 +67,26 @@ const myUnitTests = {
                     "toxicity_type": "hematological"
                 }
             )
+        ],
+        [
+            'toxicity_type is submitted as unknown and hematological_toxicity is submitted',
+            false,
+            loadObjects(treatment,
+                {   
+                    "toxicity_type": "unknown",
+                    "hematological_toxicity": "Anemia - Grade 3|Neutropenia - Grade 4"
+                }
+            )
+        ],
+        [
+            'toxicity_type is submitted as not applicable and hematological_toxicity is submitted',
+            false,
+            loadObjects(treatment,
+                {   
+                    "toxicity_type": "not applicable",
+                    "hematological_toxicity": "Anemia - Grade 3|Neutropenia - Grade 4"
+                }
+            )
         ]
     ],
     'non-hematological_toxicity': [
