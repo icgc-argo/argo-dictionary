@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 The Ontario Institute for Cancer Research. All rights reserved
+ * Copyright (c) 2021 The Ontario Institute for Cancer Research. All rights reserved
  *
  * This program and the accompanying materials are made available under the terms of the GNU Affero General Public License v3.0.
  * You should have received a copy of the GNU Affero General Public License along with
@@ -18,8 +18,8 @@
  *
  */
 
-/**
- * If alcohol_consumption_category is daily drinker, social drinker, occasional drinker or weekly drinker, then alcohol_type and alcohol_history are required (and vice versa).
+/* If a specimen was resected during surgery, then there are certain fields in the Surgery table that do not need to be submitted since they are collected in the Specimen table already. 
+   The script will ensure clinical data is not redundant if 'submitter_specimen_id' is submitted.
  */
 
 const validation = () => 
@@ -27,20 +27,23 @@ const validation = () =>
       const {$row, $name, $field} = inputs;
       let result = {valid: true, message: "Ok"};
       
-      // checks for a string just consisting of whitespace
+      /* checks for a string just consisting of whitespace */
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
-      
-      const alcoholHistoryCategories = ["daily drinker", "occasional drinker (< once a month)", "social drinker (> once a month, < once a week)", "weekly drinker (>=1x a week)"];
-    
-      if (!$field || $field === null || checkforEmpty($field)) {
-         if ($row.alcohol_history && $row.alcohol_history != null && !(checkforEmpty($row.alcohol_history)) && $row.alcohol_history.trim().toLowerCase() === 'yes') {
-            result = {valid:false, message: `The '${$name}' field must be submitted if donor has an alcohol history.`};
+
+      if ($row.submitter_specimen_id && $row.submitter_specimen_id != null && !(checkforEmpty($row.submitter_specimen_id))) {
+         if ($field && $field != null && !(checkforEmpty($field))) {
+           result = {
+             valid: false,
+             message: `The '${$name}' field does not need to be submitted if a specimen was resected during surgery.`
+           };
          }
       }
       else {
-         const alcoholConsumptionCategory = $field.trim().toLowerCase();
-         if (alcoholHistoryCategories.includes(alcoholConsumptionCategory) && (!$row.alcohol_history || $row.alcohol_history === null || checkforEmpty($row.alcohol_history))) {
-            result = {valid:false, message: `The 'alcohol_history' field must be submitted if donor is a '${alcoholConsumptionCategory}'.`};
+         if (!$field || checkforEmpty($field) || $field === null) {
+            result = {
+              valid: false,
+              message: `The '${$name}' field is a required field.`
+            };
          }
       }
       return result;

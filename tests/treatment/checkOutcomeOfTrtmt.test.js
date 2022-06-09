@@ -59,6 +59,85 @@ const myUnitTests = {
                 }
             )
         ],
+        [
+            'toxicity_type is submitted as not applicable when outcome_of_treatment is "Treatment stopped due to acute toxicity"',
+            false,
+            loadObjects(treatment,
+                {   
+                    "outcome_of_treatment": "Treatment stopped due to acute toxicity",
+                    "toxicity_type": "not applicable"
+                }
+            )
+        ],
+        [
+            'toxicity_type is submitted as unknown when outcome_of_treatment is "Treatment stopped due to acute toxicity"',
+            true,
+            loadObjects(treatment,
+                {   
+                    "outcome_of_treatment": "Treatment stopped due to acute toxicity",
+                    "toxicity_type": "unknown"
+                }
+            )
+        ],
+        [
+            'toxicity_type is submitted as unknown when outcome_of_treatment is "Treatment completed as prescribed"',
+            false,
+            loadObjects(treatment,
+                {   
+                    "outcome_of_treatment": "Treatment completed as prescribed",
+                    "toxicity_type": "unknown"
+                }
+            )
+        ],
+        [
+            'toxicity_type is submitted as not applicable when outcome_of_treatment is "Treatment completed as prescribed"',
+            true,
+            loadObjects(treatment,
+                {   
+                    "outcome_of_treatment": "Treatment completed as prescribed",
+                    "toxicity_type": "not applicable"
+                }
+            )
+        ],
+        [
+            'toxicity_type is submitted as not applicable when outcome_of_treatment is "Unknown"',
+            false,
+            loadObjects(treatment,
+                {   
+                    "outcome_of_treatment": "unknown",
+                    "toxicity_type": "not applicable"
+                }
+            )
+        ],
+        [
+            'toxicity_type is submitted as unknown when outcome_of_treatment is "Unknown"',
+            true,
+            loadObjects(treatment,
+                {   
+                    "outcome_of_treatment": "unknown",
+                    "toxicity_type": "unknown"
+                }
+            )
+        ],
+        [
+            'toxicity_type is not submitted when outcome_of_treatment is "Treatment stopped due to acute toxicity"',
+            true,
+            loadObjects(treatment,
+                {   
+                    "outcome_of_treatment": "Treatment stopped due to acute toxicity"
+                }
+            )
+        ],
+        [
+            'toxicity_type is submitted as not applicable when outcome_of_treatment is "Not applicable"',
+            true,
+            loadObjects(treatment,
+                {   
+                    "outcome_of_treatment": "Not applicable",
+                    "toxicity_type": "Not applicable"
+                }
+            )
+        ]
     ]
 }
 

@@ -29,12 +29,29 @@ const validation = () =>
       
       // checks for a string just consisting of whitespace
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
+         //const exerciseFreq = $row.exercise_frequency.trim().toLowerCase();
      
-      if ($field != null || !(checkforEmpty($field))) {
-         if ($row.exercise_frequency && $row.exercise_frequency != null && !(checkforEmpty($row.exercise_frequency)) && $row.exercise_frequency.trim().toLowerCase() === "never") {
-            result = {valid: false, message: `The 'exercise_frequency' field cannot be 'never' if the '${$name}' field is submitted.`};
-         }
-      } 
+      if ($field && $field != null && !(checkforEmpty($field))) {
+        const exerciseIntensity = $field.trim().toLowerCase();
+        if ($row.exercise_frequency && $row.exercise_frequency != null && !(checkforEmpty($row.exercise_frequency))) {
+          const exerciseFreq = $row.exercise_frequency.trim().toLowerCase();
+          if (exerciseIntensity === 'not applicable' && exerciseFreq != 'not applicable') {
+            result = {valid: false, message: `If the 'exercise_intensity' field is submitted as 'Not applicable', then the 'exercise_frequency' field must be submitted as 'Not applicable' as well. Please correct your data submission.`};
+          }
+          else if (exerciseIntensity === 'unknown' && exerciseFreq === 'not applicable') {
+            result = {valid: false, message: `If the 'exercise_intensity' field is submitted as 'Unknown', then the 'exercise_frequency' field must be submitted as 'Unknown' as well. Please correct your data submission.`};
+          }
+          else if ((exerciseIntensity != 'unknown' || exerciseIntensity != 'not applicable') && (exerciseFreq === 'never')) {
+            result = {valid: false, message: `The 'exercise_intensity' field (submitted as '${$field}') is inconsistent with the 'exercise_frequency': 'Never'. Please correct your data submission.`};
+          }
+        }
+        else { 
+          result = {valid: false, message: `If the '${$name}' field is submitted, then the 'exercise_frequency' field is required as well.`};
+        }
+      }
+      else if ($row.exercise_frequency && $row.exercise_frequency != null && !(checkforEmpty($row.exercise_frequency))) {
+         result = {valid:false, message: `If the 'exercise_frequency' field is submitted, then the '${$name}' field must be submitted as well.`}
+      }
       return result;
   });
 

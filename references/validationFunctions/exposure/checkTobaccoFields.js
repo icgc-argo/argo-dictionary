@@ -33,19 +33,29 @@ const validation = () =>
       // check tobacco related fields
       if ($name === 'tobacco_type') {
          if ($row.tobacco_type != null && !(checkforEmpty($row.tobacco_type))) {
+            const tobaccoType = ($row.tobacco_type).map(value => value.toLowerCase());
             if (!$row.tobacco_smoking_status || checkforEmpty($row.tobacco_smoking_status) || $row.tobacco_smoking_status === null) {
                result = { valid: false, message: `If '${$name}' is submitted, then the 'tobacco_smoking_status' field is required.`}
             }
-            else if ($row.tobacco_smoking_status.toLowerCase() === 'smoking history not documented') {
-               result = { valid: false, message: `The 'tobacco_smoking_status' field (smoking status not documented) is inconsistent if donor smoked '${$row.tobacco_type}'.`};
-            }
-            else if ($row.tobacco_smoking_status.toLowerCase() === 'lifelong non-smoker (<100 cigarettes smoked in lifetime)') {
-               result = { valid: false, message: `The '${$name}' field should not be submitted if donor is a lifelong non-smoker.`}
+            else {
+               const smokingStatus = $row.tobacco_smoking_status.trim().toLowerCase();
+               if (smokerCategories.includes(smokingStatus) && tobaccoType.includes('not applicable')) {
+                  result = {valid: false, message: `If the 'tobacco_smoking_status' field is '${smokingStatus}', then the '${$name}' field cannot be submitted as 'Not applicable'. Indicate type(s) of tobacco smoked or submit 'Unknown'.`};
+               }
+               else if (smokingStatus  === 'smoking history not documented' && !(tobaccoType.includes('unknown'))) {
+                  result = {valid: false, message: `If the 'tobacco_smoking_status' field is submitted as '${smokingStatus}', then the '${$name}' field must be submitted as 'Unknown'.`};
+               }
+               else if (smokingStatus === 'lifelong non-smoker (<100 cigarettes smoked in lifetime)' && !(tobaccoType.includes('not applicable'))) {
+                  result = { valid: false, message: `If donor is a lifelong non-smoker, then the '${$name}' field should be submitted as 'Not applicable'.`}
+               }
+               else if (smokingStatus === 'not applicable' && !(tobaccoType.includes('not applicable'))) {
+                  result = { valid: false, message: `If donor's smoking history is not applicable, then the '${$name}' field should be submitted as 'Not applicable'.`}
+               }
             }
          }
          else {
             if ($row.tobacco_smoking_status != null && !(checkforEmpty($row.tobacco_smoking_status))) {
-               if (smokerCategories.includes($row.tobacco_smoking_status.toLowerCase())) {
+               if (smokerCategories.includes($row.tobacco_smoking_status.trim().toLowerCase())) {
                   result = { valid: false, message: `The '${$name}' field is required if donor is or was a smoker.`}
                }
             }

@@ -18,103 +18,64 @@
  *
  */
 
-const validation = require('../../references/validationFunctions/exposure/checkExerciseIntensity.js');
+const validation = require('../../references/validationFunctions/surgery/marginTypeCheck');
 
 const universalTest = require('../universal');
 const loadObjects = require('../loadObjects');
 
 // load in all fields with entries prepopulated to null
-const exposure = require('../constructDummyData').getSchemaDummy('exposure');
+const surgery = require('../constructDummyData').getSchemaDummy('surgery');
 
 
 // key -> name of field, value -> unit tests
 const myUnitTests = {
-    'exercise_intensity': [
+    'margin_types_involved': [
         [
-            'exercise_intensity is submitted when donor exercise 1-3 times a month',
+            'margin_types_involved is submitted when surgery_type is Lobectomy and submitter_specimen_id is submitted',
             true,
-            loadObjects(exposure,
+            loadObjects(surgery,
                 {   
-                    "exercise_frequency": "1-3 times a month",
-                    "exercise_intensity": "Moderate: Increase in heart beat sligtly with some light perspiration"
+                    "margin_types_involved": "Proximal margin",
+                    "submitter_specimen_id": "SP01",
+                    "surgery_type": "Lobectomy"
                 }
             )
         ],
         [
-            'exercise_intensity is submitted when donor never exercises',
-            false,
-            loadObjects(exposure,
-                {   
-                    "exercise_frequency": "never",
-                    "exercise_intensity": "Moderate: Increase in heart beat sligtly with some light perspiration"
-                }
-            )
-        ],
-        [
-            'exercise_intensity is submitted as not applicable when donor exercises once or twice a week',
-            false,
-            loadObjects(exposure,
-                {   
-                    "exercise_frequency": "once or twice a week",
-                    "exercise_intensity": "not applicable"
-                }
-            )
-        ],
-        [
-            'exercise_intensity is submitted as unknown when donor exercises once or twice a week',
+            'margin_types_involved is submitted when surgery_type is Sentinal Lymph Node Biopsy and submitter_specimen_id is not submitted',
             true,
-            loadObjects(exposure,
+            loadObjects(surgery,
                 {   
-                    "exercise_frequency": "once or twice a week",
-                    "exercise_intensity": "unknown"
+                    "margin_types_involved": "Distal margin",
+                    "submitter_specimen_id": "SP02",
+                    "surgery_type": "Sentinal Lymph Node Biopsy"
                 }
             )
         ],
         [
-            'exercise_intensity is submitted as unknown when exercise_frequency is not applicable',
-            false,
-            loadObjects(exposure,
-                {   
-                    "exercise_frequency": "not applicable",
-                    "exercise_intensity": "unknown"
-                }
-            )
-        ],
-        [
-            'exercise_intensity is submitted as not applicable when exercise_frequency is unknown',
-            false,
-            loadObjects(exposure,
-                {   
-                    "exercise_frequency": "unknown",
-                    "exercise_intensity": "not applicable"
-                }
-            )
-        ],
-        [
-            'exercise_intensity is submitted and exercise_frequency is missing',
-            false,
-            loadObjects(exposure,
-                {   
-                    "exercise_intensity": "Low: No increase in the heart beat, and no perspiration"
-                }
-            )
-        ],
-        [
-            'exercise_intensity is missing and exercise_frequency is submitted',
-            false,
-            loadObjects(exposure,
-                {   
-                    "exercise_frequency": "less than once a month"
-                }
-            )
-        ],
-        [
-            'neither exercise_intensity or exercise_frequency are submitted',
+            'margin_types_involved is submitted when surgery_type is Debulking and submitter_specimen_id is not submitted',
             true,
-            loadObjects(exposure, {})
+            loadObjects(surgery,
+                {   
+                    "margin_types_involved": "Distal margin",
+                    "submitter_specimen_id": "SP03",
+                    "surgery_type": "Debulking"
+                }
+            )
+        ],
+        [
+            'margin_types_involved is submitted when surgery_type is Mastectomy and submitter_specimen_id is not submitted',
+            false,
+            loadObjects(surgery,
+                {   
+                    "margin_types_involved": "Proximal margin|Distal margin",
+                    "surgery_type": "Mastectomy"
+                }
+            )
         ]
     ]
 }
+
 
 describe("Common Tests",()=>{
     Object.entries(myUnitTests).forEach(field =>{
@@ -129,7 +90,7 @@ describe("Common Tests",()=>{
     
 })
 
-describe("Unit Tests for exercise related fields in exposure table",()=>{
+describe("Unit Tests for fields in Surgery",()=>{
     Object.entries(myUnitTests).forEach(field => {
         const name = field[0];
         const unitTests = field[1];
@@ -143,4 +104,3 @@ describe("Unit Tests for exercise related fields in exposure table",()=>{
     })
     
 })
-

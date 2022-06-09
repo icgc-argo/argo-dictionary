@@ -19,32 +19,29 @@
  */
 
 /**
- * Validates hrt_duration and/or contraception_duration fields to make sure they are consistent with hrt_type and/or contraception_type
+ * Allows margin type fields to be submitted if biopsy or debulking surgical procedures performed, since margins can still be commented on even if specimen is not resected during biopsy or debulking
  * @param {object} $row 
  * @param {string} $field 
  * @param {string} $name 
  */
+
 const validation = () => 
-  (function validate(inputs) {
+   (function validate(inputs) {
       const {$row, $name, $field} = inputs;
-      let result = {valid: true, message: "Ok"};
-      
-      /* checks for a string just consisting of whitespace */
-      const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
-     
-      const type = $name.trim().toLowerCase().split('_duration')[0];
-      const hormoneType = type + `_type`;
+        let result = {valid: true, message: "Ok"};
+        
+        /* checks if surgical procedure involves debulking or biopsy */
+        const surgeryTypeExceptions = (entry) => {return /(biopsy|debulking)$/.test(decodeURI(entry))}; 
    
-      if ($field != null && !(checkforEmpty($field))) {
-        if (!$row[hormoneType] || $row[hormoneType] === null || checkforEmpty($row[hormoneType])) {
-           result = { valid: false, message: `Indicate type of ${type} taken in the '${hormoneType}' field if '${$name}' field is submitted.`};
+        /* checks for a string just consisting of whitespace */
+        const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
+        
+        if ($field && !(checkforEmpty($field)) && $field != null) {
+          if ((!$row.submitter_specimen_id || $row.submitter_specimen_id === null) && !(surgeryTypeExceptions($row.surgery_type.trim().toLowerCase()))) {
+            result = {valid: false, message: `The 'submitter_specimen_id' of the resected specimen must be submitted if '${$name}' is submitted.`};
+          }
         }
-        else if ($row[hormoneType].toLowerCase() === "never taken hrt" || $row[hormoneType].toLowerCase() === "never used hormonal contraception" || $row[hormoneType].toLowerCase() === 'not applicable' || $row[hormoneType].toLowerCase() === 'unknown') {
-           const submittedValue = $row[hormoneType].toLowerCase()
-           result = {valid: false, message: `If the '${$name}' field is submitted, then the '${hormoneType}' field cannot be '${submittedValue}'.`};
-        }
-      }
-      return result;
-  });
+        return  result;
+    });
 
 module.exports = validation;
