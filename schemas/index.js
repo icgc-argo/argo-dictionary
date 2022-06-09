@@ -32,6 +32,7 @@ const family_history = require('./family_history.json');
 const immunotherapy = require('./immunotherapy.json');
 const biomarker = require('./biomarker.json');
 const comorbidity = require('./comorbidity.json');
+const surgery = require('./surgery.json');
 
 module.exports = [
   sample_registration,
@@ -43,6 +44,7 @@ module.exports = [
   hormone_therapy,
   radiation,
   immunotherapy,
+  surgery,
   follow_up,
   exposure,
   family_history,

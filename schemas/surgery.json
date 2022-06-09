@@ -1,0 +1,251 @@
+{
+  "name": "surgery",
+  "description": "The collection of data elements related to a donor's surgical treatment at a specific point in the clinical record. To submit multiple surgeries, submit multiple rows in the Surgery file. If a specimen was resected during surgery, indicate the unique identifier of the specimen in the 'submitter_specimen_id' field. If multiple specimens were resected during a single surgical procedure, submit each 'submitter_specimen_id' as a new row with the same 'submitter_treatment_id' and 'surgery_type' values.",
+  "meta": {
+    "parent": "donor"
+  },
+  "fields": [
+    {
+      "name": "program_id",
+      "valueType": "string",
+      "description": "Unique identifier of the ARGO program.",
+      "meta": {
+        "validationDependency": true,
+        "primaryId": true,
+        "foreignKey": "sample_registration.program_id",
+        "displayName": "Program ID"
+      },
+      "restrictions": {
+        "required": true
+      }
+    },
+    {
+      "name": "submitter_donor_id",
+      "description": "Unique identifier of the donor, assigned by the data provider.",
+      "valueType": "string",
+      "meta": {
+        "validationDependency": true,
+        "primaryId": true,
+        "foreignKey": "sample_registration.submitter_donor_id",
+        "displayName": "Submitter Donor ID"
+      },
+      "restrictions": {
+        "required": true,
+        "regex": "#/regex/submitter_id"
+      }
+    },
+    {
+      "name": "submitter_specimen_id",
+      "description": "If a specimen was resected during surgery, indicate the unique identifier of the specimen here. This submitter_specimen_id should exist in the Specimen file.",
+      "valueType": "string",
+      "meta": {
+        "validationDependency": true,
+        "primaryId": true,
+        "foreignKey": "specimen.submitter_specimen_id",
+        "displayName": "Submitter Specimen ID"
+      },
+      "restrictions": {
+        "regex": "#/regex/submitter_id"
+      }
+    },
+    {
+      "name": "submitter_treatment_id",
+      "description": "Unique identifier of the treatment, assigned by the data provider.",
+      "valueType": "string",
+      "meta": {
+        "validationDependency": true,
+        "primaryId": true,
+        "foreignKey": "treatment.submitter_treatment_id",
+        "displayName": "Submitter Treatment ID"
+      },
+      "restrictions": {
+        "required": true,
+        "regex": "#/regex/submitter_id"
+      }
+    },
+    {
+      "name": "surgery_type",
+      "valueType": "string",
+      "description": "Indicate the type of surgical procedure that was performed. (References: SNOMED, NCIt, UMLS)",
+      "meta": {
+        "displayName": "Surgery Type "
+      },
+      "restrictions": {
+        "required": true,
+        "codeList": "#/list/surgery_types"
+      }
+    },
+    {
+      "name": "surgery_site",
+      "valueType": "string",
+      "description": "Indicate the ICD-O-3 topography code for the anatomic site where the surgical procedure was performed, according to the International Classification of Diseases for Oncology, 3rd Edition (WHO ICD-O-3).",
+      "meta": {
+        "displayName": "Surgery Site",
+        "dependsOn": "surgery.submitter_specimen_id",
+        "notes": "Refer to the ICD-O-3 manual for guidelines at https://apps.who.int/iris/handle/10665/42344. This field is not required if a specimen was resected during surgery (ie. if `submitter_specimen_id` is submitted) since anatomic site is collected in the Specimen table."
+      },
+      "restrictions": {
+        "regex": "^[C][0-9]{2}(.[0-9]{1})?$",
+        "script": "#/script/surgery/specimenIdCheck"
+      }
+    },
+    {
+      "name": "surgery_location",
+      "valueType": "string",
+      "description": "Indicate whether the surgical procedure was done at the primary, local recurrence or metastatic location.",
+      "meta": {
+        "displayName": "Surgery Location",
+        "dependsOn": "surgery.submitter_specimen_id",
+        "notes": "This field is not required if a specimen was resected during surgery (ie. if `submitter_specimen_id` is submitted) since type of specimen is collected in the Specimen table."
+      },
+      "restrictions": {
+        "codeList": ["Local recurrence", "Metastatic", "Primary"],
+        "script": "#/script/surgery/specimenIdCheck"
+      }
+    },
+    {
+      "name": "tumour_length",
+      "valueType": "number",
+      "description": "Indicate the length of the tumour, in millimetres (mm).",
+      "meta": {
+        "displayName": "Tumour Length"
+      },
+      "restrictions": {
+        "range": {
+          "exclusiveMin": 0
+        }
+      }
+    },
+    {
+      "name": "tumour_width",
+      "valueType": "number",
+      "description": "Indicate the width of the tumour, in millimetres (mm).",
+      "meta": {
+        "displayName": "Tumour Width"
+      },
+      "restrictions": {
+        "range": {
+	  "exclusiveMin": 0
+	}
+      }
+    },
+    {
+      "name": "greatest_dimension_tumour",
+      "valueType": "number",
+      "description": "Indicate the greatest dimension or diameter of the tumour, in millimetres (mm). (Reference: NCIt C157135)",
+      "meta": {
+        "displayName": "Greatest Dimension Tumour"
+      },
+      "restrictions": {
+        "range": {
+	  "exclusiveMin": 0
+        }
+      }
+    },
+    {
+      "name": "tumour_focality",
+      "valueType": "string",
+      "description": "Indicate the characterization of the location of the tumour. (Reference: NCIt: C157425)",
+      "meta": {
+        "displayName": "Tumour Focality"
+      },
+      "restrictions": {
+        "codeList": ["Cannot be assessed", "Multifocal", "Not applicable", "Unifocal", "Unknown"]
+      }
+    },
+    {
+      "name": "residual_tumour_classification",
+      "valueType": "string",
+      "description": "Indicate the absence or presence of residual tumour after treatment. In some cases treated with surgery and/or with neoadjuvant therapy there will be residual tumour at the primary site after treatment because of incomplete resection or local and regional disease that extends beyond the limit of ability of resection. (Reference: AJCC 8th ed.)",
+      "meta": {
+        "displayName": "Residual Tumour Classification",
+        "notes": "RX (Presence of residual tumour cannot be assessed), R0 (no residual tumour), R1 (microscopic residual tumour), R2 (macroscopic residual tumour)"
+      },
+      "restrictions": {
+        "codeList": ["Not applicable", "RX","R0", "R1", "R2", "Unknown"]
+      }
+    },
+    {
+      "name": "margin_types_involved",
+      "valueType": "string",
+      "description": "Indicate the margin type(s) involved.",
+      "isArray": true,
+      "meta": {
+        "displayName": "Margin Types Involved",
+        "notes": "To include multiple values, separate values with a pipe delimiter '|' within your file."
+      },
+      "restrictions": {
+        "codeList": "#/list/margin_types",
+        "script": "#/script/surgery/marginTypeCheck"
+      }
+    },
+    {
+      "name": "margin_types_not_involved",
+      "valueType": "string",
+      "description": "Indicate the margin type(s) not involved.",
+      "isArray": true,
+      "meta": {
+        "displayName": "Margin Types Not Involved",
+        "notes": "To include multiple values, separate values with a pipe delimiter '|' within your file."
+      },
+      "restrictions": {
+        "codeList": "#/list/margin_types",
+        "script": "#/script/surgery/marginTypeCheck"
+      }
+    },
+    {
+      "name": "margin_types_not_assessed",
+      "valueType": "string",
+      "description": "Indicate the margin type(s) that cannot be assessed.",
+      "isArray": true,
+      "meta": {
+        "displayName": "Margin Types Not Assessed",
+        "notes": "To include multiple values, separate values with a pipe delimiter '|' within your file."
+      },
+      "restrictions": {
+        "codeList": "#/list/margin_types"
+      }
+    },
+    {
+      "name": "lymphovascular_invasion",
+      "valueType": "string",
+      "description": "Indicate the absence or presence of lymphovascular invasion (LVI). LVI includes lymphatic invasion, vascular invasion and lymphovascular invasion. (Reference: AJCC 8th ed.)",
+      "meta": {
+        "displayName": "Lymphovascular Invasion (LVI)"
+      },
+      "restrictions": {
+        "codeList": [
+          "Absent",
+          "Both lymphatic and small vessel and venous (large vessel) invasion",
+          "Lymphatic and small vessel invasion only",
+          "Not applicable",
+          "Present",
+          "Venous (large vessel) invasion only",
+          "Unknown"
+        ]
+      }
+    },
+    {
+      "name": "perineural_invasion",
+      "valueType": "string",
+      "description": "A morphologic finding referring to a tumour that has spread along and infiltrated nerve fibers. Indicate the presence or absence of perineural invasion. (Reference: NCIt: C48260, ICCR)",
+      "meta": {
+        "displayName": "Perineural Invasion"
+      },
+      "restrictions": {
+        "codeList": "#/list/involvement_options"
+      }
+    },
+    {
+      "name": "extrathyroidal_extension",
+      "valueType": "string",
+      "description": "Indicate the involvement of perithyroidal soft tissues by direct extension from the thyroid primary. (Reference: AJCC 8th Ed.)",
+      "meta": {
+        "displayName": "Extrathyroidal Extension"
+      },
+      "restrictions": {
+        "codeList": "#/list/involvement_options"
+      }
+    }
+  ]
+}
