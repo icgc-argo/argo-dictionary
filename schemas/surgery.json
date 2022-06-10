@@ -42,7 +42,8 @@
         "validationDependency": true,
         "primaryId": true,
         "foreignKey": "specimen.submitter_specimen_id",
-        "displayName": "Submitter Specimen ID"
+        "displayName": "Submitter Specimen ID",
+        "notes": "Please refer to documentation for instructions on how to submit a specimen that was resected during surgery: https://docs.icgc-argo.org/docs/submission/submitting-clinical-data#submitting-data-in-surgery-file"
       },
       "restrictions": {
         "regex": "#/regex/submitter_id"
