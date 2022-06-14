@@ -69,6 +69,7 @@
       "valueType": "string",
       "description": "Indicate the type of surgical procedure that was performed. (References: SNOMED, NCIt, UMLS)",
       "meta": {
+        "core": true,
         "displayName": "Surgery Type "
       },
       "restrictions": {
@@ -82,6 +83,7 @@
       "description": "Indicate the ICD-O-3 topography code for the anatomic site where the surgical procedure was performed, according to the International Classification of Diseases for Oncology, 3rd Edition (WHO ICD-O-3).",
       "meta": {
         "displayName": "Surgery Site",
+        "core": true,
         "dependsOn": "surgery.submitter_specimen_id",
         "notes": "Refer to the ICD-O-3 manual for guidelines at https://apps.who.int/iris/handle/10665/42344. This field is not required if a specimen was resected during surgery (ie. if `submitter_specimen_id` is submitted) since anatomic site is collected in the Specimen table."
       },
@@ -96,6 +98,7 @@
       "description": "Indicate whether the surgical procedure was done at the primary, local recurrence or metastatic location.",
       "meta": {
         "displayName": "Surgery Location",
+        "core": true,
         "dependsOn": "surgery.submitter_specimen_id",
         "notes": "This field is not required if a specimen was resected during surgery (ie. if `submitter_specimen_id` is submitted) since type of specimen is collected in the Specimen table."
       },
