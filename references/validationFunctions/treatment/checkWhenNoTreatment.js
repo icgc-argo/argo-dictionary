@@ -52,11 +52,8 @@ const validation = () =>
             result = { valid: false, message: `The '${$name}' field cannot be submitted if the 'treatment_type' field is '${treatmentType}'`};
           }
           else if ((coreTextFields.includes($name) || typeof($field) === 'string') && $field.trim().toLowerCase() != 'not applicable') {
-            result = { valid: false, message: `The '${$name}' field must be submitted as 'Not applicable' if the 'treatment_type' field is '${treatmentType}'`};
+            result = { valid: false, message: `If '${$name}' field is submitted when the 'treatment_type' field is '${treatmentType}', it can only be submitted as 'Not applicable'.`};
           }
-        }
-        else if (coreTextFields.includes($name)) {
-          result = { valid: false, message: `The '${$name}' field must be submitted as 'Not applicable' if the 'treatment_type' field is '${treatmentType}'`};
         }
       }
       return result;
