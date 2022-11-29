@@ -124,7 +124,7 @@ const myUnitTests = {
         ],
         [
             'is_primary_treatment is not submitted when no treatment is given',
-            false,
+            true,
             loadObjects(treatment,
                 {  
                     "is_primary_treatment": "", 
@@ -236,7 +236,17 @@ const myUnitTests = {
                     "treatment_type": ["no treatment"]
                 }
             )
+        ],
+        [
+            'treatment_intent is not submitted when no treatment is given',
+            true,
+            loadObjects(treatment,
+                {   
+                    "treatment_type": ["no treatment"]
+                }
+            )
         ]
+
     ], 
     'days_per_cycle': [
         [
