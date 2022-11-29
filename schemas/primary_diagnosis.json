@@ -146,6 +146,24 @@
       }
     },
     {
+      "name": "lymph_nodes_examined_method",
+      "description": "Indicate the method used to examine lymph nodes.",
+      "valueType": "string",
+      "restrictions": {
+        "required": true,
+        "script": "#/script/primary_diagnosis/lymphNodesExaminedMethod",
+        "codeList": [
+          "Imaging",
+          "Lymph node dissection/pathological exam", 
+          "Physical palpation of patient"
+        ]
+      },
+      "meta": {
+        "core": true,
+        "displayName": "Method Used to Examine Lymph Nodes"
+      }
+    },
+    {
       "name": "number_lymph_nodes_examined",
       "description": "The total number of lymph nodes tested for the presence of cancer. (Reference: caDSR CDE ID 3)",
       "valueType": "integer",
