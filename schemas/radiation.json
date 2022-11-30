@@ -139,7 +139,7 @@
     {
       "name": "radiation_boost",
       "description": "A radiation boost is an extra radiation treatment targeted at the tumor bed, given after the regular sessions of radiation is complete (Reference NCIt: C137812). Indicate if this radiation treatment was a radiation boost.",
-      "valueType": "text",
+      "valueType": "string",
       "restrictions": {
         "codeList": "#/list/yes_no_na"
       },
@@ -150,7 +150,7 @@
     {
       "name": "reference_radiation_treatment_id",
       "description": "If a radiation boost was given, indicate the 'submitter_treatment_id' of the primary radiation treatment the radiation boost treatment is linked to.",
-      "valueType": "text",
+      "valueType": "string",
       "restrictions": {
         "script": "#/script/radiation/radiationBoost",
         "codeList": "#/list/yes_no_na"
