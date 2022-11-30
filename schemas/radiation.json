@@ -152,8 +152,7 @@
       "description": "If a radiation boost was given, indicate the 'submitter_treatment_id' of the primary radiation treatment the radiation boost treatment is linked to.",
       "valueType": "string",
       "restrictions": {
-        "script": "#/script/radiation/radiationBoost",
-        "codeList": "#/list/yes_no_na"
+        "script": "#/script/radiation/radiationBoost"
       },
       "meta": {
         "displayName": "Reference Radiation Treatment for Boost"
