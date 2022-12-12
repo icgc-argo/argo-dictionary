@@ -1,6 +1,7 @@
 {
   "yes_no": ["Yes", "No", "Unknown"],
-  "yes_no_na": ["Yes", "No", "Not applicable", "Unknown"],
+  "yes_no_na": ["Yes", "No", "Not applicable"],
+  "yes_no_na_unk": ["Yes", "No", "Not applicable", "Unknown"],
   "exposure_usage": ["Never","Not applicable", "Unknown","Yes, currently","Yes, only in the past"],
   "exposure_frequency": [
     "Never",
