@@ -221,23 +221,62 @@
       }
     },
     {
+      "name": "response_to_treatment_criteria_method",
+      "description": "Indicate teh criteria used to assess the donor's overall response to the applied treatment regimen.",
+      "valueType": "string",
+      "restrictions": {
+        "script": "#/script/treatment/checkWhenNoTreatment",
+        "codeList": [
+          "RECIST 1.1",
+          "iRECIST",
+          "Cheson CLL Oncology Response Criteria",
+          "Response Assessment in Neuro-Oncology (RANO)",
+          "AML Response Criteria",
+          "Physician Assessed Response Criteria"
+        ]
+      },
+      "meta": {
+        "core": true,
+        "displayName": "Response To Treatment Criteria Method",
+        "dependsOn": "treatment.treatment_type"
+      }
+    },
+    {
       "name": "response_to_treatment",
       "description": "The donor's response to the applied treatment regimen. (Source: RECIST)",
       "valueType": "string",
       "restrictions": {
         "script": "#/script/treatment/checkWhenNoTreatment",
         "codeList": [
-          "Complete response",
-          "Disease progression",
-          "NED",
-          "Partial response",
-          "Stable disease"
+           "Complete remission",
+           "Complete remission with incomplete hematologic recovery (CRi)",
+           "Complete remission without measurable residual disease (CR MRD−)",
+           "Complete response",
+           "Disease progression",
+           "Hematologic relapse (after CRMRD-, CR, CRi)",
+           "Immune complete response (iCR)",
+           "Immune confirmed progressive disease (iCPD)",
+           "Immune partial response (iPR)",
+           "Immune stable disease (iSD)",
+           "Immune uncomfirmed progressive disease (iUPD)",
+           "Minor response",
+           "Molecular relapse (after CRMRD-)",
+           "Morphologic leukemia-free state",
+           "No evidence of disease (NED)",
+           "Partial remission",
+           "Partial response",
+           "Physician assessed complete response",
+           "Physician assessed partial response",
+           "Physician assessed stable disease",
+           "Primary refractory disease",
+           "Progressive disease",
+           "Stable disease"
         ]
       },
       "meta": {
         "core": true,
         "displayName": "Response To Treatment",
-        "dependsOn": "treatment.treatment_type"
+        "dependsOn": "treatment.response_to_treatment_criteria_method"
       }
     },
     {
