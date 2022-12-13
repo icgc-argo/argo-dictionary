@@ -123,10 +123,19 @@ const myUnitTests = {
         ],
         [
             'is_primary_treatment is not submitted when no treatment is given',
-            true,
+            false,
             loadObjects(treatment,
                 {  
                     "is_primary_treatment": "", 
+                    "treatment_type": ["No treatment"]
+                }
+            )
+        ],
+        [
+            'is_primary_treatment is not submitted  when no treatment is given',
+            false,
+            loadObjects(treatment,
+                {  
                     "treatment_type": ["No treatment"]
                 }
             )
@@ -192,8 +201,16 @@ const myUnitTests = {
                     "treatment_type": ["no treatment"]
                 }
             )
+        ],
+        [
+            'treatment_setting is not submitted when no treatment is given',
+            false,
+            loadObjects(treatment,
+                {   
+                    "treatment_type": ["no treatment"]
+                }
+            )
         ]
-
     ],
     'treatment_intent': [
         [
@@ -238,7 +255,7 @@ const myUnitTests = {
         ],
         [
             'treatment_intent is not submitted when no treatment is given',
-            true,
+            false,
             loadObjects(treatment,
                 {   
                     "treatment_type": ["no treatment"]

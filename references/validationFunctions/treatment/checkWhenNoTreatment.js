@@ -55,6 +55,11 @@ const validation = () =>
             result = { valid: false, message: `If '${$name}' field is submitted when the 'treatment_type' field is '${treatmentType}', it can only be submitted as 'Not applicable'.`};
           }
         }
+        else {
+          if (coreTextFields.includes($name)) {
+            result = { valid: false, message: `If 'treatment_type' is '${treatmentType}', then the '${$name}' field must be submitted as 'Not applicable'.`};
+          }
+        }
       }
       return result;
   });
