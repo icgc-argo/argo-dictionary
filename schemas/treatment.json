@@ -227,12 +227,13 @@
       "restrictions": {
         "script": "#/script/treatment/checkWhenNoTreatment",
         "codeList": [
-          "RECIST 1.1",
+          "ELN Dohner AML Oncology Response Criteria",
+          "Cheson Oncology Response Criteria",
           "iRECIST",
-          "Cheson CLL Oncology Response Criteria",
+          "RECIST 1.1",
           "Response Assessment in Neuro-Oncology (RANO)",
-          "AML Response Criteria",
-          "Physician Assessed Response Criteria"
+          "Physician Assessed Response Criteria",
+          "Not applicable"
         ]
       },
       "meta": {
@@ -246,13 +247,12 @@
       "description": "The donor's response to the applied treatment regimen. (Source: RECIST)",
       "valueType": "string",
       "restrictions": {
-        "script": "#/script/treatment/checkWhenNoTreatment",
+        "script": "#/script/treatment/responseToTreatment",
         "codeList": [
            "Complete remission",
            "Complete remission with incomplete hematologic recovery (CRi)",
            "Complete remission without measurable residual disease (CR MRD−)",
            "Complete response",
-           "Disease progression",
            "Hematologic relapse (after CRMRD-, CR, CRi)",
            "Immune complete response (iCR)",
            "Immune confirmed progressive disease (iCPD)",
@@ -263,6 +263,7 @@
            "Molecular relapse (after CRMRD-)",
            "Morphologic leukemia-free state",
            "No evidence of disease (NED)",
+           "Not applicable",
            "Partial remission",
            "Partial response",
            "Physician assessed complete response",
