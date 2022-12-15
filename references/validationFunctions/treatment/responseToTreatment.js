@@ -57,7 +57,7 @@ const validation = () =>
             'stable disease'
           ];
           break;
-        case 'irecist response criteria':
+        case 'irecist':
           codeList = [
             'immune complete response (icr)',
             'immune confirmed progressive disease (icpd)',
@@ -66,7 +66,7 @@ const validation = () =>
             'immune uncomfirmed progressive disease (iupd)'
           ];
           break;
-        case 'recist response criteria':
+        case 'recist':
           codeList = [
             'complete response',
             'no evidence of disease (ned)',

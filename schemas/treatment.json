@@ -230,7 +230,7 @@
           "ELN Dohner AML Oncology Response Criteria",
           "Cheson Oncology Response Criteria",
           "iRECIST",
-          "RECIST 1.1",
+          "RECIST",
           "Response Assessment in Neuro-Oncology (RANO)",
           "Physician Assessed Response Criteria",
           "Not applicable"
@@ -251,7 +251,7 @@
         "codeList": [
            "Complete remission",
            "Complete remission with incomplete hematologic recovery (CRi)",
-           "Complete remission without measurable residual disease (CR MRD−)",
+           "Complete remission without measurable residual disease (CR MRD-)",
            "Complete response",
            "Hematologic relapse (after CRMRD-, CR, CRi)",
            "Immune complete response (iCR)",
