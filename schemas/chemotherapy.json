@@ -122,7 +122,7 @@
       "meta": {
         "core": true,
         "displayName": "Actual Cumulative Drug Dosage",
-        "dependsOn": "treatment.prescribed_cumulative_drug_dosage",
+        "dependsOn": "chemotherapy.prescribed_cumulative_drug_dosage",
         "notes": "Either the actual drug dosage (cumulative_drug_dosage) or the prescribed drug dosage (prescribed_cumulative_drug_dosage) field must be submitted."
       }
     },
