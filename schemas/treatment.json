@@ -212,8 +212,15 @@
         "codeList": [
           "Adjuvant",
           "Advanced/Metastatic",
+          "Conditioning",
+          "Induction",
+          "Maintenance",
+          "Mobilization",
           "Neoadjuvant",
-          "Not applicable"
+          "Not applicable",
+          "Preventative",
+          "Radiosensitization",
+          "Salvage"
         ]
       },
       "meta": {
