@@ -53,7 +53,9 @@
       "valueType": "string",
       "description": "Indicate the primary diagnosis event in the clinical timeline that this treatment was related to.",
       "meta": {
+        "validationDependency": true,
         "primaryId": true,
+        "foreignKey": "primary_diagnosis.submitter_primary_diagnosis_id",
         "displayName": "Submitter Primary Diagnosis ID"
       },
       "restrictions": {
