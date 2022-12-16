@@ -188,6 +188,7 @@
       "description": "Indicate the intended disease outcome for which the treatment is given. (Reference: NCIt C124307)",
       "valueType": "string",
       "restrictions": {
+        "required": true,
         "script": "#/script/treatment/checkWhenNoTreatment",
         "codeList": [
           "Curative",
@@ -206,6 +207,7 @@
       "description": "Indicate the treatment setting, which describes the treatment's purpose in relation to the primary treatment. (Reference: NCIt C124308)",
       "valueType": "string",
       "restrictions": {
+        "required": true,
         "script": "#/script/treatment/checkWhenNoTreatment",
         "codeList": [
           "Adjuvant",
@@ -222,9 +224,10 @@
     },
     {
       "name": "response_to_treatment_criteria_method",
-      "description": "Indicate teh criteria used to assess the donor's overall response to the applied treatment regimen.",
+      "description": "Indicate the criteria used to assess the donor's overall response to the applied treatment regimen.",
       "valueType": "string",
       "restrictions": {
+        "required": true,
         "script": "#/script/treatment/checkWhenNoTreatment",
         "codeList": [
           "ELN Dohner AML Oncology Response Criteria",
@@ -239,6 +242,7 @@
       "meta": {
         "core": true,
         "displayName": "Response To Treatment Criteria Method",
+        "validationDependency": true,
         "dependsOn": "treatment.treatment_type"
       }
     },
@@ -247,6 +251,7 @@
       "description": "The donor's response to the applied treatment regimen. (Source: RECIST)",
       "valueType": "string",
       "restrictions": {
+        "required": true,
         "script": "#/script/treatment/responseToTreatment",
         "codeList": [
            "Complete remission",
@@ -301,6 +306,7 @@
       },
       "meta": {
         "displayName": "Outcome Of Treatment",
+        "validationDependency": true,
         "dependsOn": "treatment.treatment_type"
       }
     },
@@ -314,6 +320,7 @@
       },
       "meta": {
         "displayName": "Toxicity Type",
+        "validationDependency": true,
         "dependsOn": "treatment.outcome_of_treatment"
       }
     },
@@ -379,6 +386,7 @@
       "valueType": "string",
       "meta": { 
         "display name": "Clinical Trials Database",
+        "validationDependency": true,
         "notes": "If the clinical trials database you use is not included in the controlled terminology, please contact us at https://platform.icgc-argo.org/contact to request it be added."
        },
       "restrictions": {
