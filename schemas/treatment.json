@@ -187,14 +187,20 @@
     },
     {
       "name": "treatment_intent",
-      "description": "Indicate the intended disease outcome for which the treatment is given. (Reference: NCIt C124307)",
+      "description": "Indicate the purpose of the treatment, or the desired effect or outcome resulting from the treatment. (Reference: mCODE/FHIR)",
       "valueType": "string",
       "restrictions": {
         "script": "#/script/treatment/checkWhenNoTreatment",
         "codeList": [
           "Curative",
+          "Diagnostic",
+          "Forensic",
+          "Guidance",
+          "Not applicable",
           "Palliative",
-          "Unknown"
+          "Preventative",
+          "Screening",
+          "Supportive"
         ]
       },
       "meta": {
