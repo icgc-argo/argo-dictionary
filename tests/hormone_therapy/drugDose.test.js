@@ -18,7 +18,7 @@
  *
  */
 
-const validation = require('../../references/validationFunctions/hormone_therapy/drugDosage.js');
+const validation = require('../../references/validationFunctions/hormone_therapy/drugDose.js');
 
 const universalTest = require('../universal');
 const loadObjects = require('../loadObjects');
@@ -29,67 +29,67 @@ const hormone_therapy = require('../constructDummyData').getSchemaDummy('hormone
 
 // key -> name of field, value -> unit tests
 const myUnitTests = {
-    'cumulative_drug_dosage': [
+    'actual_cumulative_drug_dose': [
         [
-            'cumulative_drug_dosage is submitted when prescribed_cumulative_drug_dosage is missing',
+            'actual_cumulative_drug_dose is submitted when prescribed_cumulative_drug_dose is missing',
             true,
             loadObjects(hormone_therapy,
                 {   
-                    "cumulative_drug_dosage": 100
+                    "actual_cumulative_drug_dose": 100
                 }
             )
         ],
         [
-            'prescibed_drug_dosage is submitted when cumulative_drug_dosage is missing',
+            'prescribed_drug_dose is submitted when actual_cumulative_drug_dose is missing',
             true,
             loadObjects(hormone_therapy,
                 {   
-                    "prescribed_cumulative_drug_dosage": 150
+                    "prescribed_cumulative_drug_dose": 150
                 }
             )
         ],
         [
-            'Both cumulative_drug_dosage and prescribed_cumulative_drug_dosage are submitted',
+            'Both actual_cumulative_drug_dose and prescribed_cumulative_drug_dose are submitted',
             true,
             loadObjects(hormone_therapy,
                 {   
-                    "cumulative_drug_dosage": 300,
-                    "prescribed_cumulative_drug_dosage": 350
+                    "actual_cumulative_drug_dose": 300,
+                    "prescribed_cumulative_drug_dose": 350
                 }
             )
         ]
     ],
-    'prescribed_cumulative_drug_dosage': [
+    'prescribed_cumulative_drug_dose': [
         [
-            'prescibed_cumulative_drug_dosage is submitted when cumulative_drug_dosage is missing',
+            'prescribed_cumulative_drug_dose is submitted when actual_cumulative_drug_dose is missing',
             true,
             loadObjects(hormone_therapy,
                 {   
-                    "prescribed_cumulative_drug_dosage": 100
+                    "prescribed_cumulative_drug_dose": 100
                 }
             )
         ],
         [
-            'cumlative__drug_dosage is submitted when prescribed_cumlative_drug_dosage is missing',
+            'actual_cumlative_drug_dose is submitted when prescribed_cumlative_drug_dose is missing',
             true,
             loadObjects(hormone_therapy,
                 {   
-                    "cumulative_drug_dosage": 150
+                    "actual_cumulative_drug_dose": 150
                 }
             )
         ],
         [
-            'Both cumulative_drug_dosage and prescribed_cumulative_drug_dosage are submitted',
+            'Both actual_cumulative_drug_dose and prescribed_cumulative_drug_dose are submitted',
             true,
             loadObjects(hormone_therapy,
                 {   
-                    "cumulative_drug_dosage": 300,
-                    "prescribed_cumulative_drug_dosage": 350
+                    "actual_cumulative_drug_dose": 300,
+                    "prescribed_cumulative_drug_dose": 350
                 }
             )
         ],
         [
-            'Both cumulative_drug_dosage and prescribed_cumulative_drug_dosage are missing',
+            'Both actual_cumulative_drug_dose and prescribed_cumulative_drug_dose are missing',
             false,
             loadObjects(hormone_therapy,
                 {   

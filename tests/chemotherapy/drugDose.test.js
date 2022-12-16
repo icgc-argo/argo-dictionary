@@ -18,7 +18,7 @@
  *
  */
 
-const validation = require('../../references/validationFunctions/chemotherapy/drugDosage.js');
+const validation = require('../../references/validationFunctions/chemotherapy/drugDose.js');
 
 const universalTest = require('../universal');
 const loadObjects = require('../loadObjects');
@@ -29,67 +29,67 @@ const chemotherapy = require('../constructDummyData').getSchemaDummy('chemothera
 
 // key -> name of field, value -> unit tests
 const myUnitTests = {
-    'cumulative_drug_dosage': [
+    'actual_cumulative_drug_dose': [
         [
-            'cumulative_drug_dosage is submitted when prescribed_cumulative_drug_dosage is missing',
+            'actual_cumulative_drug_dose is submitted when prescribed_cumulative_drug_dose is missing',
             true,
             loadObjects(chemotherapy,
                 {   
-                    "cumulative_drug_dosage": 100
+                    "actual_cumulative_drug_dose": 100
                 }
             )
         ],
         [
-            'prescibed_drug_dosage is submitted when cumulative_drug_dosage is missing',
+            'prescribed_drug_dose is submitted when actual_cumulative_drug_dose is missing',
             true,
             loadObjects(chemotherapy,
                 {   
-                    "prescribed_cumulative_drug_dosage": 150
+                    "prescribed_cumulative_drug_dose": 150
                 }
             )
         ],
         [
-            'Both cumulative_drug_dosage and prescribed_cumulative_drug_dosage are submitted',
+            'Both actual_cumulative_drug_dose and prescribed_cumulative_drug_dose are submitted',
             true,
             loadObjects(chemotherapy,
                 {   
-                    "cumulative_drug_dosage": 300,
-                    "prescribed_cumulative_drug_dosage": 350
+                    "actual_cumulative_drug_dose": 300,
+                    "prescribed_cumulative_drug_dose": 350
                 }
             )
         ]
     ],
-    'prescribed_cumulative_drug_dosage': [
+    'prescribed_cumulative_drug_dose': [
         [
-            'prescibed_cumulative_drug_dosage is submitted when cumulative_drug_dosage is missing',
+            'prescibed_cumulative_drug_dose is submitted when actual_cumulative_drug_dose is missing',
             true,
             loadObjects(chemotherapy,
                 {   
-                    "prescribed_cumulative_drug_dosage": 100
+                    "prescribed_cumulative_drug_dose": 100
                 }
             )
         ],
         [
-            'cumlative__drug_dosage is submitted when prescribed_cumlative_drug_dosage is missing',
+            'actual_cumlative__drug_dose is submitted when prescribed_cumlative_drug_dose is missing',
             true,
             loadObjects(chemotherapy,
                 {   
-                    "cumulative_drug_dosage": 150
+                    "actual_cumulative_drug_dose": 150
                 }
             )
         ],
         [
-            'Both cumulative_drug_dosage and prescribed_cumulative_drug_dosage are submitted',
+            'Both actual_cumulative_drug_dose and prescribed_cumulative_drug_dose are submitted',
             true,
             loadObjects(chemotherapy,
                 {   
-                    "cumulative_drug_dosage": 300,
-                    "prescribed_cumulative_drug_dosage": 350
+                    "actual_cumulative_drug_dose": 300,
+                    "prescribed_cumulative_drug_dose": 350
                 }
             )
         ],
         [
-            'Both cumulative_drug_dosage and prescribed_cumulative_drug_dosage are missing',
+            'Both cumulative_drug_dose and prescribed_cumulative_drug_dose are missing',
             false,
             loadObjects(chemotherapy,
                 {   

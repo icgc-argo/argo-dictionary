@@ -76,52 +76,52 @@
       }
     },
     {
-      "name": "hormone_drug_dosage_units",
-      "description": "Indicate the units used to record hormone drug dosage.",
+      "name": "hormone_drug_dose_units",
+      "description": "Indicate the units used to record hormone drug dose.",
       "valueType": "string",
       "restrictions": {
         "required": true,
-        "codeList": "#/list/drug_dosage_units"
+        "codeList": "#/list/drug_dose_units"
       },
       "meta": {
         "core": true,
-        "displayName": "Hormone Therapy Dosage Units"
+        "displayName": "Hormone Drug Dose Units"
       }
     },
     {
-      "name": "prescribed_cumulative_drug_dosage",
-      "description": "Indicate the total prescribed drug dose in the same units specified in hormone_drug_dosage_units.",
+      "name": "prescribed_cumulative_drug_dose",
+      "description": "Indicate the total prescribed drug dose in the same units specified in hormone_drug_dose_units.",
       "valueType": "number",
       "restrictions": {
         "required": true,
-        "script": "#/script/hormone_therapy/drugDosage",
+        "script": "#/script/hormone_therapy/drugDose",
         "range": {
            "exclusiveMin": 0
         }
       },
       "meta": {
         "core": true,
-        "displayName": "Prescribed Cumulative Drug Dosage",
-        "dependsOn": "hormone_therapy.cumulative_drug_dosage",
-        "notes": "Either the actual drug dosage (cumulative_drug_dosage) or the prescribed drug dosage (prescribed_cumulative_drug_dosage) field must be submitted."
+        "displayName": "Prescribed Cumulative Drug Dose",
+        "dependsOn": "hormone_therapy.cumulative_drug_dose",
+        "notes": "Either the 'actual_cumulative_drug_dose' or the 'prescribed_cumulative_drug_dose' field must be submitted."
       }
     },
     {
-      "name": "cumulative_drug_dosage",
-      "description": "Indicate the total actual drug dose in the same units specified in hormone_drug_dosage_units.",
+      "name": "actual_cumulative_drug_dose",
+      "description": "Indicate the total actual drug dose in the same units specified in hormone_drug_dose_units.",
       "valueType": "number",
       "restrictions": {
         "required": true,
-        "script": "#/script/hormone_therapy/drugDosage",
+        "script": "#/script/hormone_therapy/drugDose",
         "range": {
            "exclusiveMin": 0
         }
       },
       "meta": {
         "core": true,
-        "displayName": "Actual Cumulative Drug Dosage",
-        "dependsOn": "hormone_therapy.prescribed_cumulative_drug_dosage",
-        "notes": "Either the actual drug dosage (cumulative_drug_dosage) or the prescribed drug dosage (prescribed_cumulative_drug_dosage) field must be submitted."
+        "displayName": "Actual Cumulative Drug Dose",
+        "dependsOn": "hormone_therapy.prescribed_cumulative_drug_dose",
+        "notes": "Either the 'actual_cumulative_drug_dose' or the 'prescribed_cumulative_drug_dose' field must be submitted."
       }
     }
   ]
