@@ -96,52 +96,50 @@
       }
     },
     {
-      "name": "immunotherapy_drug_dosage_units",
-      "description": "Indicate units used to record immunotherapy drug dosage.",
+      "name": "immunotherapy_drug_dose_units",
+      "description": "Indicate units used to record immunotherapy drug dose.",
       "valueType": "string",
       "restrictions": {
         "required": true,
-        "codeList": "#/list/drug_dosage_units"
+        "codeList": "#/list/drug_dose_units"
       },
       "meta": {
         "core": true,
-        "displayName": "Immunotherapy Drug Dosage Units"
+        "displayName": "Immunotherapy Drug Dose Units"
       }
     },
     {
-      "name": "prescribed_cumulative_drug_dosage",
-      "description": "Indicate the total prescribed drug dose in the same units specified in immunotherapy_drug_dosage_units.",
+      "name": "prescribed_cumulative_drug_dose",
+      "description": "Indicate the total prescribed drug dose in the same units specified in immunotherapy_drug_dose_units.",
       "valueType": "number",
       "restrictions": {
-        "required": true,
-        "script": "#/script/immunotherapy/drugDosage",
+        "script": "#/script/immunotherapy/drugDose",
         "range": {
            "exclusiveMin": 0
         }
       },
       "meta": {
         "core": true,
-        "displayName": "Prescribed Cumulative Drug Dosage",
-        "dependsOn": "immunotherapy.cumulative_drug_dosage",
-        "notes": "Either the actual drug dosage (cumulative_drug_dosage) or the prescribed drug dosage (prescribed_cumulative_drug_dosage) field must be submitted."
+        "displayName": "Prescribed Cumulative Drug Dose",
+        "dependsOn": "immunotherapy.actual_cumulative_drug_dose",
+        "notes": "Either the 'actual_cumulative_drug_dose' or the 'prescribed_cumulative_drug_dose' field must be submitted."
       }
     },
     {
-      "name": "cumulative_drug_dosage",
-      "description": "Indicate the total actual drug dose in the same units specified in immunotherapy_drug_dosage_units.",
+      "name": "actual_cumulative_drug_dose",
+      "description": "Indicate the total actual drug dose in the same units specified in immunotherapy_drug_dose_units.",
       "valueType": "number",
       "restrictions": {
-        "required": true,
-        "script": "#/script/immunotherapy/drugDosage",
+        "script": "#/script/immunotherapy/drugDose",
         "range": {
            "exclusiveMin": 0
         }
       },
       "meta": {
         "core": true,
-        "displayName": "Actual Cumulative Drug Dosage",
-        "dependsOn": "immunotherapy.prescribed_cumulative_drug_dosage",
-        "notes": "Either the actual drug dosage (cumulative_drug_dosage) or the prescribed drug dosage (prescribed_cumulative_drug_dosage) field must be submitted."
+        "displayName": "Actual Cumulative Drug Dose",
+        "dependsOn": "immunotherapy.prescribed_cumulative_drug_dose",
+        "notes": "Either the 'actual_cumulative_drug_dose' or the 'prescribed_cumulative_drug_dose' field must be submitted."
       }
     }
   ]

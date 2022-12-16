@@ -19,7 +19,7 @@
  */
 
 /**
- * Requirement to submit either prescribed or actual drug dosage.
+ * Requirement to submit either prescribed or actual drug dose.
  */
 
 const validation = () => 
@@ -28,8 +28,8 @@ const validation = () =>
       let result = {valid: true, message: "Ok"};
       let checkField = "";
 
-      if ($name === 'cumulative_drug_dosage') { checkField = 'prescribed_cumulative_drug_dosage'; }
-      else if ($name === 'prescribed_cumulative_drug_dosage') { checkField = 'cumulative_drug_dosage'; }
+      if ($name === 'actual_cumulative_drug_dose') { checkField = 'prescribed_cumulative_drug_dose'; }
+      else if ($name === 'prescribed_cumulative_drug_dose') { checkField = 'actual_cumulative_drug_dose'; }
 
       // checks for a string just consisting of whitespace
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
@@ -37,7 +37,7 @@ const validation = () =>
       if ( (!$field || $field === null || checkforEmpty($field)) && (!($row[checkField]) || $row[checkField] === null || checkforEmpty(!($row[checkField])))) {
         result = {
           valid: false,
-          message: `Either the 'cumulative_drug_dosage' or the 'prescribed_cumulative_drug_dosage' fields must be submitted.`
+          message: `Either the 'actual_cumulative_drug_dose' or the 'prescribed_cumulative_drug_dose' fields must be submitted.`
         };
       }
       return result;
