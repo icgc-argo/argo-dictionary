@@ -53,7 +53,9 @@
       "valueType": "string",
       "description": "Indicate the primary diagnosis event in the clinical timeline that this treatment was related to.",
       "meta": {
+        "validationDependency": true,
         "primaryId": true,
+        "foreignKey": "primary_diagnosis.submitter_primary_diagnosis_id",
         "displayName": "Submitter Primary Diagnosis ID"
       },
       "restrictions": {
@@ -185,11 +187,21 @@
     },
     {
       "name": "treatment_intent",
-      "description": "Indicate the intended disease outcome for which the treatment is given. (Reference: NCIt C124307)",
+      "description": "Indicate the purpose of the treatment, or the desired effect or outcome resulting from the treatment. (Reference: mCODE/FHIR)",
       "valueType": "string",
       "restrictions": {
         "script": "#/script/treatment/checkWhenNoTreatment",
-        "codeList": ["Curative", "Palliative", "Unknown"]
+        "codeList": [
+          "Curative",
+          "Diagnostic",
+          "Forensic",
+          "Guidance",
+          "Not applicable",
+          "Palliative",
+          "Preventative",
+          "Screening",
+          "Supportive"
+        ]
       },
       "meta": {
         "core": true,
@@ -203,7 +215,19 @@
       "valueType": "string",
       "restrictions": {
         "script": "#/script/treatment/checkWhenNoTreatment",
-        "codeList": ["Adjuvant", "Advanced/Metastatic", "Neoadjuvant", "Not applicable"]
+        "codeList": [
+          "Adjuvant",
+          "Advanced/Metastatic",
+          "Conditioning",
+          "Induction",
+          "Maintenance",
+          "Mobilization",
+          "Neoadjuvant",
+          "Not applicable",
+          "Preventative",
+          "Radiosensitization",
+          "Salvage"
+        ]
       },
       "meta": {
         "core": true,
