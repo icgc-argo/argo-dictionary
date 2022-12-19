@@ -91,11 +91,6 @@ const validation = () =>
             'physician assessed stable disease'
           ];
           break;
-        case 'not applicable':
-          codeList = [
-            'not applicable'
-          ];
-          break;
         default:
           codelist = [];
       }
@@ -108,14 +103,6 @@ const validation = () =>
 
         result.valid = false;
         result.message = msg;
-      }
-      if ($field.trim().toLowerCase() === 'cannot be assessed') {
-         if ($row[tCategory].trim().toLowerCase() != 'tx' && $row[nCategory].trim().toLowerCase() != 'nx') {
-           result = {
-              valid: false,
-              message: `The submitted term '${$field}' is not permissible for '${row.response_treatment_criteria_method}'.`
-           };
-         }
       }
     }
     return result;

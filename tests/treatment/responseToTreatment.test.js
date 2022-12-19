@@ -41,16 +41,6 @@ const myUnitTests = {
       )
   ],
   [
-    'response_to_treatment_criteria_method is not applicable when response_to_treatment is "Not applicable"',
-    true,
-      loadObjects(treatment, 
-          {
-             "response_to_treatment_criteria_method": "not applicable",
-             "response_to_treatment": "Not applicable",
-          }
-      )
-  ],
-  [
     'response_to_treatment_criteria_method is "eln dohner aml oncology response criteria" when response_to_treatment is "minor response"',
     false,
       loadObjects(treatment, 
