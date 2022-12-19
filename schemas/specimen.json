@@ -340,7 +340,6 @@
       "description": "Indicate method used to measure percent_tumour_cells.",
       "valueType": "string",
       "meta": {
-        "validationDependency": true,
         "core": true,
         "dependsOn": "sample_registration.tumour_normal_designation",
         "notes": "#/notes/if_tumour",
