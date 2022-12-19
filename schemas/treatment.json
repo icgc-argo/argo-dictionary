@@ -227,7 +227,6 @@
       "description": "Indicate the criteria used to assess the donor's overall response to the applied treatment regimen.",
       "valueType": "string",
       "restrictions": {
-        "required": true,
         "script": "#/script/treatment/checkWhenNoTreatment",
         "codeList": [
           "ELN Dohner AML Oncology Response Criteria",
@@ -235,8 +234,7 @@
           "iRECIST",
           "RECIST",
           "Response Assessment in Neuro-Oncology (RANO)",
-          "Physician Assessed Response Criteria",
-          "Not applicable"
+          "Physician Assessed Response Criteria"
         ]
       },
       "meta": {
@@ -251,7 +249,6 @@
       "description": "The donor's response to the applied treatment regimen. (Source: RECIST)",
       "valueType": "string",
       "restrictions": {
-        "required": true,
         "script": "#/script/treatment/responseToTreatment",
         "codeList": [
            "Complete remission",
@@ -268,7 +265,6 @@
            "Molecular relapse (after CRMRD-)",
            "Morphologic leukemia-free state",
            "No evidence of disease (NED)",
-           "Not applicable",
            "Partial remission",
            "Partial response",
            "Physician assessed complete response",
