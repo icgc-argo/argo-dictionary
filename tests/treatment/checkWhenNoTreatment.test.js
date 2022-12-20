@@ -167,7 +167,7 @@ const myUnitTests = {
             true,
             loadObjects(treatment,
                 {   
-                    "treatment_type": ["no treatment"]
+                   "treatment_type": ["no treatment"]
                 }
             )
         ]
@@ -195,7 +195,7 @@ const myUnitTests = {
             )
         ],
         [
-            'treatment_intent is not submitted when no treatment is given',
+           'treatment_intent is not submitted when no treatment is given',
             true,
             loadObjects(treatment,
                 {   
@@ -258,7 +258,29 @@ const myUnitTests = {
                }
            )
         ]
+    ],
+    'response_to_treatment_criteria_method': [
+        [
+           'response_to_treatment_criteria_method is submitted when no treatment was given',
+           false,
+           loadObjects(treatment,
+               {
+                    "response_to_treatment_criteria_method": "RECIST",
+                    "treatment_type": ["no treatment"]
+               }
+           )
+        ],
+        [
+           'response_to_treatment_criteria_method is missing when radiation treatment was given',
+           false,
+           loadObjects(treatment,
+               {
+                    "treatment_type": ["radiation therapy"]
+               }
+           )
+        ]
     ]
+
 }
 
 describe("Common Tests",()=>{

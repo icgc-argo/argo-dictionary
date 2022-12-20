@@ -26,7 +26,7 @@ const validation = () =>
   (function validate(inputs) {
       const {$row, $name, $field} = inputs;
       let result = {valid: true, message: "Ok"};
-      const coreFields = ['treatment_start_interval', 'treatment_duration', 'is_primary_treatment', 'treatment_intent', 'treatment_setting', 'response_to_treatment'];
+      const coreFields = ['treatment_start_interval', 'treatment_duration', 'is_primary_treatment', 'treatment_intent', 'treatment_setting', 'response_to_treatment_criteria_method', 'response_to_treatment'];
  
       // checks for a string just consisting of whitespace
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
