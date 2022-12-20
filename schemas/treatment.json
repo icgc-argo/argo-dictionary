@@ -53,7 +53,9 @@
       "valueType": "string",
       "description": "Indicate the primary diagnosis event in the clinical timeline that this treatment was related to.",
       "meta": {
+        "validationDependency": true,
         "primaryId": true,
+        "foreignKey": "primary_diagnosis.submitter_primary_diagnosis_id",
         "displayName": "Submitter Primary Diagnosis ID"
       },
       "restrictions": {
@@ -185,15 +187,20 @@
     },
     {
       "name": "treatment_intent",
-      "description": "Indicate the intended disease outcome for which the treatment is given. (Reference: NCIt C124307)",
+      "description": "Indicate the purpose of the treatment, or the desired effect or outcome resulting from the treatment. (Reference: mCODE/FHIR)",
       "valueType": "string",
       "restrictions": {
-        "required": true,
         "script": "#/script/treatment/checkWhenNoTreatment",
         "codeList": [
           "Curative",
+          "Diagnostic",
+          "Forensic",
+          "Guidance",
+          "Not applicable",
           "Palliative",
-          "Unknown"
+          "Preventative",
+          "Screening",
+          "Supportive"
         ]
       },
       "meta": {
@@ -207,13 +214,19 @@
       "description": "Indicate the treatment setting, which describes the treatment's purpose in relation to the primary treatment. (Reference: NCIt C124308)",
       "valueType": "string",
       "restrictions": {
-        "required": true,
         "script": "#/script/treatment/checkWhenNoTreatment",
         "codeList": [
           "Adjuvant",
           "Advanced/Metastatic",
+          "Conditioning",
+          "Induction",
+          "Maintenance",
+          "Mobilization",
           "Neoadjuvant",
-          "Not applicable"
+          "Not applicable",
+          "Preventative",
+          "Radiosensitization",
+          "Salvage"
         ]
       },
       "meta": {
@@ -246,10 +259,10 @@
     },
     {
       "name": "response_to_treatment",
-      "description": "The donor's response to the applied treatment regimen. (Source: RECIST)",
+      "description": "The donor's overall response to the applied treatment regimen.",
       "valueType": "string",
       "restrictions": {
-        "script": "#/script/treatment/responseToTreatment",
+        "script": "#/script/treatment/responseToTreatmentCheck",
         "codeList": [
            "Complete remission",
            "Complete remission with incomplete hematologic recovery (CRi)",
@@ -302,7 +315,6 @@
       },
       "meta": {
         "displayName": "Outcome Of Treatment",
-        "validationDependency": true,
         "dependsOn": "treatment.treatment_type"
       }
     },
@@ -316,7 +328,6 @@
       },
       "meta": {
         "displayName": "Toxicity Type",
-        "validationDependency": true,
         "dependsOn": "treatment.outcome_of_treatment"
       }
     },
@@ -382,7 +393,6 @@
       "valueType": "string",
       "meta": { 
         "display name": "Clinical Trials Database",
-        "validationDependency": true,
         "notes": "If the clinical trials database you use is not included in the controlled terminology, please contact us at https://platform.icgc-argo.org/contact to request it be added."
        },
       "restrictions": {
