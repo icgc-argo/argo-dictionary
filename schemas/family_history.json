@@ -52,7 +52,7 @@
       "description": "Indicate if donor has any genetic relatives with a history of cancer. (Reference: NCIt C159104, caDSR CDE ID 6161023)",
       "name": "relative_with_cancer_history",
       "restrictions": {
-        "codeList": "#/list/yes_no"
+        "codeList": "#/list/yes_no_unk"
       },
       "valueType": "string",
       "meta": {

@@ -20,7 +20,6 @@
 
 /**
  * If treatment_type is 'No treatment', core treatment fields should not be submitted.
-
  */
 
 const validation = () => 
