@@ -123,7 +123,7 @@ const myUnitTests = {
         ],
         [
             'is_primary_treatment is not submitted when no treatment is given',
-            false,
+            true,
             loadObjects(treatment,
                 {  
                     "is_primary_treatment": "", 
@@ -133,30 +133,10 @@ const myUnitTests = {
         ],
         [
             'is_primary_treatment is not submitted  when no treatment is given',
-            false,
-            loadObjects(treatment,
-                {  
-                    "treatment_type": ["No treatment"]
-                }
-            )
-        ],
-        [
-            'is_primary_treatment is not applicable when no treatment is given',
             true,
             loadObjects(treatment,
                 {  
-                    "is_primary_treatment": "not applicable", 
                     "treatment_type": ["No treatment"]
-                }
-            )
-        ],
-        [
-            'is_primary_treatment is not applicable when treatment is given',
-            false,
-            loadObjects(treatment,
-                {  
-                    "is_primary_treatment": "not applicable", 
-                    "treatment_type": ["Chemotherapy", "Surgery"]
                 }
             )
         ]
@@ -183,28 +163,8 @@ const myUnitTests = {
             )
         ],
         [
-            'treatment_setting is submitted as not applicable when treatment is given',
-            false,
-            loadObjects(treatment,
-                {   
-                    "treatment_setting": "not applicable",
-                    "treatment_type": ["Chemotherapy"]
-                }
-            )
-        ],
-        [
-            'treatment_setting is submitted as not applicable when no treatment is given',
-            true,
-            loadObjects(treatment,
-                {   
-                    "treatment_setting": "Not Applicable",
-                    "treatment_type": ["no treatment"]
-                }
-            )
-        ],
-        [
             'treatment_setting is not submitted when no treatment is given',
-            false,
+            true,
             loadObjects(treatment,
                 {   
                     "treatment_type": ["no treatment"]
@@ -235,28 +195,8 @@ const myUnitTests = {
             )
         ],
         [
-            'treatment_intent is submitted as not applicable when treatment is given',
-            false,
-            loadObjects(treatment,
-                {   
-                    "treatment_intent": "not applicable",
-                    "treatment_type": ["Radiation therapy"]
-                }
-            )
-        ],
-        [
-            'treatment_intent is submitted as not applicable when no treatment is given',
-            true,
-            loadObjects(treatment,
-                {   
-                    "treatment_intent": "not applicable",
-                    "treatment_type": ["no treatment"]
-                }
-            )
-        ],
-        [
             'treatment_intent is not submitted when no treatment is given',
-            false,
+            true,
             loadObjects(treatment,
                 {   
                     "treatment_type": ["no treatment"]

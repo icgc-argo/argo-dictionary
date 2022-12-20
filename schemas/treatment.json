@@ -99,7 +99,7 @@
       "valueType": "string",
       "restrictions": {
         "script": "#/script/treatment/checkWhenNoTreatment",
-        "codeList": "#/list/yes_no_na"
+        "codeList": "#/list/yes_no"
       },
       "meta": {
         "core": true,
