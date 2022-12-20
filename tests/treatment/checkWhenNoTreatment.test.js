@@ -163,11 +163,12 @@ const myUnitTests = {
             )
         ],
         [
+
             'treatment_setting is not submitted when no treatment is given',
             true,
             loadObjects(treatment,
                 {   
-                    "treatment_type": ["no treatment"]
+                   "treatment_type": ["no treatment"]
                 }
             )
         ]
@@ -195,7 +196,8 @@ const myUnitTests = {
             )
         ],
         [
-            'treatment_intent is not submitted when no treatment is given',
+
+           'treatment_intent is not submitted when no treatment is given',
             true,
             loadObjects(treatment,
                 {   
