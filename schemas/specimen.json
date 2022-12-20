@@ -256,7 +256,7 @@
         "displayName": "Reference Pathology Confirmed"
       },
       "restrictions": {
-        "codeList": "#/list/yes_no"
+        "codeList": "#/list/yes_no_unk"
       }
     },
     {

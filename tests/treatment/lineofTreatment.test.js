@@ -51,22 +51,12 @@ const myUnitTests = {
             )
         ],
         [
-            'is_primary_treatment is unknown, and line_of_treatment is submitted as 1',
+            'is_primary_treatment is not applicable, and line_of_treatment is submitted as 1',
             false,
             loadObjects(treatment,
                 {   
-                    "is_primary_treatment": "unknown",
+                    "is_primary_treatment": "not applicable",
                     "line_of_treatment": 1
-                }
-            )
-        ],
-        [
-            'is_primary_treatment is unknown, and line_of_treatment is submitted as 3',
-            false,
-            loadObjects(treatment,
-                {   
-                    "is_primary_treatment": "unknown",
-                    "line_of_treatment": 3
                 }
             )
         ],

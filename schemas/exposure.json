@@ -103,7 +103,7 @@
         "displayName": "Alcohol History"
       },
       "restrictions": {
-        "codeList": "#/list/yes_no_na",
+        "codeList": "#/list/yes_no_na_unk",
         "script": "#/script/exposure/checkAlcoholHistory"
       }
     },
