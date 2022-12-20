@@ -19,37 +19,26 @@
  */
 
 /**
- * If treatment_type is 'No treatment', the other core treatment fields should not be submitted. 
- * Ensure interval/duration fields are greater than 0 days
+ * If treatment_type is 'No treatment', core treatment fields should not be submitted.
  */
 
 const validation = () => 
   (function validate(inputs) {
       const {$row, $name, $field} = inputs;
       let result = {valid: true, message: "Ok"};
-      const coreFields = ['is_primary_treatment', 'treatment_start_interval', 'treatment_duration', 'treatment_intent', 'treatment_setting', 'response_to_treatment_criteria_method'];
+      const coreFields = ['treatment_start_interval', 'treatment_duration', 'is_primary_treatment', 'treatment_intent', 'treatment_setting', 'response_to_treatment_criteria_method', 'response_to_treatment'];
  
       // checks for a string just consisting of whitespace
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
-
-      if ($row.treatment_type != null) {
-         const treatmentType = $row.treatment_type;
-         if (!(treatmentType.includes("No treatment"))) {
-            if (coreFields.includes($name)) {
-               if (!$field || checkforEmpty($field)) {
-                  result = {
-                     valid: false,
-                     message: `The '${$name}' field must be submitted when 'treatment_type' is '${treatmentType}'`,
-                  };
-               }
-            }
-         }
-         else if (treatmentType.includes("No treatment") && ($field)) {
-            result = {
-               valid: false,
-               message: `The '${$name}' field should not be submitted if 'treatment_type' is set to '${treatmentType}'`,
-            };
-         }
+      const treatmentType = ($row.treatment_type).map(value => value.toLowerCase());
+       
+      if (!treatmentType.includes("no treatment") && coreFields.includes($name) && (!$field || $field === null || checkforEmpty($field))) {
+          result = { valid: false, message: `The '${$name}' field must be submitted when the 'treatment_type' field is '${treatmentType}'`};
+      }
+      else if (treatmentType.includes("no treatment") && ($field && $field != null && !(checkforEmpty($field)))) {
+        if (coreFields.includes($name) || (typeof($field) === 'string' && $field.trim().toLowerCase() != 'not applicable') || typeof($field) === 'number') {
+          result = { valid: false, message: `The '${$name}' field cannot be submitted if the 'treatment_type' field is '${treatmentType}'`};
+        }
       }
       return result;
   });

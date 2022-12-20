@@ -31,9 +31,8 @@ const validation = () =>
 
     /* checks for a string just consisting of whitespace */
     const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
-  
-    if ($field && $field != null && !(checkforEmpty($field))) {
-      let codeList = [];
+    let codeList = [];
+    
       switch ($row.response_to_treatment_criteria_method && $row.response_to_treatment_criteria_method.trim().toLowerCase()) {
         case 'eln dohner aml oncology response criteria':
           codeList = [
@@ -95,15 +94,23 @@ const validation = () =>
           codelist = [];
       }
 
+    if ($field && $field != null && !(checkforEmpty($field))) {
       if (!codeList.includes($field.trim().toLowerCase()) && codeList.length) {
-        const msg = `'${$field}' is not a permissible value. When 'response_to_treatment_criteria' is set to '${
-          $row.response_to_treatment_criteria_method}', '${$name}' field must be one of the following: \n${codeList
+        const msg = `'${$field}' is not a permissible value. When 'response_to_treatment_criteria_method' is set to '${
+          $row.response_to_treatment_criteria_method}', the '${$name}' field must be one of the following: \n${codeList
           .map(code => `- "${code}"`)
           .join('\n')}`;
 
         result.valid = false;
         result.message = msg;
       }
+    }
+    else {
+       if ($row.response_to_treatment_criteria_method && $row.response_to_treatment_criteria_method != null && !(checkforEmpty($row.response_to_treatment_criteria_method))) {
+         result = { valid: false, message: `The '${$name}' field must be submitted when 'response_to_treatment_criteria_method' is set to '${$row.response_to_treatment_criteria_method}'. The '${$name}' field must be one of the following: \n${codeList
+          .map(code => `- "${code}"`)
+          .join('\n')}`};
+       }
     }
     return result;
   });
