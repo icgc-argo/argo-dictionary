@@ -110,7 +110,7 @@
       "description": "Indicate if there was a significant reduction in dose intensity.",
       "valueType": "string",
       "restrictions": {
-        "codeList": "#/list/yes_no"
+        "codeList": "#/list/yes_no_unk"
       },
       "meta": {
         "displayName": "Dose Intensity Reduction"
