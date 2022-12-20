@@ -49,8 +49,16 @@ const myUnitTests = {
              "response_to_treatment": "minor response",
           }
       )
+  ],
+  [
+    'response_to_treatment_criteria_method is recist and response_to_treatment is missing',
+    false,
+      loadObjects(treatment, 
+          {
+             "response_to_treatment_criteria_method": "recist",
+          }
+      )
   ]
-
  ]
 };
 
