@@ -29,7 +29,7 @@
     "FIGO staging system",
     "Lugano staging system",
     "Rai staging system",
-    "Revised International staging system (RISS)",
+    "Revised International staging system (R-ISS)",
     "St Jude staging system"
   ],
   "drug_dosage_units": ["mg/m2", "IU/m2", "ug/m2", "g/m2", "mg/kg"],
