@@ -92,7 +92,7 @@
     },
     {
       "name": "prescribed_cumulative_drug_dose",
-      "description": "Indicate the total prescribed drug dose in the same units specified in chemotherapy_drug_dose_units.",
+      "description": "Indicate the total prescribed cumulative drug dose in the same units specified in chemotherapy_drug_dose_units.",
       "valueType": "number",
       "restrictions": {
         "script": "#/script/chemotherapy/drugDose",
@@ -109,7 +109,7 @@
     },
     {
       "name": "actual_cumulative_drug_dose",
-      "description": "Indicate the total actual drug dose in the same units specified in chemotherapy_drug_dose_units.",
+      "description": "Indicate the total actual cumulative drug dose in the same units specified in chemotherapy_drug_dose_units.",
       "valueType": "number",
       "restrictions": {
         "script": "#/script/chemotherapy/drugDose",
