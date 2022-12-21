@@ -150,7 +150,6 @@
       "description": "Indicate the method used to examine lymph nodes.",
       "valueType": "string",
       "restrictions": {
-        "required": true,
         "script": "#/script/primary_diagnosis/lymphNodesExaminedMethod",
         "codeList": [
           "Imaging",
@@ -160,6 +159,7 @@
       },
       "meta": {
         "core": true,
+        "dependsOn": "primary_diagnosis.lymph_nodes_examined_status",
         "displayName": "Method Used to Examine Lymph Nodes"
       }
     },
