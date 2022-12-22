@@ -31,21 +31,31 @@ const treatment = require('../constructDummyData').getSchemaDummy('treatment');
 const myUnitTests = {
  'response_to_treatment': [
   [
-    'response_to_treatment_criteria_method is Cheson Oncology Response Criteria, response_to_treatment is "Stable disease"',
-    true,
+    'response_to_treatment_criteria_method is IWG Cheson AML 2003 Oncology Response Criteria, response_to_treatment is "Stable disease" which does not exist',
+    false,
       loadObjects(treatment, 
           {
-             "response_to_treatment_criteria_method": "Cheson Oncology response criteria",
+             "response_to_treatment_criteria_method": "IWG Cheson AML 2003 Oncology Response Criteria",
              "response_to_treatment": "stable Disease",
           }
       )
   ],
   [
-    'response_to_treatment_criteria_method is "eln dohner aml oncology response criteria" when response_to_treatment is "minor response"',
+    'response_to_treatment_criteria_method is "Response Assessment in Neuro-Oncology (RANO)" when response_to_treatment is "minor response"',
+    true,
+      loadObjects(treatment, 
+          {
+             "response_to_treatment_criteria_method": "Response Assessment in Neuro-Oncology (RANO)",
+             "response_to_treatment": "minor response",
+          }
+      )
+  ],
+  [
+    'response_to_treatment_criteria_method is "recist" when response_to_treatment is "minor response"',
     false,
       loadObjects(treatment, 
           {
-             "response_to_treatment_criteria_method": "eln dohner aml oncology response criteria",
+             "response_to_treatment_criteria_method": "recist",
              "response_to_treatment": "minor response",
           }
       )

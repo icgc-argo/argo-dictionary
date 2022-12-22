@@ -34,26 +34,26 @@ const validation = () =>
     let codeList = [];
     
       switch ($row.response_to_treatment_criteria_method && $row.response_to_treatment_criteria_method.trim().toLowerCase()) {
-        case 'eln dohner aml oncology response criteria':
+        case 'eln dohner aml 2017 oncology response criteria':
           codeList = [
             'complete remission',
             'complete remission with incomplete hematologic recovery (cri)',
-            'complete remission without measurable residual disease (cr mrd-)',
+            'complete remission without minimal residual disease (crmrd-)',
             'hematologic relapse (after crmrd-, cr, cri)',
             'molecular relapse (after crmrd-)',
-            'morphologic leukemia-free state',
             'partial remission',
-            'primary refractory disease',
             'progressive disease',
             'stable disease'
           ];
           break;
-        case 'cheson oncology response criteria':
+        case 'iwg cheson aml 2003 oncology response criteria':
           codeList = [
-            'complete remission',
-            'partial remission',
-            'progressive disease',
-            'stable disease'
+            'cytogenetic complete remission (crc)',
+            'molecular complete remission (crm)',
+            'morphologic complete remission',
+            'morphologic complete remission with incomplete blood count recovery (cri)',
+            'morphologic leukemia-free state',
+            'partial remission'
           ];
           break;
         case 'irecist':
@@ -62,7 +62,7 @@ const validation = () =>
             'immune confirmed progressive disease (icpd)',
             'immune partial response (ipr)',
             'immune stable disease (isd)',
-            'immune uncomfirmed progressive disease (iupd)'
+            'immune unconfirmed progressive disease (iupd)'
           ];
           break;
         case 'recist':
