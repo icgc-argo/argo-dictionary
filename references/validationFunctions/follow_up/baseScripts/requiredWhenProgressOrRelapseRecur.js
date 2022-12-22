@@ -38,12 +38,19 @@ const validation = () =>
    
            /* checks for a string just consisting of whitespace */
            const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
-
-           if ((!$field || checkforEmpty($field)) && (stateOfProgression(diseaseStatus) || relapseOrRecurrence)) {
-              result = {valid: false, message: `'${$name}' is a required field if 'disease_status_at_followup' is set a state of progression, relapse, or recurrence.` }
+           
+           if ($name === 'recurrence_tumour_staging_system') {
+             if (!(!$field || checkforEmpty($field)) && !stateOfProgression(diseaseStatus) && !relapseOrRecurrence) {
+              result = {valid: false, message: `'${$name}' should not be submitted if 'disease_status_at_followup' is not a state of progression, relapse, or recurrence.` }
+             }
            }
-           else if (!(!$field || checkforEmpty($field)) && !stateOfProgression(diseaseStatus) && !relapseOrRecurrence) {
-              result = {valid: false, message: `'${$name}' cannot be provided if 'disease_status_at_followup' is not a state of progression, relapse, or recurrence.` }
+           else {
+             if ((!$field || checkforEmpty($field)) && (stateOfProgression(diseaseStatus) || relapseOrRecurrence)) {
+               result = {valid: false, message: `'${$name}' is a required field if 'disease_status_at_followup' is set a state of progression, relapse, or recurrence.` }
+             }
+             else if (!(!$field || checkforEmpty($field)) && !stateOfProgression(diseaseStatus) && !relapseOrRecurrence) {
+               result = {valid: false, message: `'${$name}' should not be submitted if 'disease_status_at_followup' is not a state of progression, relapse, or recurrence.` }
+             }
            }
         }
         return  result;

@@ -36,7 +36,7 @@ const myUnitTests = {
             loadObjects(treatment,
                 {   
                     "treatment_start_interval": 30,
-                    "treatment_type": "No treatment"
+                    "treatment_type": ["No treatment"]
                 }
             )
         ],
@@ -46,7 +46,7 @@ const myUnitTests = {
             loadObjects(treatment,
                 {   
                     "treatment_start_interval": 409,
-                    "treatment_type": "Chemotherapy"
+                    "treatment_type": ["Chemotherapy"]
                 }
             )
         ],
@@ -55,19 +55,10 @@ const myUnitTests = {
             true,
             loadObjects(treatment,
                 {
-                    "treatment_type": "No treatment"
+                    "treatment_type": ["No treatment"]
                 }
             )
-        ],
-        [
-            'treatment_start_interval is submitted but treatment_type is not submitted',
-            true,
-            loadObjects(treatment,
-                {   
-                    "treatment_start_interval": 30,
-                }
-            )
-        ],
+        ]
     ],
     'treatment_duration': [
         [
@@ -76,7 +67,7 @@ const myUnitTests = {
             loadObjects(treatment,
                 {   
                     "treatment_duration": 30,
-                    "treatment_type": "No treatment"
+                    "treatment_type": ["No treatment"]
                 }
             )
         ],
@@ -86,7 +77,7 @@ const myUnitTests = {
             loadObjects(treatment,
                 {   
                     "treatment_duration": 40,
-                    "treatment_type": "Chemotherapy"
+                    "treatment_type": ["Chemotherapy"]
                 }
             )
         ],
@@ -95,7 +86,7 @@ const myUnitTests = {
             false,
             loadObjects(treatment,
                 {   
-                    "treatment_type": "Surgery"
+                    "treatment_type": ["Surgery"]
                 }
             )
         ]
@@ -106,8 +97,7 @@ const myUnitTests = {
             false,
             loadObjects(treatment,
                 {   
-                    "is_primary_treatment": "",
-                    "treatment_type": "Chemotherapy"
+                    "treatment_type": ["Chemotherapy"]
                 }
             )
         ],
@@ -117,7 +107,7 @@ const myUnitTests = {
             loadObjects(treatment,
                 {   
                     "is_primary_treatment": "Yes",
-                    "treatment_type": "No treatment"
+                    "treatment_type": ["No treatment"]
                 }
             )
         ],
@@ -127,7 +117,7 @@ const myUnitTests = {
             loadObjects(treatment,
                 {   
                     "is_primary_treatment": "No",
-                    "treatment_type": "Chemotherapy"
+                    "treatment_type": ["Chemotherapy"]
                 }
             )
         ],
@@ -137,7 +127,16 @@ const myUnitTests = {
             loadObjects(treatment,
                 {  
                     "is_primary_treatment": "", 
-                    "treatment_type": "No treatment"
+                    "treatment_type": ["No treatment"]
+                }
+            )
+        ],
+        [
+            'is_primary_treatment is not submitted  when no treatment is given',
+            true,
+            loadObjects(treatment,
+                {  
+                    "treatment_type": ["No treatment"]
                 }
             )
         ]
@@ -149,7 +148,7 @@ const myUnitTests = {
             loadObjects(treatment,
                 {   
                     "treatment_setting": "neoadjuvant",
-                    "treatment_type": "No treatment"
+                    "treatment_type": ["No treatment"]
                 }
             )
         ],
@@ -159,10 +158,20 @@ const myUnitTests = {
             loadObjects(treatment,
                 {   
                     "treatment_setting": "adjuvant",
-                    "treatment_type": "Chemotherapy"
+                    "treatment_type": ["Chemotherapy"]
+                }
+            )
+        ],
+        [
+            'treatment_setting is not submitted when no treatment is given',
+            true,
+            loadObjects(treatment,
+                {   
+                   "treatment_type": ["no treatment"]
                 }
             )
         ]
+
     ],
     'treatment_intent': [
         [
@@ -171,7 +180,7 @@ const myUnitTests = {
             loadObjects(treatment,
                 {   
                     "treatment_intent": "curative",
-                    "treatment_type": "No treatment"
+                    "treatment_type": ["No treatment"]
                 }
             )
         ],
@@ -181,42 +190,21 @@ const myUnitTests = {
             loadObjects(treatment,
                 {   
                     "treatment_intent": "palliative",
-                    "treatment_type": "Chemotherapy"
+                    "treatment_type": ["Chemotherapy"]
+                }
+            )
+        ],
+        [
+           'treatment_intent is not submitted when no treatment is given',
+            true,
+            loadObjects(treatment,
+                {   
+                    "treatment_type": ["no treatment"]
                 }
             )
         ]
+
     ], 
-    'line_of_treatment': [
-        [
-           'line of treatment submitted even though no treatment was given',
-           false,
-           loadObjects(treatment,
-               {
-                    "line_of_treatment": 1,
-                    "treatment_type": "No treatment"
-               }
-           )
-        ],
-        [
-           'line of treatment not submitted when no treatment was given',
-           true,
-           loadObjects(treatment,
-               {
-                    "treatment_type": "No treatment"
-               }
-           )
-        ],
-        [
-           'line of treatment not submitted when Hormonal therapy given. Should not fail since this field is optional',
-           true,
-           loadObjects(treatment,
-               {
-                    "line_of_treatment": "",
-                    "treatment_type": "Hormonal therapy"
-               }
-           )
-        ],
-    ],
     'days_per_cycle': [
         [
            'days per cycle is submitted when Chemotherapy was given',
@@ -224,11 +212,75 @@ const myUnitTests = {
            loadObjects(treatment,
                {
                     "days_per_cycle": 12,
-                    "treatment_type": "Chemotherapy"
+                    "treatment_type": ["Chemotherapy"]
+               }
+           )
+        ],
+        [
+           'days per cycle is submitted when no treatment was given',
+           false,
+           loadObjects(treatment,
+               {
+                    "days_per_cycle": 10,
+                    "treatment_type": ["no treatment"]
+               }
+           )
+        ]
+    ],
+    'outcome_of_treatment': [
+        [
+           'outcome_of_treatment is submitted when no treatment was given',
+           false,
+           loadObjects(treatment,
+               {
+                    "outcome_of_treatment": "treatment completed as prescribed",
+                    "treatment_type": ["no treatment"]
+               }
+           )
+        ],
+        [
+           'outcome_of_treatment is not applicable when no treatment was given',
+           true,
+           loadObjects(treatment,
+               {
+                    "outcome_of_treatment": "Not Applicable",
+                    "treatment_type": ["no treatment"]
+               }
+           )
+        ],
+        [
+           'outcome_of_treatment is empty when no treatment was given',
+           true,
+           loadObjects(treatment,
+               {
+                    "outcome_of_treatment": "",
+                    "treatment_type": ["no treatment"]
+               }
+           )
+        ]
+    ],
+    'response_to_treatment_criteria_method': [
+        [
+           'response_to_treatment_criteria_method is submitted when no treatment was given',
+           false,
+           loadObjects(treatment,
+               {
+                    "response_to_treatment_criteria_method": "RECIST",
+                    "treatment_type": ["no treatment"]
+               }
+           )
+        ],
+        [
+           'response_to_treatment_criteria_method is missing when radiation treatment was given',
+           false,
+           loadObjects(treatment,
+               {
+                    "treatment_type": ["radiation therapy"]
                }
            )
         ]
     ]
+
 }
 
 describe("Common Tests",()=>{

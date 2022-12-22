@@ -162,7 +162,7 @@ const myUnitTests = {
         ],
         [
             'Disease status is relapse, without provided RTSS',
-            false,
+            true,
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "relapse or recurrence"
@@ -171,7 +171,7 @@ const myUnitTests = {
         ],
         [
             'Disease status is distant progression, without provided RTSS',
-            false,
+            true,
             loadObjects(followUp,
                 {   
                     "disease_status_at_followup": "distant progression"
@@ -179,7 +179,7 @@ const myUnitTests = {
             )
         ],
         [
-            'Disease status is loco-regional progression, without provided RTSS',
+            'Disease status is loco-regional progression, with provided RTSS',
             true,
             loadObjects(followUp,
                 {   
@@ -199,7 +199,7 @@ const myUnitTests = {
             )
         ],
         [
-            'Disease status is no evidence of disease, without provided RTSS',
+            'Disease status is no evidence of disease, with provided RTSS',
             false,
             loadObjects(followUp,
                 {   

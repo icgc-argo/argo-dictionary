@@ -43,8 +43,8 @@ const validation = () =>
             result = { valid: false, message: `The '${$name}' field must be a value greater than 1`};
          }
          /* if it is unknown whether treatment was primary treatment, then line_of_treatment should not be submitted. If it is, then primary_treatment should be 'no' */
-         else if (isPrimaryTreatment === 'unknown') {
-            result = { valid: false, message: `The '${$name}' field should not be submitted if 'is_primary_treatment' is 'unknown'.`};
+         else if (isPrimaryTreatment === 'not applicable') {
+            result = { valid: false, message: `The '${$name}' field should not be submitted if 'is_primary_treatment' is 'Not applicable'.`};
          }
       }
       return result;

@@ -54,7 +54,9 @@
       "valueType": "string",
       "description": "Indicate the primary diagnosis event in the clinical timeline that this specimen acquisition was related to.",
       "meta": {
+        "validationDependency": true,
         "primaryId": true,
+        "foreignKey": "primary_diagnosis.submitter_primary_diagnosis_id",
         "displayName": "Submitter Primary Diagnosis ID"
       },
       "restrictions": {
@@ -254,7 +256,7 @@
         "displayName": "Reference Pathology Confirmed"
       },
       "restrictions": {
-        "codeList": "#/list/yes_no"
+        "codeList": "#/list/yes_no_unk"
       }
     },
     {

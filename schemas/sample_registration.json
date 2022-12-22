@@ -136,7 +136,6 @@
           "Primary tumour - adjacent to normal",
           "Primary tumour",
           "Recurrent tumour",
-          "Tumour - unknown if derived from primary or metastatic",
           "Xenograft - derived from primary tumour",
           "Xenograft - derived from tumour cell line"
         ],
