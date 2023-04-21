@@ -30,21 +30,25 @@ const validation = () =>
       let result = {valid: true, message: "Ok"};
 
       const notExamined = ['cannot be determined', 'no', 'no lymph nodes found in resected specimen', 'not applicable'];
-      const lymphNodesExaminedStatus = $row.lymph_nodes_examined_status.trim().toLowerCase();
-      
       /* checks for a string just consisting of whitespace */
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
       
-      
-      if (!$field || $field === null || checkforEmpty($field)) {
-        if (lymphNodesExaminedStatus === 'yes') {
-          result = { valid: false, message: `The '${$name}' field must be submitted if the 'lymph_nodes_examined_status' field is 'Yes'`};
-        }
+      if ($row.lymph_nodes_examined_status === null) {
+        result = {valid: false, message: `The 'lymph_nodes_examined_status' field must be submitted.`};
       }
       else {
-         if (notExamined.includes(lymphNodesExaminedStatus)) {
-           result = { valid: false, message: `The '${$name}' field should not be submitted if the 'lymph_nodes_examined_status' field is '${lymphNodesExaminedStatus}'`};
-         }
+        const lymphNodesExaminedStatus = $row.lymph_nodes_examined_status.trim().toLowerCase();
+      
+        if (!$field || $field === null || checkforEmpty($field)) {
+          if (lymphNodesExaminedStatus === 'yes') {
+            result = { valid: false, message: `The '${$name}' field must be submitted if the 'lymph_nodes_examined_status' field is 'Yes'`};
+          }
+        }
+        else {
+          if (notExamined.includes(lymphNodesExaminedStatus)) {
+            result = { valid: false, message: `The '${$name}' field should not be submitted if the 'lymph_nodes_examined_status' field is '${lymphNodesExaminedStatus}'`};
+          }
+        }
       }
     return result;
 });
