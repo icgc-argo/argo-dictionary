@@ -79,6 +79,15 @@ const myUnitTests = {
             )
         ],
         [
+            'lymph_nodes_examined_method is missing',
+            false,
+            loadObjects(primary_diagnosis,
+                {   
+                    "lymph_nodes_examined_method": null
+                }
+            )
+        ],
+        [
             'lymph_nodes_examined_status is missing and lymph_nodes_examined_method not submitted',
             false,
             loadObjects(primary_diagnosis,

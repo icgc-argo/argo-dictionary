@@ -33,7 +33,7 @@ const validation = () =>
       /* checks for a string just consisting of whitespace */
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
       
-      if ($row.lymph_nodes_examined_status === null) {
+      if (!$row.lymph_nodes_examined_status || $row.lymph_nodes_examined_status === null || checkforEmpty($row.lymph_nodes_examined_status)) {
         result = {valid: false, message: `The 'lymph_nodes_examined_status' field must be submitted.`};
       }
       else {
