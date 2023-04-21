@@ -77,7 +77,16 @@ const myUnitTests = {
                     "lymph_nodes_examined_status": "Not applicable"
                 }
             )
+        ],
+        [
+            'lymph_nodes_examined_status is missing and lymph_nodes_examined_method not submitted',
+            false,
+            loadObjects(primary_diagnosis,
+                {   
+                }
+            )
         ]
+
     ]
 }
 
