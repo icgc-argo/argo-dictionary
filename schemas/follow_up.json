@@ -220,7 +220,7 @@
         "core": true,
         "dependsOn": "follow_up.disease_status_at_followup",
         "displayName": "Anatomic Site Progression or Recurrences",
-        "examples": "C50.1,C18",
+        "examples": "C50.1|C18",
         "notes": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence.\nTo include multiple values, separate values with a pipe delimiter '|' within your file."
       }
     },
