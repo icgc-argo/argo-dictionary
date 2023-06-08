@@ -203,6 +203,22 @@ const unitTests = [
       tumour_grade: 'g4'
     }),
   ],
+  [
+    'tumour_grading_system has an exception value of "not applicable", while tumour_grade is submitted as "G3"',
+    false,
+    loadObjects(specimen, {
+      tumour_grading_system: 'Not applicable',
+      tumour_grade: 'G3',
+    }),
+  ],
+  [
+    'tumour_grading_system has an exception value of "unknown", while tumour_grade is submitted as "G2"',
+    false,
+    loadObjects(specimen, {
+      tumour_grading_system: 'unknown',
+      tumour_grade: 'G2',
+    }),
+  ],
  // [
  //   'both grade system and grade are undefined',
  //   false,
