@@ -95,6 +95,12 @@ const validation = () =>
         case 'nuclear grading system for dcis':
           codeList = tieredGradingList;
           break;
+        case 'unknown':
+          codeList = ['unknown'];
+          break;
+        case 'not applicable':
+          codeList = ['not applicable'];
+          break;
       }
 
       if (!codeList.includes($field.trim().toLowerCase())) {

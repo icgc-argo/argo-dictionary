@@ -61,6 +61,26 @@ const myUnitTests = {
             )
         ],
         [
+            'lymph nodes examined status is unknown and lymph_nodes_examined_method is left blank',
+            true,
+            loadObjects(primary_diagnosis,
+                {   
+                    "lymph_nodes_examined_status": "Unknown",
+                    "lymph_nodes_examined_method": ""
+                }
+            )
+        ],
+        [
+            'lymph nodes examined status is unknown and lymph_nodes_examined_method is submitted',
+            false,
+            loadObjects(primary_diagnosis,
+                {   
+                    "lymph_nodes_examined_status": "Unknown",
+                    "lymph_nodes_examined_method": "Imaging"
+                }
+            )
+        ],
+        [
             'lymph nodes were examined and lymph_nodes_examined_method not submitted',
             false,
             loadObjects(primary_diagnosis,
