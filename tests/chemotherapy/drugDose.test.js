@@ -57,6 +57,25 @@ const myUnitTests = {
                     "prescribed_cumulative_drug_dose": 350
                 }
             )
+        ],
+        [
+            'chemotherapy_drug_dose_units is not applicable and actual_cumulative_drug_dose is submitted',
+            false,
+            loadObjects(chemotherapy,
+                {   
+                    "chemotherapy_drug_dose_units": 'not applicable',
+                    "actual_cumulative_drug_dose": 300,
+                }
+            )
+        ],
+        [
+            'chemotherapy_drug_dose_units is not applicable and actual_cumulative_drug_dose is not submitted',
+            true,
+            loadObjects(chemotherapy,
+                {   
+                    "chemotherapy_drug_dose_units": 'not applicable'
+                }
+            )
         ]
     ],
     'prescribed_cumulative_drug_dose': [
@@ -85,6 +104,25 @@ const myUnitTests = {
                 {   
                     "actual_cumulative_drug_dose": 300,
                     "prescribed_cumulative_drug_dose": 350
+                }
+            )
+        ],
+        [
+            'chemotherapy_drug_dose_units is not applicable and prescribed_cumulative_drug_dose is submitted',
+            false,
+            loadObjects(chemotherapy,
+                {   
+                    "chemotherapy_drug_dose_units": 'not applicable',
+                    "prescribed_cumulative_drug_dose": 350
+                }
+            )
+        ],
+        [
+            'chemotherapy_drug_dose_units is not applicable and prescribed_cumulative_drug_dose is not submitted',
+            true,
+            loadObjects(chemotherapy,
+                {   
+                    "chemotherapy_drug_dose_units": 'not applicable'
                 }
             )
         ],

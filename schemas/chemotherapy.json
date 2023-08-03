@@ -103,6 +103,7 @@
       "meta": {
         "core": true,
         "displayName": "Prescribed Cumulative Drug Dose",
+        "validationDependency": true,
         "dependsOn": "chemotherapy.actual_cumulative_drug_dose",
         "notes": "Either the 'actual_cumulative_drug_dose' or the 'prescribed_cumulative_drug_dose' field must be submitted."
       }
@@ -120,6 +121,7 @@
       "meta": {
         "core": true,
         "displayName": "Actual Cumulative Drug Dose",
+        "validationDependency": true,
         "dependsOn": "chemotherapy.prescribed_cumulative_drug_dose",
         "notes": "Either the 'actual_cumulative_drug_dose' or the 'prescribed_cumulative_drug_dose' field must be submitted."
       }
