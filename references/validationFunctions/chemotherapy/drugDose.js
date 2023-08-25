@@ -33,12 +33,23 @@ const validation = () =>
 
       // checks for a string just consisting of whitespace
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
-      
-      if ( (!$field || $field === null || checkforEmpty($field)) && (!($row[checkField]) || $row[checkField] === null || checkforEmpty(!($row[checkField])))) {
-        result = {
-          valid: false,
-          message: `Either the 'actual_cumulative_drug_dose' or the 'prescribed_cumulative_drug_dose' fields must be submitted.`
-        };
+   
+      // Check for when chemotherapy dose has a clinical exception value of 'not applicable'
+      if ($row.chemotherapy_drug_dose_units && $row.chemotherapy_drug_dose_units != null && !(checkforEmpty($row.chemotherapy_drug_dose_units)) && $row.chemotherapy_drug_dose_units.trim().toLowerCase() === 'not applicable') {
+        if ($field && $field != null && !(checkforEmpty($field))) {
+          result = {
+            valid: false,
+            message: `The '${$name}' field cannot be submitted when 'chemotherapy_drug_dose_units' = 'Not applicable'`
+          };
+        }
+      }
+      else {
+        if ( (!$field || $field === null || checkforEmpty($field)) && (!($row[checkField]) || $row[checkField] === null || checkforEmpty(!($row[checkField])))) {
+          result = {
+            valid: false,
+            message: `Either the 'actual_cumulative_drug_dose' or the 'prescribed_cumulative_drug_dose' fields must be submitted.`
+          };
+        }
       }
       return result;
   });
