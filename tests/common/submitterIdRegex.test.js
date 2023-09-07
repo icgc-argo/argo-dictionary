@@ -18,14 +18,11 @@
  *
  */
 
-const validation = require('./../../references/validationFunctions/sample_registration/submitterIdRegex.js');
+const validation = require('../../references/validationFunctions/common/submitterIdRegex.js');
 const universalTest = require('../universal');
 const loadObjects = require('../loadObjects');
 
-// load in all fields with entries prepopulated to null
 const sampleReg = require('../constructDummyData').getSchemaDummy('sample_registration');
-
-// the name of the field being validateds
 
 const allUnitTests = {
   submitter_donor_id: [
