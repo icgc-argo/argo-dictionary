@@ -33,7 +33,7 @@ const validation = () =>
     const { submitter_donor_id } = row;
     const submitterIdRegex = new RegExp(regex.submitter_id);
     const match = submitter_donor_id.match(submitterIdRegex);
-    console.log('\nmatch', match);
+
     if (!match) {
       result = {
         valid: false,
