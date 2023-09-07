@@ -30,9 +30,9 @@ const validation = () =>
     let result = { valid: true, message: 'Ok' };
     const { $row, $name } = inputs;
     const { row } = $row;
-    const { submitter_donor_id } = row;
+    const value = row[$name];
     const submitterIdRegex = new RegExp(regex.submitter_id);
-    const match = submitter_donor_id.match(submitterIdRegex);
+    const match = value.match(submitterIdRegex);
 
     if (!match) {
       result = {

@@ -23,6 +23,7 @@ const universalTest = require('../universal');
 const loadObjects = require('../loadObjects');
 
 const sampleReg = require('../constructDummyData').getSchemaDummy('sample_registration');
+const primaryDiagnosis = require('../constructDummyData').getSchemaDummy('primary_diagnosis');
 
 const allUnitTests = {
   submitter_donor_id: [
@@ -47,6 +48,18 @@ const allUnitTests = {
       },
     ],
   ],
+  submitter_primary_diagnosis_id: [
+    [
+      'Submitter Primary Diagnosis Id does not contain invalid characters',
+      false,
+      {
+        row: loadObjects(primaryDiagnosis, {
+          submitter_primary_diagnosis_id: 'O1800469(17-24717)',
+        }),
+        name: 'submitter_primary_diagnosis_id',
+      },
+    ],
+  ],
 };
 
 describe('Common Tests', () => {
@@ -61,7 +74,7 @@ describe('Common Tests', () => {
   });
 });
 
-describe('Unit Tests for Ensure Deceased', () => {
+describe('Unit Tests for Submitter Id Regexz', () => {
   Object.entries(allUnitTests).forEach(field => {
     const name = field[0];
     const unitTests = field[1];
