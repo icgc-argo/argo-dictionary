@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 The Ontario Institute for Cancer Research. All rights reserved
+ * Copyright (c) 2023 The Ontario Institute for Cancer Research. All rights reserved
  *
  * This program and the accompanying materials are made available under the terms of the GNU Affero General Public License v3.0.
  * You should have received a copy of the GNU Affero General Public License along with
@@ -19,7 +19,7 @@
  */
 
 /**
- * The lost_to_followup_after_clinical_event field should only be submitted if vital_status is Alive. It should not be allowed to be submitted if vital_status is Deceased.
+ * The lost_to_followup_after_clinical_event_id field should only be submitted if vital_status is Alive. It should not be allowed to be submitted if vital_status is Deceased.
  */
 const validation = () => 
     (function validate(inputs) {

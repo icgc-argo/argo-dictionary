@@ -26,14 +26,14 @@ const loadObjects = require('../loadObjects');
 const donor = require('../constructDummyData').getSchemaDummy('donor');
 
 const myUnitTests = {
-    "lost_to_followup_after_clinical_event": [
+    "lost_to_followup_after_clinical_event_id": [
         [
             'Alive donor with lost to follow up indicated.',
             true,
             loadObjects(donor,
                 {   
                     "vital_status": "alive",
-                    "lost_to_followup_after_clinical_event": "PD1"
+                    "lost_to_followup_after_clinical_event_id": "PD1"
                 }
             )
         ],
@@ -43,7 +43,7 @@ const myUnitTests = {
             loadObjects(donor,
                 {   
                     "vital_status": "deceased",
-                    "lost_to_followup_after_clinical_event" : "Tr-1"
+                    "lost_to_followup_after_clinical_event_id" : "Tr-1"
                 }
             )
             
