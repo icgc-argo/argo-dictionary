@@ -76,31 +76,50 @@
       }
     },
     {
-      "name": "hormone_drug_dosage_units",
-      "description": "Indicate the units used to record hormone drug dosage.",
+      "name": "hormone_drug_dose_units",
+      "description": "Indicate the units used to record hormone drug dose.",
       "valueType": "string",
       "restrictions": {
         "required": true,
-        "codeList": "#/list/drug_dosage_units"
+        "codeList": "#/list/drug_dose_units"
       },
       "meta": {
         "core": true,
-        "displayName": "Hormone Therapy Dosage Units"
+        "displayName": "Hormone Drug Dose Units"
       }
     },
     {
-      "name": "cumulative_drug_dosage",
-      "description": "Indicate total drug dose in units specified in hormone_drug_dosage_units.",
+      "name": "prescribed_cumulative_drug_dose",
+      "description": "Indicate the total prescribed cumulative drug dose in the same units specified in hormone_drug_dose_units.",
       "valueType": "number",
       "restrictions": {
-        "required": true,
+        "script": "#/script/hormone_therapy/drugDose",
         "range": {
            "exclusiveMin": 0
         }
       },
       "meta": {
         "core": true,
-        "displayName": "Cumulative Drug Dosage"
+        "displayName": "Prescribed Cumulative Drug Dose",
+        "dependsOn": "hormone_therapy.actual_cumulative_drug_dose",
+        "notes": "Either the 'actual_cumulative_drug_dose' or the 'prescribed_cumulative_drug_dose' field must be submitted."
+      }
+    },
+    {
+      "name": "actual_cumulative_drug_dose",
+      "description": "Indicate the total actual cumulative drug dose in the same units specified in hormone_drug_dose_units.",
+      "valueType": "number",
+      "restrictions": {
+        "script": "#/script/hormone_therapy/drugDose",
+        "range": {
+           "exclusiveMin": 0
+        }
+      },
+      "meta": {
+        "core": true,
+        "displayName": "Actual Cumulative Drug Dose",
+        "dependsOn": "hormone_therapy.prescribed_cumulative_drug_dose",
+        "notes": "Either the 'actual_cumulative_drug_dose' or the 'prescribed_cumulative_drug_dose' field must be submitted."
       }
     }
   ]

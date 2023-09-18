@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 The Ontario Institute for Cancer Research. All rights reserved
+ * Copyright (c) 2022 The Ontario Institute for Cancer Research. All rights reserved
  *
  * This program and the accompanying materials are made available under the terms of the GNU Affero General Public License v3.0.
  * You should have received a copy of the GNU Affero General Public License along with
@@ -19,26 +19,26 @@
  */
 
 /**
- * If treatment_type is 'No treatment', core treatment fields should not be submitted.
+ * Requirement to submit either prescribed or actual drug dose.
  */
 
 const validation = () => 
   (function validate(inputs) {
       const {$row, $name, $field} = inputs;
       let result = {valid: true, message: "Ok"};
-      const coreFields = ['treatment_start_interval', 'treatment_duration', 'is_primary_treatment', 'treatment_intent', 'treatment_setting', 'response_to_treatment_criteria_method', 'response_to_treatment'];
- 
+      let checkField = "";
+
+      if ($name === 'actual_cumulative_drug_dose') { checkField = 'prescribed_cumulative_drug_dose'; }
+      else if ($name === 'prescribed_cumulative_drug_dose') { checkField = 'actual_cumulative_drug_dose'; }
+
       // checks for a string just consisting of whitespace
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
-      const treatmentType = ($row.treatment_type).map(value => value.toLowerCase());
-       
-      if (!treatmentType.includes("no treatment") && coreFields.includes($name) && (!$field || $field === null || checkforEmpty($field))) {
-          result = { valid: false, message: `The '${$name}' field must be submitted when the 'treatment_type' field is '${treatmentType}'`};
-      }
-      else if (treatmentType.includes("no treatment") && ($field && $field != null && !(checkforEmpty($field)))) {
-        if (coreFields.includes($name) || (typeof($field) === 'string' && $field.trim().toLowerCase() != 'not applicable') || typeof($field) === 'number') {
-          result = { valid: false, message: `The '${$name}' field cannot be submitted if the 'treatment_type' field is '${treatmentType}'`};
-        }
+      
+      if ( (!$field || $field === null || checkforEmpty($field)) && (!($row[checkField]) || $row[checkField] === null || checkforEmpty(!($row[checkField])))) {
+        result = {
+          valid: false,
+          message: `Either the 'actual_cumulative_drug_dose' or the 'prescribed_cumulative_drug_dose' fields must be submitted.`
+        };
       }
       return result;
   });

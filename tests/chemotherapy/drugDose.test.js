@@ -18,98 +18,122 @@
  *
  */
 
-const validation = require('../../references/validationFunctions/treatment/lineOfTreatment');
+const validation = require('../../references/validationFunctions/chemotherapy/drugDose.js');
 
 const universalTest = require('../universal');
 const loadObjects = require('../loadObjects');
 
 // load in all fields with entries prepopulated to null
-const treatment = require('../constructDummyData').getSchemaDummy('treatment');
+const chemotherapy = require('../constructDummyData').getSchemaDummy('chemotherapy');
 
 
 // key -> name of field, value -> unit tests
 const myUnitTests = {
-    'line_of_treatment': [
+    'actual_cumulative_drug_dose': [
         [
-            'is_primary_treatment is no, and line_of_treatment is submitted as 2',
+            'actual_cumulative_drug_dose is submitted when prescribed_cumulative_drug_dose is missing',
             true,
-            loadObjects(treatment,
+            loadObjects(chemotherapy,
                 {   
-                    "is_primary_treatment": "no",
-                    "line_of_treatment": 2
+                    "actual_cumulative_drug_dose": 100
                 }
             )
         ],
         [
-            'is_primary_treatment is no, and line_of_treatment is submitted as 1',
-            false,
-            loadObjects(treatment,
+            'prescribed_drug_dose is submitted when actual_cumulative_drug_dose is missing',
+            true,
+            loadObjects(chemotherapy,
                 {   
-                    "is_primary_treatment": "no",
-                    "line_of_treatment": 1
+                    "prescribed_cumulative_drug_dose": 150
                 }
             )
         ],
         [
-            'is_primary_treatment is not applicable, and line_of_treatment is submitted as 1',
-            false,
-            loadObjects(treatment,
+            'Both actual_cumulative_drug_dose and prescribed_cumulative_drug_dose are submitted',
+            true,
+            loadObjects(chemotherapy,
                 {   
-                    "is_primary_treatment": "not applicable",
-                    "line_of_treatment": 1
+                    "actual_cumulative_drug_dose": 300,
+                    "prescribed_cumulative_drug_dose": 350
                 }
             )
         ],
         [
-            'is_primary_treatment is yes, and line_of_treatment is submitted as 2',
+            'chemotherapy_drug_dose_units is not applicable and actual_cumulative_drug_dose is submitted',
             false,
-            loadObjects(treatment,
+            loadObjects(chemotherapy,
                 {   
-                    "is_primary_treatment": "yes",
-                    "line_of_treatment": 2
+                    "chemotherapy_drug_dose_units": 'not applicable',
+                    "actual_cumulative_drug_dose": 300,
                 }
             )
         ],
         [
-            'is_primary_treatment is yes, and line_of_treatment is submitted as 1',
-            false,
-            loadObjects(treatment,
+            'chemotherapy_drug_dose_units is not applicable and actual_cumulative_drug_dose is not submitted',
+            true,
+            loadObjects(chemotherapy,
                 {   
-                    "is_primary_treatment": "yes",
-                    "line_of_treatment": 1
+                    "chemotherapy_drug_dose_units": 'not applicable'
+                }
+            )
+        ]
+    ],
+    'prescribed_cumulative_drug_dose': [
+        [
+            'prescibed_cumulative_drug_dose is submitted when actual_cumulative_drug_dose is missing',
+            true,
+            loadObjects(chemotherapy,
+                {   
+                    "prescribed_cumulative_drug_dose": 100
                 }
             )
         ],
         [
-            'is_primary_treatment is yes, and line_of_treatment is submitted as -9',
-            false,
-            loadObjects(treatment,
+            'actual_cumlative__drug_dose is submitted when prescribed_cumlative_drug_dose is missing',
+            true,
+            loadObjects(chemotherapy,
                 {   
-                    "is_primary_treatment": "yes",
-                    "line_of_treatment": -9
+                    "actual_cumulative_drug_dose": 150
                 }
             )
         ],
         [
-            'is_primary_treatment is no, and line_of_treatment is submitted as -7',
-            false,
-            loadObjects(treatment,
+            'Both actual_cumulative_drug_dose and prescribed_cumulative_drug_dose are submitted',
+            true,
+            loadObjects(chemotherapy,
                 {   
-                    "is_primary_treatment": "no",
-                    "line_of_treatment": -7
+                    "actual_cumulative_drug_dose": 300,
+                    "prescribed_cumulative_drug_dose": 350
                 }
             )
         ],
         [
-            'is_primary_treatment is unknown, and line_of_treatment is submitted as 0',
+            'chemotherapy_drug_dose_units is not applicable and prescribed_cumulative_drug_dose is submitted',
             false,
-            loadObjects(treatment,
+            loadObjects(chemotherapy,
                 {   
-                    "is_primary_treatment": "no",
-                    "line_of_treatment": 0
+                    "chemotherapy_drug_dose_units": 'not applicable',
+                    "prescribed_cumulative_drug_dose": 350
                 }
             )
         ],
+        [
+            'chemotherapy_drug_dose_units is not applicable and prescribed_cumulative_drug_dose is not submitted',
+            true,
+            loadObjects(chemotherapy,
+                {   
+                    "chemotherapy_drug_dose_units": 'not applicable'
+                }
+            )
+        ],
+        [
+            'Both cumulative_drug_dose and prescribed_cumulative_drug_dose are missing',
+            false,
+            loadObjects(chemotherapy,
+                {   
+                }
+            )
+        ]
     ]
 }
 
@@ -127,7 +151,7 @@ describe("Common Tests",()=>{
     
 })
 
-describe("Unit Tests for Line of Treatment in Treatment",()=>{
+describe("Unit Tests for chemotherapy fields",()=>{
     Object.entries(myUnitTests).forEach(field => {
         const name = field[0];
         const unitTests = field[1];

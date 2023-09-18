@@ -54,7 +54,9 @@
       "valueType": "string",
       "description": "Indicate the primary diagnosis event in the clinical timeline that this specimen acquisition was related to.",
       "meta": {
+        "validationDependency": true,
         "primaryId": true,
+        "foreignKey": "primary_diagnosis.submitter_primary_diagnosis_id",
         "displayName": "Submitter Primary Diagnosis ID"
       },
       "restrictions": {
@@ -254,7 +256,7 @@
         "displayName": "Reference Pathology Confirmed"
       },
       "restrictions": {
-        "codeList": "#/list/yes_no"
+        "codeList": "#/list/yes_no_unk"
       }
     },
     {
@@ -333,6 +335,24 @@
             "min": 0,
             "max": 1
           }
+      }
+    },
+    {
+      "name": "percent_tumour_cells_measurement_method",
+      "description": "Indicate method used to measure percent_tumour_cells.",
+      "valueType": "string",
+      "meta": {
+        "core": true,
+        "dependsOn": "sample_registration.tumour_normal_designation",
+        "notes": "#/notes/if_tumour",
+        "displayName": "Percent Tumour Cells Measurement Method"
+      },
+      "restrictions": {
+        "codeList": [
+           "Genomics",
+           "Image analysis",
+           "Pathology estimate by percent nuclei"
+        ]
       }
     },
     {
