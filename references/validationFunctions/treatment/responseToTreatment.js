@@ -87,6 +87,7 @@ const validation = () =>
           codeList = [
             'physician assessed complete response',
             'physician assessed partial response',
+            'physician assessed progressive disease',
             'physician assessed stable disease'
           ];
           break;
