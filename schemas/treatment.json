@@ -284,6 +284,7 @@
             "Partial response",
             "Physician assessed complete response",
             "Physician assessed partial response",
+            "Physician assessed progressive disease",
             "Physician assessed stable disease",
             "Progressive disease",
             "Stable disease"
