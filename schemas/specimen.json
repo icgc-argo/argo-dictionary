@@ -150,10 +150,7 @@
         "displayName": "Specimen Acquisition Interval"
       },
       "restrictions": {
-        "required": true,
-        "range": {
-          "min": 0
-        }
+        "required": true
       }
     },
     {
