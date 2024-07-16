@@ -123,6 +123,7 @@
       "restrictions": {
         "required": true,
         "codeList": [
+          "Cell line - derived from metastatic tumour",
           "Cell line - derived from normal",
           "Cell line - derived from tumour",
           "Cell line - derived from xenograft tumour",
@@ -137,6 +138,7 @@
           "Primary tumour",
           "Recurrent tumour",
           "Tumour - unknown if derived from primary or metastatic",
+          "Xenograft - derived from metastatic tumour",
           "Xenograft - derived from primary tumour",
           "Xenograft - derived from tumour cell line"
         ],

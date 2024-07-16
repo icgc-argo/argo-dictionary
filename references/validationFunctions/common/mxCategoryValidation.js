@@ -49,6 +49,16 @@ const validation = () =>
          }
       }
     }
+    if ($row[tumourStagingSystem] && $row[tumourStagingSystem] != null && !(checkforEmpty($row[tumourStagingSystem]))) {
+      if ($row[tumourStagingSystem].trim().toLowerCase() == "ajcc 6th edition") {
+         if ($field && $field != null && !(checkforEmpty($field)) && $field.trim().toLowerCase() === 'not applicable') {
+           result = {
+             valid: false,
+             message: `The designation of '${$field}' in the '${$name}' field is not a valid M category in the ${tumourStagingSystem} '${$row[tumourStagingSystem]}'.`
+           };
+         }
+      }
+    }
     return result;
 });
 module.exports = validation;

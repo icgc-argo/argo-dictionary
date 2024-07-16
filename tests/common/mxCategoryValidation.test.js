@@ -32,6 +32,28 @@ const primary_diagnosis = require('../constructDummyData').getSchemaDummy('prima
 const unitTests = {
  'Specimen': [
   [
+    'Pathological staging system set to "AJCC 6th edition" and "not applicable" is submitted in pathological_m_category',
+    false,
+    {
+      row: loadObjects(specimen, {
+        pathological_tumour_staging_system: 'ajcc 6th edition',
+        pathological_m_category: 'Not applicable'
+      }),
+      name: 'pathological_m_category',
+    },
+  ],
+  [
+    'Pathological staging system set to "AJCC 7th edition" and "not applicable" submitted in pathological_m_category',
+    true,
+    {
+      row: loadObjects(specimen, {
+        pathological_tumour_staging_system: 'ajcc 7th edition',
+        pathological_m_category: 'not Applicable'
+      }),
+      name: 'pathological_m_category',
+    },
+  ],
+  [
     'Pathological staging system set to "AJCC 6th edition" and "MX" submitted in pathological_m_category',
     true,
     {

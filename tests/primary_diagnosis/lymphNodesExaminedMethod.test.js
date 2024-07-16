@@ -18,98 +18,104 @@
  *
  */
 
-const validation = require('../../references/validationFunctions/treatment/lineOfTreatment');
+const validation = require('../../references/validationFunctions/primary_diagnosis/lymphNodesExaminedMethod');
 
 const universalTest = require('../universal');
 const loadObjects = require('../loadObjects');
 
 // load in all fields with entries prepopulated to null
-const treatment = require('../constructDummyData').getSchemaDummy('treatment');
+const primary_diagnosis = require('../constructDummyData').getSchemaDummy('primary_diagnosis');
 
 
 // key -> name of field, value -> unit tests
 const myUnitTests = {
-    'line_of_treatment': [
+    'lymph_nodes_examined_method': [
         [
-            'is_primary_treatment is no, and line_of_treatment is submitted as 2',
+            'lymph nodes were examined and lymph_nodes_examined_method is submitted',
             true,
-            loadObjects(treatment,
+            loadObjects(primary_diagnosis,
                 {   
-                    "is_primary_treatment": "no",
-                    "line_of_treatment": 2
+                    "lymph_nodes_examined_status": "Yes",
+                    "lymph_nodes_examined_method": "imaging"
                 }
             )
         ],
         [
-            'is_primary_treatment is no, and line_of_treatment is submitted as 1',
+            'lymph nodes were not examined and lymph_nodes_examined_method is submitted',
             false,
-            loadObjects(treatment,
+            loadObjects(primary_diagnosis,
                 {   
-                    "is_primary_treatment": "no",
-                    "line_of_treatment": 1
+                    "lymph_nodes_examined_status": "no",
+                    "lymph_nodes_examined_method": "physical palpation of patient"
                 }
             )
         ],
         [
-            'is_primary_treatment is not applicable, and line_of_treatment is submitted as 1',
+            'lymph nodes were examined and lymph_nodes_examined_method is left blank',
             false,
-            loadObjects(treatment,
+            loadObjects(primary_diagnosis,
                 {   
-                    "is_primary_treatment": "not applicable",
-                    "line_of_treatment": 1
+                    "lymph_nodes_examined_status": "Yes",
+                    "lymph_nodes_examined_method": ""
                 }
             )
         ],
         [
-            'is_primary_treatment is yes, and line_of_treatment is submitted as 2',
-            false,
-            loadObjects(treatment,
+            'lymph nodes examined status is unknown and lymph_nodes_examined_method is left blank',
+            true,
+            loadObjects(primary_diagnosis,
                 {   
-                    "is_primary_treatment": "yes",
-                    "line_of_treatment": 2
+                    "lymph_nodes_examined_status": "Unknown",
+                    "lymph_nodes_examined_method": ""
                 }
             )
         ],
         [
-            'is_primary_treatment is yes, and line_of_treatment is submitted as 1',
+            'lymph nodes examined status is unknown and lymph_nodes_examined_method is submitted',
             false,
-            loadObjects(treatment,
+            loadObjects(primary_diagnosis,
                 {   
-                    "is_primary_treatment": "yes",
-                    "line_of_treatment": 1
+                    "lymph_nodes_examined_status": "Unknown",
+                    "lymph_nodes_examined_method": "Imaging"
                 }
             )
         ],
         [
-            'is_primary_treatment is yes, and line_of_treatment is submitted as -9',
+            'lymph nodes were examined and lymph_nodes_examined_method not submitted',
             false,
-            loadObjects(treatment,
+            loadObjects(primary_diagnosis,
                 {   
-                    "is_primary_treatment": "yes",
-                    "line_of_treatment": -9
+                    "lymph_nodes_examined_status": "Yes",
                 }
             )
         ],
         [
-            'is_primary_treatment is no, and line_of_treatment is submitted as -7',
-            false,
-            loadObjects(treatment,
+            'lymph nodes were not examined and lymph_nodes_examined_method not submitted',
+            true,
+            loadObjects(primary_diagnosis,
                 {   
-                    "is_primary_treatment": "no",
-                    "line_of_treatment": -7
+                    "lymph_nodes_examined_status": "Not applicable"
                 }
             )
         ],
         [
-            'is_primary_treatment is unknown, and line_of_treatment is submitted as 0',
+            'lymph_nodes_examined_method is missing',
             false,
-            loadObjects(treatment,
+            loadObjects(primary_diagnosis,
                 {   
-                    "is_primary_treatment": "no",
-                    "line_of_treatment": 0
+                    "lymph_nodes_examined_method": null
                 }
             )
         ],
+        [
+            'lymph_nodes_examined_status is missing and lymph_nodes_examined_method not submitted',
+            false,
+            loadObjects(primary_diagnosis,
+                {   
+                }
+            )
+        ]
+
     ]
 }
 
@@ -127,7 +133,7 @@ describe("Common Tests",()=>{
     
 })
 
-describe("Unit Tests for Line of Treatment in Treatment",()=>{
+describe("Unit Tests for Lymph Node Fields in Primary Diagnosis",()=>{
     Object.entries(myUnitTests).forEach(field => {
         const name = field[0];
         const unitTests = field[1];

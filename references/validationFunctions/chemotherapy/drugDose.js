@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 The Ontario Institute for Cancer Research. All rights reserved
+ * Copyright (c) 2022 The Ontario Institute for Cancer Research. All rights reserved
  *
  * This program and the accompanying materials are made available under the terms of the GNU Affero General Public License v3.0.
  * You should have received a copy of the GNU Affero General Public License along with
@@ -19,33 +19,37 @@
  */
 
 /**
- * Validates line_of_treatment and makes sure it's consistent with 'is_primary_treatment' field 
- * @param {object} $row 
- * @param {string} $field 
- * @param {string} $name 
+ * Requirement to submit either prescribed or actual drug dose.
  */
+
 const validation = () => 
   (function validate(inputs) {
       const {$row, $name, $field} = inputs;
       let result = {valid: true, message: "Ok"};
+      let checkField = "";
 
-      /* checks for a string just consisting of whitespace */
+      if ($name === 'actual_cumulative_drug_dose') { checkField = 'prescribed_cumulative_drug_dose'; }
+      else if ($name === 'prescribed_cumulative_drug_dose') { checkField = 'actual_cumulative_drug_dose'; }
+
+      // checks for a string just consisting of whitespace
       const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
-     
-      if (($field != null && (!(checkforEmpty($field)))) && ($row.is_primary_treatment != null && !(checkforEmpty($row.is_primary_treatment)))) {
-         const isPrimaryTreatment = $row.is_primary_treatment.trim().toLowerCase();
-         /* if treatment is the primary treatment, then line_of_treatment should not be submitted. */
-         if (isPrimaryTreatment === 'yes') {
-            result = { valid: false, message: `The '${$name}' field should not be submitted if this treatment is the primary treatment.`};
-         }
-         /* if treatment is not primary treatment, then line_of_treatment must be greater than 1 */
-         else if (isPrimaryTreatment === 'no' && parseInt($field) <= 1) {
-            result = { valid: false, message: `The '${$name}' field must be a value greater than 1`};
-         }
-         /* if it is unknown whether treatment was primary treatment, then line_of_treatment should not be submitted. If it is, then primary_treatment should be 'no' */
-         else if (isPrimaryTreatment === 'not applicable') {
-            result = { valid: false, message: `The '${$name}' field should not be submitted if 'is_primary_treatment' is 'Not applicable'.`};
-         }
+   
+      // Check for when chemotherapy dose has a clinical exception value of 'not applicable'
+      if ($row.chemotherapy_drug_dose_units && $row.chemotherapy_drug_dose_units != null && !(checkforEmpty($row.chemotherapy_drug_dose_units)) && $row.chemotherapy_drug_dose_units.trim().toLowerCase() === 'not applicable') {
+        if ($field && $field != null && !(checkforEmpty($field))) {
+          result = {
+            valid: false,
+            message: `The '${$name}' field cannot be submitted when 'chemotherapy_drug_dose_units' = 'Not applicable'`
+          };
+        }
+      }
+      else {
+        if ( (!$field || $field === null || checkforEmpty($field)) && (!($row[checkField]) || $row[checkField] === null || checkforEmpty(!($row[checkField])))) {
+          result = {
+            valid: false,
+            message: `Either the 'actual_cumulative_drug_dose' or the 'prescribed_cumulative_drug_dose' fields must be submitted.`
+          };
+        }
       }
       return result;
   });

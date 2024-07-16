@@ -92,6 +92,8 @@
       "valueType": "string",
       "description": "Indicate if the follow-up is related to a specific primary diagnosis event in the clinical timeline.",
       "meta": {
+        "validationDependency": true,
+        "foreignKey": "primary_diagnosis.submitter_primary_diagnosis_id",
         "displayName": "Submitter Primary Diagnosis ID",
         "primaryId": true
       },
@@ -104,7 +106,9 @@
       "valueType": "string",
       "description": "Indicate if the follow-up is related to a specific treatment event in the clinical timeline.",
       "meta": {
+        "validationDependency": true,
         "primaryId": true,
+        "foreignKey": "treatment.submitter_treatment_id",
         "displayName": "Submitter Treatment ID"
       },
       "restrictions": {
@@ -204,9 +208,10 @@
       }
     },
     {
-      "description": "Indicate the ICD-O-3 topography code for the anatomic site where disease progression, relapse or recurrence occurred, according to the International Classification of Diseases for Oncology, 3rd Edition (WHO ICD-O-3). Refer to the ICD-O-3 manual for guidelines at https://apps.who.int/iris/handle/10665/42344.",
+      "description": "Indicate the ICD-O-3 topography code for the anatomic site(s) where disease progression, relapse or recurrence occurred, according to the International Classification of Diseases for Oncology, 3rd Edition (WHO ICD-O-3). Refer to the ICD-O-3 manual for guidelines at https://apps.who.int/iris/handle/10665/42344.",
       "name": "anatomic_site_progression_or_recurrence",
       "valueType": "string",
+      "isArray": true,
       "restrictions": {
         "script": "#/script/follow_up/anatomic_site_progression_or_recurrence",
         "regex": "^[C][0-9]{2}(.[0-9]{1})?$"
@@ -215,8 +220,8 @@
         "core": true,
         "dependsOn": "follow_up.disease_status_at_followup",
         "displayName": "Anatomic Site Progression or Recurrences",
-        "examples": "C50.1,C18",
-        "notes": "#/notes/disease_status_requirement"
+        "examples": "C50.1|C18",
+        "notes": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence.\nTo include multiple values, separate values with a pipe delimiter '|' within your file."
       }
     },
     {
@@ -228,7 +233,6 @@
         "script": "#/script/follow_up/recurrence_tumour_staging_system"
       },
       "meta": {
-        "core": true,
         "dependsOn": "follow_up.disease_status_at_followup",
         "notes": "#/notes/disease_status_requirement",
         "displayName": "Recurrance Tumour Staging System"
@@ -239,7 +243,6 @@
       "description": "The code to represent the extent of the primary tumour (T) based on evidence obtained from clinical assessment parameters determined at the time of retreatment for a recurrence or disease progression, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
       "meta": {
-        "core": true,
         "dependsOn": "follow_up.recurrence_tumour_staging_system",
         "notes": "This field is required only if the selected recurrence_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Recurrence T Category"
@@ -253,7 +256,6 @@
       "description": "The code to represent the stage of cancer defined by the extent of the regional lymph node (N) involvement for the cancer based on evidence obtained from clinical assessment parameters determined at the time of retreatment for a recurrence or disease progression, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
       "meta": {
-        "core": true,
         "dependsOn": "follow_up.recurrence_tumour_staging_system",
         "notes": "This field is required only if the selected recurrence_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Recurrence N Category"
@@ -267,7 +269,6 @@
       "description": "The code to represent the stage of cancer defined by the extent of the distant metastasis (M) for the cancer based on evidence obtained from clinical assessment parameters determined at the time of retreatment for a recurrence or disease progression, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
       "valueType": "string",
       "meta": {
-        "core": true,
         "dependsOn": "follow_up.recurrence_tumour_staging_system",
         "notes": "This field is required only if the selected recurrence_tumour_staging_system is any edition of the AJCC cancer staging system.",
         "displayName": "Recurrence M Category"
@@ -282,7 +283,6 @@
       "description": "The code to represent the stage group of the tumour, as assigned by the reporting recurrence_tumour_staging_system, that indicates the overall prognostic tumour stage (ie. Stage I, Stage II, Stage III etc.) at the time of retreatment for a recurrence or disease progression.",
       "valueType": "string",
       "meta": {
-        "core": true,
         "dependsOn": "follow_up.recurrence_tumour_staging_system",
         "notes": "This field is dependent on the selected recurrence_tumour_staging_system.\nPlease refer to the documentation for Tumour Staging Classifications: http://docs.icgc-argo.org/docs/submission/dictionary-overview#tumour-staging-classifications",
         "displayName": "Recurrence Stage Group"

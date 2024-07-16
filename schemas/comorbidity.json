@@ -38,7 +38,7 @@
       "name": "prior_malignancy",
       "description": "Prior malignancy affecting donor.",
       "restrictions": {
-        "codeList": "#/list/yes_no"
+        "codeList": "#/list/yes_no_unk"
       },
       "valueType": "string",
       "meta": {
@@ -96,7 +96,7 @@
       "valueType": "string",
       "description": "Indicate if the patient is being treated for the comorbidity (this includes prior malignancies).",
       "restrictions": {
-        "codeList": "#/list/yes_no",
+        "codeList": "#/list/yes_no_unk",
          "script": "#/script/comorbidity/comorbidityOptionalFieldsCheck"
       },
       "meta": {

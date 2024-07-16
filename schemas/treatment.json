@@ -53,7 +53,9 @@
       "valueType": "string",
       "description": "Indicate the primary diagnosis event in the clinical timeline that this treatment was related to.",
       "meta": {
+        "validationDependency": true,
         "primaryId": true,
+        "foreignKey": "primary_diagnosis.submitter_primary_diagnosis_id",
         "displayName": "Submitter Primary Diagnosis ID"
       },
       "restrictions": {
@@ -73,6 +75,7 @@
           "Bone marrow transplant",
           "Chemotherapy",
           "Endoscopic therapy",
+          "End of life care",
           "Hormonal therapy",
           "Immunotherapy",
           "No treatment",
@@ -125,7 +128,7 @@
       "restrictions": {
         "script": "#/script/treatment/checkWhenNoTreatment",
         "range": {
-           "exclusiveMin": 0
+          "exclusiveMin": 0
         }
       },
       "meta": {
@@ -143,7 +146,7 @@
       "restrictions": {
         "script": "#/script/treatment/checkWhenNoTreatment",
         "range": {
-           "exclusiveMin": 0
+          "exclusiveMin": 0
         }
       },
       "meta": {
@@ -160,10 +163,10 @@
       "restrictions": {
         "script": "#/script/treatment/checkWhenNoTreatment",
         "range": {
-           "exclusiveMin": 0
+          "exclusiveMin": 0
         }
       },
-      "meta": { 
+      "meta": {
         "displayName": "Days Per Cycle",
         "dependsOn": "treatment.treatment_type"
       }
@@ -175,24 +178,29 @@
       "restrictions": {
         "script": "#/script/treatment/checkWhenNoTreatment",
         "range": {
-           "exclusiveMin": 0
+          "exclusiveMin": 0
         }
       },
-      "meta": { 
+      "meta": {
         "displayName": "Number Of Cycles",
         "dependsOn": "treatment.treatment_type"
       }
     },
     {
       "name": "treatment_intent",
-      "description": "Indicate the intended disease outcome for which the treatment is given. (Reference: NCIt C124307)",
+      "description": "Indicate the purpose of the treatment, or the desired effect or outcome resulting from the treatment. (Reference: mCODE/FHIR)",
       "valueType": "string",
       "restrictions": {
         "script": "#/script/treatment/checkWhenNoTreatment",
         "codeList": [
           "Curative",
+          "Diagnostic",
+          "Forensic",
+          "Guidance",
           "Palliative",
-          "Unknown"
+          "Preventative",
+          "Screening",
+          "Supportive"
         ]
       },
       "meta": {
@@ -210,8 +218,14 @@
         "codeList": [
           "Adjuvant",
           "Advanced/Metastatic",
+          "Conditioning",
+          "Induction",
+          "Maintenance",
+          "Mobilization",
           "Neoadjuvant",
-          "Not applicable"
+          "Preventative",
+          "Radiosensitization",
+          "Salvage"
         ]
       },
       "meta": {
@@ -221,23 +235,67 @@
       }
     },
     {
-      "name": "response_to_treatment",
-      "description": "The donor's response to the applied treatment regimen. (Source: RECIST)",
+      "name": "response_to_treatment_criteria_method",
+      "description": "Indicate the criteria used to assess the donor's response to the applied treatment regimen.",
       "valueType": "string",
       "restrictions": {
         "script": "#/script/treatment/checkWhenNoTreatment",
         "codeList": [
-          "Complete response",
-          "Disease progression",
-          "NED",
-          "Partial response",
-          "Stable disease"
+          "ELN Dohner AML 2017 Oncology Response Criteria",
+          "IWG Cheson AML 2003 Oncology Response Criteria",
+          "iRECIST",
+          "RECIST",
+          "Response Assessment in Neuro-Oncology (RANO)",
+          "Physician Assessed Response Criteria"
+        ]
+      },
+      "meta": {
+        "core": true,
+        "displayName": "Response To Treatment Criteria Method",
+        "validationDependency": true,
+        "dependsOn": "treatment.treatment_type"
+      }
+    },
+    {
+      "name": "response_to_treatment",
+      "description": "The donor's response to the applied treatment regimen.",
+      "valueType": "string",
+      "restrictions": {
+        "script": "#/script/treatment/responseToTreatmentCheck",
+        "codeList": [
+            "Complete remission",
+            "Complete remission with incomplete hematologic recovery (CRi)",
+            "Complete remission without minimal residual disease (CRMRD-)",
+            "Complete response",
+            "Cytogenetic complete remission (CRc)",
+            "Hematologic relapse (after CRMRD-, CR, CRi)",
+            "Immune complete response (iCR)",
+            "Immune confirmed progressive disease (iCPD)",
+            "Immune partial response (iPR)",
+            "Immune stable disease (iSD)",
+            "Immune unconfirmed progressive disease (iUPD)",
+            "Minor response",
+            "Molecular complete remission (CRm)",
+            "Molecular relapse (after CRMRD-)",
+            "Morphologic complete remission",
+            "Morphologic complete remission with incomplete blood count recovery (CRi)",
+            "Morphologic leukemia-free state",
+            "No evidence of disease (NED)",
+            "Partial remission",
+            "Partial response",
+            "Physician assessed complete response",
+            "Physician assessed partial response",
+            "Physician assessed progressive disease",
+            "Physician assessed stable disease",
+            "Progressive disease",
+            "Stable disease"
         ]
       },
       "meta": {
         "core": true,
         "displayName": "Response To Treatment",
-        "dependsOn": "treatment.treatment_type"
+        "dependsOn": "treatment.response_to_treatment_criteria_method",
+        "notes": "This field depends on the selected response_to_treatment_criteria_method. Please refer to the documentation for Response to Treatment Criteria: http://docs.icgc-argo.org/docs/submission/dictionary-overview#response-to-treatment-criteria"
       }
     },
     {
@@ -337,12 +395,17 @@
       "name": "clinical_trials_database",
       "description": "If the donor is a participant in a clinical trial, indicate the clinical trial database where the clinical trial is registered.",
       "valueType": "string",
-      "meta": { 
+      "meta": {
         "display name": "Clinical Trials Database",
         "notes": "If the clinical trials database you use is not included in the controlled terminology, please contact us at https://platform.icgc-argo.org/contact to request it be added."
-       },
+      },
       "restrictions": {
-        "codeList": ["NCI Clinical Trials", "EU Clinical Trials Register", "Not applicable", "Unknown"]
+        "codeList": [
+          "NCI Clinical Trials",
+          "EU Clinical Trials Register",
+          "Not applicable",
+          "Unknown"
+        ]
       }
     },
     {

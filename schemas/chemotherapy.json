@@ -78,31 +78,52 @@
       }
     },
     {
-      "name": "chemotherapy_dosage_units",
-      "description": "Indicate units used to record chemotherapy drug dosage.",
+      "name": "chemotherapy_drug_dose_units",
+      "description": "Indicate units used to record chemotherapy drug dose.",
       "valueType": "string",
       "restrictions": {
         "required": true,
-        "codeList": "#/list/drug_dosage_units"
+        "codeList": "#/list/drug_dose_units"
       },
       "meta": {
         "core": true,
-        "displayName": "Chemotherapy Dosage Units"
+        "displayName": "Chemotherapy Drug Dose Units"
       }
     },
     {
-      "name": "cumulative_drug_dosage",
-      "description": "Indicate the total actual drug dose in the same units specified in chemotherapy_dosage_units.",
+      "name": "prescribed_cumulative_drug_dose",
+      "description": "Indicate the total prescribed cumulative drug dose in the same units specified in chemotherapy_drug_dose_units.",
       "valueType": "number",
       "restrictions": {
-        "required": true,
+        "script": "#/script/chemotherapy/drugDose",
         "range": {
            "exclusiveMin": 0
         }
       },
       "meta": {
         "core": true,
-        "displayName": "Cumulative Drug Dosage"
+        "displayName": "Prescribed Cumulative Drug Dose",
+        "validationDependency": true,
+        "dependsOn": "chemotherapy.actual_cumulative_drug_dose",
+        "notes": "Either the 'actual_cumulative_drug_dose' or the 'prescribed_cumulative_drug_dose' field must be submitted."
+      }
+    },
+    {
+      "name": "actual_cumulative_drug_dose",
+      "description": "Indicate the total actual cumulative drug dose in the same units specified in chemotherapy_drug_dose_units.",
+      "valueType": "number",
+      "restrictions": {
+        "script": "#/script/chemotherapy/drugDose",
+        "range": {
+           "exclusiveMin": 0
+        }
+      },
+      "meta": {
+        "core": true,
+        "displayName": "Actual Cumulative Drug Dose",
+        "validationDependency": true,
+        "dependsOn": "chemotherapy.prescribed_cumulative_drug_dose",
+        "notes": "Either the 'actual_cumulative_drug_dose' or the 'prescribed_cumulative_drug_dose' field must be submitted."
       }
     },
     {
@@ -110,7 +131,7 @@
       "description": "Indicate if there was a significant reduction in dose intensity.",
       "valueType": "string",
       "restrictions": {
-        "codeList": "#/list/yes_no"
+        "codeList": "#/list/yes_no_unk"
       },
       "meta": {
         "displayName": "Dose Intensity Reduction"

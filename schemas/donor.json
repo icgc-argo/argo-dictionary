@@ -95,77 +95,7 @@
       },
       "restrictions": {
         "required": true,
-        "codeList": [
-          "Accessory sinuses",
-          "Adrenal gland",
-          "Anus and anal canal",
-          "Base of tongue",
-          "Bladder",
-          "Bones, joints and articular cartilage of limbs",
-          "Bones, joints and articular cartilage of other and unspecified sites",
-          "Brain",
-          "Breast",
-          "Bronchus and lung",
-          "Cervix uteri",
-          "Colon",
-          "Connective, subcutaneous and other soft tissues",
-          "Corpus uteri",
-          "Esophagus",
-          "Eye and adnexa",
-          "Floor of mouth",
-          "Gallbladder",
-          "Gum",
-          "Heart, mediastinum, and pleura",
-          "Hematopoietic and reticuloendothelial systems",
-          "Hypopharynx",
-          "Kidney",
-          "Larynx",
-          "Lip",
-          "Liver and intrahepatic bile ducts",
-          "Lymph nodes",
-          "Meninges",
-          "Nasal cavity and middle ear",
-          "Nasopharynx",
-          "Oropharynx",
-          "Other and ill-defined digestive organs",
-          "Other and ill-defined sites",
-          "Other and ill-defined sites in lip, oral cavity and pharynx",
-          "Other and ill-defined sites within respiratory system and intrathoracic organs",
-          "Other and unspecified female genital organs",
-          "Other and unspecified major salivary glands",
-          "Other and unspecified male genital organs",
-          "Other and unspecified parts of biliary tract",
-          "Other and unspecified parts of mouth",
-          "Other and unspecified parts of tongue",
-          "Other and unspecified urinary organs",
-          "Other endocrine glands and related structures",
-          "Ovary",
-          "Palate",
-          "Pancreas",
-          "Parotid gland",
-          "Penis",
-          "Peripheral nerves and autonomic nervous system",
-          "Placenta",
-          "Prostate gland",
-          "Pyriform sinus",
-          "Rectosigmoid junction",
-          "Rectum",
-          "Renal pelvis",
-          "Retroperitoneum and peritoneum",
-          "Skin",
-          "Small intestine",
-          "Spinal cord, cranial nerves, and other parts of central nervous system",
-          "Stomach",
-          "Testis",
-          "Thymus",
-          "Thyroid gland",
-          "Tonsil",
-          "Trachea",
-          "Ureter",
-          "Uterus, NOS",
-          "Vagina",
-          "Vulva"
-        ]
+        "codeList": "#/list/primary_site"
       }
     },
     {
@@ -336,6 +266,19 @@
         "displayName": "Hormonal Contraception Duration",
         "units": "months",
         "dependsOn": "donor.contraception_type"
+      }
+    },
+    {
+      "description": "If the donor became lost to follow up, indicate the identifier of the clinical event (eg. submitter_primary_diagnosis_id, submitter_treatment_id or submitter_follow_up_id) after which the donor became lost to follow up.",
+      "name": "lost_to_followup_after_clinical_event_id",
+      "valueType": "string",
+      "restrictions": {
+        "script": "#/script/donor/lost_to_followup"
+      },
+      "meta": { 
+        "displayName": "Lost To Follow Up After Clinical Event",
+        "foreignKey": "primary_diagnosis.submitter_primary_diagnosis_id",
+        "validationDependency": true
       }
     }
   ]
