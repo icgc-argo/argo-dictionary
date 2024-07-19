@@ -37,7 +37,7 @@ const validation = () =>
               result = {valid: false, message: `${$name} cannot be provided if the 'radiation_boost' field is '${radiationBoost}'.`}
            }
         }
-        else if (($row.radiation_boost === null) && (currField)) {
+        else if ((!$row.radiation_boost) && (currField)) {
            result = {valid: false, message: `'${$name}' requires the 'radiation_boost' field.` }
         }
         return result;
