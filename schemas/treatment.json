@@ -126,10 +126,7 @@
       "description": "The interval between the primary diagnosis and initiation of treatment, in days.",
       "valueType": "integer",
       "restrictions": {
-        "script": "#/script/treatment/checkWhenNoTreatment",
-        "range": {
-          "exclusiveMin": 0
-        }
+        "script": "#/script/treatment/checkWhenNoTreatment"
       },
       "meta": {
         "core": true,
