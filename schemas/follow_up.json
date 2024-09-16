@@ -53,10 +53,7 @@
       "name": "interval_of_followup",
       "valueType": "integer",
       "restrictions": {
-        "required": true,
-        "range": {
-           "exclusiveMin": 0
-        }
+        "required": true
       },
       "meta": {
         "core": true,

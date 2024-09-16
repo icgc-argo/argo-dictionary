@@ -103,9 +103,6 @@
       "name": "test_interval",
       "valueType": "integer",
       "restrictions": {
-        "range": {
-           "exclusiveMin": 0
-        },
         "script": "#/script/biomarker/intervalOrId"
       },
       "meta": {
