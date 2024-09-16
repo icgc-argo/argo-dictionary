@@ -38,9 +38,9 @@ const unitTests = {
       row: loadObjects(chemotherapy, {
         drug_rxnormcui: '6313',
         drug_name: 'leucovorin',
-        drug_database: null,
-        drug_id: ' ',
-        drug_term: ''
+        drug_database: ' ',
+        drug_id: undefined,
+        drug_term: null
       }),
       name: 'drug_rxnormcui',
     },
@@ -184,7 +184,7 @@ const unitTests = {
     },
   ],
   [
-    'drug_rxnormcui & drug_name are provided, drug_database, drug_id, drug_term are not blank.',
+    'drug_rxnormcui & drug_name are not provided, drug_database, drug_id, drug_term are blank.',
     false,
     {
       row: loadObjects(chemotherapy, {
@@ -324,7 +324,7 @@ const unitTests = {
     },
   ],
   [
-    'drug_rxnormcui & drug_name are provided, drug_database, drug_id, drug_term are not blank.',
+    'drug_rxnormcui & drug_name are not provided, drug_database, drug_id, drug_term are blank.',
     false,
     {
       row: loadObjects(hormone_therapy, {
@@ -350,7 +350,7 @@ const unitTests = {
     },
   ],
   [
-    'drug_rxnormcui & drug_name are provided, drug_database, drug_id, drug_term are not blank.',
+    'drug_rxnormcui & drug_name are not provided, drug_database, drug_id, drug_term are blank.',
     false,
     {
       row: loadObjects(hormone_therapy, {
@@ -490,7 +490,7 @@ const unitTests = {
     },
   ],
   [
-    'drug_rxnormcui & drug_name are provided, drug_database, drug_id, drug_term are not blank.',
+    'drug_rxnormcui & drug_name are not provided, drug_database, drug_id, drug_term are blank.',
     false,
     {
       row: loadObjects(immunotherapy, {
@@ -516,7 +516,7 @@ const unitTests = {
     },
   ],
   [
-    'drug_rxnormcui & drug_name are provided, drug_database, drug_id, drug_term are not blank.',
+    'drug_rxnormcui & drug_name are not provided, drug_database, drug_id, drug_term are blank.',
     false,
     {
       row: loadObjects(immunotherapy, {
@@ -558,6 +558,7 @@ describe('Unit Tests for Drug Database script', () => {
         '\n Test %# : %s \nExpecting result.valid to be: %s',
         (description, target, inputs) => {
           const scriptOutput = validation()({ $row: inputs.row, $name: inputs.name, $field: inputs.row[inputs.name]});
+
           expect(scriptOutput.valid).toBe(target);
         },
       );

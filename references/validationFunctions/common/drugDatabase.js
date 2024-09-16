@@ -34,21 +34,28 @@ const validation = () =>
     const drug_id = $row.drug_id;
     const drug_term = $row.drug_term;
       
-    // checks for a string just consisting of whitespace
-    const checkforEmpty = (entry) => {return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))};
-    
+    // checks for empty fields
+    const checkforEmpty = (entry) => {
+      // Check if entry is null or undefined
+      if (entry === null || entry === undefined) {
+        return true;
+      } 
+      // Logic to check if the entry is an empty string or contains only whitespace
+      return /^\s*$/.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'));
+    };
+     
     // Validate based on the field name
     switch ($name) {
         case 'drug_rxnormcui':
             // If drug_rxnormcui is provided
-            if (!checkforEmpty($field) && $field) {
-              if (checkforEmpty(drug_name) || !drug_name) {
+            if (!checkforEmpty($field)) {
+              if (checkforEmpty(drug_name)) {
                   result = {
                     valid: false,
                     message: `drug_name is required when drug_rxnormcui is provided.`
                   };
               }
-              if (!checkforEmpty(drug_database) && drug_database || !checkforEmpty(drug_id) && drug_id || !checkforEmpty(drug_term) && drug_term  ) {
+              if (!checkforEmpty(drug_database) || !checkforEmpty(drug_id) || !checkforEmpty(drug_term) ) {
                   result = {
                     valid: false,
                     message: `drug_database, drug_id and drug_term should be blank when drug_rxnormcui is provided.`
@@ -56,13 +63,13 @@ const validation = () =>
               }
           } else {
               // If drug_rxnormcui is not provided
-              if (!checkforEmpty(drug_name) && drug_name) {
+              if (!checkforEmpty(drug_name)) {
                   result = {
                     valid: false,
                     message: `drug_name should not be populated when drug_rxnormcui is not provided.`
                   };
               }
-              if (checkforEmpty(drug_database) || !drug_database || checkforEmpty(drug_id) || !drug_id|| checkforEmpty(drug_term) || !drug_term) {
+              if (checkforEmpty(drug_database) || checkforEmpty(drug_id) || checkforEmpty(drug_term) ) {
                   result = {
                     valid: false,
                     message: `drug_database, drug_id and drug_term must be populated when drug_rxnormcui is not provided.`
@@ -73,14 +80,14 @@ const validation = () =>
 
       case 'drug_name':
           // If drug_rxnormcui is provided, drug_name must be populated
-          if ((!checkforEmpty(drug_rxnormcui) || drug_rxnormcui) && (checkforEmpty($field) || !$field)) {
+          if (!checkforEmpty(drug_rxnormcui) && checkforEmpty($field)) {
               result = {
                 valid: false,
                 message: `drug_name is required when drug_rxnormcui is provided.`
               };
           }
           // If drug_rxnormcui is not provided, drug_name should be empty
-          if ((checkforEmpty(drug_rxnormcui) || !drug_rxnormcui) && (!checkforEmpty($field) || $field)) {
+          if (checkforEmpty(drug_rxnormcui) && !checkforEmpty($field)) {
               result = {
                 valid: false,
                 message: `drug_name should not be populated when drug_rxnormcui is not provided.`
@@ -92,14 +99,14 @@ const validation = () =>
       case 'drug_id': 
       case 'drug_term':
           // If drug_rxnormcui is provided, these fields should be empty
-          if ((!checkforEmpty(drug_rxnormcui) || drug_rxnormcui) && (!checkforEmpty($field) || $field)) {
+          if (!checkforEmpty(drug_rxnormcui) && !checkforEmpty($field)) {
               result = {
                 valid: false,
                 message: `'${$name}' should be blank when drug_rxnormcui is provided.`
               };
           }
           // If drug_rxnormcui is not provided, these fields must be populated
-          if ((checkforEmpty(drug_rxnormcui) || !drug_rxnormcui) && (checkforEmpty($field) || !$field)) {
+          if (checkforEmpty(drug_rxnormcui) && checkforEmpty($field)) {
               result = {
                 valid: false,
                 message: `'${$name}' must be populated when drug_rxnormcui is not provided.`
