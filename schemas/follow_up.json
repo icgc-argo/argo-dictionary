@@ -53,10 +53,7 @@
       "name": "interval_of_followup",
       "valueType": "integer",
       "restrictions": {
-        "required": true,
-        "range": {
-           "exclusiveMin": 0
-        }
+        "required": true
       },
       "meta": {
         "core": true,
@@ -153,10 +150,7 @@
       "name": "relapse_interval",
       "valueType": "integer",
       "restrictions": {
-        "script": "#/script/follow_up/relapse_interval",
-        "range": {
-           "exclusiveMin": 0
-        }
+        "script": "#/script/follow_up/relapse_interval"
       },
       "meta": {
         "core": true,
