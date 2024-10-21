@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 The Ontario Institute for Cancer Research. All rights reserved
+ * Copyright (c) 2024 The Ontario Institute for Cancer Research. All rights reserved
  *
  * This program and the accompanying materials are made available under the terms of the GNU Affero General Public License v3.0.
  * You should have received a copy of the GNU Affero General Public License along with
@@ -23,69 +23,66 @@
  */
 
 const validation = () =>
-    (function validate(inputs) {
-        const { $row, $name, $field } = inputs;
-        const result = { valid: true, message: 'Ok' };
+	function validate(inputs) {
+		const { $row, $name, $field } = inputs;
+		const result = { valid: true, message: 'Ok' };
 
-        const arrayItemsInSecondArray = (arr1, arr2) => {
-            return arr2.some(arr2Item => {
-                return arr1.includes(arr2Item);
-            });
-        };
+		const arrayItemsInSecondArray = (arr1, arr2) => {
+			return arr2.some(arr2Item => {
+				return arr1.includes(arr2Item);
+			});
+		};
 
-        const coreFields = [
-            'treatment_start_interval',
-            'treatment_duration',
-            'is_primary_treatment',
-            'treatment_intent',
-            'treatment_setting',
-            'response_to_treatment_criteria_method',
-            'response_to_treatment',
-        ];
+		const coreFields = [
+			'treatment_start_interval',
+			'treatment_duration',
+			'is_primary_treatment',
+			'treatment_intent',
+			'treatment_setting',
+			'response_to_treatment_criteria_method',
+			'response_to_treatment',
+		];
 
-        const treatmentExceptionTypes = ['no treatment', 'unknown'];
+		const treatmentExceptionTypes = ['no treatment', 'unknown'];
 
-        // checks for empty fields
-        const checkforEmpty = (entry) => {
-            // Check if entry is null or undefined
-            if (entry === null || entry === undefined) {
-              return true;
-            } 
-            // Logic to check if the entry is an empty string or contains only whitespace
-            return /^\s*$/.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'));
-        };
+		const checkforInvalid = entry => {
+			// note: negative numbers are allowed as per
+			// https://github.com/icgc-argo/argo-dictionary/issues/432 */
 
-        const treatmentTypes = $row.treatment_type.map(value => value.toLowerCase());
+			return (
+				// regular falsy values
+				[null, undefined, ''].includes($field) ||
+				// whitespace-filled strings
+				/^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))
+			);
+		};
 
-        const recordHasTreatments = !arrayItemsInSecondArray(
-            treatmentExceptionTypes,
-            treatmentTypes,
-        );
+		const treatmentTypes = $row.treatment_type.map(value => value.toLowerCase());
 
-        if (recordHasTreatments) {
-            if (
-                coreFields.includes($name) && checkforEmpty($field)
-                // ($field === null || $field === undefined || checkforEmpty($field))
-            ) {
-                return {
-                    valid: false,
-                    message: `The '${$name}' field must be submitted when the 'treatment_type' field is '${treatmentTypes}'`,
-                };
-            }
+		const recordHasTreatments = !arrayItemsInSecondArray(treatmentExceptionTypes, treatmentTypes);
 
-        } else if (!checkforEmpty($field)) {
-            if (
-                coreFields.includes($name) ||
-                (typeof $field === 'string' && $field.trim().toLowerCase() != 'not applicable') ||
-                typeof $field === 'number'
-            ) {
-                return {
-                    valid: false,
-                    message: `The '${$name}' field cannot be submitted if the 'treatment_type' field is '${treatmentTypes}'`,
-                };
-            }
-        }
-        return result;
-    });
+		if (recordHasTreatments) {
+			if (coreFields.includes($name) && checkforInvalid($field)) {
+				return {
+					valid: false,
+					message: `The '${$name}' field must be submitted when the 'treatment_type' field is '${treatmentTypes}'`,
+				};
+			}
+		} // otherwise, is there a valid value without a treatment defined
+		else if (!checkforInvalid($field)) {
+			if (
+				coreFields.includes($name) ||
+				(typeof $field === 'string' && $field.trim().toLowerCase() != 'not applicable') ||
+				!isNaN(parseFloat($field))
+			) {
+				return {
+					valid: false,
+					message: `The '${$name}' field cannot be submitted if the 'treatment_type' field is '${treatmentTypes}'`,
+				};
+			}
+		}
+
+		return result;
+	};
 
 module.exports = validation;
