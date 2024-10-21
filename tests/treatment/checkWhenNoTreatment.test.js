@@ -56,7 +56,7 @@ const myUnitTests = {
             'treatment_start_interval is submitted when treatment was unknown',
             false,
             loadObjects(treatment, {
-                treatment_start_interval: 30,
+                treatment_start_interval: 0,
                 treatment_type: ['Unknown'],
             }),
         ],
@@ -74,6 +74,14 @@ const myUnitTests = {
                 treatment_type: ['Unknown'],
             }),
         ],
+        [
+            'treatment_start_interval is submitted to be 0 when treatment was given',
+            true,
+            loadObjects(treatment, {
+                treatment_start_interval: 0,
+                treatment_type: ['Chemotherapy'],
+            }),
+      ],
     ],
     treatment_duration: [
         [

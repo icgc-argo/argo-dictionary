@@ -45,10 +45,16 @@ const validation = () =>
 
         const treatmentExceptionTypes = ['no treatment', 'unknown'];
 
-        // checks for a string just consisting of whitespace
-        const checkforEmpty = entry => {
-            return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'));
+        // checks for empty fields
+        const checkforEmpty = (entry) => {
+            // Check if entry is null or undefined
+            if (entry === null || entry === undefined) {
+              return true;
+            } 
+            // Logic to check if the entry is an empty string or contains only whitespace
+            return /^\s*$/.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'));
         };
+
         const treatmentTypes = $row.treatment_type.map(value => value.toLowerCase());
 
         const recordHasTreatments = !arrayItemsInSecondArray(
@@ -58,8 +64,8 @@ const validation = () =>
 
         if (recordHasTreatments) {
             if (
-                coreFields.includes($name) &&
-                (!$field || $field === null || checkforEmpty($field))
+                coreFields.includes($name) && checkforEmpty($field)
+                // ($field === null || $field === undefined || checkforEmpty($field))
             ) {
                 return {
                     valid: false,
@@ -67,7 +73,7 @@ const validation = () =>
                 };
             }
 
-        } else if ($field && $field != null && !checkforEmpty($field)) {
+        } else if (!checkforEmpty($field)) {
             if (
                 coreFields.includes($name) ||
                 (typeof $field === 'string' && $field.trim().toLowerCase() != 'not applicable') ||
