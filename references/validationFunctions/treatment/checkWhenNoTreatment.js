@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 The Ontario Institute for Cancer Research. All rights reserved
+ * Copyright (c) 2024 The Ontario Institute for Cancer Research. All rights reserved
  *
  * This program and the accompanying materials are made available under the terms of the GNU Affero General Public License v3.0.
  * You should have received a copy of the GNU Affero General Public License along with
@@ -23,63 +23,66 @@
  */
 
 const validation = () =>
-    (function validate(inputs) {
-        const { $row, $name, $field } = inputs;
-        const result = { valid: true, message: 'Ok' };
+	(function validate(inputs) {
+		const { $row, $name, $field } = inputs;
+		const result = { valid: true, message: 'Ok' };
 
-        const arrayItemsInSecondArray = (arr1, arr2) => {
-            return arr2.some(arr2Item => {
-                return arr1.includes(arr2Item);
-            });
-        };
+		const arrayItemsInSecondArray = (arr1, arr2) => {
+			return arr2.some(arr2Item => {
+				return arr1.includes(arr2Item);
+			});
+		};
 
-        const coreFields = [
-            'treatment_start_interval',
-            'treatment_duration',
-            'is_primary_treatment',
-            'treatment_intent',
-            'treatment_setting',
-            'response_to_treatment_criteria_method',
-            'response_to_treatment',
-        ];
+		const coreFields = [
+			'treatment_start_interval',
+			'treatment_duration',
+			'is_primary_treatment',
+			'treatment_intent',
+			'treatment_setting',
+			'response_to_treatment_criteria_method',
+			'response_to_treatment',
+		];
 
-        const treatmentExceptionTypes = ['no treatment', 'unknown'];
+		const treatmentExceptionTypes = ['no treatment', 'unknown'];
 
-        // checks for a string just consisting of whitespace
-        const checkforEmpty = entry => {
-            return /^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'));
-        };
-        const treatmentTypes = $row.treatment_type.map(value => value.toLowerCase());
+		const checkforInvalid = entry => {
+			// note: negative numbers are allowed as per
+			// https://github.com/icgc-argo/argo-dictionary/issues/432 */
 
-        const recordHasTreatments = !arrayItemsInSecondArray(
-            treatmentExceptionTypes,
-            treatmentTypes,
-        );
+			return (
+				// regular falsy values
+				[null, undefined, ''].includes($field) ||
+				// whitespace-filled strings
+				/^\s+$/g.test(decodeURI(entry).replace(/^"(.*)"$/, '$1'))
+			);
+		};
 
-        if (recordHasTreatments) {
-            if (
-                coreFields.includes($name) &&
-                (!$field || $field === null || checkforEmpty($field))
-            ) {
-                return {
-                    valid: false,
-                    message: `The '${$name}' field must be submitted when the 'treatment_type' field is '${treatmentTypes}'`,
-                };
-            }
+		const treatmentTypes = $row.treatment_type.map(value => value.toLowerCase());
 
-        } else if ($field && $field != null && !checkforEmpty($field)) {
-            if (
-                coreFields.includes($name) ||
-                (typeof $field === 'string' && $field.trim().toLowerCase() != 'not applicable') ||
-                typeof $field === 'number'
-            ) {
-                return {
-                    valid: false,
-                    message: `The '${$name}' field cannot be submitted if the 'treatment_type' field is '${treatmentTypes}'`,
-                };
-            }
-        }
-        return result;
-    });
+		const recordHasTreatments = !arrayItemsInSecondArray(treatmentExceptionTypes, treatmentTypes);
+
+		if (recordHasTreatments) {
+			if (coreFields.includes($name) && checkforInvalid($field)) {
+				return {
+					valid: false,
+					message: `The '${$name}' field must be submitted when the 'treatment_type' field is '${treatmentTypes}'`,
+				};
+			}
+		} // otherwise, is there a valid value without a treatment defined
+		else if (!checkforInvalid($field)) {
+			if (
+				coreFields.includes($name) ||
+				(typeof $field === 'string' && $field.trim().toLowerCase() != 'not applicable') ||
+				!isNaN(parseFloat($field))
+			) {
+				return {
+					valid: false,
+					message: `The '${$name}' field cannot be submitted if the 'treatment_type' field is '${treatmentTypes}'`,
+				};
+			}
+		}
+
+		return result;
+	});
 
 module.exports = validation;
