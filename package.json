@@ -1,37 +1,39 @@
 {
-  "name": "dictionary",
-  "version": "1.0.0",
-  "description": "Working space for the ARGO Data Dictionary collaboration",
-  "main": "index.js",
-  "scripts": {
-    "compile": "jest && node compile.js && npm run references",
-    "test": "jest",
-    "references": "node populateReferences.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/icgc-argo/argo-dictionary.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/icgc-argo/argo-dictionary/issues"
-  },
-  "homepage": "https://github.com/icgc-argo/argo-dictionary#readme",
-  "dependencies": {},
-  "devDependencies": {
-    "auto-load": "^3.0.4",
-    "chalk": "^3.0.0",
-    "inquirer": "^7.0.1",
-    "jest": "^25.2.3",
-    "json-beautify": "^1.1.1",
-    "prettier": "^1.19.1",
-    "querystring": "^0.2.0",
-    "yargs": "^15.0.2"
-  },
-  "prettier": {
-    "printWidth": 100,
-    "trailingComma": "all",
-    "singleQuote": true
-  }
+	"name": "dictionary",
+	"version": "1.0.0",
+	"description": "Working space for the ARGO Data Dictionary collaboration",
+	"main": "index.js",
+	"scripts": {
+		"compile": "jest && node compile.js && npm run references",
+		"test": "jest",
+		"references": "node populateReferences.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/icgc-argo/argo-dictionary.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/icgc-argo/argo-dictionary/issues"
+	},
+	"homepage": "https://github.com/icgc-argo/argo-dictionary#readme",
+	"devDependencies": {
+		"auto-load": "^3.0.4",
+		"chalk": "^3.0.0",
+		"inquirer": "^7.0.1",
+		"jest": "^25.2.3",
+		"json-beautify": "^1.1.1",
+		"prettier": "^1.19.1",
+		"querystring": "^0.2.0",
+		"yargs": "^15.0.2"
+	},
+	"prettier": {
+		"printWidth": 120,
+		"trailingComma": "all",
+		"semi": true,
+		"singleQuote": true,
+		"tabWidth": 4,
+		"useTabs": true
+	}
 }
