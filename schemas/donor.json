@@ -280,6 +280,17 @@
         "foreignKey": "primary_diagnosis.submitter_primary_diagnosis_id",
         "validationDependency": true
       }
+    },
+    {
+      "description": "Indicate the donors' country of residence at the time they were enrolled in the study.",
+      "name": "country_of_residence_at_enrollment",
+      "valueType": "string",
+      "restrictions": {
+        "codeList": "#/list/country"
+      },
+      "meta": { 
+        "displayName": "Country of Residence at Enrollment" 
+      }
     }
   ]
 }
