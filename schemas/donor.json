@@ -282,7 +282,7 @@
       }
     },
     {
-      "description": "Indicate the donors' country of residence at the time they were enrolled in the study.",
+      "description": "Indicate the donor's country of residence at the time they were enrolled in the study. The country list include 193 UN member states plus 2 UN observer states. Source: https://www.un.org/en/about-us/member-states",
       "name": "country_of_residence_at_enrollment",
       "valueType": "string",
       "restrictions": {
