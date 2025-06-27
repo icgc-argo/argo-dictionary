@@ -91,6 +91,16 @@ const validation = () =>
             'physician assessed stable disease'
           ];
           break;
+        case 'recist 1.1':
+          codeList = [
+            'complete response',
+            'not evaluable (ne)',
+            'non-complete response/non-progressive disease (non-cr/non-pd)",
+            'partial response',
+            'progressive disease',
+            'stable disease'
+          ];
+          break;
         default:
           codelist = [];
       }

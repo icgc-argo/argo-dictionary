@@ -242,6 +242,7 @@
           "IWG Cheson AML 2003 Oncology Response Criteria",
           "iRECIST",
           "RECIST",
+          "RECIST 1.1",
           "Response Assessment in Neuro-Oncology (RANO)",
           "Physician Assessed Response Criteria"
         ]
@@ -278,6 +279,8 @@
             "Morphologic complete remission with incomplete blood count recovery (CRi)",
             "Morphologic leukemia-free state",
             "No evidence of disease (NED)",
+            "Non-Complete response/Non-Progressive disease (Non-CR/Non-PD)",
+            "Not evaluable (NE)",
             "Partial remission",
             "Partial response",
             "Physician assessed complete response",
