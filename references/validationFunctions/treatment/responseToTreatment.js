@@ -95,7 +95,7 @@ const validation = () =>
           codeList = [
             'complete response',
             'not evaluable (ne)',
-            'non-complete response/non-progressive disease (non-cr/non-pd)",
+            'non-complete response/non-progressive disease (non-cr/non-pd)',
             'partial response',
             'progressive disease',
             'stable disease'
