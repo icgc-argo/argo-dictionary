@@ -66,6 +66,7 @@
         "codeList": [
           "Aunt",
           "Brother",
+          "Child",
           "Cousin",
           "Daughter",
           "Father",
@@ -90,6 +91,7 @@
           "Paternal Half-brother",
           "Paternal Half-sister",
           "Paternal Uncle",
+          "Sibling",
           "Sister",
           "Son",
           "Uncle",
