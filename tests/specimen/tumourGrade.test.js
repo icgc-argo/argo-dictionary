@@ -219,6 +219,22 @@ const unitTests = [
       tumour_grade: 'G2',
     }),
   ],
+  [
+    'tumour_grading_system is "Grading system for GISTs", while tumour_grade is submitted as "intermediate"',
+    true,
+    loadObjects(specimen, {
+      tumour_grading_system: 'grading system for gists',
+      tumour_grade: 'intermediate',
+    }),
+  ],
+  [
+    'tumour_grading_system is "Grading system for GISTs", while tumour_grade is submitted as "very low"',
+    true,
+    loadObjects(specimen, {
+      tumour_grading_system: 'grading system for gists',
+      tumour_grade: 'very low',
+    }),
+  ],
  // [
  //   'both grade system and grade are undefined',
  //   false,

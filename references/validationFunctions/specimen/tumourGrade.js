@@ -55,6 +55,8 @@ const validation = () =>
           codeList = [
             'low',
             'high',
+            'intermediate',
+            'very low'
           ];
           break;
         case 'grading system for gnets':
