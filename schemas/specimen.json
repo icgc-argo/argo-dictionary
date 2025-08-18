@@ -306,6 +306,8 @@
           "G4",
           "Low",
           "High",
+          "Intermediate",
+          "Very low", 
           "Grade I",
           "Grade II",
           "Grade III",
