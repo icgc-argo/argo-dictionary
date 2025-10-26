@@ -178,6 +178,10 @@ const validation = () =>
             'stage iab',
             'stage iiia',
             'stage iiib',
+            'stage iiic',
+            'stage iiic1',
+            'stage iiic2',
+            'stage iv',
             'stage iva',
             'stage ivb'
           ];
