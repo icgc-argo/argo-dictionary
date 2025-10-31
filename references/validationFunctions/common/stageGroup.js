@@ -168,14 +168,17 @@ const validation = () =>
           break;
         case 'figo staging system':
           codeList = [
+            'stage i',
             'stage ia',
             'stage ia1',
             'stage ia2',
             'stage ib',
             'stage ib1',
             'stage ib2',
+            'stage ii',
             'stage iia',
             'stage iab',
+            'stage iii',
             'stage iiia',
             'stage iiib',
             'stage iiic',
