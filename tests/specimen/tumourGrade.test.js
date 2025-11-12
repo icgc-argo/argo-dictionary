@@ -30,6 +30,14 @@ const name = 'tumour_grade';
 
 const unitTests = [
   [
+    'Grading system set to "two-tier grading system", tumour grade is: "GX"',
+    true,
+    loadObjects(specimen, {
+      tumour_grading_system: 'two-tier grading system',
+      tumour_grade: 'GX',
+    }),
+  ],
+  [
     'Grading system set to "three-tier grading system", tumour grade is: "G3"',
     true,
     loadObjects(specimen, {
