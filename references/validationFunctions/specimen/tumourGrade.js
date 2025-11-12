@@ -35,6 +35,7 @@ const validation = () =>
       switch ($row.tumour_grading_system && $row.tumour_grading_system.trim().toLowerCase()) {
         case 'two-tier grading system':
           codeList = [
+            'gx',
             'low grade',
             'high grade',
           ];
